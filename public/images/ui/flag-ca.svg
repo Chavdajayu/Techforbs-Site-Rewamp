@@ -1,0 +1,13 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask_ca" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
+<circle cx="8" cy="8" r="8" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask_ca)">
+<rect width="16" height="16" fill="#FFFFFF"/>
+<rect width="4" height="16" fill="#D80027"/>
+<rect x="12" width="4" height="16" fill="#D80027"/>
+<!-- Stylized Maple Leaf -->
+<path d="M8 3.5L8.7 5.5L9.8 4.8L9.5 6.2L11 6.5L10 7.8L11.2 8.5L9.5 9.2L9.8 11.2L8.5 10.2L8.3 12.5H7.7L7.5 10.2L6.2 11.2L6.5 9.2L4.8 8.5L6 7.8L5 6.5L6.5 6.2L6.2 4.8L7.3 5.5L8 3.5Z" fill="#D80027"/>
+</g>
+</svg>
+
