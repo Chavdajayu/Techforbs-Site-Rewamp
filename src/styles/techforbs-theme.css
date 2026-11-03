@@ -1582,43 +1582,236 @@ body {
   border-radius: 1.25rem !important;
 }
 
-/* Technology and Case Study Horizontal Carousels */
+/* Technology and Case Study Horizontal Carousels & Layout Safeguards */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+.tech-main {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.tech-main-inner {
+  width: 100% !important;
+  max-width: 69.75rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.tech-main-inner.services-pages {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  column-gap: 3.5rem !important;
+  width: 100% !important;
+  max-width: 69.75rem !important;
+  min-width: 0 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .tech-main-inner.services-pages {
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+}
+
+.tech-content {
+  width: 100% !important;
+  max-width: 50.75rem !important;
+  min-width: 0 !important;
+  flex: 1 1 0% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  row-gap: 5.5rem !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+@media screen and (max-width: 991px) {
+  .tech-content {
+    max-width: 100% !important;
+  }
+}
+
+.tech-aside {
+  width: 15rem !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 991px) {
+  .tech-aside {
+    width: 100% !important;
+    position: static !important;
+  }
+}
+
+.services-hero {
+  position: relative !important;
+  min-height: 85vh !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 5rem 1rem 3rem !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+
+.service-hero-inner {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 69.75rem !important;
+  margin: 0 auto !important;
+  min-height: 70vh !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 1.5rem !important;
+  overflow: hidden !important;
+  padding: 4.5rem 3.5rem !important;
+  background-color: #13141f !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+@media screen and (max-width: 767px) {
+  .services-hero {
+    padding: 4rem 0.5rem 2rem !important;
+    min-height: auto !important;
+  }
+  .service-hero-inner {
+    padding: 2.5rem 1.25rem !important;
+    min-height: auto !important;
+  }
+}
+
+.service-hero-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: right center !important;
+  opacity: 0.65 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.service-hero__content {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 38rem !important;
+}
+
+.service-hero-title {
+  font-size: clamp(2.2rem, 4.2vw, 3.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  margin-bottom: 1.5rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+.service-hero__content-text {
+  font-size: 1.125rem !important;
+  line-height: 1.6 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin-bottom: 2rem !important;
+  max-width: 32rem !important;
+}
+
+.tech-service-cards {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media screen and (max-width: 767px) {
+  .tech-service-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.cases-slider,
+.tech-slider,
+.tech-testimonials__slider,
+.swiper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.cases-slider .swiper-wrapper,
 .tech-slider .swiper-wrapper {
   display: flex !important;
   flex-direction: row !important;
-  gap: 1.25rem !important;
+  flex-wrap: nowrap !important;
   overflow-x: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
   scroll-behavior: smooth !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-.tech-slider .swiper-slide {
-  width: 220px !important;
-  min-width: 220px !important;
-  max-width: 220px !important;
-  flex: 0 0 220px !important;
-  flex-shrink: 0 !important;
-}
-
-.cases-slider .swiper-wrapper {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 1.5rem !important;
-  overflow-x: auto !important;
-  scroll-behavior: smooth !important;
+.cases-slider .swiper-wrapper::-webkit-scrollbar,
+.tech-slider .swiper-wrapper::-webkit-scrollbar {
+  display: none !important;
 }
 
 .cases-slider .swiper-slide {
-  width: 400px !important;
-  min-width: 400px !important;
-  max-width: 420px !important;
-  flex: 0 0 400px !important;
+  width: 380px !important;
+  min-width: 380px !important;
+  max-width: 380px !important;
+  flex: 0 0 380px !important;
   flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 480px) {
+  .cases-slider .swiper-slide {
+    width: 290px !important;
+    min-width: 290px !important;
+    max-width: 290px !important;
+    flex: 0 0 290px !important;
+  }
+}
+
+.tech-slider .swiper-slide {
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
+  flex: 0 0 200px !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.team__grid__wrap,
+.team__lottieanim {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+  box-sizing: border-box !important;
 }
 
 .tech-sertificate .button {
   display: inline-flex !important;
   width: auto !important;
 }
+
 .swiper-btn-prev,
 .swiper-btn-next,
 .carousel-btn-prev,

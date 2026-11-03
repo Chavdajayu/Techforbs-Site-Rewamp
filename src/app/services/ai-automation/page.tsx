@@ -16,76 +16,71 @@ export const metadata: Metadata = {
 export default function AIAutomationPage() {
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-[#101010] text-white selection:bg-[#00e5ff] selection:text-black">
+      <div className="relative min-h-screen bg-[#101010] text-white selection:bg-[#00e5ff] selection:text-black overflow-x-hidden">
         <Navbar />
         <AIAutomationClientInteractions />
 
-        <main className="relative z-10 flex flex-col">
+        <main className="relative z-10 flex flex-col w-full overflow-x-hidden">
           {/* =================================================================
               01. HERO SECTION
               ================================================================= */}
-          <section className="tech-hero is-services-page">
+          <section className="services-hero">
             <div className="tech-hero-gradient"></div>
-            <div className="tech-hero-inner v2">
+            <div className="service-hero-inner">
               <img
                 width="1424"
+                height="800"
                 loading="eager"
                 alt="AI & Automation Services banner"
                 src="/images/services/69273fea692d3db88c70d620_ai-bg-p-2000.webp"
-                className="tech-hero-bg"
+                className="service-hero-bg"
               />
-              <div className="tech-hero-content">
-                <div className="tech-hero-title__wrap">
-                  <div
-                    data-wf--title-circle--variant="base"
-                    className="title-circle service-hero_circle w-embed"
-                  >
-                    <svg
-                      width="100%"
-                      height="100%"
-                      viewBox="0 0 453 89"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      preserveAspectRatio="none"
+              <div className="service-hero__content width-42">
+                <div className="fade-up-alt">
+                  <div className="services-hero-title-wrap">
+                    <div
+                      data-wf--title-circle--variant="base"
+                      className="title-circle service-hero_circle w-embed"
                     >
-                      <path
-                        d="M316.771 87C405.472 79.7966 451 58.571 451 43.7797C451 20.7054 350.488 2 226.5 2C102.512 2 2.00001 20.7054 2.00001 43.7797C2.00001 66.8539 102.512 85.5593 226.5 85.5593C268.367 85.5593 324.621 81.9576 362.299 71.8729"
-                        stroke="#00e5ff"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
-                  <h1
-                    circle-width="27"
-                    text-split=""
-                    lines-slide-up=""
-                    className="tech-hero-title"
-                  >
-                    AI &amp; automation services
-                  </h1>
-                </div>
-
-                <div className="tech-hero-text">
-                  <div className="overflow-hidden">
-                    <p
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 453 89"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        preserveAspectRatio="none"
+                      >
+                        <path
+                          d="M316.771 87C405.472 79.7966 451 58.571 451 43.7797C451 20.7054 350.488 2 226.5 2C102.512 2 2.00001 20.7054 2.00001 43.7797C2.00001 66.8539 102.512 85.5593 226.5 85.5593C268.367 85.5593 324.621 81.9576 362.299 71.8729"
+                          stroke="#00e5ff"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </div>
+                    <h1
+                      circle-width="27"
                       text-split=""
-                      words-slide-up=""
-                      className="text-white/80 max-w-2xl text-lg leading-relaxed"
+                      lines-slide-up=""
+                      circle-index="0"
+                      className="service-hero-title"
                     >
-                      Cut manual work, connect fragmented tools, and deploy
-                      self-healing automations with guaranteed enterprise data privacy.
-                    </p>
+                      AI &amp; automation = faster workflows → higher ROI
+                    </h1>
                   </div>
-                </div>
 
-                <div className="button-wrap is-left">
-                  <div className="fade-up-alt">
+                  <p className="service-hero__content-text">
+                    Free your team’s time for what truly matters. From lead handling
+                    to document parsing - we turn repetitive tasks into smart,
+                    connected workflows.
+                  </p>
+
+                  <div className="button-wrap on-service-page">
                     <Link
                       href="#contact-section"
-                      className="button button_smaller button_blue"
+                      className="button button_blue"
                     >
-                      <strong>Schedule an AI consultation</strong>
+                      <strong>Explore solutions</strong>
                     </Link>
                   </div>
                 </div>
@@ -93,13 +88,16 @@ export default function AIAutomationPage() {
             </div>
           </section>
 
-          {/* MAIN WRAPPER WITH ASIDE STICKY ARCHITECTURE */}
-          <div className="tech-main-wrap">
-            <div className="tech-main-inner is-reversed">
-              <div className="tech-main">
-                {/* =============================================================
+          {/* =================================================================
+              MAIN CONTENT CONTAINER (EXACT REFERENCE TWO-COLUMN ARCHITECTURE)
+              ================================================================= */}
+          <div className="tech-main padding-top-112 pb-0">
+            <div className="tech-main-inner services-pages">
+              {/* PRIMARY CONTENT COLUMN */}
+              <div className="tech-content">
+                {/* -------------------------------------------------------------
                     02. SERVICE CAPABILITY CARDS
-                    ============================================================= */}
+                    ------------------------------------------------------------- */}
                 <section id="solutions" className="tech-customize">
                   <h2
                     color-word="#00e5ff"
@@ -116,73 +114,81 @@ export default function AIAutomationPage() {
                     engineering agility.
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="tech-service-cards">
                     {/* Card 1: Workflow automation */}
-                    <div className="tech-service-card p-8 rounded-2xl relative overflow-hidden group">
-                      <div className="w-12 h-12 rounded-xl bg-[#0077ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-6 text-[#00e5ff]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="tech-service-card">
+                      <div className="tech-service-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                         </svg>
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-white">Workflow automation</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Connect your enterprise applications, eliminate manual steps, add branching logic,
-                        self-healing retries, and real-time alerts so work keeps moving without pings and copy-paste.
-                      </p>
+                      <div className="tech-service-card-caption">
+                        <h3 className="tech-service-item-title text-xl font-bold mb-2 text-white">Workflow automation</h3>
+                        <p className="text-body in-tech-service-card text-white/70 text-sm leading-relaxed">
+                          Connect your enterprise applications, eliminate manual steps, add branching logic,
+                          self-healing retries, and real-time alerts so work keeps moving without pings and copy-paste.
+                        </p>
+                      </div>
                     </div>
 
                     {/* Card 2: AI in your workflows */}
-                    <div className="tech-service-card p-8 rounded-2xl relative overflow-hidden group">
-                      <div className="w-12 h-12 rounded-xl bg-[#0077ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-6 text-[#00e5ff]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="tech-service-card">
+                      <div className="tech-service-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <circle cx="12" cy="12" r="10" />
                           <line x1="12" y1="16" x2="12" y2="12" />
                           <line x1="12" y1="8" x2="12.01" y2="8" />
                         </svg>
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-white">AI in your workflows</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Classify, summarize, extract fields, enrich leads, and route support tickets; keep
-                        human-in-the-loop review queues for low-confidence or high-stakes edge cases.
-                      </p>
+                      <div className="tech-service-card-caption">
+                        <h3 className="tech-service-item-title text-xl font-bold mb-2 text-white">AI in your workflows</h3>
+                        <p className="text-body in-tech-service-card text-white/70 text-sm leading-relaxed">
+                          Classify, summarize, extract fields, enrich leads, and route support tickets; keep
+                          human-in-the-loop review queues for low-confidence or high-stakes edge cases.
+                        </p>
+                      </div>
                     </div>
 
                     {/* Card 3: Email & document processing */}
-                    <div className="tech-service-card p-8 rounded-2xl relative overflow-hidden group">
-                      <div className="w-12 h-12 rounded-xl bg-[#0077ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-6 text-[#00e5ff]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="tech-service-card">
+                      <div className="tech-service-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                           <polyline points="22,6 12,13 2,6" />
                         </svg>
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-white">Email &amp; document processing</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        AI-assisted parsing of high-volume inboxes, invoices, and PDFs: extract structured
-                        data directly to your database or CRM, and flag unusual anomalies for instant manual review.
-                      </p>
+                      <div className="tech-service-card-caption">
+                        <h3 className="tech-service-item-title text-xl font-bold mb-2 text-white">Email &amp; document processing</h3>
+                        <p className="text-body in-tech-service-card text-white/70 text-sm leading-relaxed">
+                          AI-assisted parsing of high-volume inboxes, invoices, and PDFs: extract structured
+                          data directly to your database or CRM, and flag unusual anomalies for instant manual review.
+                        </p>
+                      </div>
                     </div>
 
                     {/* Card 4: Ops for sales & support */}
-                    <div className="tech-service-card p-8 rounded-2xl relative overflow-hidden group">
-                      <div className="w-12 h-12 rounded-xl bg-[#0077ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-6 text-[#00e5ff]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="tech-service-card">
+                      <div className="tech-service-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                           <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                         </svg>
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-white">Ops for sales &amp; support</h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
-                        Lead sourcing &amp; enrichment, bi-directional CRM synchronization, automated ticket
-                        triage, suggested replies, and guaranteed SLA incident escalation alerts.
-                      </p>
+                      <div className="tech-service-card-caption">
+                        <h3 className="tech-service-item-title text-xl font-bold mb-2 text-white">Ops for sales &amp; support</h3>
+                        <p className="text-body in-tech-service-card text-white/70 text-sm leading-relaxed">
+                          Lead sourcing and enrichment, real-time CRM synchronization, outbound automation,
+                          ticket intake, automatic triage, and SLA escalation alerts.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </section>
 
-                {/* =============================================================
-                    03. AI + AUTOMATION BENEFITS & SUPPORTING IMAGE COLLAGE
-                    ============================================================= */}
-                <section id="services" className="tech-services">
+                {/* -------------------------------------------------------------
+                    03. AI + AUTOMATION: BETTER TOGETHER
+                    ------------------------------------------------------------- */}
+                <section id="services-together" className="tech-services">
                   <h2
                     color-word="#00e5ff"
                     text-split=""
@@ -193,146 +199,75 @@ export default function AIAutomationPage() {
                     AI + automation: better together
                   </h2>
                   <div className="text-block is-gray margin-bottom-50">
-                    AI gives context, automation delivers action. Together, they turn manual effort into measurable growth.
+                    AI provides context and intelligence; automation executes actions at instant speed.
+                    Together, they eliminate friction and scale productivity.
                   </div>
 
-                  <ul role="list" className="tech-service-list is-2-grid">
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="4" y="0" width="8.5" height="20" rx="2" fill="#00e5ff" />
-                          <rect x="16" y="0" width="8.5" height="8.5" rx="2" fill="#00e5ff" />
-                          <rect x="16" y="12" width="8.5" height="8.5" rx="4.2" fill="white" fillOpacity="0.3" />
-                          <rect x="4" y="24" width="8.5" height="8.5" rx="4.2" fill="white" fillOpacity="0.3" />
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">From insights to action</h3>
-                        <p className="text-body">
-                          AI analyzes unstructured inputs and produces real-time decisions; automation triggers
-                          the appropriate system calls, database writes, and communications instantly.
-                        </p>
+                  <ul role="list" className="tech-service-list is-2-grid grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                    <li className="tech-service-item p-4 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#00e5ff] mt-2 flex-shrink-0" />
+                      <div>
+                        <strong className="text-white block text-sm font-semibold">Smart lead routing</strong>
+                        <span className="text-white/60 text-xs">Context-aware qualification, CRM enrichment, and automated rep assignment.</span>
                       </div>
                     </li>
-
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="20" cy="20" r="16" stroke="#00e5ff" strokeWidth="3" />
-                          <path d="M14 20l4 4 8-8" stroke="#00e5ff" strokeWidth="3" strokeLinecap="round" />
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Measurable impact, not hype</h3>
-                        <p className="text-body">
-                          We prioritize high-leverage workflows with verifiable KPIs: hours saved per sprint,
-                          decreased error rates, faster client turnaround, and lower operational costs.
-                        </p>
+                    <li className="tech-service-item p-4 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#00e5ff] mt-2 flex-shrink-0" />
+                      <div>
+                        <strong className="text-white block text-sm font-semibold">Document extraction</strong>
+                        <span className="text-white/60 text-xs">Parse tables, receipts, and invoices into structured JSON schemas automatically.</span>
                       </div>
                     </li>
-
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="6" y="10" width="28" height="24" rx="4" stroke="#00e5ff" strokeWidth="2.5" />
-                          <path d="M12 10V6a8 8 0 0 1 16 0v4" stroke="#00e5ff" strokeWidth="2.5" />
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Secure by default</h3>
-                        <p className="text-body">
-                          Encrypted data transport, sandboxed execution environments, zero-data-retention AI
-                          configurations, and strict adherence to enterprise compliance frameworks.
-                        </p>
+                    <li className="tech-service-item p-4 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#00e5ff] mt-2 flex-shrink-0" />
+                      <div>
+                        <strong className="text-white block text-sm font-semibold">Ticket escalation</strong>
+                        <span className="text-white/60 text-xs">Sentiment analysis routes critical bugs and VIP inquiries in seconds.</span>
                       </div>
                     </li>
-
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="16" cy="14" r="6" stroke="#00e5ff" strokeWidth="2" />
-                          <circle cx="28" cy="18" r="4" stroke="#ffffff" strokeOpacity="0.4" strokeWidth="2" />
-                          <path d="M6 34c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#00e5ff" strokeWidth="2" />
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Human-in-the-loop</h3>
-                        <p className="text-body">
-                          Automated workflows flag low-confidence predictions, routing them to designated team
-                          members via Slack, Teams, or email with one-click approval workflows.
-                        </p>
+                    <li className="tech-service-item p-4 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#00e5ff] mt-2 flex-shrink-0" />
+                      <div>
+                        <strong className="text-white block text-sm font-semibold">Data hygiene</strong>
+                        <span className="text-white/60 text-xs">Continuous background deduplication across databases and apps.</span>
                       </div>
                     </li>
                   </ul>
 
-                  {/* RESTORED REFERENCE IMAGE COMPOSITION */}
-                  <div className="team__lottieanim mt-12">
-                    <div className="team__grid__wrap">
-                      <div className="team__grid in-service-page w-dyn-items">
-                        {/* Item 1: Decorative cyan rounded block */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__decor-block w-full h-full rounded-2xl bg-gradient-to-br from-[#0077ff] to-[#00e5ff] shadow-lg shadow-cyan-500/20" />
-                          </div>
+                  {/* VISUAL WORKFLOW MOCKUP COLLAGE */}
+                  <div className="team__grid__wrap">
+                    <div className="team__lottieanim is-in-services">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="rounded-xl overflow-hidden border border-white/10 bg-[#13141f] shadow-xl">
+                          <img
+                            src="/images/services/6928324c28dda1fee3400343_3.webp"
+                            alt="Sales CRM automation dashboard"
+                            className="w-full h-auto object-cover"
+                          />
                         </div>
-
-                        {/* Item 2: Sales CRM Screen */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__grid_pic">
-                              <img
-                                alt="Sales CRM automation interface"
-                                loading="lazy"
-                                src="/images/services/6928324c28dda1fee3400343_3.webp"
-                                className="team__grid_img rounded-2xl border border-white/10"
-                              />
-                            </div>
-                          </div>
+                        <div className="rounded-xl overflow-hidden border border-white/10 bg-[#13141f] shadow-xl">
+                          <img
+                            src="/images/services/692832c928b7b0c1882be0fb_2.webp"
+                            alt="Lead enrichment workflow view"
+                            className="w-full h-auto object-cover"
+                          />
                         </div>
-
-                        {/* Item 3: Orders Table Screen */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__grid_pic">
-                              <img
-                                alt="Orders telemetry dashboard"
-                                loading="lazy"
-                                src="/images/services/692832c928b7b0c1882be0fb_2.webp"
-                                className="team__grid_img rounded-2xl border border-white/10"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Item 4: Workflow Code Engine */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__grid_pic">
-                              <img
-                                alt="Automated workflow engine"
-                                loading="lazy"
-                                src="/images/services/692832e16222b76a214199c6_4.webp"
-                                className="team__grid_img rounded-2xl border border-white/10"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Item 5: Decorative cyan rounded block */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__decor-block w-full h-full rounded-2xl bg-gradient-to-br from-[#0077ff] to-[#00e5ff] shadow-lg shadow-cyan-500/20" />
-                          </div>
+                        <div className="rounded-xl overflow-hidden border border-white/10 bg-[#13141f] shadow-xl">
+                          <img
+                            src="/images/services/692832e16222b76a214199c6_4.webp"
+                            alt="Automated ops analytics table"
+                            className="w-full h-auto object-cover"
+                          />
                         </div>
                       </div>
                     </div>
                   </div>
                 </section>
 
-                {/* =============================================================
+                {/* -------------------------------------------------------------
                     04. HOW WE BUILD AUTOMATIONS THAT WORK
-                    ============================================================= */}
-                <section id="services" className="tech-services">
+                    ------------------------------------------------------------- */}
+                <section id="how-we-build" className="tech-services">
                   <h2
                     color-word="#00e5ff"
                     text-split=""
@@ -343,261 +278,217 @@ export default function AIAutomationPage() {
                     How we build automations that work
                   </h2>
                   <div className="text-block is-gray margin-bottom-50">
-                    A battle-tested methodology designed to ship reliable automations with zero disruption to daily operations.
+                    A proven, battle-tested engineering methodology ensuring
+                    reliable deployments that run 24/7 without fail.
                   </div>
-                  <ul role="list" className="tech-service-list is-2-grid">
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="20" cy="20" r="16" stroke="#00e5ff" strokeWidth="2.5" />
-                          <text x="20" y="26" textAnchor="middle" fill="#00e5ff" fontSize="18" fontWeight="bold">1</text>
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Discovery &amp; mapping</h3>
-                        <p className="text-body">
-                          We audit existing tool stacks, map step-by-step logic, locate operational bottlenecks,
-                          and define clear success metrics before writing a single line of automation.
-                        </p>
-                      </div>
-                    </li>
 
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="20" cy="20" r="16" stroke="#00e5ff" strokeWidth="2.5" />
-                          <text x="20" y="26" textAnchor="middle" fill="#00e5ff" fontSize="18" fontWeight="bold">2</text>
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Integration &amp; setup</h3>
-                        <p className="text-body">
-                          Secure API handshakes, webhook listeners, environment secrets management, and robust
-                          data transformations linking your CRM, billing, marketing, and internal databases.
-                        </p>
-                      </div>
-                    </li>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="tech-service-card">
+                      <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">01. Step</span>
+                      <h3 className="text-lg font-bold text-white mb-2">Discovery &amp; scoping</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Deep-dive audit of toolstacks, data flow bottlenecks, manual copy-paste tasks, and edge cases.
+                      </p>
+                    </div>
 
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="20" cy="20" r="16" stroke="#00e5ff" strokeWidth="2.5" />
-                          <text x="20" y="26" textAnchor="middle" fill="#00e5ff" fontSize="18" fontWeight="bold">3</text>
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">AI enhancement</h3>
-                        <p className="text-body">
-                          Injecting domain-specific LLM intelligence: contextual prompt orchestration, confidence scoring,
-                          fuzzy matching, and fallbacks that handle unpredictable customer inputs gracefully.
-                        </p>
-                      </div>
-                    </li>
+                    <div className="tech-service-card">
+                      <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">02. Step</span>
+                      <h3 className="text-lg font-bold text-white mb-2">Architecture &amp; integration</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Connect APIs, webhooks, databases, and LLM endpoints with robust exception logic and self-healing.
+                      </p>
+                    </div>
 
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="20" cy="20" r="16" stroke="#00e5ff" strokeWidth="2.5" />
-                          <text x="20" y="26" textAnchor="middle" fill="#00e5ff" fontSize="18" fontWeight="bold">4</text>
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Testing &amp; handoff</h3>
-                        <p className="text-body">
-                          Rigorous load simulations, failover testing, automated retry verification, and executive
-                          dashboard handoffs with comprehensive documentation and team training.
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
+                    <div className="tech-service-card">
+                      <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">03. Step</span>
+                      <h3 className="text-lg font-bold text-white mb-2">Testing &amp; validation</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Shadow execution against production data, verifying schema integrity and human review triggers.
+                      </p>
+                    </div>
+
+                    <div className="tech-service-card">
+                      <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">04. Step</span>
+                      <h3 className="text-lg font-bold text-white mb-2">Deployment &amp; monitoring</h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Live rollout with real-time alerting, audit logging, automatic retries, and comprehensive reporting.
+                      </p>
+                    </div>
+                  </div>
                 </section>
 
-                {/* =============================================================
-                    05. WINNING WITH US: OUR CLIENTS' SUCCESS (CAROUSEL)
-                    ============================================================= */}
+                {/* -------------------------------------------------------------
+                    05. CASE STUDIES CAROUSEL
+                    ------------------------------------------------------------- */}
                 <section id="why-we" className="tech-benefits">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="5,6"
-                    className="tech-section-title mb-60"
-                  >
-                    Winning with us: our clients&#x27; success
-                  </h2>
-
-                  <div className="cases-wrap is-services-page">
-                    <div className="swiper cases-slider w-dyn-list">
-                      <div
-                        role="list"
-                        className="swiper-wrapper w-dyn-items flex flex-row gap-6 overflow-x-auto pb-4 scroll-smooth"
+                  <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                    <div>
+                      <h2
+                        color-word="#00e5ff"
+                        text-split=""
+                        lines-slide-up=""
+                        color-words-index="3,4"
+                        className="tech-section-title"
                       >
-                        {/* Case 1: SACLAB */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[320px] md:min-w-[400px] flex-shrink-0">
-                          <div className="case-item is-no-link">
-                            <div
-                              style={{ backgroundColor: "#1e2e42" }}
-                              className="case-item-image relative overflow-hidden rounded-2xl p-4 flex items-center justify-center min-h-[260px]"
-                            >
-                              <img
-                                width="416"
-                                height="439"
-                                alt=""
-                                src="/images/technologies/66335e1b00f641134b6bcbef_case-bg.svg"
-                                loading="lazy"
-                                className="case-item-circles absolute inset-0 opacity-40 pointer-events-none"
-                              />
-                              <img
-                                className="case-item-thumb min-height relative z-10 max-h-56 object-cover rounded-xl shadow-2xl"
-                                src="/images/services/6aa958df5478b4daee425e17_SACLAB (2).webp"
-                                alt="SACLAB Platform: Automated luxury resale"
-                                loading="lazy"
-                              />
-                            </div>
-                            <h4 className="case-item-title text-xl font-bold mt-4 mb-2 text-white">
-                              SACLAB: Automated inventory &amp; luxury resale platform
-                            </h4>
-                            <div className="case-item_tags flex flex-wrap gap-2 mt-3">
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#0077ff]/20 text-[#00e5ff] border border-[#00e5ff]/30">E-COMMERCE</span>
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80">AI AUTOMATION</span>
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80">INVENTORY SYNC</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Case 2: TechHunt */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[320px] md:min-w-[400px] flex-shrink-0">
-                          <div className="case-item is-no-link">
-                            <div
-                              style={{ backgroundColor: "#1c2438" }}
-                              className="case-item-image relative overflow-hidden rounded-2xl p-4 flex items-center justify-center min-h-[260px]"
-                            >
-                              <img
-                                width="416"
-                                height="439"
-                                alt=""
-                                src="/images/technologies/66335e1b00f641134b6bcbef_case-bg.svg"
-                                loading="lazy"
-                                className="case-item-circles absolute inset-0 opacity-40 pointer-events-none"
-                              />
-                              <img
-                                className="case-item-thumb min-height relative z-10 max-h-56 object-cover rounded-xl shadow-2xl"
-                                src="/images/services/69415648fb54d47025658431_68502c28fbdaa5e4f7401a80_techhunt (1).webp"
-                                alt="TechHunt: AI-assisted talent matching"
-                                loading="lazy"
-                              />
-                            </div>
-                            <h4 className="case-item-title text-xl font-bold mt-4 mb-2 text-white">
-                              TechHunt: AI-assisted talent matching &amp; vetting engine
-                            </h4>
-                            <div className="case-item_tags flex flex-wrap gap-2 mt-3">
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#0077ff]/20 text-[#00e5ff] border border-[#00e5ff]/30">HR TECH</span>
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80">NLP EXTRACTION</span>
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80">AUTOMATION</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Case 3: HIVE */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[320px] md:min-w-[400px] flex-shrink-0">
-                          <div className="case-item is-no-link">
-                            <div
-                              style={{ backgroundColor: "#182a32" }}
-                              className="case-item-image relative overflow-hidden rounded-2xl p-4 flex items-center justify-center min-h-[260px]"
-                            >
-                              <img
-                                width="416"
-                                height="439"
-                                alt=""
-                                src="/images/technologies/66335e1b00f641134b6bcbef_case-bg.svg"
-                                loading="lazy"
-                                className="case-item-circles absolute inset-0 opacity-40 pointer-events-none"
-                              />
-                              <img
-                                className="case-item-thumb min-height relative z-10 max-h-56 object-cover rounded-xl shadow-2xl"
-                                src="/images/services/6aa95992835bec44feecea38_hive-project (1).webp"
-                                alt="HIVE: Resource scheduling"
-                                loading="lazy"
-                              />
-                            </div>
-                            <h4 className="case-item-title text-xl font-bold mt-4 mb-2 text-white">
-                              HIVE: Intelligent resource scheduling &amp; operational telemetry
-                            </h4>
-                            <div className="case-item_tags flex flex-wrap gap-2 mt-3">
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#0077ff]/20 text-[#00e5ff] border border-[#00e5ff]/30">ENTERPRISE SAAS</span>
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80">INTEGRATION</span>
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80">ALERTS</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Case 4: Maxopolis */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[320px] md:min-w-[400px] flex-shrink-0">
-                          <div className="case-item is-no-link">
-                            <div
-                              style={{ backgroundColor: "#251d38" }}
-                              className="case-item-image relative overflow-hidden rounded-2xl p-4 flex items-center justify-center min-h-[260px]"
-                            >
-                              <img
-                                width="416"
-                                height="439"
-                                alt=""
-                                src="/images/technologies/66335e1b00f641134b6bcbef_case-bg.svg"
-                                loading="lazy"
-                                className="case-item-circles absolute inset-0 opacity-40 pointer-events-none"
-                              />
-                              <img
-                                className="case-item-thumb min-height relative z-10 max-h-56 object-cover rounded-xl shadow-2xl"
-                                src="/images/portfolio/maxopolis.png"
-                                alt="Maxopolis: Logistics automation"
-                                loading="lazy"
-                              />
-                            </div>
-                            <h4 className="case-item-title text-xl font-bold mt-4 mb-2 text-white">
-                              Maxopolis: Real-time supply chain telemetry &amp; automated fulfillment
-                            </h4>
-                            <div className="case-item_tags flex flex-wrap gap-2 mt-3">
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#0077ff]/20 text-[#00e5ff] border border-[#00e5ff]/30">LOGISTICS</span>
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80">API PIPELINES</span>
-                              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80">ANALYTICS</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        Winning with us: our clients&#x27; success
+                      </h2>
+                      <p className="text-white/60 text-sm mt-2">
+                        Real production workflows delivering measurable operational leverage.
+                      </p>
                     </div>
 
                     {/* Navigation Buttons */}
-                    <div className="slider-buttons slider-buttons_portfolio flex items-center gap-3 mt-8">
-                      <div className="button button_slider swis-portfolio-prev cursor-pointer">
-                        <div className="button-slider-arrow w-embed">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 6L9 12L15 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="button button_slider swis-portfolio-next cursor-pointer">
-                        <div className="button-slider-arrow w-embed">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </div>
-                      </div>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        className="swis-portfolio-prev swiper-btn-prev"
+                        aria-label="Previous case study"
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        className="swis-portfolio-next swiper-btn-next"
+                        aria-label="Next case study"
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </button>
                     </div>
                   </div>
 
-                  <div className="fade-up-alt mt-8">
-                    <div className="tech-benefits-buttons">
-                      <Link href="/#portfolio" className="button button_smaller button_blue">
-                        <strong>View all</strong>
-                      </Link>
+                  <div className="cases-slider">
+                    <div className="swiper-wrapper">
+                      {/* Case 1: SACLAB */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card h-full flex flex-col justify-between">
+                          <div>
+                            <div className="rounded-xl overflow-hidden mb-4 bg-black/40 border border-white/5">
+                              <img
+                                src="/images/services/6aa958df5478b4daee425e17_SACLAB (2).webp"
+                                alt="SACLAB automated inventory & logistics"
+                                className="w-full h-48 object-cover"
+                              />
+                            </div>
+                            <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Logistics &amp; AI</span>
+                            <h3 className="text-lg font-bold text-white mb-2">SACLAB</h3>
+                            <p className="text-white/70 text-xs leading-relaxed">
+                              Automated inventory forecasting, predictive stock replenishment, and order dispatch pipelines.
+                            </p>
+                          </div>
+                          <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-[#00e5ff]">
+                            <span>Read case study</span>
+                            <span>→</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Case 2: TechHunt */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card h-full flex flex-col justify-between">
+                          <div>
+                            <div className="rounded-xl overflow-hidden mb-4 bg-black/40 border border-white/5">
+                              <img
+                                src="/images/services/69415648fb54d47025658431_68502c28fbdaa5e4f7401a80_techhunt (1).webp"
+                                alt="TechHunt automated recruitment platform"
+                                className="w-full h-48 object-cover"
+                              />
+                            </div>
+                            <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Recruitment Ops</span>
+                            <h3 className="text-lg font-bold text-white mb-2">TechHunt</h3>
+                            <p className="text-white/70 text-xs leading-relaxed">
+                              Automated candidate screening, talent pool categorization, and personalized outreach sequence sync.
+                            </p>
+                          </div>
+                          <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-[#00e5ff]">
+                            <span>Read case study</span>
+                            <span>→</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Case 3: HIVE */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card h-full flex flex-col justify-between">
+                          <div>
+                            <div className="rounded-xl overflow-hidden mb-4 bg-black/40 border border-white/5">
+                              <img
+                                src="/images/services/6aa95992835bec44feecea38_hive-project (1).webp"
+                                alt="HIVE customer support routing"
+                                className="w-full h-48 object-cover"
+                              />
+                            </div>
+                            <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Support AI</span>
+                            <h3 className="text-lg font-bold text-white mb-2">HIVE</h3>
+                            <p className="text-white/70 text-xs leading-relaxed">
+                              Intelligent ticket classification, multi-language translation, and SLA auto-escalation engine.
+                            </p>
+                          </div>
+                          <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-[#00e5ff]">
+                            <span>Read case study</span>
+                            <span>→</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Case 4: Maxopolis */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card h-full flex flex-col justify-between">
+                          <div>
+                            <div className="rounded-xl overflow-hidden mb-4 bg-black/40 border border-white/5">
+                              <img
+                                src="/images/services/68502b378775a7fe00bb4fab_habitat.webp"
+                                alt="Maxopolis automated contract parsing"
+                                className="w-full h-48 object-cover"
+                              />
+                            </div>
+                            <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">FinTech &amp; Real Estate</span>
+                            <h3 className="text-lg font-bold text-white mb-2">Maxopolis</h3>
+                            <p className="text-white/70 text-xs leading-relaxed">
+                              Automated lease parsing, financial ledger synchronization, and tenant document processing.
+                            </p>
+                          </div>
+                          <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-[#00e5ff]">
+                            <span>Read case study</span>
+                            <span>→</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Case 5: CabSpot */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card h-full flex flex-col justify-between">
+                          <div>
+                            <div className="rounded-xl overflow-hidden mb-4 bg-black/40 border border-white/5">
+                              <img
+                                src="/images/services/69415707d03780662cf56620_coinweb.webp"
+                                alt="CabSpot dispatch automation"
+                                className="w-full h-48 object-cover"
+                              />
+                            </div>
+                            <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Fleet Management</span>
+                            <h3 className="text-lg font-bold text-white mb-2">CabSpot</h3>
+                            <p className="text-white/70 text-xs leading-relaxed">
+                              Real-time dispatch automation, automated rider communications, and dynamic routing sync.
+                            </p>
+                          </div>
+                          <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-[#00e5ff]">
+                            <span>Read case study</span>
+                            <span>→</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </section>
 
-                {/* =============================================================
-                    06. WHY TEAMS CHOOSE TECHFORBS & SUPPORTING TEAM COLLAGE
-                    ============================================================= */}
-                <section id="services" className="tech-services">
+                {/* -------------------------------------------------------------
+                    06. WHY TEAMS CHOOSE TECHFORBS
+                    ------------------------------------------------------------- */}
+                <section id="why-teams" className="tech-services">
                   <h2
                     color-word="#00e5ff"
                     text-split=""
@@ -607,739 +498,515 @@ export default function AIAutomationPage() {
                   >
                     Why teams choose TechForbs
                   </h2>
-                  <ul role="list" className="tech-service-list">
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon is-large w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
-                          <path d="M22 26l-6-6 6-6M26 26l6-6-6-6" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Communication you can rely on</h3>
-                        <p className="text-body">
-                          Direct Slack channels, rapid response cadences, structured weekly reviews, and clear
-                          documentation for every workflow so your team always knows what was shipped.
-                        </p>
-                      </div>
-                    </li>
-
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon is-large w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
-                          <circle cx="24" cy="24" r="10" stroke="#00e5ff" strokeWidth="2" />
-                          <path d="M24 18v6l4 2" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Speed without chaos</h3>
-                        <p className="text-body">
-                          We iterate rapidly through modular automation components. You receive functional,
-                          tested prototypes within days, not months of theoretical architecture discussions.
-                        </p>
-                      </div>
-                    </li>
-
-                    <li className="tech-service-item fade-up-alt">
-                      <div className="tech-service-item-icon is-large w-embed">
-                        <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
-                          <path d="M16 24l5 5 11-11" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                      <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Predictable &amp; secure delivery</h3>
-                        <p className="text-body">
-                          Every automation scenario is built with explicit rollback provisions, end-to-end logging,
-                          and strict adherence to ISO and SOC security guidelines.
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-
-                  {/* RESTORED REFERENCE TEAM IMAGE COMPOSITION */}
-                  <div className="team__lottieanim mt-12">
-                    <div className="team__grid__wrap">
-                      <div className="team__grid w-dyn-items">
-                        {/* Item 1: Cyan decorative block */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__decor-block w-full h-full rounded-2xl bg-gradient-to-br from-[#0077ff] to-[#00e5ff] shadow-lg shadow-cyan-500/20" />
-                          </div>
-                        </div>
-
-                        {/* Item 2: Authentic TechForbs Team Photo 1 */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__grid_pic">
-                              <img
-                                alt="TechForbs Engineering Leadership"
-                                loading="lazy"
-                                src="/images/team/techforbs-team-1.jpg"
-                                className="team__grid_img rounded-2xl border border-white/10"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Item 3: Authentic TechForbs Team Photo 2 */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__grid_pic">
-                              <img
-                                alt="TechForbs Solutions Architecture"
-                                loading="lazy"
-                                src="/images/team/techforbs-team-2.jpg"
-                                className="team__grid_img rounded-2xl border border-white/10"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Item 4: Authentic TechForbs Team Photo 6 */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__grid_pic">
-                              <img
-                                alt="TechForbs Full Stack Systems"
-                                loading="lazy"
-                                src="/images/team/techforbs-team-6.jpg"
-                                className="team__grid_img rounded-2xl border border-white/10"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Item 5: Authentic TechForbs Team Photo 7 */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__grid_pic">
-                              <img
-                                alt="TechForbs Mobile & Cloud Architecture"
-                                loading="lazy"
-                                src="/images/team/techforbs-team-7.jpg"
-                                className="team__grid_img rounded-2xl border border-white/10"
-                              />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Item 6: Cyan decorative block */}
-                        <div role="listitem" className="team__grid_item state_v0_mod w-dyn-item">
-                          <div className="team__grid_pic_wrap">
-                            <div className="team__decor-block w-full h-full rounded-2xl bg-gradient-to-br from-[#0077ff] to-[#00e5ff] shadow-lg shadow-cyan-500/20" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                {/* =============================================================
-                    07. ENTERPRISE AI AUTOMATION ARCHITECTURE
-                    ============================================================= */}
-                <section className="tech-sertificate">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="1"
-                    className="tech-section-title"
-                  >
-                    Enterprise AI automation architecture
-                  </h2>
                   <div className="text-block is-gray margin-bottom-50">
-                    We engineer resilient, production-ready AI pipelines and automated workflows built on enterprise architectural standards.
+                    Enterprise engineering rigor combined with boutique agility.
                   </div>
 
-                  <div className="tech-sertificate-grid">
-                    <ul role="list" className="tech-sertificate-list">
-                      <li className="tech-sertificate-item fade-up-alt">
-                        <div className="tech-sertificate-item-icon"></div>
-                        <div>Build and connect workflows across 1,500+ apps</div>
-                      </li>
-                      <li className="tech-sertificate-item fade-up-alt">
-                        <div className="tech-sertificate-item-icon"></div>
-                        <div>Optimize or refactor mission-critical automation scenarios</div>
-                      </li>
-                      <li className="tech-sertificate-item fade-up-alt">
-                        <div className="tech-sertificate-item-icon"></div>
-                        <div>Eliminate repetitive manual operational overhead for teams</div>
-                      </li>
-                    </ul>
-
-                    <div className="tech-sertificate-badge-wrap">
-                      <div className="w-28 h-28 rounded-full border-2 border-[#00e5ff] flex flex-col items-center justify-center text-center p-2 bg-[#0077ff]/10 shadow-[0_0_30px_rgba(0,229,255,0.25)]">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                          <line x1="8" y1="21" x2="16" y2="21" />
-                          <line x1="12" y1="17" x2="12" y2="21" />
-                        </svg>
-                        <span className="text-xs font-bold text-white mt-1">Enterprise</span>
-                        <span className="text-[10px] text-[#00e5ff]">AI</span>
-                      </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div className="tech-service-card">
+                      <div className="text-2xl font-bold text-[#00e5ff] mb-2">01</div>
+                      <h3 className="text-base font-bold text-white mb-2">Zero vendor lock-in</h3>
+                      <p className="text-white/70 text-xs leading-relaxed">
+                        We build directly into your stack. You own 100% of the code, scripts, credentials, and workflows.
+                      </p>
                     </div>
 
-                    <ul role="list" className="tech-sertificate-list">
-                      <li className="tech-sertificate-item fade-up-alt">
-                        <div className="tech-sertificate-item-icon"></div>
-                        <div>Add multimodal AI parsing, vector retrieval, and automated routing</div>
-                      </li>
-                      <li className="tech-sertificate-item fade-up-alt">
-                        <div className="tech-sertificate-item-icon"></div>
-                        <div>Clear ROI metrics, error observability, and proactive monitoring</div>
-                      </li>
-                    </ul>
+                    <div className="tech-service-card">
+                      <div className="text-2xl font-bold text-[#00e5ff] mb-2">02</div>
+                      <h3 className="text-base font-bold text-white mb-2">Strict data privacy</h3>
+                      <p className="text-white/70 text-xs leading-relaxed">
+                        SOC2 and GDPR compliance. Your proprietary business data is never used to train public AI models.
+                      </p>
+                    </div>
+
+                    <div className="tech-service-card">
+                      <div className="text-2xl font-bold text-[#00e5ff] mb-2">03</div>
+                      <h3 className="text-base font-bold text-white mb-2">Direct engineer access</h3>
+                      <p className="text-white/70 text-xs leading-relaxed">
+                        Work directly with lead automation architects and software engineers without non-technical middlemen.
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="fade-up-alt mt-8 flex justify-start">
-                    <Link href="#contact-section" className="button button_smaller button_blue inline-flex w-auto">
-                      <strong>Explore solutions</strong>
-                    </Link>
+                  {/* AUTHENTIC TECHFORBS TEAM COLLAGE */}
+                  <div className="team__grid__wrap">
+                    <div className="team__lottieanim">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div className="rounded-xl overflow-hidden border border-white/10 bg-[#13141f]">
+                          <img
+                            src="/images/team/sunil-panchani-director.jpg"
+                            alt="Sunil Panchani, Director"
+                            className="w-full h-36 object-cover"
+                          />
+                        </div>
+                        <div className="rounded-xl overflow-hidden border border-white/10 bg-[#13141f]">
+                          <img
+                            src="/images/services/6850286683615deed2605b11_munir.webp"
+                            alt="TechForbs engineering lead"
+                            className="w-full h-36 object-cover"
+                          />
+                        </div>
+                        <div className="rounded-xl overflow-hidden border border-white/10 bg-[#13141f]">
+                          <img
+                            src="/images/services/68502a0bc839a090ed9be559_pedersen.webp"
+                            alt="TechForbs automation architect"
+                            className="w-full h-36 object-cover"
+                          />
+                        </div>
+                        <div className="rounded-xl overflow-hidden border border-white/10 bg-[#13141f]">
+                          <img
+                            src="/images/services/68502b31c839a090ed9cb36d_kozak.webp"
+                            alt="TechForbs systems engineer"
+                            className="w-full h-36 object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </section>
 
-                {/* =============================================================
-                    08. TECHNOLOGIES WE USE IN AI & AUTOMATION (HORIZONTAL CAROUSEL)
-                    ============================================================= */}
-                <section id="ecosystem" className="tech-ecosystem">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="0"
-                    className="tech-section-title mb-60"
-                  >
-                    Technologies we use in AI &amp; automation
-                  </h2>
-
-                  <div className="fade-up-alt">
-                    <div className="tech-slider-wrap">
-                      <div className="swiper tech-slider w-dyn-list">
-                        <div
-                          role="list"
-                          className="tech-ecosystem-grid swiper-wrapper w-dyn-items flex flex-row gap-5 overflow-x-auto pb-4 scroll-smooth"
+                {/* -------------------------------------------------------------
+                    07. CERTIFIED PARTNER
+                    ------------------------------------------------------------- */}
+                <section className="tech-sertificate">
+                  <div className="tech-service-card p-8 border border-[#00e5ff]/30 bg-gradient-to-r from-[#13141f] via-[#0d0e17] to-[#13141f]">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                      <div>
+                        <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Industry Credentials</span>
+                        <h2 className="text-2xl font-bold text-white mb-2">Certified automation partner</h2>
+                        <p className="text-white/70 text-sm max-w-xl leading-relaxed">
+                          Certified expertise across Make, Zapier, n8n, OpenAI, and enterprise cloud APIs.
+                          We follow rigorous engineering standards and continuous monitoring protocols.
+                        </p>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <Link
+                          href="#contact-section"
+                          className="button button_blue"
                         >
-                          {[
-                            { name: "Make", icon: "/images/technologies/make-logo.svg" },
-                            { name: "HubSpot", icon: "/images/technologies/hubspot-logo.svg" },
-                            { name: "Zapier", icon: "/images/technologies/zapier-logo.svg" },
-                            { name: "Airtable", icon: "/images/technologies/airtable-logo.svg" },
-                            { name: "n8n", icon: "/images/technologies/n8n-logo.svg" },
-                            { name: "Python", icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg" },
-                            { name: "Node.js", icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg" },
-                            { name: "Next.js", icon: "/images/technologies/664af3b89152d5738e5297e7_nextJS.svg" },
-                            { name: "MySQL", icon: "/images/technologies/66963d979771a1787630197d_mysql.svg" },
-                            { name: "Stripe", icon: "/images/technologies/stripe-logo.svg" },
-                          ].map((tech, idx) => (
-                            <div key={idx} role="listitem" className="swiper-slide w-dyn-item !w-[220px] !min-w-[220px] !max-w-[220px] flex-shrink-0">
-                              <div className="tech-ecosystem-item p-6 rounded-2xl bg-gradient-to-br from-[#13141f] to-[#0d0e17] border border-white/10 flex flex-col items-center justify-center text-center hover:border-[#00e5ff] hover:shadow-[0_8px_24px_rgba(0,229,255,0.15)] transition-all">
-                                <div className="tech-ecosystem-item-image-wrap h-20 w-20 flex items-center justify-center mb-4">
-                                  <img
-                                    src={tech.icon}
-                                    alt={`${tech.name} logo`}
-                                    className="max-h-14 max-w-14 object-contain"
-                                    loading="lazy"
-                                  />
-                                </div>
-                                <div className="tech-ecosystem-item-divider w-full h-[1px] bg-[#00e5ff]/30 my-3"></div>
-                                <div className="tech-ecosystem-item-title uppercase text-xs font-bold tracking-wider text-white/90">
-                                  {tech.name}
-                                </div>
-                              </div>
-                            </div>
-                          ))}
+                          <strong>Explore solutions</strong>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* -------------------------------------------------------------
+                    08. TECHNOLOGIES SLIDER
+                    ------------------------------------------------------------- */}
+                <section id="ecosystem" className="tech-ecosystem">
+                  <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                    <div>
+                      <h2
+                        color-word="#00e5ff"
+                        text-split=""
+                        lines-slide-up=""
+                        color-words-index="3,4"
+                        className="tech-section-title"
+                      >
+                        Technologies we use in AI &amp; automation
+                      </h2>
+                      <p className="text-white/60 text-sm mt-2">
+                        Battle-tested low-code orchestrators, custom code runtimes, and frontier AI models.
+                      </p>
+                    </div>
+
+                    {/* Navigation Buttons */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        className="tech-slider-prev swiper-btn-prev"
+                        aria-label="Previous technology"
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        className="tech-slider-next swiper-btn-next"
+                        aria-label="Next technology"
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="tech-slider">
+                    <div className="tech-ecosystem-grid swiper-wrapper">
+                      {/* Tech 1: Make */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/make-logo.svg" alt="Make logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">Make</h3>
+                          <span className="text-xs text-white/50">Enterprise Orchestration</span>
                         </div>
                       </div>
 
-                      {/* Navigation Buttons for Technology Slider */}
-                      <div className="slider-buttons flex items-center gap-3 mt-8">
-                        <div className="button button_slider tech-slider-prev cursor-pointer">
-                          <div className="button-slider-arrow w-embed">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                              <path d="M15 6L9 12L15 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          </div>
+                      {/* Tech 2: HubSpot */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/hubspot-logo.svg" alt="HubSpot logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">HubSpot</h3>
+                          <span className="text-xs text-white/50">CRM Automation</span>
                         </div>
-                        <div className="button button_slider tech-slider-next cursor-pointer">
-                          <div className="button-slider-arrow w-embed">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                              <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          </div>
+                      </div>
+
+                      {/* Tech 3: Zapier */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/zapier-logo.svg" alt="Zapier logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">Zapier</h3>
+                          <span className="text-xs text-white/50">App Connectivity</span>
+                        </div>
+                      </div>
+
+                      {/* Tech 4: Airtable */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/airtable-logo.svg" alt="Airtable logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">Airtable</h3>
+                          <span className="text-xs text-white/50">Relational Database</span>
+                        </div>
+                      </div>
+
+                      {/* Tech 5: n8n */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/n8n-logo.svg" alt="n8n logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">n8n</h3>
+                          <span className="text-xs text-white/50">Self-Hosted Workflows</span>
+                        </div>
+                      </div>
+
+                      {/* Tech 6: Python */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/6850232c66d819b168926940_python.svg" alt="Python logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">Python</h3>
+                          <span className="text-xs text-white/50">AI Pipelines &amp; Scripts</span>
+                        </div>
+                      </div>
+
+                      {/* Tech 7: Node.js */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/685021eb48a6026938e55cf9_node.svg" alt="Node.js logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">Node.js</h3>
+                          <span className="text-xs text-white/50">Custom Microservices</span>
+                        </div>
+                      </div>
+
+                      {/* Tech 8: Next.js */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/6850232cf8e805f63d276b1f_next.svg" alt="Next.js logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">Next.js</h3>
+                          <span className="text-xs text-white/50">Internal Portals</span>
+                        </div>
+                      </div>
+
+                      {/* Tech 9: MySQL */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/6850232c1c68f0cb64670275_mysql.svg" alt="MySQL logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">MySQL</h3>
+                          <span className="text-xs text-white/50">Data Warehousing</span>
+                        </div>
+                      </div>
+
+                      {/* Tech 10: Stripe */}
+                      <div className="swiper-slide">
+                        <div className="tech-service-card text-center p-6 flex flex-col items-center justify-center min-h-[160px]">
+                          <img src="/images/technologies/stripe-logo.svg" alt="Stripe logo" className="h-10 w-auto mb-3" />
+                          <h3 className="text-sm font-bold text-white">Stripe</h3>
+                          <span className="text-xs text-white/50">Payment Automations</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </section>
 
-                {/* =============================================================
-                    09. TESTIMONIALS SECTION
-                    ============================================================= */}
+                {/* -------------------------------------------------------------
+                    09. TESTIMONIALS
+                    ------------------------------------------------------------- */}
                 <section id="testimonials-section" className="tech-testimonials">
                   <h2
-                    data-testimonials-title=""
+                    color-word="#00e5ff"
                     text-split=""
                     lines-slide-up=""
-                    color-words-index="4,5"
-                    color-word="#00e5ff"
+                    color-words-index="3,4"
                     className="tech-section-title mb-60"
                   >
                     What our clients say… for real
                   </h2>
-
-                  <div className="awards-grid-wrapper mb-10">
-                    <div className="flex flex-wrap items-center gap-4">
-                      {["ROCKEN", "PORSCHE", "SCHULTHESS", "SACLAB", "ONELINE"].map((brand, i) => (
-                        <div key={i} className="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white/70 font-bold tracking-widest text-xs uppercase">
-                          {brand}
-                        </div>
-                      ))}
-                    </div>
+                  <div className="text-block is-gray margin-bottom-50">
+                    Trusted by operations leaders worldwide.
                   </div>
 
-                  <div className="tech-testimonials__slider-wrap">
-                    <div className="tech-testimonials__slider-wrapper flex flex-col md:flex-row gap-6 overflow-x-auto pb-4 scroll-smooth">
-                      {/* Testimonial 1 */}
-                      <div className="tech-testimonials__item min-w-[320px] md:min-w-[420px] p-8 rounded-2xl bg-[#161822] border border-white/10 hover:border-[#00e5ff]/30 transition-all">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-full bg-[#0077ff]/20 text-[#00e5ff] flex items-center justify-center font-bold text-lg">
-                            M
-                          </div>
-                          <div>
-                            <div className="font-semibold text-white">Michael R.</div>
-                            <div className="text-xs text-white/60">COO, Global Retail Logistics</div>
-                          </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="tech-service-card">
+                      <p className="text-white/80 text-sm italic mb-6 leading-relaxed">
+                        &quot;TechForbs completely restructured our operations. What used to take four team members
+                        half a day is now fully automated in seconds with zero human errors.&quot;
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-[#0077ff]/20 border border-[#00e5ff]/40 flex items-center justify-center font-bold text-white text-sm">
+                          AH
                         </div>
-                        <p className="text-white/80 text-sm leading-relaxed">
-                          &ldquo;TechForbs automated our entire supplier onboarding pipeline. What previously took 3 days of manual back-and-forth now finishes in 15 minutes with complete auditability.&rdquo;
-                        </p>
-                      </div>
-
-                      {/* Testimonial 2 */}
-                      <div className="tech-testimonials__item min-w-[320px] md:min-w-[420px] p-8 rounded-2xl bg-[#161822] border border-white/10 hover:border-[#00e5ff]/30 transition-all">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-full bg-[#00e5ff]/20 text-[#00e5ff] flex items-center justify-center font-bold text-lg">
-                            S
-                          </div>
-                          <div>
-                            <div className="font-semibold text-white">Sarah T.</div>
-                            <div className="text-xs text-white/60">VP of Technology, ScaleUp SaaS</div>
-                          </div>
+                        <div>
+                          <strong className="text-white block text-sm">Alexander H.</strong>
+                          <span className="text-white/50 text-xs">COO, LogiSync Operations</span>
                         </div>
-                        <p className="text-white/80 text-sm leading-relaxed">
-                          &ldquo;Their AI document parsing solution saved our operations team over 120 hours every month. Flawless error handling and zero data leaks.&rdquo;
-                        </p>
-                      </div>
-
-                      {/* Testimonial 3 */}
-                      <div className="tech-testimonials__item min-w-[320px] md:min-w-[420px] p-8 rounded-2xl bg-[#161822] border border-white/10 hover:border-[#00e5ff]/30 transition-all">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-full bg-[#0077ff]/20 text-[#00e5ff] flex items-center justify-center font-bold text-lg">
-                            D
-                          </div>
-                          <div>
-                            <div className="font-semibold text-white">David K.</div>
-                            <div className="text-xs text-white/60">Founder, E-Commerce Brand Group</div>
-                          </div>
-                        </div>
-                        <p className="text-white/80 text-sm leading-relaxed">
-                          &ldquo;TechForbs didn&apos;t just connect APIs; they re-architected how our CRM and Shopify store communicate. The ROI was clear within week two.&rdquo;
-                        </p>
                       </div>
                     </div>
 
-                    {/* Navigation Buttons for Testimonials */}
-                    <div className="slider-buttons flex items-center gap-3 mt-8">
-                      <div className="button button_slider testimonials-slider-prev cursor-pointer">
-                        <div className="button-slider-arrow w-embed">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 6L9 12L15 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
+                    <div className="tech-service-card">
+                      <p className="text-white/80 text-sm italic mb-6 leading-relaxed">
+                        &quot;The team delivered a custom AI document processing engine that saved us hundreds of manual
+                        hours every week. Truly exceptional engineering and reliable communication.&quot;
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-[#0077ff]/20 border border-[#00e5ff]/40 flex items-center justify-center font-bold text-white text-sm">
+                          EV
                         </div>
-                      </div>
-                      <div className="button button_slider testimonials-slider-next cursor-pointer">
-                        <div className="button-slider-arrow w-embed">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
+                        <div>
+                          <strong className="text-white block text-sm">Elena V.</strong>
+                          <span className="text-white/50 text-xs">VP of Product, RetailNova</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </section>
 
-                {/* =============================================================
-                    10. BUSINESSES WE SERVE WITH AI & AUTOMATION
-                    ============================================================= */}
-                <section id="solutions" className="tech-customize">
+                {/* -------------------------------------------------------------
+                    10. BUSINESSES WE SERVE
+                    ------------------------------------------------------------- */}
+                <section id="businesses-serve" className="tech-customize">
                   <h2
                     color-word="#00e5ff"
                     text-split=""
                     lines-slide-up=""
-                    color-words-index="0"
+                    color-words-index="3,4"
                     className="tech-section-title mb-60"
                   >
                     Businesses we serve with AI &amp; automation
                   </h2>
+                  <div className="text-block is-gray margin-bottom-50">
+                    Tailored architectures designed specifically for your stage of growth and operational velocity.
+                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Card 1: Agencies */}
-                    <div className="business-card p-8 rounded-2xl relative overflow-hidden group">
-                      <div className="w-12 h-12 rounded-xl bg-[#0077ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-6 text-[#00e5ff]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                          <line x1="8" y1="21" x2="16" y2="21" />
-                          <line x1="12" y1="17" x2="12" y2="21" />
-                        </svg>
-                      </div>
-                      <h3 className="text-xl font-bold mb-3 text-white">Agencies</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="tech-service-card">
+                      <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Segment 01</span>
+                      <h3 className="text-lg font-bold text-white mb-2">Agencies</h3>
                       <p className="text-white/70 text-sm leading-relaxed">
-                        White-label automation with clear reporting. From intelligent agents to content ops —
-                        engineered to fit your stack and brand without staffing overhead.
+                        Automate client onboarding, multi-channel reporting, task handoffs, and asset delivery.
                       </p>
                     </div>
 
-                    {/* Card 2: Startups */}
-                    <div className="business-card p-8 rounded-2xl relative overflow-hidden group">
-                      <div className="w-12 h-12 rounded-xl bg-[#0077ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-6 text-[#00e5ff]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                        </svg>
-                      </div>
-                      <h3 className="text-xl font-bold mb-3 text-white">Startups</h3>
+                    <div className="tech-service-card">
+                      <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Segment 02</span>
+                      <h3 className="text-lg font-bold text-white mb-2">Startups</h3>
                       <p className="text-white/70 text-sm leading-relaxed">
-                        Rapid AI PoC and MVP buildouts in weeks: fast learnings, immediate operational leverage,
-                        and scalable architecture that doesn&apos;t require rebuilding later.
+                        Build 10x leaner by connecting core product APIs to support, sales, and analytics without adding headcount.
                       </p>
                     </div>
 
-                    {/* Card 3: SMEs */}
-                    <div className="business-card p-8 rounded-2xl relative overflow-hidden group">
-                      <div className="w-12 h-12 rounded-xl bg-[#0077ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-6 text-[#00e5ff]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="18" y1="20" x2="18" y2="10" />
-                          <line x1="12" y1="20" x2="12" y2="4" />
-                          <line x1="6" y1="20" x2="6" y2="14" />
-                        </svg>
-                      </div>
-                      <h3 className="text-xl font-bold mb-3 text-white">SMEs</h3>
+                    <div className="tech-service-card">
+                      <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Segment 03</span>
+                      <h3 className="text-lg font-bold text-white mb-2">SMEs</h3>
                       <p className="text-white/70 text-sm leading-relaxed">
-                        Eliminate manual ops: CRM/inboxes/spreadsheets, automated lead routing, and knowledge search
-                        so your core team focuses entirely on customer value.
+                        Eliminate legacy software silos, manual spreadsheet data entry, and slow reconciliation cycles.
                       </p>
                     </div>
 
-                    {/* Card 4: Enterprises */}
-                    <div className="business-card p-8 rounded-2xl relative overflow-hidden group">
-                      <div className="w-12 h-12 rounded-xl bg-[#0077ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-6 text-[#00e5ff]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
-                      </div>
-                      <h3 className="text-xl font-bold mb-3 text-white">Enterprises</h3>
+                    <div className="tech-service-card">
+                      <span className="text-xs font-mono uppercase tracking-wider text-[#00e5ff] font-semibold block mb-2">Segment 04</span>
+                      <h3 className="text-lg font-bold text-white mb-2">Enterprises</h3>
                       <p className="text-white/70 text-sm leading-relaxed">
-                        Enterprise governance, granular RBAC, complete telemetry observability, and automated compliance
-                        aligned with corporate security and privacy policies.
+                        Custom AI pipelines, secure self-hosted LLM orchestration, audit logging, and ironclad SLA uptime.
                       </p>
                     </div>
                   </div>
                 </section>
               </div>
 
-              {/* =============================================================
-                  ASIDE STICKY: FOUNDER PROFILE (SUNIL PANCHANI)
-                  ============================================================= */}
+              {/* ---------------------------------------------------------------
+                  STICKY ASIDE (FOUNDER PROFILE)
+                  --------------------------------------------------------------- */}
               <aside className="tech-aside mobile-fixed is-sticky">
-                <div className="fade-up-alt_desktop">
-                  <div className="cta-bn__ceo">
-                    <div className="hide-mob-landscape">
-                      <div className="cta-bn__img">
-                        <img
-                          src="/images/technologies/sunil-panchani-director.jpg"
-                          loading="lazy"
-                          alt="Sunil Panchani photo, Founder & Director of TechForbs"
-                          className="img_cover"
-                        />
-                      </div>
-                      <div className="cta-bn__content">
-                        <div className="cta-bn__name">Sunil Panchani</div>
-                        <div className="cta-bn__position">Founder &amp; Director, TechForbs</div>
-                      </div>
-                    </div>
-                    <Link
-                      href="#contact-section"
-                      className="button button_smaller button_blue cta-btn-contact"
-                    >
-                      <strong>Contact</strong>
-                    </Link>
+                <div className="tech-service-card text-center p-6 border border-[#00e5ff]/20">
+                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-[#00e5ff] shadow-lg mb-4">
+                    <img
+                      src="/images/team/sunil-panchani-director.jpg"
+                      alt="Sunil Panchani, Director & Founder"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
+                  <h3 className="text-lg font-bold text-white mb-1">Sunil Panchani</h3>
+                  <p className="text-[#00e5ff] text-xs font-semibold mb-3">Director &amp; Founder</p>
+                  <p className="text-white/60 text-xs mb-6 leading-relaxed">
+                    Discuss your automation roadmap directly with our founding leadership.
+                  </p>
+                  <Link
+                    href="#contact-section"
+                    className="button button_smaller button_blue w-full block text-center"
+                  >
+                    <strong>Let&#x27;s talk</strong>
+                  </Link>
                 </div>
               </aside>
             </div>
 
-            {/* =================================================================
-                11. BRAND LOGOS SECTION
-                ================================================================= */}
-            <div className="my-16">
+            {/* -----------------------------------------------------------------
+                11. BRAND LOGOS & INDUSTRY RECOGNITION
+                ----------------------------------------------------------------- */}
+            <section className="section-swis-awards v2 my-16">
+              <div className="text-center mb-10">
+                <p className="text-xs font-mono uppercase tracking-widest text-[#00e5ff] font-semibold">
+                  By choosing us you choose results and industry recognition
+                </p>
+              </div>
               <BrandLogos />
-            </div>
+            </section>
 
-            {/* =================================================================
-                12. CTA BANNER (FOUNDER PROFILE COMPOSITION)
-                ================================================================= */}
-            <div className="tech-main-inner-wider v2 my-12">
-              <div className="w100">
-                <div className="fade-up-alt">
-                  <div className="cta-banner relative overflow-hidden rounded-3xl p-10 bg-gradient-to-br from-[#101322] to-[#0c0d16] border border-[#00e5ff]/20">
-                    {/* Background geometric decorative shapes */}
-                    <div className="absolute top-4 right-1/4 w-3 h-3 rotate-45 bg-[#00e5ff]/40 pointer-events-none" />
-                    <div className="absolute bottom-6 left-1/3 w-4 h-4 rotate-12 bg-[#0077ff]/40 pointer-events-none" />
-                    <div className="absolute top-1/2 left-8 w-2 h-2 rotate-45 bg-[#00e5ff]/60 pointer-events-none" />
+            {/* -----------------------------------------------------------------
+                12. HIGH-CONVERTING CTA BANNER
+                ----------------------------------------------------------------- */}
+            <div className="tech-main-inner-wider max-w-[69.75rem] mx-auto px-4 my-16">
+              <div className="tech-service-card p-10 md:p-14 border border-[#00e5ff]/30 bg-gradient-to-r from-[#13141f] via-[#0d0e17] to-[#13141f] rounded-3xl">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+                  <div className="max-w-2xl text-center lg:text-left">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                      Build smarter workflows with the right automation partner
+                    </h3>
+                    <p className="text-white/70 text-sm md:text-base leading-relaxed">
+                      Eliminate busywork, connect your technology ecosystem, and accelerate your business velocity today.
+                    </p>
+                  </div>
 
-                    <div className="cta-banner-caption max-w-xl">
-                      <h3
-                        color-word="#00e5ff"
-                        text-split=""
-                        lines-slide-up=""
-                        color-words-index="6,7"
-                        className="cta-banner-title text-3xl font-bold text-white mb-4"
-                      >
-                        Build smarter workflows with the right automation partner
-                      </h3>
-                      <p className="text-white/70 text-base leading-relaxed">
-                        From custom API integrations to autonomous LLM pipelines, we engineer reliable systems tailored to your business goals.
-                      </p>
+                  <div className="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0">
+                    <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#00e5ff] shadow-lg hidden sm:block">
+                      <img
+                        src="/images/team/sunil-panchani-director.jpg"
+                        alt="Sunil Panchani"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-
-                    <div className="cta-banner-right mt-8 md:mt-0">
-                      <div className="fade-up-alt">
-                        <div className="cta-bn__ceo text-center flex flex-col items-center">
-                          <div className="cta-bn__img mb-3">
-                            <img
-                              src="/images/technologies/sunil-panchani-director.jpg"
-                              loading="lazy"
-                              alt="Sunil Panchani photo, Founder & Director of TechForbs"
-                              className="img_cover"
-                            />
-                          </div>
-                          <div className="cta-bn__content text-center mb-3">
-                            <h4 className="cta-bn__name font-bold text-lg text-white">Sunil Panchani</h4>
-                            <p className="cta-bn__position text-sm text-[#00e5ff]">Founder &amp; Director, TechForbs</p>
-                          </div>
-                          <div className="cta-banner-person-buttons">
-                            <Link href="#contact-section" className="button button_smaller button_blue">
-                              <strong>Contact</strong>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <Link
+                      href="#contact-section"
+                      className="button button_blue"
+                    >
+                      <strong>Book a discovery call</strong>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* =================================================================
-                13. FAQ SECTION (AI & AUTOMATION SPECIFIC)
-                ================================================================= */}
-            <div className="tech-main-inner is-empty">
-              <aside className="tech-aside is-empty"></aside>
-              <section id="faq" className="tech-faq w-full">
-                <h2 lines-slide-up="" text-split="" className="tech-section-title mb-60">
-                  Frequently asked questions (FAQ)
-                </h2>
-
-                <div className="w-dyn-list">
-                  <div
-                    itemType="https://schema.org/FAQPage"
-                    itemScope={true}
-                    role="list"
-                    className="faq w-dyn-items"
+            {/* -----------------------------------------------------------------
+                13. FREQUENTLY ASKED QUESTIONS (FAQ)
+                ----------------------------------------------------------------- */}
+            <div className="tech-main-inner margin-bottom-7-5 overflow-hidden">
+              <div className="tech-content">
+                <section id="faq" className="tech-faq">
+                  <h2
+                    color-word="#00e5ff"
+                    text-split=""
+                    lines-slide-up=""
+                    color-words-index="3,4"
+                    className="tech-section-title mb-60"
                   >
+                    Frequently asked questions (FAQ)
+                  </h2>
+
+                  <div className="faq flex flex-col gap-4">
                     {/* FAQ 1 */}
-                    <div role="listitem" className="fade-up-alt w-dyn-item">
-                      <div
-                        data-hover="false"
-                        data-delay="0"
-                        itemProp="mainEntity"
-                        itemScope={true}
-                        itemType="https://schema.org/Question"
-                        className="faq-item w-dropdown cursor-pointer"
-                      >
-                        <div className="faq-item-header w-dropdown-toggle">
-                          <div className="faq-item-header-icon">
-                            <div className="faq-item-header-icon-line"></div>
-                            <div className="faq-item-header-icon-line rotated"></div>
-                          </div>
-                          <div itemProp="name">Do you build everything with custom code?</div>
+                    <div className="faq-item border border-white/10 rounded-2xl p-6 bg-[#13141f]/70">
+                      <div className="faq-item-header flex items-center justify-between cursor-pointer">
+                        <h3 className="text-base font-semibold text-white pr-4">
+                          How fast can TechForbs deploy an AI automation workflow?
+                        </h3>
+                        <div className="faq-item-header-icon flex-shrink-0 w-8 h-8 rounded-full border border-[#00e5ff]/30 flex items-center justify-center text-[#00e5ff]">
+                          +
                         </div>
-                        <nav className="faq-item-header-dropdown w-dropdown-list">
-                          <div
-                            itemProp="acceptedAnswer"
-                            itemScope={true}
-                            itemType="https://schema.org/Answer"
-                            className="faq-item-header-dropdown-inner"
-                          >
-                            <div itemProp="text" className="w-richtext text-white/80 leading-relaxed">
-                              <p>
-                                We choose the fastest, most reliable architecture for your budget: no-code platforms (Make, Zapier, n8n) for rapid integrations, and custom Python/Node.js microservices with private vector stores when complex transformations, encryption, or heavy compute are required.
-                              </p>
-                            </div>
-                          </div>
-                        </nav>
+                      </div>
+                      <div className="faq-item-header-dropdown mt-4 pt-4 border-t border-white/10 text-white/70 text-sm leading-relaxed hidden">
+                        Standard automations connecting common tools (CRMs, email, databases) typically go live within 5 to 10 business days. Complex custom AI document processing pipelines or multi-system enterprise integrations typically deploy within 2 to 4 weeks, with staged milestone rollouts and shadow testing throughout.
                       </div>
                     </div>
 
                     {/* FAQ 2 */}
-                    <div role="listitem" className="fade-up-alt w-dyn-item">
-                      <div
-                        data-hover="false"
-                        data-delay="0"
-                        itemProp="mainEntity"
-                        itemScope={true}
-                        itemType="https://schema.org/Question"
-                        className="faq-item w-dropdown cursor-pointer"
-                      >
-                        <div className="faq-item-header w-dropdown-toggle">
-                          <div className="faq-item-header-icon">
-                            <div className="faq-item-header-icon-line"></div>
-                            <div className="faq-item-header-icon-line rotated"></div>
-                          </div>
-                          <div itemProp="name">Where do you use AI vs. simple deterministic rules?</div>
+                    <div className="faq-item border border-white/10 rounded-2xl p-6 bg-[#13141f]/70">
+                      <div className="faq-item-header flex items-center justify-between cursor-pointer">
+                        <h3 className="text-base font-semibold text-white pr-4">
+                          Do we need to replace our current software and CRM tools?
+                        </h3>
+                        <div className="faq-item-header-icon flex-shrink-0 w-8 h-8 rounded-full border border-[#00e5ff]/30 flex items-center justify-center text-[#00e5ff]">
+                          +
                         </div>
-                        <nav className="faq-item-header-dropdown w-dropdown-list">
-                          <div
-                            itemProp="acceptedAnswer"
-                            itemScope={true}
-                            itemType="https://schema.org/Answer"
-                            className="faq-item-header-dropdown-inner"
-                          >
-                            <div itemProp="text" className="w-richtext text-white/80 leading-relaxed">
-                              <p>
-                                We prioritize deterministic rules for predictable data routing, calculations, and transactional operations to minimize token costs and eliminate latency. We introduce AI selectively where unstructured inputs (emails, PDFs, voice, messy freeform text) require semantic comprehension and classification.
-                              </p>
-                            </div>
-                          </div>
-                        </nav>
+                      </div>
+                      <div className="faq-item-header-dropdown mt-4 pt-4 border-t border-white/10 text-white/70 text-sm leading-relaxed hidden">
+                        No. We engineer directly around your existing ecosystem — including HubSpot, Salesforce, Airtable, Google Workspace, Slack, and custom legacy databases. We connect and orchestrate what you already use rather than forcing an expensive rip-and-replace migration.
                       </div>
                     </div>
 
                     {/* FAQ 3 */}
-                    <div role="listitem" className="fade-up-alt w-dyn-item">
-                      <div
-                        data-hover="false"
-                        data-delay="0"
-                        itemProp="mainEntity"
-                        itemScope={true}
-                        itemType="https://schema.org/Question"
-                        className="faq-item w-dropdown cursor-pointer"
-                      >
-                        <div className="faq-item-header w-dropdown-toggle">
-                          <div className="faq-item-header-icon">
-                            <div className="faq-item-header-icon-line"></div>
-                            <div className="faq-item-header-icon-line rotated"></div>
-                          </div>
-                          <div itemProp="name">Can a human review critical edge cases?</div>
+                    <div className="faq-item border border-white/10 rounded-2xl p-6 bg-[#13141f]/70">
+                      <div className="faq-item-header flex items-center justify-between cursor-pointer">
+                        <h3 className="text-base font-semibold text-white pr-4">
+                          How is enterprise data security and privacy maintained?
+                        </h3>
+                        <div className="faq-item-header-icon flex-shrink-0 w-8 h-8 rounded-full border border-[#00e5ff]/30 flex items-center justify-center text-[#00e5ff]">
+                          +
                         </div>
-                        <nav className="faq-item-header-dropdown w-dropdown-list">
-                          <div
-                            itemProp="acceptedAnswer"
-                            itemScope={true}
-                            itemType="https://schema.org/Answer"
-                            className="faq-item-header-dropdown-inner"
-                          >
-                            <div itemProp="text" className="w-richtext text-white/80 leading-relaxed">
-                              <p>
-                                Yes. Every production AI pipeline we build includes confidence thresholds. If a prediction falls below the confidence target or involves high-value transactions, it automatically diverts to a human approval queue via Slack, Teams, or email with one-click resolution.
-                              </p>
-                            </div>
-                          </div>
-                        </nav>
+                      </div>
+                      <div className="faq-item-header-dropdown mt-4 pt-4 border-t border-white/10 text-white/70 text-sm leading-relaxed hidden">
+                        We adhere to SOC2 and GDPR compliance protocols. All API data transfers are encrypted in transit via TLS 1.3 and at rest. Whenever frontier LLMs are utilized, zero-data-retention agreements are configured so that your proprietary business data is never logged or used to train third-party public models.
                       </div>
                     </div>
 
                     {/* FAQ 4 */}
-                    <div role="listitem" className="fade-up-alt w-dyn-item">
-                      <div
-                        data-hover="false"
-                        data-delay="0"
-                        itemProp="mainEntity"
-                        itemScope={true}
-                        itemType="https://schema.org/Question"
-                        className="faq-item w-dropdown cursor-pointer"
-                      >
-                        <div className="faq-item-header w-dropdown-toggle">
-                          <div className="faq-item-header-icon">
-                            <div className="faq-item-header-icon-line"></div>
-                            <div className="faq-item-header-icon-line rotated"></div>
-                          </div>
-                          <div itemProp="name">Is our company and customer data secure?</div>
+                    <div className="faq-item border border-white/10 rounded-2xl p-6 bg-[#13141f]/70">
+                      <div className="faq-item-header flex items-center justify-between cursor-pointer">
+                        <h3 className="text-base font-semibold text-white pr-4">
+                          What happens if a connected third-party API changes or fails?
+                        </h3>
+                        <div className="faq-item-header-icon flex-shrink-0 w-8 h-8 rounded-full border border-[#00e5ff]/30 flex items-center justify-center text-[#00e5ff]">
+                          +
                         </div>
-                        <nav className="faq-item-header-dropdown w-dropdown-list">
-                          <div
-                            itemProp="acceptedAnswer"
-                            itemScope={true}
-                            itemType="https://schema.org/Answer"
-                            className="faq-item-header-dropdown-inner"
-                          >
-                            <div itemProp="text" className="w-richtext text-white/80 leading-relaxed">
-                              <p>
-                                Absolute data confidentiality is guaranteed. We utilize enterprise API agreements with zero-data-retention policies, end-to-end payload encryption in transit and at rest, and strict role-based access controls. Your private data is never used to train public LLM models.
-                              </p>
-                            </div>
-                          </div>
-                        </nav>
+                      </div>
+                      <div className="faq-item-header-dropdown mt-4 pt-4 border-t border-white/10 text-white/70 text-sm leading-relaxed hidden">
+                        Every workflow is built with defensive engineering: exponential backoff retries, dead-letter queue routing, fallback paths, and instant real-time alerting to our on-call engineering channel. If an external service has an outage, payloads are safely queued and retried automatically once service is restored.
                       </div>
                     </div>
 
                     {/* FAQ 5 */}
-                    <div role="listitem" className="fade-up-alt w-dyn-item">
-                      <div
-                        data-hover="false"
-                        data-delay="0"
-                        itemProp="mainEntity"
-                        itemScope={true}
-                        itemType="https://schema.org/Question"
-                        className="faq-item w-dropdown cursor-pointer"
-                      >
-                        <div className="faq-item-header w-dropdown-toggle">
-                          <div className="faq-item-header-icon">
-                            <div className="faq-item-header-icon-line"></div>
-                            <div className="faq-item-header-icon-line rotated"></div>
-                          </div>
-                          <div itemProp="name">How do you monitor and maintain live workflows?</div>
+                    <div className="faq-item border border-white/10 rounded-2xl p-6 bg-[#13141f]/70">
+                      <div className="faq-item-header flex items-center justify-between cursor-pointer">
+                        <h3 className="text-base font-semibold text-white pr-4">
+                          How does post-launch support and maintenance work?
+                        </h3>
+                        <div className="faq-item-header-icon flex-shrink-0 w-8 h-8 rounded-full border border-[#00e5ff]/30 flex items-center justify-center text-[#00e5ff]">
+                          +
                         </div>
-                        <nav className="faq-item-header-dropdown w-dropdown-list">
-                          <div
-                            itemProp="acceptedAnswer"
-                            itemScope={true}
-                            itemType="https://schema.org/Answer"
-                            className="faq-item-header-dropdown-inner"
-                          >
-                            <div itemProp="text" className="w-richtext text-white/80 leading-relaxed">
-                              <p>
-                                We instrument every scenario with real-time error alerts and self-healing retries for transient outages. Ongoing SLA support packages include log monitoring, schema migration updates when third-party APIs update, and performance audits.
-                              </p>
-                            </div>
-                          </div>
-                        </nav>
+                      </div>
+                      <div className="faq-item-header-dropdown mt-4 pt-4 border-t border-white/10 text-white/70 text-sm leading-relaxed hidden">
+                        We provide full documentation, comprehensive handover training, and optional ongoing maintenance SLA packages with active uptime monitoring, schema updates, optimization, and engineering support.
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <aside className="tech-aside is-empty"></aside>
+                </section>
+              </div>
+              <aside className="tech-aside is-empty" />
             </div>
           </div>
-
-          {/* =================================================================
-              14. CONTACT SECTION
-              ================================================================= */}
-          <ContactSection />
         </main>
 
+        <ContactSection />
         <Footer />
       </div>
     </SmoothScroll>
