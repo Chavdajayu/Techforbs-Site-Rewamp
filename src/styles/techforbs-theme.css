@@ -1343,24 +1343,54 @@ body {
   cursor: pointer !important;
   user-select: none;
 }
-.faq-item.is-open .faq-item-header-dropdown,
-.faq-item.w--open .faq-item-header-dropdown {
+.faq-item-header-dropdown {
+  display: none !important;
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: opacity 0.3s ease, max-height 0.4s ease;
+}
+.faq-item.is-open > .faq-item-header-dropdown,
+.faq-item.w--open > .faq-item-header-dropdown {
   display: block !important;
   opacity: 1 !important;
+  max-height: 1200px !important;
   height: auto !important;
 }
-.faq-item-header-dropdown {
-  overflow: hidden;
+.faq-item-header-icon-line {
+  transition: transform 0.25s ease;
+}
+.faq-item-header-icon-line.rotated {
+  transform: rotate(90deg) !important;
 }
 .faq-item.is-open .faq-item-header-icon-line.rotated,
 .faq-item.w--open .faq-item-header-icon-line.rotated {
   transform: rotate(0deg) !important;
 }
-.faq-item-header-icon-line {
-  transition: transform 0.25s ease;
-}
 .tech-aside.is-sticky {
   position: sticky !important;
   top: 6.5rem !important;
   z-index: 10 !important;
+}
+
+/* ==========================================================================
+   FOUNDER / CEO AVATAR IMAGE ENHANCEMENT (SUNIL SIR)
+   ========================================================================== */
+.cta-bn__img {
+  width: 5.5rem !important;
+  height: 5.5rem !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  border: 2px solid rgba(255, 255, 255, 0.16) !important;
+  background-color: #1a1a1a !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+  flex-shrink: 0 !important;
+}
+.cta-bn__img img,
+.cta-bn__img .img_cover {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% 15% !important;
+  display: block !important;
 }

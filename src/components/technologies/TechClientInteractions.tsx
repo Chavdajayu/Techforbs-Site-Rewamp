@@ -11,19 +11,45 @@ export default function TechClientInteractions() {
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // 1. FAQ Accordion Click Handler
+    // 1. Force all FAQ items to start closed by default
+    const allFaqItems = document.querySelectorAll(".faq-item");
+    allFaqItems.forEach((item) => {
+      item.classList.remove("is-open", "w--open");
+      const dropdown = item.querySelector(".faq-item-header-dropdown");
+      if (dropdown) dropdown.classList.remove("w--open");
+    });
+
+    // FAQ Accordion Click Handler (strictly one open at a time)
     const handleFaqClick = (e: MouseEvent) => {
       const header = (e.target as HTMLElement).closest(".faq-item-header");
       if (!header) return;
-      const faqItem = header.closest(".faq-item");
-      if (!faqItem) return;
+      const clickedItem = header.closest(".faq-item");
+      if (!clickedItem) return;
 
-      const isOpen = faqItem.classList.contains("is-open");
-      faqItem.classList.toggle("is-open", !isOpen);
-      faqItem.classList.toggle("w--open", !isOpen);
-      const dropdown = faqItem.querySelector(".faq-item-header-dropdown");
-      if (dropdown) {
-        dropdown.classList.toggle("w--open", !isOpen);
+      const faqContainer = clickedItem.closest(".faq") || clickedItem.parentElement;
+      const isCurrentlyOpen = clickedItem.classList.contains("is-open") || clickedItem.classList.contains("w--open");
+
+      // Close all other FAQ items in this list
+      if (faqContainer) {
+        const siblings = faqContainer.querySelectorAll(".faq-item");
+        siblings.forEach((item) => {
+          if (item !== clickedItem) {
+            item.classList.remove("is-open", "w--open");
+            const dropdown = item.querySelector(".faq-item-header-dropdown");
+            if (dropdown) dropdown.classList.remove("w--open");
+          }
+        });
+      }
+
+      // Toggle the clicked FAQ item
+      if (isCurrentlyOpen) {
+        clickedItem.classList.remove("is-open", "w--open");
+        const dropdown = clickedItem.querySelector(".faq-item-header-dropdown");
+        if (dropdown) dropdown.classList.remove("w--open");
+      } else {
+        clickedItem.classList.add("is-open", "w--open");
+        const dropdown = clickedItem.querySelector(".faq-item-header-dropdown");
+        if (dropdown) dropdown.classList.add("w--open");
       }
     };
 
