@@ -6,6 +6,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Pass #18: Full Website Sentence-Case Standardisation + Blue Theme Enforcement + AI & Automation Page Fidelity Correction] - 2026-11-03
+
+### Added & Refined
+- **Objective A: Global Sentence-Case Standardisation:**
+  - Applied strict sentence case across all headings on every page of the website (homepage, 8 technology pages, and AI & Automation services page).
+  - Updated the shared Contact heading from all-caps to sentence case: `Get in touch`.
+  - Preserved correct technical casing for acronyms and proper names: `AI`, `Shopify`, `SEO`, `FAQ`, `PHP`, `Next.js`, `Node.js`, `WooCommerce`, `WordPress`, `React`, `Laravel`, `Drupal`.
+- **Objective B: Complete Blue-Black Brand Standardisation:**
+  - Purged all competitor red accents (`#EB5951`, `#ef5550`, `#f15b55`, `button_red`, red gradients, red card backgrounds, and red SVG shapes) from all UI elements across all pages.
+  - Enforced authentic TechForbs blue-black/cyan design system (`#101010`, `#13141f`, `#0d0e17`, `#0077ff`, `#00e5ff`).
+  - Preserved authentic third-party technology brand artwork.
+- **Objective C: AI & Automation Page Full Reference Fidelity Correction (`/services/ai-automation`):**
+  - Section 03 ("AI + automation: better together"): Reconstructed supporting visual collage (`.team__lottieanim` with `.team__grid.in-service-page`) with workflow UI screenshots and cyan decorative blocks.
+  - Section 05 ("Winning with us: our clients' success"): Fixed broken image paths and restored working horizontal Swiper carousel with authentic high-res project assets (`SACLAB`, `TechHunt`, `HIVE`, `Maxopolis`, `CabSpot`).
+  - Section 06 ("Why teams choose TechForbs"): Reconstructed supporting visual collage (`.team__grid`) with authentic TechForbs team photos.
+  - Section 08 ("Technologies we use in AI & automation"): Reconstructed horizontal Swiper carousel with individual cards (Make, HubSpot, Zapier, Airtable, n8n, Python, Node.js, Next.js, MySQL, Stripe) and navigation controls.
+  - Section 10 ("Businesses we serve with AI & automation"): Styled 4 cards with deep blue-black gradients and cyan SVG icons.
+  - Sticky Aside & CTA Banner: Centered Sunil Sir's new portrait, designation, and blue CTA buttons.
+  - Section 13 (FAQ): Single-open accordion behavior, closed by default, with cyan toggle icons.
+- **Homepage Hero & 3D Model Enhancements:**
+  - Adjusted headline vertical offset (`margin-top: -9.5rem`) and column gaps (`clamp(2.5rem, 5.5vw, 6.5rem)`), ensuring `POWERING / STORES TO` and `SHOPIFY / GROW` sit comfortably clear of the illuminated podium.
+  - Updated 3D Shopify model with matte non-shiny materials, ambient/directional light tuning, dense black radial ground shadow directly on the podium, and dual CSS drop-shadow filters.
+- **Founder Profile Photo Update:**
+  - Replaced founder portrait with Sunil Sir's new professional photograph across `/images/technologies/sunil-panchani-director.jpg` and `/images/team/sunil-panchani-director.jpg`.
+- **FAQ Component Refinements Across All Pages:**
+  - Forced all FAQ items across every page to start closed by default.
+  - Single-open accordion behavior closes previously open items upon clicking a new item.
+- **QA & Verification:**
+  - Generated all 18 required QA screenshots in `QA/precision-pass-18/`.
+  - Documented full results in `QA/precision-pass-18/QA-REPORT.md`.
+
+---
+
 ## [Pass #17: Precision Fidelity Pass — Global UI Refinements + Technology Page Alignment + First Complete Services Page: AI & Automation] - 2026-11-03
 
 ### Added & Refined

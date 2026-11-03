@@ -16,12 +16,15 @@ export default function TechClientInteractions() {
     allFaqItems.forEach((item) => {
       item.classList.remove("is-open", "w--open");
       const dropdown = item.querySelector(".faq-item-header-dropdown");
-      if (dropdown) dropdown.classList.remove("w--open");
+      if (dropdown) {
+        dropdown.classList.remove("w--open");
+        (dropdown as HTMLElement).style.display = "none";
+      }
     });
 
     // FAQ Accordion Click Handler (strictly one open at a time)
     const handleFaqClick = (e: MouseEvent) => {
-      const header = (e.target as HTMLElement).closest(".faq-item-header");
+      const header = (e.target as HTMLElement).closest(".faq-item-header, .faq-item-header-icon, [itemProp='name']");
       if (!header) return;
       const clickedItem = header.closest(".faq-item");
       if (!clickedItem) return;
@@ -36,7 +39,10 @@ export default function TechClientInteractions() {
           if (item !== clickedItem) {
             item.classList.remove("is-open", "w--open");
             const dropdown = item.querySelector(".faq-item-header-dropdown");
-            if (dropdown) dropdown.classList.remove("w--open");
+            if (dropdown) {
+              dropdown.classList.remove("w--open");
+              (dropdown as HTMLElement).style.display = "none";
+            }
           }
         });
       }
@@ -45,11 +51,17 @@ export default function TechClientInteractions() {
       if (isCurrentlyOpen) {
         clickedItem.classList.remove("is-open", "w--open");
         const dropdown = clickedItem.querySelector(".faq-item-header-dropdown");
-        if (dropdown) dropdown.classList.remove("w--open");
+        if (dropdown) {
+          dropdown.classList.remove("w--open");
+          (dropdown as HTMLElement).style.display = "none";
+        }
       } else {
         clickedItem.classList.add("is-open", "w--open");
         const dropdown = clickedItem.querySelector(".faq-item-header-dropdown");
-        if (dropdown) dropdown.classList.add("w--open");
+        if (dropdown) {
+          dropdown.classList.add("w--open");
+          (dropdown as HTMLElement).style.display = "block";
+        }
       }
     };
 

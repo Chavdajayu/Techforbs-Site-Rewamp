@@ -1362,6 +1362,12 @@ body {
   cursor: pointer !important;
   user-select: none;
 }
+.faq-item-header-icon {
+  border: 0.125rem solid #00e5ff !important;
+}
+.faq-item-header-icon-line {
+  background-color: #00e5ff !important;
+}
 .faq-item-header-dropdown {
   display: none !important;
   opacity: 0 !important;
@@ -1369,11 +1375,13 @@ body {
   overflow: hidden !important;
   transition: opacity 0.3s ease, max-height 0.4s ease;
 }
+.faq-item.is-open .faq-item-header-dropdown,
+.faq-item.w--open .faq-item-header-dropdown,
 .faq-item.is-open > .faq-item-header-dropdown,
 .faq-item.w--open > .faq-item-header-dropdown {
   display: block !important;
   opacity: 1 !important;
-  max-height: 1200px !important;
+  max-height: 2000px !important;
   height: auto !important;
 }
 .faq-item-header-icon-line {
@@ -1488,4 +1496,156 @@ body {
   margin: 0 auto !important;
   display: inline-flex !important;
   justify-content: center !important;
+}
+
+/* ==========================================================================
+   PASS #18: STRICT BLUE-BLACK THEME & REFERENCE FIDELITY ENFORCEMENT
+   ========================================================================== */
+
+/* Purge any lingering red button styles */
+.button_red,
+.button.button_red,
+.button_blue,
+.button.button_blue,
+.cta-btn-contact {
+  background-color: #0077ff !important;
+  border-color: #0077ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(0, 119, 255, 0.35) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.button_red:hover,
+.button.button_red:hover,
+.button_blue:hover,
+.button.button_blue:hover,
+.cta-btn-contact:hover {
+  background-color: #00e5ff !important;
+  border-color: #00e5ff !important;
+  color: #101010 !important;
+  box-shadow: 0 6px 24px rgba(0, 229, 255, 0.45) !important;
+}
+
+/* Service Cards & Businesses Served Cards: Authentic Blue-Black System */
+.tech-service-card,
+.tech-services-card-bg,
+.tech-service-item,
+.service-capability-card,
+.business-card,
+.businesses-serve-card {
+  background: linear-gradient(135deg, #13141f 0%, #0d0e17 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+.tech-service-card:hover,
+.tech-service-item:hover,
+.service-capability-card:hover,
+.business-card:hover,
+.businesses-serve-card:hover {
+  border-color: rgba(0, 229, 255, 0.4) !important;
+  box-shadow: 0 14px 40px rgba(0, 229, 255, 0.12) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Card Icons & SVGs */
+.tech-service-icon,
+.service-card-icon,
+.business-card-icon {
+  color: #00e5ff !important;
+  stroke: #00e5ff !important;
+}
+
+/* CTA Banner background & shapes */
+.cta-bg.is-red,
+.cta-banner.is-red {
+  background: linear-gradient(135deg, #0f1019 0%, #151829 100%) !important;
+  border: 1px solid rgba(0, 229, 255, 0.2) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Headings text-transform reset for proper sentence case display */
+.tech-section-title,
+.service-section-title,
+.section-title,
+.cta-banner-title,
+.hero-title,
+.tech-hero-title {
+  text-transform: none !important;
+}
+
+/* Collages & Decorative blocks */
+.team__decor-block {
+  background: linear-gradient(135deg, #0077ff 0%, #00e5ff 100%) !important;
+  border-radius: 1.25rem !important;
+}
+
+/* Technology and Case Study Horizontal Carousels */
+.tech-slider .swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.25rem !important;
+  overflow-x: auto !important;
+  scroll-behavior: smooth !important;
+}
+
+.tech-slider .swiper-slide {
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+  flex: 0 0 220px !important;
+  flex-shrink: 0 !important;
+}
+
+.cases-slider .swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
+  overflow-x: auto !important;
+  scroll-behavior: smooth !important;
+}
+
+.cases-slider .swiper-slide {
+  width: 400px !important;
+  min-width: 400px !important;
+  max-width: 420px !important;
+  flex: 0 0 400px !important;
+  flex-shrink: 0 !important;
+}
+
+.tech-sertificate .button {
+  display: inline-flex !important;
+  width: auto !important;
+}
+.swiper-btn-prev,
+.swiper-btn-next,
+.carousel-btn-prev,
+.carousel-btn-next,
+.tech-slider-prev,
+.tech-slider-next {
+  width: 2.75rem !important;
+  height: 2.75rem !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background-color: #161822 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.swiper-btn-prev:hover,
+.swiper-btn-next:hover,
+.carousel-btn-prev:hover,
+.carousel-btn-next:hover,
+.tech-slider-prev:hover,
+.tech-slider-next:hover {
+  border-color: #00e5ff !important;
+  background-color: #0077ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.4) !important;
 }
