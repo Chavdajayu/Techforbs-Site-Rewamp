@@ -69,7 +69,7 @@ export default function ContactSection() {
               </div>
             </div>
             <h3 className="contact-section__title title_regular">
-              let’s build your <br />
+              Let’s build your <br />
               next digital <br />
               flagship together
             </h3>
@@ -178,7 +178,7 @@ export default function ContactSection() {
             {!submitted ? (
               <form onSubmit={handleSubmit} className="contact__form">
                 <div className="contact__form-title">
-                  <p className="body-bigger weight-600">Get in touch</p>
+                  <p className="body-bigger weight-600">GET IN TOUCH</p>
                   <p className="contact__form-title-subtext">
                     OUR TEAM WILL RESPOND TO YOU WITHIN 1 BUSINESS DAY
                   </p>

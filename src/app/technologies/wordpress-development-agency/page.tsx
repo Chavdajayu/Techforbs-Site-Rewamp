@@ -40,7 +40,7 @@ export default function TechPage() {
         <div className="tech-main-inner z-index-3 is-sticky-wr">
             <div className="tech-content tab-mw-100">
                 <section id="services" className="tech-services">
-                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="0" className="tech-section-title mb-60"><span>services</span> to deliver maximum impact</h2>
+                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="0" className="tech-section-title mb-60"><span>Services</span> to deliver maximum impact</h2>
                     <ul role="list" className="tech-service-list">
                         <li className="tech-service-item fade-up-alt">
                             <div className="tech-service-item-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
@@ -84,7 +84,7 @@ export default function TechPage() {
                         </li>
                     </ul><img src="/images/technologies/65c10507e4c82427ebacb631_content-line-1.svg" loading="lazy" alt="" className="tech-services-decor" /></section>
                 <section id="why-we" className="tech-benefits">
-                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="5,6" className="tech-section-title mb-60">winning with us: our clients&#x27; success</h2>
+                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="5,6" className="tech-section-title mb-60">Winning with us: our clients' success</h2>
                     <div className="cases-wrap">
                         <div className="swiper cases-slider w-dyn-list">
                             <div itemType="https://schema.org/ItemList" itemScope={true} role="list" className="swiper-wrapper w-dyn-items">
@@ -427,7 +427,7 @@ export default function TechPage() {
                     </div>
                 </section>
                 <section id="ecosystem" className="tech-ecosystem">
-                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="1" className="tech-section-title mb-60">wordpress ecosystem we work with</h2>
+                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="1" className="tech-section-title mb-60">WordPress ecosystem we work with</h2>
                     <div className="fade-up-alt"></div>
                     <div className="fade-up-alt">
                         <div className="tech-slider-wrap">
@@ -1032,7 +1032,7 @@ export default function TechPage() {
                 <div className="fade-up-alt">
                     <div className="cta-banner">
                         <div className="cta-banner-caption">
-                            <h3 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="5,6,7,8" className="cta-banner-title">choose a tech partner that challenges, guides, and delivers</h3>
+                            <h3 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="5,6,7,8" className="cta-banner-title">Choose a tech partner that challenges, guides, and delivers</h3>
                         </div>
                         <div className="cta-banner-right">
                             <div className="fade-up-alt">
@@ -1054,7 +1054,7 @@ export default function TechPage() {
         <div className="tech-main-inner margin-bottom-7-5 overflow-hidden">
             <div className="tech-content">
                 <section id="faq" className="tech-faq">
-                    <h2 lines-slide-up="" text-split="" className="tech-section-title mb-60">frequently asked questions (faq)</h2>
+                    <h2 lines-slide-up="" text-split="" className="tech-section-title mb-60">Frequently asked questions (FAQ)</h2>
                     <div className="w-dyn-list">
                         <div itemType="https://schema.org/FAQPage" itemScope={true} role="list" className="faq w-dyn-items">
                             <div role="listitem" className="fade-up-alt w-dyn-item">

@@ -173,7 +173,7 @@ export default function TestimonialsSection() {
                 </div>
               </div>
               <h2 className="title_regular">
-                what our clients are saying... verified feedback
+                What our clients are saying... verified feedback
               </h2>
             </div>
           </div>

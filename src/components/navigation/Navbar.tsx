@@ -184,7 +184,7 @@ export default function Navbar() {
                         {/* Services Left Column: Core Disciplines */}
                         <div className="sub-menu__left">
                           <Link
-                            href="#solutions-section"
+                            href="/services/ai-automation"
                             onClick={closeAll}
                             className="sub-menu__item w-inline-block"
                           >

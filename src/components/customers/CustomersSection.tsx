@@ -81,7 +81,7 @@ export default function CustomersSection() {
               </div>
               <div className="customers__title title_regular">
                 <div className="customers__title-row">
-                  <div>the wonderful</div>
+                  <div>The wonderful</div>
                   <div className="customers__title-strikethrough">
                     <div>companies</div>
                     <div ref={strikethroughRef} className="customers__title-line"></div>

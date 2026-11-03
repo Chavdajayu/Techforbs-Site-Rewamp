@@ -57,7 +57,7 @@ export default function WhoWeBuildFor() {
                 </div>
               </div>
               <h2 className="h2 is-56">
-                Empowering Global Brands With Scalable IT Solutions
+                Empowering global brands with scalable IT solutions
               </h2>
             </div>
             <div className="max-w-760">

@@ -1,5 +1,5 @@
 # TechForbs — Next.js Production Website Revamp
-> **Precision Fidelity Pass #16** | Hero Animation Reconstruction + Typography Enlargement + What We Do Visibility Fix + Digital Marketing Simplification + Portfolio Carousel Reference-Size Restoration (Three.js 3D Canvas, TailwindCSS v4, TypeScript, GSAP, and Netlify Deployment).
+> **Precision Fidelity Pass #17** | Global UI Refinements + Technology Page Alignment + First Complete Services Page: AI & Automation (`/services/ai-automation`), Sunil Sir Founder Profile Alignment, Sentence-Case Headings, and Vercel Production Deployment.
 
 ---
 
@@ -7,37 +7,41 @@
 
 This repository houses the modern Next.js production revamp for **TechForbs** ([techforbs.com](https://techforbs.com/)), completely migrated from the approved baseline design while implementing precision homepage revisions and establishing a production-grade React App Router architecture.
 
-Following **Precision Fidelity Pass #16**, the following key areas have been perfected:
-1. **Hero Animation Reconstruction (Change 01):** Authentic CHE IT Webflow IX2 choreography reproduced using GSAP:
-   - Initial state: 3D stage and Shopify model scaled to `0.01` at `(-2.25rem, 4rem)`, background atmosphere at `0.0001`, words masked at `yPercent: 120`, header hidden at `yPercent: -100`.
-   - At 0.75s: 3D stage and Shopify model scale to 1.0 and translate to center (duration 1.5s, ease `expo.inOut`).
-   - At 1.75s: Atmospheric faceted background fades in (duration 1.5s, ease `power2.out`) concurrently with Row 1 words (`POWERING` / `SHOPIFY`) revealing upward (duration 1.25s, ease `expo.inOut`).
-   - At 1.95s: Row 2 words (`STORES TO` / `GROW`) reveal upward (duration 1.25s, ease `expo.inOut`).
-   - At 2.75s: Header navbar slides down into place (duration 0.5s, ease `expo.out`).
-   - At 3.30s & 3.60s: Supporting text and CTA buttons fade in.
-2. **Double Hero Headline Font Size (Change 02):** Headline font size doubled to `clamp(3.8rem, 7.2vw, 9.2rem)` at 1440px/1920px (~2.0× of Pass #15). `"STORES TO"` strictly on ONE line on desktop (`white-space: nowrap !important;`). Central 3D Shopify model maintained in reserved center column (`minmax(320px, 420px)`) with ZERO text/model overlap. Mobile layout cleanly stacked with 3D model between upper and lower headline rows.
-3. **What We Do Blank-on-Scroll Fix (Change 03):** Established fail-open CSS and GSAP lifecycle architecture (`.solutions__inner { opacity: 1 !important; }`). Immediate visibility if scrolled into view or past; failsafe timeout ensures section is never locked at opacity 0 under any scroll speed.
-4. **Digital Marketing Simplification (Change 04):** Removed all 8 subpoint descriptions from Digital Marketing, retaining strictly the 8 approved service titles in a clean, balanced 2-column layout (4 left, 4 right) with glowing cyan bullets (`#00e5ff`). Removed category description paragraph for Digital Marketing. Left all other 4 categories (`Shopify Development`, `WordPress / WooCommerce Development`, `Custom Web Application`, `AI & Automation`) completely intact.
-5. **Portfolio Carousel Reference-Size Restoration (Change 05):** Restored large card dimensions matching Image 3 from Netlify and the original CHE IT reference (`height: clamp(480px, 44vw, 560px)` image container, `min-height: clamp(560px, 50vw, 680px)` card). Signature reversed asymmetric capsule geometry (`border-top-left-radius: 0px`, `border-top-right-radius: 2.25rem`). Swiper breakpoints: `1.25` on mobile, `1.45` at 480px, `2.2` at 768px, `2.5` at 992px, `2.8` at 1440px with 40px spacing across all 7 cards (ALLMAX, Bodhi Health, Finarkein, Hype Distribution, Digicio, Kilongwan, GIMA).
+Following **Precision Fidelity Pass #17**, the following key areas have been perfected:
+1. **Finarkein Logo High-Contrast & Light-Green Hover (Change 01):** Upgraded Finarkein logo in the brand logos strip to high-contrast white brightness default with smooth transition to light-green hover effect (`#4ade80`). All other 9 brand logos strictly preserved.
+2. **What We Do "Check details" Removal (Change 02):** Removed all redundant "Check details" CTA buttons from all 5 service categories in `SolutionsSection.tsx`.
+3. **Technology Hero "Get guidance" CTA Enlargement (Change 03):** Enlarged "Get guidance" CTA button by ~15-20% across all 8 Technology pages while preserving anchor `#contact-section` smooth scrolling.
+4. **Technology Founder Profile Center-Alignment (Change 04):** Unified center-alignment of Sunil Sir's avatar, name "Sunil Panchani", role "Founder & Director, TechForbs", and "Contact" button across both sticky aside and footer CTA banner on all 8 Technology pages.
+5. **Site-Wide Sentence-Case Headings (Change 05):** Converted major headings across the application to sentence case while preserving proper nouns/acronyms (`AI`, `SEO`, `Shopify`, `TechForbs`, `FAQ`). Preserved `GET IN TOUCH` in ALL CAPS in Contact section.
+6. **First Complete Services Page — AI & Automation (Objective B):** Created `/services/ai-automation` route matching the local CHE IT reference source (`services/ai-automation.html`), adapted to authentic TechForbs capabilities (Intelligent Agent Development, Conversational AI & Chatbots, AI Application Development, AI Integration & Implementation, AI Strategy & Consulting), with full responsive layout, GSAP animations, case studies, tech ecosystem, testimonials, and FAQ accordion.
+7. **Navbar Services Integration:** Linked "AI & automation" in Services dropdown in `Navbar.tsx` to `/services/ai-automation`.
 
 ---
 
-## 📋 QA Verification Suite (Pass #16)
+## 📋 QA Verification Suite (Pass #17)
 
-Full visual proofs and execution metrics are documented in [`QA/precision-pass-16/QA-REPORT.md`](./QA/precision-pass-16/QA-REPORT.md).
+Full visual proofs and execution metrics are documented in [`QA/precision-pass-17/QA-REPORT.md`](./QA/precision-pass-17/QA-REPORT.md).
 
-All 15 required QA verification screenshots have been successfully captured and validated in `QA/precision-pass-16/`:
-- `01-hero-before.png` — Baseline Hero layout from Pass #15
-- `02-hero-opening-frame.png` — Opening animation frame showing 3D stage scaled down to 0.01 at offset (-36px, 64px), hidden words, and translucent background
-- `03-hero-background-reveal.png` — Hero at 1.75s: 3D stage scaled up, background image fading in, row 1 appearing
-- `04-hero-model-entrance.png` — Hero showing 3D Shopify bag entrance and positioning
-- `05-hero-final-2x-typography.png` — Hero with 2× headline font size, zero model overlap, "STORES TO" on one single line
-- `06-hero-responsive-desktop.png` — Hero desktop layout at 1920x1080 resolution
-- `07-hero-mobile.png` — Hero mobile viewport (390x844) with clean vertical stack
-- `08-what-we-do-scroll-entry.png` — What We Do section scrolled into view, verified visible and never blank
-- `09-what-we-do-after-animation.png` — What We Do fully rendered and interactable
-- `10-digital-marketing-titles-only.png` — Digital Marketing tab showing ONLY the 8 service titles in 2 columns, NO sub-descriptions, NO category description paragraph
-- `11-portfolio-reference-measurements.png` — Portfolio section showing reference large card proportions (~520-560px) and reversed capsule geometry
+All 14 required QA verification screenshots have been successfully captured and validated in `QA/precision-pass-17/`:
+- `01-finarkein-default.png` — Finarkein logo in bright high-contrast default
+- `02-finarkein-hover-green.png` — Finarkein logo light-green hover transition
+- `03-what-we-do-no-check-details.png` — What We Do service cards without "Check details" buttons
+- `04-tech-hero-cta-enlarged.png` — Technology page Hero with enlarged "Get guidance" CTA (+15-20%)
+- `05-founder-center-aligned-aside.png` — Sunil Sir founder profile centrally aligned in sticky aside
+- `06-founder-center-aligned-banner.png` — Sunil Sir founder profile centrally aligned in bottom CTA banner
+- `07-sentence-case-headlines.png` — Sentence case headings on Technology page
+- `08-ai-services-hero.png` — AI & Automation Services Hero with cyan circle drawing animation
+- `09-ai-services-cards.png` — 4 Core Service Cards in AI & Automation section
+- `10-ai-better-together.png` — "AI + Automation: Better Together" architecture section
+- `12-ai-cases-architecture.png` — Case studies & enterprise architecture sections
+- `13-ai-faq-accordion.png` — FAQ section with single-open accordion behavior
+- `14-ai-mobile-responsive.png` — Mobile responsive layout (390x844)
+- `15-fullpage-ai-automation.png` — Complete desktop fullpage capture of `/services/ai-automation`
+
+---
+
+## Prior Passes
+- [`QA/precision-pass-16/QA-REPORT.md`](./QA/precision-pass-16/QA-REPORT.md) — Pass #16 Verification
 - `12-portfolio-large-card-uniformity.png` — Carousel showing large card uniformity across all 7 brands
 - `13-portfolio-carousel-navigation.png` — Carousel actively navigated to next slide
 - `14-fullpage-desktop.png` — Complete homepage desktop fullpage screenshot

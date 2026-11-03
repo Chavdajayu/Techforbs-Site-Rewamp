@@ -181,7 +181,7 @@ export default function SolutionsSection() {
             </div>
             <div className="max-w-760">
               <h2 className="title_regular">
-                full-cycle web development and automation in one place
+                Full-cycle web development and automation in one place
               </h2>
             </div>
           </div>
@@ -268,12 +268,6 @@ export default function SolutionsSection() {
                         </li>
                       ))}
                     </ul>
-
-                    <div className="solutions__tabs-buttons">
-                      <Link href="#contact-section" className="button w-inline-block">
-                        <div>Check details</div>
-                      </Link>
-                    </div>
                   </div>
                 </div>
               ))}

@@ -113,7 +113,7 @@ export default function PortfolioSection() {
                 </div>
                 <div className="portfolio__heading-title is-homepage">
                   <h2 className="title_regular">
-                    from designs to{" "}
+                    From designs to{" "}
                     <span className="portfolio-circle-wrap relative inline-block text-[#00e5ff] px-2 py-0.5 whitespace-nowrap">
                       pixel perfect
                       <span

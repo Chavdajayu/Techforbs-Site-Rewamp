@@ -144,7 +144,7 @@ export default function TeamSection() {
             </div>
             <div className="team__heading-title">
               <h2 className="title_regular">
-                meet our{" "}
+                Meet our{" "}
                 <span className="team-circle-wrap relative inline-block text-[#00e5ff] px-2 py-0.5 whitespace-nowrap">
                   expert team
                   <span

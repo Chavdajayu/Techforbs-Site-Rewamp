@@ -1221,6 +1221,25 @@ body {
 .awards-grid__item img[alt="Finarkein"] {
   max-height: 59px !important;
   max-width: 250px !important;
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.45)) !important;
+  opacity: 0.95 !important;
+  transition: filter 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease !important;
+}
+
+.awards-grid__item:has(img[alt="finarkein"]),
+.awards-grid__item:has(img[alt="Finarkein"]) {
+  filter: none !important;
+}
+
+.awards-grid__item:hover img[alt="finarkein"],
+.awards-grid__item:hover img[alt="Finarkein"],
+.awards-grid__item:focus-within img[alt="finarkein"],
+.awards-grid__item:focus-within img[alt="Finarkein"],
+.awards-grid__item:has(img[alt="finarkein"]):hover img,
+.awards-grid__item:has(img[alt="Finarkein"]):hover img {
+  filter: invert(74%) sepia(38%) saturate(950%) hue-rotate(85deg) brightness(98%) contrast(95%) drop-shadow(0 0 8px rgba(74, 222, 128, 0.5)) !important;
+  opacity: 1 !important;
+  transform: translateY(-2px) !important;
 }
 
 .awards-grid__item img[alt="Hype Distribution"] {
@@ -1393,4 +1412,80 @@ body {
   object-fit: cover !important;
   object-position: 50% 15% !important;
   display: block !important;
+}
+
+/* ==========================================================================
+   PASS #17: ENLARGE 'GET GUIDANCE' HERO CTA ON TECHNOLOGY PAGES (+15-20%)
+   ========================================================================== */
+.tech-hero .button-wrap.is-left .button,
+.tech-hero .button.button_smaller {
+  padding: 1.05rem 2.4rem !important;
+  font-size: 1.08rem !important;
+  min-height: 52px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  border-radius: 9999px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.tech-hero .button-wrap.is-left .button:hover,
+.tech-hero .button.button_smaller:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 229, 255, 0.35) !important;
+}
+
+/* ==========================================================================
+   PASS #17: FOUNDER PROFILE COMPOSITION CENTER-ALIGNMENT (SUNIL SIR)
+   ========================================================================== */
+.cta-bn__ceo,
+.tech-aside .cta-bn__ceo,
+.cta-banner-right .cta-bn__ceo {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
+}
+
+.cta-bn__ceo .hide-mob-landscape {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.cta-bn__ceo .cta-bn__img {
+  margin: 0 auto 0.85rem auto !important;
+}
+
+.cta-bn__ceo .cta-bn__content {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-bottom: 0.85rem !important;
+}
+
+.cta-bn__ceo .cta-bn__name {
+  text-align: center !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.cta-bn__ceo .cta-bn__position {
+  text-align: center !important;
+  margin-bottom: 0 !important;
+  opacity: 0.75 !important;
+}
+
+.cta-bn__ceo .cta-banner-person-buttons,
+.cta-bn__ceo .cta-btn-contact {
+  margin: 0 auto !important;
+  display: inline-flex !important;
+  justify-content: center !important;
 }

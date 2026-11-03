@@ -6,6 +6,40 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Pass #17: Precision Fidelity Pass — Global UI Refinements + Technology Page Alignment + First Complete Services Page: AI & Automation] - 2026-11-03
+
+### Added & Refined
+- **Change 01: Finarkein Logo High-Contrast & Light-Green Hover:**
+  - Upgraded Finarkein logo in brand logos strip under "WHO WE BUILD FOR" with high-contrast white brightness default (`filter: brightness(0) invert(1) drop-shadow(...)`).
+  - Added smooth transition to subtle light-green tone (`#4ade80` / `#22c55e`) on hover. Preserved all other 9 brand logos in their established default states.
+- **Change 02: What We Do "Check details" Button Removal:**
+  - Cleaned up `SolutionsSection.tsx` by removing all "Check details" CTA buttons and their container (`.solutions__tabs-buttons`) from all 5 service categories while preserving titles, bullets, icons, and tab switching animations.
+- **Change 03: Technology Page "Get guidance" CTA Enlargement (+15-20%):**
+  - Enlarged "Get guidance" Hero CTA button across all 8 Technology pages (`padding: 1.05rem 2.4rem`, `font-size: 1.08rem`, `min-height: 52px`) with enhanced font prominence, hover lift, and glow, while strictly preserving `#contact-section` smooth scroll anchor.
+- **Change 04: Technology Founder Composition Center-Alignment (Sunil Sir):**
+  - Unified alignment of founder profile composition on all 8 Technology pages along a single vertical center axis: avatar image centered, name "Sunil Panchani" centered, designation "Founder & Director, TechForbs" centered, and "Contact" button centered across both sticky aside and footer CTA banner.
+- **Change 05: Site-Wide Sentence-Case Headings (GET IN TOUCH in All Caps):**
+  - Converted major headings across homepage, 8 technology pages, and the new service page to proper sentence case while preserving proper nouns (`AI`, `SEO`, `Shopify`, `TechForbs`, `FAQ`). Preserved `GET IN TOUCH` in ALL CAPS in Contact section.
+- **Objective B: First Complete Services Page — AI & Automation (`/services/ai-automation`):**
+  - Implemented the complete individual Services page matching local CHE IT reference source (`services/ai-automation.html`):
+    - Hero section with title `AI & Automation = Faster Workflows → Higher ROI`, subtext, TechForbs cyan circle drawing animation (`#00e5ff`), and "Book a call" CTA.
+    - Section 02: "What do our AI & automation services include?" with 4 core service cards (Workflow automation, AI in your workflows, Email & document processing, Ops for sales & support).
+    - Section 03: "AI + automation: better together" 4-point architecture (From insights to action, Measurable impact, not hype, Secure by default, Human-in-the-loop).
+    - Section 04: "How we build automations that work" 4-phase methodology (Discovery & mapping, Integration & setup, AI enhancement, Testing & handoff).
+    - Section 05: "Winning with us: our clients' success" featuring authentic TechForbs portfolio work (SACLAB, TechHunt, HIVE).
+    - Section 06: "Why teams choose TechForbs" with reliable communication, rapid iteration, and predictable delivery.
+    - Section 07: "Enterprise AI automation architecture" technical standards and capabilities.
+    - Section 08: "Technologies we use in AI & automation" ecosystem grid (Make, n8n, Python, Node.js, Next.js, React, Shopify, WooCommerce, PHP).
+    - Section 09: "What our clients say… for real" authentic testimonials with interactive chat bubble UI.
+    - Section 10: "Businesses we serve with AI & automation" tailored to Agencies, Startups, SMEs, and Enterprises.
+    - Section 11 & 12: Centrally aligned Sunil Sir founder profile composition in sticky aside and footer CTA banner.
+    - Section 13: AI & Automation FAQ with single-open accordion behavior.
+    - Section 14: Shared TechForbs `ContactSection` with `GET IN TOUCH` in ALL CAPS.
+- **Navigation Integration:**
+  - Updated "AI & automation" link in Services dropdown in `Navbar.tsx` to point to `/services/ai-automation`.
+
+---
+
 ## [Pass #16: Hero Animation Reconstruction + Typography Enlargement + What We Do Visibility Fix + Digital Marketing Simplification + Portfolio Carousel Reference-Size Restoration] - 2026-10-31
 
 ### Added & Refined
