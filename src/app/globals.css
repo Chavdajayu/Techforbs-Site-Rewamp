@@ -254,8 +254,17 @@ body {
 }
 
 .awards-grid {
-  grid-column-gap: 2.25rem !important;
-  grid-row-gap: 2.25rem !important;
+  grid-column-gap: 1.5rem !important;
+  grid-row-gap: 1.5rem !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 767px) {
+  .awards-grid {
+    grid-column-gap: 0.75rem !important;
+    grid-row-gap: 0.75rem !important;
+  }
 }
 
 .awards-grid__item {
