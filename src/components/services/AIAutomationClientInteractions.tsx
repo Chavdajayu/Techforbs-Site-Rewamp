@@ -66,24 +66,40 @@ export default function AIAutomationClientInteractions() {
       }
     };
 
-    // 3. Testimonials & Case Study Navigation Slider buttons
+    // 3. Carousel Navigation Slider buttons
     const handleSliderPrev = (e: MouseEvent) => {
-      const btn = (e.target as HTMLElement).closest(".testimonials-slider-prev, .cases-slider-prev, .swiper-button-prev");
+      const btn = (e.target as HTMLElement).closest(
+        ".swis-portfolio-prev, .tech-slider-prev, .testimonials-slider-prev, .button_slider"
+      );
       if (!btn) return;
-      const slider = btn.closest(".tech-testimonials, .cases-wrap, .tech-slider-wrap");
-      const wrapper = slider ? slider.querySelector(".swiper-wrapper, .tech-testimonials__slider-wrapper") : null;
-      if (wrapper) {
-        wrapper.scrollBy({ left: -420, behavior: "smooth" });
+
+      if (btn.classList.contains("swis-portfolio-prev")) {
+        const container = document.querySelector(".portfolio-slider-container");
+        if (container) container.scrollBy({ left: -420, behavior: "smooth" });
+      } else if (btn.classList.contains("tech-slider-prev")) {
+        const container = document.querySelector(".tech-slider-container");
+        if (container) container.scrollBy({ left: -320, behavior: "smooth" });
+      } else if (btn.classList.contains("testimonials-slider-prev")) {
+        const container = document.querySelector(".testimonials-slider-container");
+        if (container) container.scrollBy({ left: -420, behavior: "smooth" });
       }
     };
 
     const handleSliderNext = (e: MouseEvent) => {
-      const btn = (e.target as HTMLElement).closest(".testimonials-slider-next, .cases-slider-next, .swiper-button-next");
+      const btn = (e.target as HTMLElement).closest(
+        ".swis-portfolio-next, .tech-slider-next, .testimonials-slider-next, .button_slider"
+      );
       if (!btn) return;
-      const slider = btn.closest(".tech-testimonials, .cases-wrap, .tech-slider-wrap");
-      const wrapper = slider ? slider.querySelector(".swiper-wrapper, .tech-testimonials__slider-wrapper") : null;
-      if (wrapper) {
-        wrapper.scrollBy({ left: 420, behavior: "smooth" });
+
+      if (btn.classList.contains("swis-portfolio-next")) {
+        const container = document.querySelector(".portfolio-slider-container");
+        if (container) container.scrollBy({ left: 420, behavior: "smooth" });
+      } else if (btn.classList.contains("tech-slider-next")) {
+        const container = document.querySelector(".tech-slider-container");
+        if (container) container.scrollBy({ left: 320, behavior: "smooth" });
+      } else if (btn.classList.contains("testimonials-slider-next")) {
+        const container = document.querySelector(".testimonials-slider-container");
+        if (container) container.scrollBy({ left: 420, behavior: "smooth" });
       }
     };
 
@@ -118,15 +134,17 @@ export default function AIAutomationClientInteractions() {
       }
 
       // Fade up reveals
-      const fadeElements = document.querySelectorAll(".fade-up-alt, .tech-service-card, .tech-service-item");
+      const fadeElements = document.querySelectorAll(
+        ".fade-up-alt, .tech-service-card, .tech-service-item, .case-item, .tech-ecosystem-item"
+      );
       fadeElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 25 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.75,
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,

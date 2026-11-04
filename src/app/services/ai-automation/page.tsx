@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/navigation/Navbar";
-import BrandLogos from "@/components/brand-logos/BrandLogos";
 import ContactSection from "@/components/contact/ContactSection";
 import Footer from "@/components/footer/Footer";
 import SmoothScroll from "@/components/smooth-scroll/SmoothScroll";
 import AIAutomationClientInteractions from "@/components/services/AIAutomationClientInteractions";
+import { BRAND_LOGOS } from "@/data/siteData";
+import "@/styles/ai-automation-page.css";
 
 export const metadata: Metadata = {
   title: "AI & Automation Services | Intelligent Workflows & Agent Engineering - TechForbs",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 export default function AIAutomationPage() {
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-[#101010] text-white selection:bg-[#00e5ff] selection:text-black">
+      <div className="ai-automation-page relative min-h-screen bg-[#101010] text-white selection:bg-[#00e5ff] selection:text-black">
         <Navbar />
         <AIAutomationClientInteractions />
 
@@ -33,12 +34,12 @@ export default function AIAutomationPage() {
               01. HERO SECTION
               ================================================================= */}
           <section className="services-hero">
-            <div className="tech-hero-gradient"></div>
+            <div className="service-hero-gradient"></div>
             <div className="service-hero-inner">
               <img
                 src="/images/services/ai-automation/69273fea692d3db88c70d620_ai-bg.webp"
                 loading="eager"
-                alt="AI & Automation Background"
+                alt="AI & Automation Workflow Architecture"
                 className="service-hero-bg"
               />
               <img
@@ -47,12 +48,12 @@ export default function AIAutomationPage() {
                 alt=""
                 className="service-hero-inner-decor"
               />
-              <div className="service-hero__content width-42">
+              <div className="service-hero__content width-42 relative z-10">
                 <div className="fade-up-alt">
                   <div className="services-hero-title-wrap">
                     <div
                       data-wf--title-circle--variant="base"
-                      className="title-circle service-hero_circle w-embed"
+                      className="title-circle service-hero_circle"
                     >
                       <svg
                         width="100%"
@@ -70,14 +71,9 @@ export default function AIAutomationPage() {
                         />
                       </svg>
                     </div>
-                    <h1
-                      circle-width="27"
-                      text-split=""
-                      lines-slide-up=""
-                      circle-index="0"
-                      className="service-hero-title"
-                    >
-                      AI &amp; Automation = Faster Workflows → Higher ROI
+                    <h1 className="service-hero-title">
+                      AI &amp; automation ={" "}
+                      <span className="text-[#00e5ff]">faster workflows → higher ROI</span>
                     </h1>
                   </div>
                   <div className="service-hero__content-text">
@@ -96,25 +92,20 @@ export default function AIAutomationPage() {
           </section>
 
           {/* =================================================================
-              MAIN CONTENT WRAPPER
+              MAIN CONTENT WITH STICKY FOUNDER PROFILE ASIDE
               ================================================================= */}
-          <main className="tech-main padding-top-112 pb-0">
+          <div className="tech-main padding-top-112 pb-0">
             <div className="tech-main-inner services-pages">
               <div className="tech-content tab-mw-100">
                 {/* =============================================================
                     02. WHAT DO OUR AI & AUTOMATION SERVICES INCLUDE?
                     ============================================================= */}
-                <section id="solutions" className="tech-customize">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="2,3,4,5,6"
-                    className="tech-section-title mb-60"
-                  >
-                    What do our AI &amp; automation services include?
+                <section id="solutions" className="tech-customize mb-24">
+                  <h2 className="tech-section-title mb-60">
+                    What do our{" "}
+                    <span className="accent-text">AI &amp; automation services include?</span>
                   </h2>
-                  <div className="text-block is-gray margin-bottom-50">
+                  <div className="text-block is-gray margin-bottom-50 text-white/70 text-lg mb-8">
                     We build, connect, and scale automations that save time and prevent human errors —
                     combining AI precision with reliable engineering agility.
                   </div>
@@ -122,7 +113,7 @@ export default function AIAutomationPage() {
                     <div role="list" className="tech-service-cards w-dyn-items">
                       {/* Card 1 */}
                       <div role="listitem" className="w-dyn-item">
-                        <div className="tech-service-card">
+                        <div className="tech-service-card group">
                           <div
                             style={{
                               backgroundImage:
@@ -149,7 +140,7 @@ export default function AIAutomationPage() {
 
                       {/* Card 2 */}
                       <div role="listitem" className="w-dyn-item">
-                        <div className="tech-service-card">
+                        <div className="tech-service-card group">
                           <div
                             style={{
                               backgroundImage:
@@ -178,7 +169,7 @@ export default function AIAutomationPage() {
 
                       {/* Card 3 */}
                       <div role="listitem" className="w-dyn-item">
-                        <div className="tech-service-card">
+                        <div className="tech-service-card group">
                           <div
                             style={{
                               backgroundImage:
@@ -206,7 +197,7 @@ export default function AIAutomationPage() {
 
                       {/* Card 4 */}
                       <div role="listitem" className="w-dyn-item">
-                        <div className="tech-service-card">
+                        <div className="tech-service-card group">
                           <div
                             style={{
                               backgroundImage:
@@ -236,19 +227,13 @@ export default function AIAutomationPage() {
                 </section>
 
                 {/* =============================================================
-                    03. AI + AUTOMATION: BETTER TOGETHER
+                    03. AI + AUTOMATION: BETTER TOGETHER + RESTORED WORKFLOW UI ILLUSTRATION
                     ============================================================= */}
-                <section id="services" className="tech-services">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="3,4"
-                    className="tech-section-title mb-60"
-                  >
-                    AI + automation: better together
+                <section id="services" className="tech-services mb-24">
+                  <h2 className="tech-section-title mb-60">
+                    AI + automation: <span className="accent-text">better together</span>
                   </h2>
-                  <div className="text-block is-gray margin-bottom-50">
+                  <div className="text-block is-gray margin-bottom-50 text-white/70 text-lg mb-8">
                     AI gives context, automation delivers action. Together, they turn manual effort into measurable growth.
                   </div>
                   <ul role="list" className="tech-service-list is-2-grid">
@@ -319,20 +304,92 @@ export default function AIAutomationPage() {
                       </div>
                     </li>
                   </ul>
+
+                  {/* CRITICAL RESTORED WORKFLOW / UI ILLUSTRATION GRID */}
+                  <div className="workflow-illustration-wrap fade-up-alt">
+                    <div className="team__grid in-service-page">
+                      {/* Grid Item 1: Cyan/Blue gradient accent cap */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap"></div>
+                      </div>
+
+                      {/* Grid Item 2: Sales CRM screen */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="Sales CRM automation dashboard"
+                              loading="lazy"
+                              src="/images/services/ai-automation/ui-screen-crm.webp"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Grid Item 3: Slack communication screen */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="Real-time messaging & automation triggers"
+                              loading="lazy"
+                              src="/images/services/ai-automation/ui-screen-slack.webp"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Grid Item 4: Retool database & order management dashboard */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="Internal order management and operations system"
+                              loading="lazy"
+                              src="/images/services/ai-automation/ui-screen-retool.webp"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Grid Item 5: AI chat & LLM categorization queue */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="OpenAI chat orchestration and query classification"
+                              loading="lazy"
+                              src="/images/services/ai-automation/ui-screen-chatgpt.webp"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Grid Item 6: Spacer */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic"></div>
+                        </div>
+                      </div>
+
+                      {/* Grid Item 7: Cyan/Blue gradient accent cap */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap"></div>
+                      </div>
+                    </div>
+                  </div>
                 </section>
 
                 {/* =============================================================
                     04. HOW WE BUILD AUTOMATIONS THAT WORK
                     ============================================================= */}
-                <section id="services" className="tech-services">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="3,4,5"
-                    className="tech-section-title mb-60"
-                  >
-                    How we build automations that work
+                <section id="how-we-build" className="tech-services mb-24">
+                  <h2 className="tech-section-title mb-60">
+                    How we build <span className="accent-text">automations that work</span>
                   </h2>
                   <ul role="list" className="tech-service-list">
                     <li className="tech-service-item fade-up-alt">
@@ -407,94 +464,137 @@ export default function AIAutomationPage() {
                 </section>
 
                 {/* =============================================================
-                    05. WINNING WITH US: OUR CLIENTS' SUCCESS (CASE STUDIES)
+                    05. WINNING WITH US: OUR CLIENTS' SUCCESS (RESTORED CAROUSEL)
                     ============================================================= */}
-                <section id="why-we" className="tech-benefits">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="5,6"
-                    className="tech-section-title mb-60"
-                  >
-                    Winning with us: our clients&#x27; success
+                <section id="why-we" className="tech-benefits mb-24">
+                  <h2 className="tech-section-title mb-60">
+                    Winning with us: <span className="accent-text">our clients&#x27; success</span>
                   </h2>
                   <div className="cases-wrap is-services-page">
-                    <div className="cases-slider w-dyn-list">
-                      <div role="list" className="swiper-wrapper w-dyn-items flex flex-col md:flex-row gap-6 overflow-x-auto pb-4">
-                        {/* Case 1: SACLAB */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#122336] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/f4e1f7273934d40237194f475ed8563c_Cover.webp"
-                                alt="SACLAB Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              SACLAB: Automated inventory &amp; luxury resale platform
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Integrated multi-channel inventory sync, automated authentication workflows, and instantaneous catalog generation.
-                            </p>
+                    <div className="portfolio-slider-container">
+                      {/* Case 1: SACLAB */}
+                      <div className="portfolio-slide-item">
+                        <div className="case-item is-no-link">
+                          <div style={{ backgroundColor: "#cae3fe" }} className="case-item-image">
+                            <img
+                              src="/images/services/ai-automation/case-bg.svg"
+                              alt=""
+                              className="case-item-circles"
+                            />
+                            <img
+                              src="/images/services/ai-automation/case-saclab.webp"
+                              alt="SACLAB platform dashboard preview"
+                              className="case-item-thumb"
+                            />
                           </div>
-                        </div>
-
-                        {/* Case 2: TechHunt */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#251532] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/d8a87383a15993bdf8be94f08f0290ca_cover.webp"
-                                alt="TechHunt Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              TechHunt: AI-assisted talent matching &amp; vetting engine
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Automated resume parsing, semantic candidate scoring, and calendar scheduling integrations handling thousands of applicants.
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Case 3: HIVE */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#1a2d1d] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/hive-cover.webp"
-                                alt="HIVE Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              HIVE: Intelligent resource scheduling &amp; operational telemetry
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Dynamic utilization forecasting, real-time Slack/webhook alerts, and automated client billing pipelines.
-                            </p>
+                          <h4 className="case-item-title">
+                            SACLAB: Automated inventory &amp; luxury resale platform
+                          </h4>
+                          <p className="text-body text-white/70 text-sm mb-4">
+                            Integrated multi-channel inventory sync, automated authentication workflows, and instantaneous catalog generation.
+                          </p>
+                          <div className="case-item_tags">
+                            <span className="cms-tag">E-Commerce</span>
+                            <span className="cms-tag">Automation</span>
+                            <span className="cms-tag">Multi-Channel</span>
                           </div>
                         </div>
                       </div>
+
+                      {/* Case 2: TechHunt */}
+                      <div className="portfolio-slide-item">
+                        <div className="case-item is-no-link">
+                          <div style={{ backgroundColor: "#1e3a5f" }} className="case-item-image">
+                            <img
+                              src="/images/services/ai-automation/case-bg.svg"
+                              alt=""
+                              className="case-item-circles"
+                            />
+                            <img
+                              src="/images/services/ai-automation/case-techhunt.webp"
+                              alt="TechHunt talent matching portal"
+                              className="case-item-thumb"
+                            />
+                          </div>
+                          <h4 className="case-item-title">
+                            TechHunt: AI-assisted talent matching &amp; vetting engine
+                          </h4>
+                          <p className="text-body text-white/70 text-sm mb-4">
+                            Automated resume parsing, semantic candidate scoring, and calendar scheduling integrations handling thousands of applicants.
+                          </p>
+                          <div className="case-item_tags">
+                            <span className="cms-tag">Recruitment</span>
+                            <span className="cms-tag">LLM Agents</span>
+                            <span className="cms-tag">Next.js</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Case 3: HIVE */}
+                      <div className="portfolio-slide-item">
+                        <div className="case-item is-no-link">
+                          <div style={{ backgroundColor: "#1b3323" }} className="case-item-image">
+                            <img
+                              src="/images/services/ai-automation/case-bg.svg"
+                              alt=""
+                              className="case-item-circles"
+                            />
+                            <img
+                              src="/images/services/ai-automation/case-hive.webp"
+                              alt="HIVE operational telemetry dashboard"
+                              className="case-item-thumb"
+                            />
+                          </div>
+                          <h4 className="case-item-title">
+                            HIVE: Intelligent resource scheduling &amp; operational telemetry
+                          </h4>
+                          <p className="text-body text-white/70 text-sm mb-4">
+                            Dynamic utilization forecasting, real-time Slack/webhook alerts, and automated client billing pipelines.
+                          </p>
+                          <div className="case-item_tags">
+                            <span className="cms-tag">Enterprise Ops</span>
+                            <span className="cms-tag">Webhooks</span>
+                            <span className="cms-tag">Telemetry</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Carousel Controls */}
+                    <div className="flex items-center justify-between mt-4">
+                      <div className="slider-buttons">
+                        <button
+                          type="button"
+                          className="button_slider swis-portfolio-prev"
+                          aria-label="Previous project"
+                        >
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                          </svg>
+                        </button>
+                        <button
+                          type="button"
+                          className="button_slider swis-portfolio-next"
+                          aria-label="Next project"
+                        >
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                          </svg>
+                        </button>
+                      </div>
+                      <a href="#contact-section" className="button button_smaller">
+                        Explore all case studies
+                      </a>
                     </div>
                   </div>
                 </section>
 
                 {/* =============================================================
-                    06. WHY TEAMS CHOOSE TECHFORBS
+                    06. WHY TEAMS CHOOSE TECHFORBS + RESTORED TEAM COLLAGE
                     ============================================================= */}
-                <section id="services" className="tech-services">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="3,4"
-                    className="tech-section-title mb-60"
-                  >
-                    Why teams choose TechForbs
+                <section id="why-teams-choose" className="tech-services mb-24">
+                  <h2 className="tech-section-title mb-60">
+                    Why teams choose <span className="accent-text">TechForbs</span>
                   </h2>
                   <ul role="list" className="tech-service-list">
                     <li className="tech-service-item fade-up-alt">
@@ -546,22 +646,107 @@ export default function AIAutomationPage() {
                       </div>
                     </li>
                   </ul>
+
+                  {/* CRITICAL RESTORED TEAM PHOTO COLLAGE */}
+                  <div className="team-collage-wrap fade-up-alt">
+                    <div className="team__grid in-service-page">
+                      {/* Collage Item 1: Cyan/Blue gradient accent cap */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap"></div>
+                      </div>
+
+                      {/* Collage Item 2: Authentic TechForbs Team Photo 1 */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="TechForbs engineering team"
+                              loading="lazy"
+                              src="/images/team/tf-team-collage-1.jpg"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Collage Item 3: Authentic TechForbs Team Photo 2 */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="TechForbs development sprint"
+                              loading="lazy"
+                              src="/images/team/tf-team-collage-2.jpg"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Collage Item 4: Authentic TechForbs Team Photo 3 */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="TechForbs architects collaborative session"
+                              loading="lazy"
+                              src="/images/team/tf-team-collage-3.jpg"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Collage Item 5: Authentic TechForbs Team Photo 4 */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="TechForbs workflow engineering review"
+                              loading="lazy"
+                              src="/images/team/tf-team-collage-4.jpg"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Collage Item 6: Authentic TechForbs Team Photo 5 */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap">
+                          <div className="team__grid_pic">
+                            <img
+                              alt="TechForbs team members"
+                              loading="lazy"
+                              src="/images/team/tf-team-collage-5.jpg"
+                              className="team__grid_img"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Collage Item 7: Cyan/Blue gradient accent cap */}
+                      <div className="team__grid_item">
+                        <div className="team__grid_pic_wrap"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tech-benefits-buttons fade-up-alt">
+                    <a href="#contact-section" className="button button_smaller">
+                      Get expert advice
+                    </a>
+                  </div>
                 </section>
 
                 {/* =============================================================
                     07. ENTERPRISE AI AUTOMATION ARCHITECTURE
                     ============================================================= */}
-                <section className="tech-sertificate">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="1"
-                    className="tech-section-title"
-                  >
-                    Enterprise AI automation architecture
+                <section className="tech-sertificate mb-24">
+                  <h2 className="tech-section-title">
+                    Enterprise <span className="accent-text">AI automation architecture</span>
                   </h2>
-                  <div className="text-body">
+                  <div className="text-body text-white/70 max-w-2xl mb-4">
                     We engineer resilient, production-ready AI pipelines and automated workflows
                     built on enterprise architectural standards.
                   </div>
@@ -587,14 +772,28 @@ export default function AIAutomationPage() {
                       </div>
                     </div>
 
-                    <div className="tech_sertificate_img flex items-center justify-center p-4">
-                      <div className="w-32 h-32 rounded-2xl bg-[#141414] border border-[#00e5ff]/30 flex flex-col items-center justify-center p-4 shadow-[0_0_30px_rgba(0,229,255,0.15)]">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                          <line x1="8" y1="21" x2="16" y2="21"></line>
-                          <line x1="12" y1="17" x2="12" y2="21"></line>
+                    {/* Central High-Tech Architecture Badge */}
+                    <div className="tech_sertificate_img">
+                      <div className="w-40 h-40 rounded-full bg-[#121216] border-2 border-[#00e5ff] flex flex-col items-center justify-center p-4 text-center shadow-[0_0_35px_rgba(0,229,255,0.3)] relative">
+                        <div className="absolute inset-1 rounded-full border border-[#00e5ff]/20 animate-pulse"></div>
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="mb-2">
+                          <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                          <rect x="9" y="9" width="6" height="6"></rect>
+                          <line x1="9" y1="1" x2="9" y2="4"></line>
+                          <line x1="15" y1="1" x2="15" y2="4"></line>
+                          <line x1="9" y1="20" x2="9" y2="23"></line>
+                          <line x1="15" y1="20" x2="15" y2="23"></line>
+                          <line x1="20" y1="9" x2="23" y2="9"></line>
+                          <line x1="20" y1="14" x2="23" y2="14"></line>
+                          <line x1="1" y1="9" x2="4" y2="9"></line>
+                          <line x1="1" y1="14" x2="4" y2="14"></line>
                         </svg>
-                        <span className="text-xs uppercase tracking-wider font-semibold text-[#00e5ff] mt-2">Enterprise AI</span>
+                        <span className="text-[10px] tracking-wider uppercase font-bold text-white leading-tight">
+                          Enterprise AI
+                        </span>
+                        <span className="text-[8px] tracking-widest uppercase font-semibold text-[#00e5ff] mt-0.5">
+                          Architecture
+                        </span>
                       </div>
                     </div>
 
@@ -619,146 +818,268 @@ export default function AIAutomationPage() {
                 </section>
 
                 {/* =============================================================
-                    08. TECHNOLOGIES WE USE IN AI & AUTOMATION
+                    08. TECHNOLOGIES WE USE IN AI & AUTOMATION (HORIZONTAL CAROUSEL)
                     ============================================================= */}
-                <section id="ecosystem" className="tech-ecosystem">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="0"
-                    className="tech-section-title mb-60"
-                  >
-                    Technologies we use in AI &amp; automation
+                <section id="ecosystem" className="tech-ecosystem mb-24">
+                  <h2 className="tech-section-title mb-60">
+                    <span className="accent-text">Technologies</span> we use in AI &amp; automation
                   </h2>
                   <div className="fade-up-alt">
                     <div className="tech-slider-wrap">
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                      <div className="tech-slider-container">
                         {[
                           { name: "Make / Integromat", icon: "/images/services/ai-automation/69522e11748d65f95259bf76_make-color 1.svg" },
                           { name: "n8n Automation", icon: "/images/services/ai-automation/69522e119ada4a224d43f995_n8n-color 1.svg" },
-                          { name: "Python AI & Agents", icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg" },
+                          { name: "Python & LangChain", icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg" },
                           { name: "Node.js Services", icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg" },
-                          { name: "Next.js & React", icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg" },
+                          { name: "React & Next.js", icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg" },
                           { name: "Shopify Ecosystem", icon: "/images/technologies/6613ba0792d3339b64c8a066_hopify.svg" },
                           { name: "WooCommerce API", icon: "/images/technologies/6613b99db664ec9b28788819_woocom.svg" },
                           { name: "Enterprise PHP", icon: "/images/technologies/6613b9a8135ca957aa3d95c4_php.svg" },
                         ].map((tech, idx) => (
-                          <div key={idx} className="tech-ecosystem-item p-4 rounded-xl bg-[#161616] border border-white/10 flex flex-col items-center justify-center text-center hover:border-[#00e5ff]/40 transition-all">
-                            <div className="tech-ecosystem-item-image-wrap h-12 w-12 flex items-center justify-center mb-3">
-                              <img
-                                src={tech.icon}
-                                alt={tech.name}
-                                className="max-h-10 max-w-10 object-contain"
-                              />
+                          <div key={idx} className="tech-slider-card">
+                            <div className="tech-ecosystem-item">
+                              <div className="tech-ecosystem-item-image-wrap">
+                                <img
+                                  src={tech.icon}
+                                  alt={tech.name}
+                                  className="tech-ecosystem-item-image"
+                                />
+                              </div>
+                              <div className="tech-ecosystem-item-divider"></div>
+                              <div className="tech-ecosystem-item-title">{tech.name}</div>
                             </div>
-                            <div className="text-sm font-medium text-white/90">{tech.name}</div>
                           </div>
                         ))}
+                      </div>
+
+                      {/* Carousel Arrow Controls */}
+                      <div className="slider-buttons">
+                        <button
+                          type="button"
+                          className="button_slider tech-slider-prev"
+                          aria-label="Previous technology"
+                        >
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                          </svg>
+                        </button>
+                        <button
+                          type="button"
+                          className="button_slider tech-slider-next"
+                          aria-label="Next technology"
+                        >
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                          </svg>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </section>
 
                 {/* =============================================================
-                    09. TESTIMONIALS SECTION
+                    09. TESTIMONIALS SECTION (LOGO STRIP + MULTI-CARD CAROUSEL)
                     ============================================================= */}
-                <section id="testimonials-section" className="tech-testimonials">
-                  <h2
-                    data-testimonials-title=""
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="4,5"
-                    color-word="#00e5ff"
-                    className="tech-section-title mb-60 desktop"
-                  >
-                    What our clients say… for real
+                <section id="testimonials-section" className="tech-testimonials mb-24">
+                  <h2 className="tech-section-title mb-60">
+                    What our clients say… <span className="accent-text">for real</span>
                   </h2>
-                  <h2
-                    data-testimonials-title=""
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="4,5"
-                    color-word="#00e5ff"
-                    className="tech-section-title mb-60 mobile"
-                  >
-                    What our clients say…<br />for real
-                  </h2>
-                  <div className="fade-up-alt">
-                    <div className="tech-testimonials__slider">
-                      <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
-                        <div role="list" className="swiper-wrapper w-dyn-items flex flex-col md:flex-row gap-6 overflow-x-auto pb-4">
-                          {/* Testimonial 1 */}
-                          <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                            <div className="testimonials__card tech-variant">
-                              <div className="testimonials__card-inner">
-                                <div style={{ backgroundColor: "#00e5ff22" }} className="testimonials__card-bg"></div>
-                                <div className="testimonials__card-caption tech-variant">
-                                  <img
-                                    loading="lazy"
-                                    alt="Client avatar"
-                                    src="/images/technologies/68502c460e19db138dd98e5a_kiseliova.webp"
-                                    className="testimonials__card-avatar tech-variant"
-                                  />
-                                  <p className="testimonials__card-name">Iryna Kyselova</p>
-                                  <p className="testimonials__card-position body-smaller text-uppercase">CEO, TechHunt</p>
+
+                  {/* Partner Brand Logo Strip */}
+                  <div className="tech-testimonials-nav-wrapper">
+                    <img
+                      src="/images/clients/whitehead-consulting.png"
+                      alt="Whitehead Consulting logo"
+                      className="tech-nav-image"
+                    />
+                    <img
+                      src="/images/clients/bodhi.png"
+                      alt="Bodhi Health logo"
+                      className="tech-nav-image"
+                    />
+                    <img
+                      src="/images/clients/hype-distribution.png"
+                      alt="Hype Distribution logo"
+                      className="tech-nav-image"
+                    />
+                    <img
+                      src="/images/clients/allmax-nutrition.png"
+                      alt="ALLMAX Nutrition logo"
+                      className="tech-nav-image"
+                    />
+                    <img
+                      src="/images/clients/adeeva.png"
+                      alt="Adeeva Health logo"
+                      className="tech-nav-image"
+                    />
+                    <img
+                      src="/images/clients/finarkein.png"
+                      alt="Finarkein logo"
+                      className="tech-nav-image"
+                    />
+                  </div>
+
+                  {/* Multi-Card Horizontal Testimonials Carousel */}
+                  <div className="fade-up-alt mt-6">
+                    <div className="testimonials-slider-container">
+                      {/* Testimonial Card 1: TechHunt (Pastel Purple) */}
+                      <div className="testimonial-slide-item">
+                        <div className="testimonials__card tech-variant">
+                          <div className="testimonials__card-inner">
+                            <div style={{ backgroundColor: "#dbbaf4" }} className="testimonials__card-bg"></div>
+                            <img
+                              src="/images/services/ai-automation/case-techhunt.webp"
+                              alt="TechHunt platform overview"
+                              className="testimonials__card-overview tech-variant"
+                            />
+                            <div className="testimonials__card-caption tech-variant">
+                              <img
+                                src="/images/technologies/68502c460e19db138dd98e5a_kiseliova.webp"
+                                alt="Iryna Kyselova"
+                                className="testimonials__card-avatar tech-variant"
+                              />
+                              <p className="testimonials__card-name">Iryna Kyselova</p>
+                              <p className="testimonials__card-position">CEO, TECHHUNT</p>
+                            </div>
+                            <div className="testimonials__card-inner-scroller">
+                              <div className="testimonials__card-list">
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Automated matching pipeline works flawlessly</p>
+                                  <p className="testimonials__card-message-time tech-variant">4:45 PM</p>
                                 </div>
-                                <div className="testimonials__card-inner-scroller">
-                                  <div className="testimonials__card-list">
-                                    <div className="testimonials__card-message-wrapper tech-variant">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Automated matching pipeline works flawlessly</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:45 PM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Saved 30+ recruiting hours every week</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:56 PM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Highly recommend TechForbs team!</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:58 PM</p>
-                                      </div>
-                                    </div>
-                                  </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Saved 30+ recruiting hours every week</p>
+                                  <p className="testimonials__card-message-time tech-variant">4:56 PM</p>
+                                </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">On time as promised</p>
+                                  <p className="testimonials__card-message-time tech-variant">4:57 PM</p>
+                                </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Highly recommend TechForbs team!</p>
+                                  <p className="testimonials__card-message-time tech-variant">4:58 PM</p>
                                 </div>
                               </div>
                             </div>
                           </div>
+                        </div>
+                      </div>
 
-                          {/* Testimonial 2 */}
-                          <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                            <div className="testimonials__card tech-variant">
-                              <div className="testimonials__card-inner">
-                                <div style={{ backgroundColor: "#22c55e22" }} className="testimonials__card-bg"></div>
-                                <div className="testimonials__card-caption tech-variant">
-                                  <img
-                                    loading="lazy"
-                                    alt="Client avatar"
-                                    src="/images/technologies/68502b31c839a090ed9cb36d_kozak.webp"
-                                    className="testimonials__card-avatar tech-variant"
-                                  />
-                                  <p className="testimonials__card-name">Oleksandra Kozak</p>
-                                  <p className="testimonials__card-position body-smaller text-uppercase">CXO, Habitat</p>
+                      {/* Testimonial Card 2: Habitat (Mint Green) */}
+                      <div className="testimonial-slide-item">
+                        <div className="testimonials__card tech-variant">
+                          <div className="testimonials__card-inner">
+                            <div style={{ backgroundColor: "#a0eeb0" }} className="testimonials__card-bg"></div>
+                            <img
+                              src="/images/services/ai-automation/case-saclab.webp"
+                              alt="Habitat platform overview"
+                              className="testimonials__card-overview tech-variant"
+                            />
+                            <div className="testimonials__card-caption tech-variant">
+                              <img
+                                src="/images/technologies/68502b31c839a090ed9cb36d_kozak.webp"
+                                alt="Oleksandra Kozak"
+                                className="testimonials__card-avatar tech-variant"
+                              />
+                              <p className="testimonials__card-name">Oleksandra Kozak</p>
+                              <p className="testimonials__card-position">CXO, HABITAT</p>
+                            </div>
+                            <div className="testimonials__card-inner-scroller">
+                              <div className="testimonials__card-list">
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Platform handles 75k users now</p>
+                                  <p className="testimonials__card-message-time tech-variant">12:28 AM</p>
                                 </div>
-                                <div className="testimonials__card-inner-scroller">
-                                  <div className="testimonials__card-list">
-                                    <div className="testimonials__card-message-wrapper tech-variant">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Automation handles 75k daily operations</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">12:28 AM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Zero downtime during peak spikes</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">12:32 AM</p>
-                                      </div>
-                                    </div>
-                                  </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">92% satisfaction rate across workflows</p>
+                                  <p className="testimonials__card-message-time tech-variant">12:32 AM</p>
+                                </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">User engagement +45%</p>
+                                  <p className="testimonials__card-message-time tech-variant">12:34 AM</p>
+                                </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Revenue growing fast 🔥</p>
+                                  <p className="testimonials__card-message-time tech-variant">12:35 AM</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Testimonial Card 3: Whitehead Consulting (Steel Blue) */}
+                      <div className="testimonial-slide-item">
+                        <div className="testimonials__card tech-variant">
+                          <div className="testimonials__card-inner">
+                            <div style={{ backgroundColor: "#a5c9f5" }} className="testimonials__card-bg"></div>
+                            <img
+                              src="/images/portfolio/aldonexport.png"
+                              alt="Whitehead portal preview"
+                              className="testimonials__card-overview tech-variant"
+                            />
+                            <div className="testimonials__card-caption tech-variant">
+                              <img
+                                src="/images/testimonials/robert-bajac.jpeg"
+                                alt="Robert Bajac"
+                                className="testimonials__card-avatar tech-variant"
+                              />
+                              <p className="testimonials__card-name">Robert Bajac</p>
+                              <p className="testimonials__card-position">MANAGING DIRECTOR, WHITEHEAD</p>
+                            </div>
+                            <div className="testimonials__card-inner-scroller">
+                              <div className="testimonials__card-list">
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Architectural depth exceeded every expectation</p>
+                                  <p className="testimonials__card-message-time tech-variant">10:15 AM</p>
+                                </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Mission-critical platform with rock-solid stability</p>
+                                  <p className="testimonials__card-message-time tech-variant">10:18 AM</p>
+                                </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Outstanding engineering precision</p>
+                                  <p className="testimonials__card-message-time tech-variant">10:22 AM</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Testimonial Card 4: Bodhi Health (Teal / Warm) */}
+                      <div className="testimonial-slide-item">
+                        <div className="testimonials__card tech-variant">
+                          <div className="testimonials__card-inner">
+                            <div style={{ backgroundColor: "#85d4cb" }} className="testimonials__card-bg"></div>
+                            <img
+                              src="/images/portfolio/bodhi.png"
+                              alt="Bodhi Health platform preview"
+                              className="testimonials__card-overview tech-variant"
+                            />
+                            <div className="testimonials__card-caption tech-variant">
+                              <img
+                                src="/images/testimonials/dr-james-meschino.jpeg"
+                                alt="Dr. James Meschino"
+                                className="testimonials__card-avatar tech-variant"
+                              />
+                              <p className="testimonials__card-name">Dr. James Meschino</p>
+                              <p className="testimonials__card-position">CSO, BODHI HEALTH</p>
+                            </div>
+                            <div className="testimonials__card-inner-scroller">
+                              <div className="testimonials__card-list">
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Flawlessly communicates our clinical credibility</p>
+                                  <p className="testimonials__card-message-time tech-variant">2:10 PM</p>
+                                </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Maximizing consumer conversions across channels</p>
+                                  <p className="testimonials__card-message-time tech-variant">2:14 PM</p>
+                                </div>
+                                <div className="testimonials__card-message tech-variant">
+                                  <p className="testimonials__card-message-text tech-variant">Phenomenal team to work with</p>
+                                  <p className="testimonials__card-message-time tech-variant">2:16 PM</p>
                                 </div>
                               </div>
                             </div>
@@ -766,27 +1087,43 @@ export default function AIAutomationPage() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Carousel Navigation Buttons */}
+                    <div className="slider-buttons mt-6">
+                      <button
+                        type="button"
+                        className="button_slider testimonials-slider-prev"
+                        aria-label="Previous testimonial"
+                      >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        className="button_slider testimonials-slider-next"
+                        aria-label="Next testimonial"
+                      >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M9 18l6-6-6-6" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </section>
 
                 {/* =============================================================
                     10. BUSINESSES WE SERVE WITH AI & AUTOMATION
                     ============================================================= */}
-                <section id="solutions" className="tech-customize">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="0,1,2"
-                    className="tech-section-title mb-60"
-                  >
-                    Businesses we serve with AI &amp; automation
+                <section id="businesses-we-serve" className="tech-customize mb-24">
+                  <h2 className="tech-section-title mb-60">
+                    Businesses we serve with <span className="accent-text">AI &amp; automation</span>
                   </h2>
                   <div className="w-dyn-list">
                     <div role="list" className="tech-service-cards w-dyn-items">
                       {/* Card 1: Agencies */}
                       <div role="listitem" className="w-dyn-item">
-                        <div className="tech-service-card">
+                        <div className="tech-service-card group">
                           <div
                             style={{
                               backgroundImage:
@@ -813,7 +1150,7 @@ export default function AIAutomationPage() {
 
                       {/* Card 2: Startups */}
                       <div role="listitem" className="w-dyn-item">
-                        <div className="tech-service-card">
+                        <div className="tech-service-card group">
                           <div
                             style={{
                               backgroundImage:
@@ -838,7 +1175,7 @@ export default function AIAutomationPage() {
 
                       {/* Card 3: SMEs */}
                       <div role="listitem" className="w-dyn-item">
-                        <div className="tech-service-card">
+                        <div className="tech-service-card group">
                           <div
                             style={{
                               backgroundImage:
@@ -865,7 +1202,7 @@ export default function AIAutomationPage() {
 
                       {/* Card 4: Enterprises */}
                       <div role="listitem" className="w-dyn-item">
-                        <div className="tech-service-card">
+                        <div className="tech-service-card group">
                           <div
                             style={{
                               backgroundImage:
@@ -893,7 +1230,7 @@ export default function AIAutomationPage() {
               </div>
 
               {/* =============================================================
-                  ASIDE STICKY: FOUNDER PROFILE (SUNIL PANCHANI)
+                  STICKY ASIDE: FOUNDER PROFILE (SUNIL PANCHANI)
                   ============================================================= */}
               <aside className="tech-aside mobile-fixed is-sticky">
                 <div className="fade-up-alt_desktop">
@@ -914,9 +1251,9 @@ export default function AIAutomationPage() {
                     </div>
                     <a
                       href="#contact-section"
-                      className="button button_smaller button_red cta-btn-contact"
+                      className="cta-btn-contact"
                     >
-                      <strong>Contact</strong>
+                      Contact
                     </a>
                   </div>
                 </div>
@@ -924,51 +1261,55 @@ export default function AIAutomationPage() {
             </div>
 
             {/* =================================================================
-                11. BRAND LOGOS SECTION
+                11. TRUST LOGO GRID (2 ROWS X 5 COLS)
                 ================================================================= */}
-            <BrandLogos />
+            <section className="section-swis-awards v2 container mx-auto px-6 mb-24">
+              <h2 className="tech-section-title text-center mb-4">
+                Recognized by leading review platforms and{" "}
+                <span className="accent-text">industry categories</span>
+              </h2>
+              <div className="awards-grid">
+                {BRAND_LOGOS.map((logo) => (
+                  <div key={logo.name} className="awards-grid__item">
+                    <img
+                      src={logo.src}
+                      loading="lazy"
+                      alt={logo.alt}
+                      className="awards-grid__image"
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
 
             {/* =================================================================
-                12. CTA BANNER (FOUNDER PROFILE COMPOSITION)
+                12. FOUNDER CTA BANNER
                 ================================================================= */}
-            <div className="tech-main-inner-wider v2">
-              <div className="w100">
-                <div className="fade-up-alt">
-                  <div className="cta-banner">
-                    <div className="cta-banner-caption">
-                      <h3
-                        color-word="#00e5ff"
-                        text-split=""
-                        lines-slide-up=""
-                        color-words-index="5,6,7,8"
-                        className="cta-banner-title"
-                      >
-                        Choose a tech partner that challenges, guides, and delivers
-                      </h3>
+            <div className="tech-main-inner-wider v2 mb-24">
+              <div className="cta-banner">
+                <div className="cta-banner-caption">
+                  <h3 className="cta-banner-title">
+                    Choose a tech partner that{" "}
+                    <span className="accent-text">challenges, guides, and delivers</span>
+                  </h3>
+                </div>
+                <div className="cta-banner-right">
+                  <div className="cta-bn__ceo">
+                    <div className="cta-bn__img">
+                      <img
+                        src="/images/technologies/sunil-panchani-director.jpg"
+                        loading="lazy"
+                        alt="Sunil Panchani photo, Founder & Director of TechForbs"
+                        className="img_cover"
+                      />
                     </div>
-                    <div className="cta-banner-right">
-                      <div className="fade-up-alt">
-                        <div className="cta-bn__ceo">
-                          <div className="cta-bn__img">
-                            <img
-                              src="/images/technologies/sunil-panchani-director.jpg"
-                              loading="lazy"
-                              alt="Sunil Panchani photo, Founder & Director of TechForbs"
-                              className="img_cover"
-                            />
-                          </div>
-                          <div className="cta-bn__content">
-                            <h4 className="cta-bn__name">Sunil Panchani</h4>
-                            <p className="cta-bn__position">Founder &amp; Director, TechForbs</p>
-                          </div>
-                          <div className="cta-banner-person-buttons">
-                            <a href="#contact-section" className="button button_smaller button_red">
-                              Contact
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="cta-bn__content">
+                      <h4 className="cta-bn__name">Sunil Panchani</h4>
+                      <p className="cta-bn__position">Founder &amp; Director, TechForbs</p>
                     </div>
+                    <a href="#contact-section" className="button button_smaller">
+                      Contact
+                    </a>
                   </div>
                 </div>
               </div>
@@ -977,168 +1318,99 @@ export default function AIAutomationPage() {
             {/* =================================================================
                 13. FAQ SECTION (AI & AUTOMATION SPECIFIC)
                 ================================================================= */}
-            <div className="tech-main-inner margin-bottom-7-5 overflow-hidden">
-              <div className="tech-content">
+            <div className="tech-main-inner margin-bottom-7-5 overflow-hidden max-w-[78rem] mx-auto px-6 mb-24">
+              <div className="tech-content w-full">
                 <section id="faq" className="tech-faq">
-                  <h2 lines-slide-up="" text-split="" className="tech-section-title mb-60">
+                  <h2 className="tech-section-title mb-60">
                     Frequently asked questions (FAQ)
                   </h2>
-                  <div className="w-dyn-list">
-                    <div
-                      itemType="https://schema.org/FAQPage"
-                      itemScope={true}
-                      role="list"
-                      className="faq w-dyn-items"
-                    >
-                      {/* FAQ 1 */}
-                      <div role="listitem" className="fade-up-alt w-dyn-item">
-                        <div
-                          data-hover="false"
-                          data-delay="0"
-                          itemProp="mainEntity"
-                          itemScope={true}
-                          itemType="https://schema.org/Question"
-                          className="faq-item w-dropdown"
-                        >
-                          <div className="faq-item-header w-dropdown-toggle">
-                            <div className="faq-item-header-icon">
-                              <div className="faq-item-header-icon-line"></div>
-                              <div className="faq-item-header-icon-line rotated"></div>
-                            </div>
-                            <div itemProp="name">Do you build everything with custom code?</div>
-                          </div>
-                          <nav className="faq-item-header-dropdown w-dropdown-list">
-                            <div
-                              itemProp="acceptedAnswer"
-                              itemScope={true}
-                              itemType="https://schema.org/Answer"
-                              className="faq-item-header-dropdown-inner"
-                            >
-                              <div itemProp="text" className="w-richtext">
-                                <p>
-                                  We adopt a hybrid, high-leverage approach. We utilize modern orchestration engines (n8n, Make, Vercel AI SDK) for rapid deployment and cost-effectiveness, and write custom microservices and TypeScript/Python code for complex business logic, bespoke data pipelines, and high-performance algorithms.
-                                </p>
-                              </div>
-                            </div>
-                          </nav>
+                  <div className="faq">
+                    {/* FAQ 1 */}
+                    <div className="faq-item">
+                      <div className="faq-item-header">
+                        <div>Do you build everything with custom code?</div>
+                        <div className="faq-item-header-icon">
+                          <div className="faq-item-header-icon-line"></div>
+                          <div className="faq-item-header-icon-line rotated"></div>
                         </div>
                       </div>
-
-                      {/* FAQ 2 */}
-                      <div role="listitem" className="fade-up-alt w-dyn-item">
-                        <div
-                          data-hover="false"
-                          data-delay="0"
-                          itemProp="mainEntity"
-                          itemScope={true}
-                          itemType="https://schema.org/Question"
-                          className="faq-item w-dropdown"
-                        >
-                          <div className="faq-item-header w-dropdown-toggle">
-                            <div className="faq-item-header-icon">
-                              <div className="faq-item-header-icon-line"></div>
-                              <div className="faq-item-header-icon-line rotated"></div>
-                            </div>
-                            <div itemProp="name">Where do you use AI vs. simple deterministic rules?</div>
-                          </div>
-                          <nav className="faq-item-header-dropdown w-dropdown-list">
-                            <div
-                              itemProp="acceptedAnswer"
-                              itemScope={true}
-                              itemType="https://schema.org/Answer"
-                              className="faq-item-header-dropdown-inner"
-                            >
-                              <div itemProp="text" className="w-richtext">
-                                <p>
-                                  We deploy AI for classification, entity extraction, summarization, and context-dependent decisions. Clear Boolean conditions, structured data formatting, and calculation logic remain rule-based — which is faster, cheaper, and 100% deterministic.
-                                </p>
-                              </div>
-                            </div>
-                          </nav>
+                      <div className="faq-item-header-dropdown">
+                        <div className="faq-item-header-dropdown-inner">
+                          <p>
+                            We adopt a hybrid, high-leverage approach. We utilize modern orchestration engines (n8n, Make, Vercel AI SDK) for rapid deployment and cost-effectiveness, and write custom microservices and TypeScript/Python code for complex business logic, bespoke data pipelines, and high-performance algorithms.
+                          </p>
                         </div>
                       </div>
+                    </div>
 
-                      {/* FAQ 3 */}
-                      <div role="listitem" className="fade-up-alt w-dyn-item">
-                        <div
-                          data-hover="false"
-                          data-delay="0"
-                          itemProp="mainEntity"
-                          itemScope={true}
-                          itemType="https://schema.org/Question"
-                          className="faq-item w-dropdown"
-                        >
-                          <div className="faq-item-header w-dropdown-toggle">
-                            <div className="faq-item-header-icon">
-                              <div className="faq-item-header-icon-line"></div>
-                              <div className="faq-item-header-icon-line rotated"></div>
-                            </div>
-                            <div itemProp="name">Can a human review critical or high-stakes steps?</div>
-                          </div>
-                          <nav className="faq-item-header-dropdown w-dropdown-list">
-                            <div
-                              itemProp="acceptedAnswer"
-                              itemScope={true}
-                              itemType="https://schema.org/Answer"
-                              className="faq-item-header-dropdown-inner"
-                            >
-                              <div itemProp="text" className="w-richtext">
-                                <p>
-                                  Yes. We integrate human-in-the-loop (HITL) checkpoints with custom confidence thresholds, interactive Slack/Teams notifications, escalation queues, and audit logging to ensure your team maintains absolute control.
-                                </p>
-                              </div>
-                            </div>
-                          </nav>
+                    {/* FAQ 2 */}
+                    <div className="faq-item">
+                      <div className="faq-item-header">
+                        <div>Where do you use AI vs. simple deterministic rules?</div>
+                        <div className="faq-item-header-icon">
+                          <div className="faq-item-header-icon-line"></div>
+                          <div className="faq-item-header-icon-line rotated"></div>
                         </div>
                       </div>
+                      <div className="faq-item-header-dropdown">
+                        <div className="faq-item-header-dropdown-inner">
+                          <p>
+                            We deploy AI for classification, entity extraction, summarization, and context-dependent decisions. Clear Boolean conditions, structured data formatting, and calculation logic remain rule-based — which is faster, cheaper, and 100% deterministic.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
 
-                      {/* FAQ 4 */}
-                      <div role="listitem" className="fade-up-alt w-dyn-item">
-                        <div
-                          data-hover="false"
-                          data-delay="0"
-                          itemProp="mainEntity"
-                          itemScope={true}
-                          itemType="https://schema.org/Question"
-                          className="faq-item w-dropdown"
-                        >
-                          <div className="faq-item-header w-dropdown-toggle">
-                            <div className="faq-item-header-icon">
-                              <div className="faq-item-header-icon-line"></div>
-                              <div className="faq-item-header-icon-line rotated"></div>
-                            </div>
-                            <div itemProp="name">Which tools and platforms do you support?</div>
-                          </div>
-                          <nav className="faq-item-header-dropdown w-dropdown-list">
-                            <div
-                              itemProp="acceptedAnswer"
-                              itemScope={true}
-                              itemType="https://schema.org/Answer"
-                              className="faq-item-header-dropdown-inner"
-                            >
-                              <div itemProp="text" className="w-richtext">
-                                <p>
-                                  We connect with Make, n8n, Zapier, Retool, LangChain, OpenAI, Anthropic Claude, Slack, HubSpot, Salesforce, PostgreSQL, Shopify, Webflow, and custom REST/GraphQL enterprise endpoints.
-                                </p>
-                              </div>
-                            </div>
-                          </nav>
+                    {/* FAQ 3 */}
+                    <div className="faq-item">
+                      <div className="faq-item-header">
+                        <div>Can a human review critical or high-stakes steps?</div>
+                        <div className="faq-item-header-icon">
+                          <div className="faq-item-header-icon-line"></div>
+                          <div className="faq-item-header-icon-line rotated"></div>
+                        </div>
+                      </div>
+                      <div className="faq-item-header-dropdown">
+                        <div className="faq-item-header-dropdown-inner">
+                          <p>
+                            Yes. We integrate human-in-the-loop (HITL) checkpoints with custom confidence thresholds, interactive Slack/Teams notifications, escalation queues, and audit logging to ensure your team maintains absolute control.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* FAQ 4 */}
+                    <div className="faq-item">
+                      <div className="faq-item-header">
+                        <div>Which tools and platforms do you support?</div>
+                        <div className="faq-item-header-icon">
+                          <div className="faq-item-header-icon-line"></div>
+                          <div className="faq-item-header-icon-line rotated"></div>
+                        </div>
+                      </div>
+                      <div className="faq-item-header-dropdown">
+                        <div className="faq-item-header-dropdown-inner">
+                          <p>
+                            We connect with Make, n8n, Zapier, Retool, LangChain, OpenAI, Anthropic Claude, Slack, HubSpot, Salesforce, PostgreSQL, Shopify, Webflow, and custom REST/GraphQL enterprise endpoints.
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </section>
               </div>
-              <aside className="tech-aside is-empty"></aside>
             </div>
 
             {/* =================================================================
                 14. CONTACT SECTION
                 ================================================================= */}
             <ContactSection />
-          </main>
+          </div>
         </main>
 
+        {/* =====================================================================
+            15. GLOBAL FOOTER
+            ===================================================================== */}
         <Footer />
       </div>
     </SmoothScroll>
