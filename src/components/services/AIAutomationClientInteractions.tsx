@@ -4,140 +4,93 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+/**
+ * Page-level interactions for /services/ai-automation.
+ *
+ * Scope notes:
+ *  - Anchor smooth-scrolling is owned by <SmoothScroll /> (Lenis). This
+ *    component deliberately does NOT bind its own anchor handler; two handlers
+ *    competing for the same click produced conflicting scrolls.
+ *  - Carousel navigation is owned by Swiper inside each carousel component.
+ *    The old document-level scrollBy() shims have been removed.
+ *  - Nothing is hidden in CSS. Reveal states are created by GSAP at runtime,
+ *    so if the bundle fails to load the page still renders fully visible.
+ *    ScrollTrigger is refreshed on load, on a short settle timer, and whenever
+ *    a carousel resizes, so start positions stay correct once images and
+ *    Swiper tracks have changed the layout.
+ */
 export default function AIAutomationClientInteractions() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     gsap.registerPlugin(ScrollTrigger);
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // 1. Force all FAQ items to start closed by default
-    const allFaqItems = document.querySelectorAll(".faq-item");
-    allFaqItems.forEach((item) => {
+    /* ---------------------------------------------------------------
+       FAQ accordion — closed by default, strictly one open at a time.
+       --------------------------------------------------------------- */
+    const closeItem = (item: Element) => {
       item.classList.remove("is-open", "w--open");
-      const dropdown = item.querySelector(".faq-item-header-dropdown");
-      if (dropdown) dropdown.classList.remove("w--open");
-    });
+      item.querySelector(".faq-item-header-dropdown")?.classList.remove("w--open");
+    };
+    const openItem = (item: Element) => {
+      item.classList.add("is-open", "w--open");
+      item.querySelector(".faq-item-header-dropdown")?.classList.add("w--open");
+    };
 
-    // FAQ Accordion Click Handler (strictly one open at a time)
+    document.querySelectorAll(".ai-automation-page .faq-item").forEach(closeItem);
+
     const handleFaqClick = (e: MouseEvent) => {
       const header = (e.target as HTMLElement).closest(".faq-item-header");
       if (!header) return;
-      const clickedItem = header.closest(".faq-item");
-      if (!clickedItem) return;
+      const clicked = header.closest(".faq-item");
+      if (!clicked) return;
 
-      const faqContainer = clickedItem.closest(".faq") || clickedItem.parentElement;
-      const isCurrentlyOpen = clickedItem.classList.contains("is-open") || clickedItem.classList.contains("w--open");
+      const container = clicked.closest(".faq") ?? clicked.parentElement;
+      const wasOpen = clicked.classList.contains("is-open");
 
-      // Close all other FAQ items in this list
-      if (faqContainer) {
-        const siblings = faqContainer.querySelectorAll(".faq-item");
-        siblings.forEach((item) => {
-          if (item !== clickedItem) {
-            item.classList.remove("is-open", "w--open");
-            const dropdown = item.querySelector(".faq-item-header-dropdown");
-            if (dropdown) dropdown.classList.remove("w--open");
-          }
-        });
-      }
-
-      // Toggle the clicked FAQ item
-      if (isCurrentlyOpen) {
-        clickedItem.classList.remove("is-open", "w--open");
-        const dropdown = clickedItem.querySelector(".faq-item-header-dropdown");
-        if (dropdown) dropdown.classList.remove("w--open");
-      } else {
-        clickedItem.classList.add("is-open", "w--open");
-        const dropdown = clickedItem.querySelector(".faq-item-header-dropdown");
-        if (dropdown) dropdown.classList.add("w--open");
-      }
-    };
-
-    // 2. Smooth Scroll for hash links
-    const handleHashClick = (e: MouseEvent) => {
-      const anchor = (e.target as HTMLElement).closest('a[href^="#"]');
-      if (!anchor) return;
-      const href = anchor.getAttribute("href");
-      if (!href || href === "#") return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
-
-    // 3. Carousel Navigation Slider buttons
-    const handleSliderPrev = (e: MouseEvent) => {
-      const btn = (e.target as HTMLElement).closest(
-        ".swis-portfolio-prev, .tech-slider-prev, .testimonials-slider-prev, .button_slider"
-      );
-      if (!btn) return;
-
-      if (btn.classList.contains("swis-portfolio-prev")) {
-        const container = document.querySelector(".portfolio-slider-container");
-        if (container) container.scrollBy({ left: -420, behavior: "smooth" });
-      } else if (btn.classList.contains("tech-slider-prev")) {
-        const container = document.querySelector(".tech-slider-container");
-        if (container) container.scrollBy({ left: -320, behavior: "smooth" });
-      } else if (btn.classList.contains("testimonials-slider-prev")) {
-        const container = document.querySelector(".testimonials-slider-container");
-        if (container) container.scrollBy({ left: -420, behavior: "smooth" });
-      }
-    };
-
-    const handleSliderNext = (e: MouseEvent) => {
-      const btn = (e.target as HTMLElement).closest(
-        ".swis-portfolio-next, .tech-slider-next, .testimonials-slider-next, .button_slider"
-      );
-      if (!btn) return;
-
-      if (btn.classList.contains("swis-portfolio-next")) {
-        const container = document.querySelector(".portfolio-slider-container");
-        if (container) container.scrollBy({ left: 420, behavior: "smooth" });
-      } else if (btn.classList.contains("tech-slider-next")) {
-        const container = document.querySelector(".tech-slider-container");
-        if (container) container.scrollBy({ left: 320, behavior: "smooth" });
-      } else if (btn.classList.contains("testimonials-slider-next")) {
-        const container = document.querySelector(".testimonials-slider-container");
-        if (container) container.scrollBy({ left: 420, behavior: "smooth" });
-      }
+      container?.querySelectorAll(".faq-item").forEach(closeItem);
+      if (!wasOpen) openItem(clicked);
     };
 
     document.addEventListener("click", handleFaqClick);
-    document.addEventListener("click", handleHashClick);
-    document.addEventListener("click", handleSliderPrev);
-    document.addEventListener("click", handleSliderNext);
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      return () => {
-        document.removeEventListener("click", handleFaqClick);
-        document.removeEventListener("click", handleHashClick);
-        document.removeEventListener("click", handleSliderPrev);
-        document.removeEventListener("click", handleSliderNext);
-      };
+      return () => document.removeEventListener("click", handleFaqClick);
     }
 
-    // 4. GSAP animations for Hero & Section elements
+    /* ---------------------------------------------------------------
+       Animations — scoped to the page root via gsap.context so every
+       tween and ScrollTrigger is reverted together on unmount.
+       --------------------------------------------------------------- */
+    const root = document.querySelector(".ai-automation-page") as HTMLElement | null;
+
     const ctx = gsap.context(() => {
-      // Circle stroke draw animation
-      const heroCircle = document.querySelector(".service-hero_circle path");
-      if (heroCircle) {
-        const pathEl = heroCircle as SVGPathElement;
-        const length = pathEl.getTotalLength ? pathEl.getTotalLength() : 800;
-        gsap.set(pathEl, { strokeDasharray: length, strokeDashoffset: length });
-        gsap.to(pathEl, {
-          strokeDashoffset: 0,
-          duration: 1.5,
-          ease: "power2.out",
-          delay: 0.3,
-        });
+      // Hero: staged opening sequence rather than one blanket fade.
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+      tl.from(".service-hero-bg", { opacity: 0, scale: 1.06, duration: 1.1 }, 0)
+        .from(".service-hero-inner-decor", { opacity: 0, x: 40, duration: 0.9 }, 0.15)
+        .from(".service-hero-title", { opacity: 0, y: 28, duration: 0.8 }, 0.3)
+        .from(".service-hero__content-text", { opacity: 0, y: 20, duration: 0.7 }, 0.5)
+        .from(".button-wrap.on-service-page", { opacity: 0, y: 16, duration: 0.6 }, 0.65);
+
+      // Hand-drawn circle around the hero headline.
+      const circlePath = document.querySelector(
+        ".service-hero_circle path"
+      ) as SVGPathElement | null;
+      if (circlePath && typeof circlePath.getTotalLength === "function") {
+        const length = circlePath.getTotalLength();
+        gsap.set(circlePath, { strokeDasharray: length, strokeDashoffset: length });
+        gsap.to(circlePath, { strokeDashoffset: 0, duration: 1.5, ease: "power2.out", delay: 0.6 });
       }
 
-      // Fade up reveals
-      const fadeElements = document.querySelectorAll(
-        ".fade-up-alt, .tech-service-card, .tech-service-item, .case-item, .tech-ecosystem-item"
+      // Section reveals. `once` keeps them cheap; `invalidateOnRefresh` keeps
+      // start points correct after images and carousels change the layout.
+      const revealTargets = gsap.utils.toArray<HTMLElement>(
+        ".ai-automation-page .fade-up-alt, .ai-automation-page .tech-service-card, .ai-automation-page .tech-service-item, .ai-automation-page .awards-grid__item"
       );
-      fadeElements.forEach((el) => {
+
+      revealTargets.forEach((el) => {
         gsap.fromTo(
           el,
           { opacity: 0, y: 25 },
@@ -149,19 +102,50 @@ export default function AIAutomationClientInteractions() {
             scrollTrigger: {
               trigger: el,
               start: "top 88%",
-              toggleActions: "play none none none",
+              once: true,
+              invalidateOnRefresh: true,
             },
           }
         );
       });
-    });
+
+      // Desktop-only reveal for the sticky founder aside.
+      ScrollTrigger.matchMedia?.({
+        "(min-width: 992px)": () => {
+          gsap.from(".fade-up-alt_desktop", {
+            opacity: 0,
+            y: 20,
+            duration: 0.7,
+            ease: "power2.out",
+            delay: 0.4,
+          });
+        },
+      });
+    }, root ?? undefined);
+
+    /* ---------------------------------------------------------------
+       Keep ScrollTrigger honest while carousels and images settle.
+       Mirrors the reference's own `watchSwipers()` refresh behaviour.
+       --------------------------------------------------------------- */
+    let refreshTimer: number | undefined;
+    const refresh = () => {
+      window.clearTimeout(refreshTimer);
+      refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 150);
+    };
+
+    const resizeObserver = new ResizeObserver(refresh);
+    document.querySelectorAll(".ai-automation-page .swiper").forEach((el) => resizeObserver.observe(el));
+
+    window.addEventListener("load", refresh);
+    const settleTimer = window.setTimeout(refresh, 600);
 
     return () => {
-      ctx.revert();
       document.removeEventListener("click", handleFaqClick);
-      document.removeEventListener("click", handleHashClick);
-      document.removeEventListener("click", handleSliderPrev);
-      document.removeEventListener("click", handleSliderNext);
+      window.removeEventListener("load", refresh);
+      window.clearTimeout(refreshTimer);
+      window.clearTimeout(settleTimer);
+      resizeObserver.disconnect();
+      ctx.revert();
     };
   }, []);
 

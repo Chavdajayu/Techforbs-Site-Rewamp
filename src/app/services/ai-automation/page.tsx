@@ -4,6 +4,9 @@ import ContactSection from "@/components/contact/ContactSection";
 import Footer from "@/components/footer/Footer";
 import SmoothScroll from "@/components/smooth-scroll/SmoothScroll";
 import AIAutomationClientInteractions from "@/components/services/AIAutomationClientInteractions";
+import TechnologyCarousel from "@/components/services/ai-automation/TechnologyCarousel";
+import ClientSuccessCarousel from "@/components/services/ai-automation/ClientSuccessCarousel";
+import ServiceTestimonials from "@/components/services/ai-automation/ServiceTestimonials";
 import { BRAND_LOGOS } from "@/data/siteData";
 import "@/styles/ai-automation-page.css";
 
@@ -101,9 +104,11 @@ export default function AIAutomationPage() {
                     02. WHAT DO OUR AI & AUTOMATION SERVICES INCLUDE?
                     ============================================================= */}
                 <section id="solutions" className="tech-customize mb-24">
+                  {/* Reference accent mapping: color-words-index="2,3,4,5,6"
+                      => "our ai & automation services" is the highlighted run. */}
                   <h2 className="tech-section-title mb-60">
-                    What do our{" "}
-                    <span className="accent-text">AI &amp; automation services include?</span>
+                    What do{" "}
+                    <span className="accent-text">our AI &amp; automation services</span> include?
                   </h2>
                   <div className="text-block is-gray margin-bottom-50 text-white/70 text-lg mb-8">
                     We build, connect, and scale automations that save time and prevent human errors —
@@ -114,13 +119,7 @@ export default function AIAutomationPage() {
                       {/* Card 1 */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card group">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -141,13 +140,7 @@ export default function AIAutomationPage() {
                       {/* Card 2 */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card group">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <circle cx="12" cy="12" r="10"></circle>
@@ -170,13 +163,7 @@ export default function AIAutomationPage() {
                       {/* Card 3 */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card group">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -198,13 +185,7 @@ export default function AIAutomationPage() {
                       {/* Card 4 */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card group">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
@@ -467,125 +448,15 @@ export default function AIAutomationPage() {
                     05. WINNING WITH US: OUR CLIENTS' SUCCESS (RESTORED CAROUSEL)
                     ============================================================= */}
                 <section id="why-we" className="tech-benefits mb-24">
+                  {/* Reference accent mapping: color-words-index="5" => only "success". */}
                   <h2 className="tech-section-title mb-60">
-                    Winning with us: <span className="accent-text">our clients&#x27; success</span>
+                    Winning with us: our clients&#x27; <span className="accent-text">success</span>
                   </h2>
-                  <div className="cases-wrap is-services-page">
-                    <div className="portfolio-slider-container">
-                      {/* Case 1: SACLAB */}
-                      <div className="portfolio-slide-item">
-                        <div className="case-item is-no-link">
-                          <div style={{ backgroundColor: "#cae3fe" }} className="case-item-image">
-                            <img
-                              src="/images/services/ai-automation/case-bg.svg"
-                              alt=""
-                              className="case-item-circles"
-                            />
-                            <img
-                              src="/images/services/ai-automation/case-saclab.webp"
-                              alt="SACLAB platform dashboard preview"
-                              className="case-item-thumb"
-                            />
-                          </div>
-                          <h4 className="case-item-title">
-                            SACLAB: Automated inventory &amp; luxury resale platform
-                          </h4>
-                          <p className="text-body text-white/70 text-sm mb-4">
-                            Integrated multi-channel inventory sync, automated authentication workflows, and instantaneous catalog generation.
-                          </p>
-                          <div className="case-item_tags">
-                            <span className="cms-tag">E-Commerce</span>
-                            <span className="cms-tag">Automation</span>
-                            <span className="cms-tag">Multi-Channel</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Case 2: TechHunt */}
-                      <div className="portfolio-slide-item">
-                        <div className="case-item is-no-link">
-                          <div style={{ backgroundColor: "#1e3a5f" }} className="case-item-image">
-                            <img
-                              src="/images/services/ai-automation/case-bg.svg"
-                              alt=""
-                              className="case-item-circles"
-                            />
-                            <img
-                              src="/images/services/ai-automation/case-techhunt.webp"
-                              alt="TechHunt talent matching portal"
-                              className="case-item-thumb"
-                            />
-                          </div>
-                          <h4 className="case-item-title">
-                            TechHunt: AI-assisted talent matching &amp; vetting engine
-                          </h4>
-                          <p className="text-body text-white/70 text-sm mb-4">
-                            Automated resume parsing, semantic candidate scoring, and calendar scheduling integrations handling thousands of applicants.
-                          </p>
-                          <div className="case-item_tags">
-                            <span className="cms-tag">Recruitment</span>
-                            <span className="cms-tag">LLM Agents</span>
-                            <span className="cms-tag">Next.js</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Case 3: HIVE */}
-                      <div className="portfolio-slide-item">
-                        <div className="case-item is-no-link">
-                          <div style={{ backgroundColor: "#1b3323" }} className="case-item-image">
-                            <img
-                              src="/images/services/ai-automation/case-bg.svg"
-                              alt=""
-                              className="case-item-circles"
-                            />
-                            <img
-                              src="/images/services/ai-automation/case-hive.webp"
-                              alt="HIVE operational telemetry dashboard"
-                              className="case-item-thumb"
-                            />
-                          </div>
-                          <h4 className="case-item-title">
-                            HIVE: Intelligent resource scheduling &amp; operational telemetry
-                          </h4>
-                          <p className="text-body text-white/70 text-sm mb-4">
-                            Dynamic utilization forecasting, real-time Slack/webhook alerts, and automated client billing pipelines.
-                          </p>
-                          <div className="case-item_tags">
-                            <span className="cms-tag">Enterprise Ops</span>
-                            <span className="cms-tag">Webhooks</span>
-                            <span className="cms-tag">Telemetry</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Carousel Controls */}
-                    <div className="flex items-center justify-between mt-4">
-                      <div className="slider-buttons">
-                        <button
-                          type="button"
-                          className="button_slider swis-portfolio-prev"
-                          aria-label="Previous project"
-                        >
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M15 18l-6-6 6-6" />
-                          </svg>
-                        </button>
-                        <button
-                          type="button"
-                          className="button_slider swis-portfolio-next"
-                          aria-label="Next project"
-                        >
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M9 18l6-6-6-6" />
-                          </svg>
-                        </button>
-                      </div>
-                      <a href="#contact-section" className="button button_smaller">
-                        Explore all case studies
-                      </a>
-                    </div>
+                  <ClientSuccessCarousel />
+                  <div className="tech-benefits-buttons fade-up-alt">
+                    <a href="#contact-section" className="button button_smaller">
+                      Discuss your automation project
+                    </a>
                   </div>
                 </section>
 
@@ -825,56 +696,7 @@ export default function AIAutomationPage() {
                     <span className="accent-text">Technologies</span> we use in AI &amp; automation
                   </h2>
                   <div className="fade-up-alt">
-                    <div className="tech-slider-wrap">
-                      <div className="tech-slider-container">
-                        {[
-                          { name: "Make / Integromat", icon: "/images/services/ai-automation/69522e11748d65f95259bf76_make-color 1.svg" },
-                          { name: "n8n Automation", icon: "/images/services/ai-automation/69522e119ada4a224d43f995_n8n-color 1.svg" },
-                          { name: "Python & LangChain", icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg" },
-                          { name: "Node.js Services", icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg" },
-                          { name: "React & Next.js", icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg" },
-                          { name: "Shopify Ecosystem", icon: "/images/technologies/6613ba0792d3339b64c8a066_hopify.svg" },
-                          { name: "WooCommerce API", icon: "/images/technologies/6613b99db664ec9b28788819_woocom.svg" },
-                          { name: "Enterprise PHP", icon: "/images/technologies/6613b9a8135ca957aa3d95c4_php.svg" },
-                        ].map((tech, idx) => (
-                          <div key={idx} className="tech-slider-card">
-                            <div className="tech-ecosystem-item">
-                              <div className="tech-ecosystem-item-image-wrap">
-                                <img
-                                  src={tech.icon}
-                                  alt={tech.name}
-                                  className="tech-ecosystem-item-image"
-                                />
-                              </div>
-                              <div className="tech-ecosystem-item-divider"></div>
-                              <div className="tech-ecosystem-item-title">{tech.name}</div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Carousel Arrow Controls */}
-                      <div className="slider-buttons">
-                        <button
-                          type="button"
-                          className="button_slider tech-slider-prev"
-                          aria-label="Previous technology"
-                        >
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M15 18l-6-6 6-6" />
-                          </svg>
-                        </button>
-                        <button
-                          type="button"
-                          className="button_slider tech-slider-next"
-                          aria-label="Next technology"
-                        >
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M9 18l6-6-6-6" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
+                    <TechnologyCarousel />
                   </div>
                 </section>
 
@@ -886,251 +708,24 @@ export default function AIAutomationPage() {
                     What our clients say… <span className="accent-text">for real</span>
                   </h2>
 
-                  {/* Partner Brand Logo Strip */}
-                  <div className="tech-testimonials-nav-wrapper">
-                    <img
-                      src="/images/clients/whitehead-consulting.png"
-                      alt="Whitehead Consulting logo"
-                      className="tech-nav-image"
-                    />
-                    <img
-                      src="/images/clients/bodhi.png"
-                      alt="Bodhi Health logo"
-                      className="tech-nav-image"
-                    />
-                    <img
-                      src="/images/clients/hype-distribution.png"
-                      alt="Hype Distribution logo"
-                      className="tech-nav-image"
-                    />
-                    <img
-                      src="/images/clients/allmax-nutrition.png"
-                      alt="ALLMAX Nutrition logo"
-                      className="tech-nav-image"
-                    />
-                    <img
-                      src="/images/clients/adeeva.png"
-                      alt="Adeeva Health logo"
-                      className="tech-nav-image"
-                    />
-                    <img
-                      src="/images/clients/finarkein.png"
-                      alt="Finarkein logo"
-                      className="tech-nav-image"
-                    />
-                  </div>
-
-                  {/* Multi-Card Horizontal Testimonials Carousel */}
-                  <div className="fade-up-alt mt-6">
-                    <div className="testimonials-slider-container">
-                      {/* Testimonial Card 1: TechHunt (Pastel Purple) */}
-                      <div className="testimonial-slide-item">
-                        <div className="testimonials__card tech-variant">
-                          <div className="testimonials__card-inner">
-                            <div style={{ backgroundColor: "#dbbaf4" }} className="testimonials__card-bg"></div>
-                            <img
-                              src="/images/services/ai-automation/case-techhunt.webp"
-                              alt="TechHunt platform overview"
-                              className="testimonials__card-overview tech-variant"
-                            />
-                            <div className="testimonials__card-caption tech-variant">
-                              <img
-                                src="/images/technologies/68502c460e19db138dd98e5a_kiseliova.webp"
-                                alt="Iryna Kyselova"
-                                className="testimonials__card-avatar tech-variant"
-                              />
-                              <p className="testimonials__card-name">Iryna Kyselova</p>
-                              <p className="testimonials__card-position">CEO, TECHHUNT</p>
-                            </div>
-                            <div className="testimonials__card-inner-scroller">
-                              <div className="testimonials__card-list">
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Automated matching pipeline works flawlessly</p>
-                                  <p className="testimonials__card-message-time tech-variant">4:45 PM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Saved 30+ recruiting hours every week</p>
-                                  <p className="testimonials__card-message-time tech-variant">4:56 PM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">On time as promised</p>
-                                  <p className="testimonials__card-message-time tech-variant">4:57 PM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Highly recommend TechForbs team!</p>
-                                  <p className="testimonials__card-message-time tech-variant">4:58 PM</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Testimonial Card 2: Habitat (Mint Green) */}
-                      <div className="testimonial-slide-item">
-                        <div className="testimonials__card tech-variant">
-                          <div className="testimonials__card-inner">
-                            <div style={{ backgroundColor: "#a0eeb0" }} className="testimonials__card-bg"></div>
-                            <img
-                              src="/images/services/ai-automation/case-saclab.webp"
-                              alt="Habitat platform overview"
-                              className="testimonials__card-overview tech-variant"
-                            />
-                            <div className="testimonials__card-caption tech-variant">
-                              <img
-                                src="/images/technologies/68502b31c839a090ed9cb36d_kozak.webp"
-                                alt="Oleksandra Kozak"
-                                className="testimonials__card-avatar tech-variant"
-                              />
-                              <p className="testimonials__card-name">Oleksandra Kozak</p>
-                              <p className="testimonials__card-position">CXO, HABITAT</p>
-                            </div>
-                            <div className="testimonials__card-inner-scroller">
-                              <div className="testimonials__card-list">
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Platform handles 75k users now</p>
-                                  <p className="testimonials__card-message-time tech-variant">12:28 AM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">92% satisfaction rate across workflows</p>
-                                  <p className="testimonials__card-message-time tech-variant">12:32 AM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">User engagement +45%</p>
-                                  <p className="testimonials__card-message-time tech-variant">12:34 AM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Revenue growing fast 🔥</p>
-                                  <p className="testimonials__card-message-time tech-variant">12:35 AM</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Testimonial Card 3: Whitehead Consulting (Steel Blue) */}
-                      <div className="testimonial-slide-item">
-                        <div className="testimonials__card tech-variant">
-                          <div className="testimonials__card-inner">
-                            <div style={{ backgroundColor: "#a5c9f5" }} className="testimonials__card-bg"></div>
-                            <img
-                              src="/images/portfolio/aldonexport.png"
-                              alt="Whitehead portal preview"
-                              className="testimonials__card-overview tech-variant"
-                            />
-                            <div className="testimonials__card-caption tech-variant">
-                              <img
-                                src="/images/testimonials/robert-bajac.jpeg"
-                                alt="Robert Bajac"
-                                className="testimonials__card-avatar tech-variant"
-                              />
-                              <p className="testimonials__card-name">Robert Bajac</p>
-                              <p className="testimonials__card-position">MANAGING DIRECTOR, WHITEHEAD</p>
-                            </div>
-                            <div className="testimonials__card-inner-scroller">
-                              <div className="testimonials__card-list">
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Architectural depth exceeded every expectation</p>
-                                  <p className="testimonials__card-message-time tech-variant">10:15 AM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Mission-critical platform with rock-solid stability</p>
-                                  <p className="testimonials__card-message-time tech-variant">10:18 AM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Outstanding engineering precision</p>
-                                  <p className="testimonials__card-message-time tech-variant">10:22 AM</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Testimonial Card 4: Bodhi Health (Teal / Warm) */}
-                      <div className="testimonial-slide-item">
-                        <div className="testimonials__card tech-variant">
-                          <div className="testimonials__card-inner">
-                            <div style={{ backgroundColor: "#85d4cb" }} className="testimonials__card-bg"></div>
-                            <img
-                              src="/images/portfolio/bodhi.png"
-                              alt="Bodhi Health platform preview"
-                              className="testimonials__card-overview tech-variant"
-                            />
-                            <div className="testimonials__card-caption tech-variant">
-                              <img
-                                src="/images/testimonials/dr-james-meschino.jpeg"
-                                alt="Dr. James Meschino"
-                                className="testimonials__card-avatar tech-variant"
-                              />
-                              <p className="testimonials__card-name">Dr. James Meschino</p>
-                              <p className="testimonials__card-position">CSO, BODHI HEALTH</p>
-                            </div>
-                            <div className="testimonials__card-inner-scroller">
-                              <div className="testimonials__card-list">
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Flawlessly communicates our clinical credibility</p>
-                                  <p className="testimonials__card-message-time tech-variant">2:10 PM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Maximizing consumer conversions across channels</p>
-                                  <p className="testimonials__card-message-time tech-variant">2:14 PM</p>
-                                </div>
-                                <div className="testimonials__card-message tech-variant">
-                                  <p className="testimonials__card-message-text tech-variant">Phenomenal team to work with</p>
-                                  <p className="testimonials__card-message-time tech-variant">2:16 PM</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Carousel Navigation Buttons */}
-                    <div className="slider-buttons mt-6">
-                      <button
-                        type="button"
-                        className="button_slider testimonials-slider-prev"
-                        aria-label="Previous testimonial"
-                      >
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M15 18l-6-6 6-6" />
-                        </svg>
-                      </button>
-                      <button
-                        type="button"
-                        className="button_slider testimonials-slider-next"
-                        aria-label="Next testimonial"
-                      >
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M9 18l6-6-6-6" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
+                  <ServiceTestimonials />
                 </section>
 
                 {/* =============================================================
                     10. BUSINESSES WE SERVE WITH AI & AUTOMATION
                     ============================================================= */}
                 <section id="businesses-we-serve" className="tech-customize mb-24">
+                  {/* Reference accent mapping: color-words-index="0,1,2"
+                      => "businesses we serve" is the highlighted run. */}
                   <h2 className="tech-section-title mb-60">
-                    Businesses we serve with <span className="accent-text">AI &amp; automation</span>
+                    <span className="accent-text">Businesses we serve</span> with AI &amp; automation
                   </h2>
                   <div className="w-dyn-list">
                     <div role="list" className="tech-service-cards w-dyn-items">
                       {/* Card 1: Agencies */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card group">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
@@ -1151,13 +746,7 @@ export default function AIAutomationPage() {
                       {/* Card 2: Startups */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card group">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -1176,13 +765,7 @@ export default function AIAutomationPage() {
                       {/* Card 3: SMEs */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card group">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <line x1="18" y1="20" x2="18" y2="10"></line>
@@ -1203,13 +786,7 @@ export default function AIAutomationPage() {
                       {/* Card 4: Enterprises */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card group">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -1264,9 +841,14 @@ export default function AIAutomationPage() {
                 11. TRUST LOGO GRID (2 ROWS X 5 COLS)
                 ================================================================= */}
             <section className="section-swis-awards v2 container mx-auto px-6 mb-24">
+              {/* These are TechForbs customer/brand logos, not award badges.
+                  The reference's award-badge row is deliberately NOT copied:
+                  its certifications belong to that company. Heading states only
+                  what the assets actually evidence. Reference accent mapping
+                  puts the highlight on the closing two words. */}
               <h2 className="tech-section-title text-center mb-4">
-                Recognized by leading review platforms and{" "}
-                <span className="accent-text">industry categories</span>
+                The brands that trust us to build and{" "}
+                <span className="accent-text">automate their work</span>
               </h2>
               <div className="awards-grid">
                 {BRAND_LOGOS.map((logo) => (

@@ -6,6 +6,110 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Pass #18: AI & Automation Reference Fidelity — Geometry Recovery, Carousel Reconstruction & Content Integrity] - 2026-11-04
+
+Scope: `/services/ai-automation` only. No homepage, Technology page, Navbar, Footer or
+global theme changes. All geometry below was recovered from the local reference source
+(`reference-source/_SERVICES-Refrence Source/.../services/ai-automation.html` and its
+Webflow stylesheet), not estimated from screenshots.
+
+### Forensic findings
+- The two supplied screenshots show commit `b7ad1da` (Pass #17). An unreviewed Pass #18
+  attempt already existed in the working tree (rewritten `page.tsx` + a new 1218-line
+  `ai-automation-page.css`, both uncommitted). It was checkpointed as `8d0c82c` before
+  any further change, then verified and completed rather than assumed correct.
+- The reference encodes which words carry the accent via `color-words-index` on each
+  `<h2>`. Three headings highlighted the wrong run.
+- `.team__grid.in-service-page` geometry in the page CSS was a 6-column approximation
+  with invented row/column sizes and no per-item wrapper sizing. The reference's real
+  values live in an inline `<style>` block inside the service page itself.
+- The three carousels were CSS `overflow-x` scroll containers driven by `scrollBy()`.
+  The reference uses Swiper for all three, which is why Technologies rendered as a long
+  vertical stack and Testimonials as a single oversized panel.
+- `.ai-automation-page .tech-section-title` overrode the reference typography already
+  present in `webflow.css`, shrinking every section heading and its spacing.
+- Project assets referenced as case studies (`case-saclab/techhunt/hive.webp`) are
+  generic stock mockups of invented products, not TechForbs work.
+
+### Changed — structure
+- **Technologies** rebuilt as a real Swiper carousel (`TechnologyCarousel.tsx`) with the
+  reference config verbatim: `loop`, `speed 1000`, `slidesPerView 1 → 480:2 → 992:3`,
+  `spaceBetween 16/16/30`, autoplay 3000 ms started on intersection. Three cards on
+  desktop; never a vertical stack.
+- **Client success** rebuilt as Swiper (`ClientSuccessCarousel.tsx`): `slidesPerView
+  1 → 992:2`, `spaceBetween 16/50`.
+- **Testimonials** rebuilt as the reference composition (`ServiceTestimonials.tsx`):
+  heading → 5-column client logo strip → multi-card Swiper (`slidesPerView 2`,
+  `spaceBetween 16/50`), replacing the single panel.
+- Carousel arrows (`SliderArrows.tsx`) now reproduce the reference `.slider-buttons`
+  overlay — absolutely positioned, vertically centred, overhanging both edges — instead
+  of sitting in a row underneath.
+
+### Changed — geometry
+- Workflow illustration and team collage now use the reference's exact service-page
+  grid: `gap .4375em`, `rows 9em 7.875em 4.625em`,
+  `columns 3.875em 1.125em 11.875em 10.25em 9em 12.375em`, with the reference's
+  per-item wrapper sizes (17.375em / 9em / 7.875em / 17.375em / 100% / 21.75em).
+- Founder portrait corrected from 5.5rem to the reference 12.5rem (8rem at narrower
+  widths) in both the sticky aside and the CTA banner; aside pinned at `top: 100px`.
+- Service cards aligned to the reference: `1.5rem` radius, `2rem` padding,
+  `justify-content: space-between`, and the icon returned to normal flow as a 3.75rem
+  bordered tile instead of being absolutely positioned.
+- FAQ aligned to the reference: `.0625rem` dividers, `1.25rem 2.5rem 1.25rem 0` header
+  padding, toggle pinned right at 1.875rem with a `.125rem` ring.
+- Removed the page-level `.tech-section-title` override so the reference typography in
+  `webflow.css` (lowercase / 3rem / 400 / `mb-60 = 3.15rem`) applies again.
+
+### Changed — brand translation
+- The service/industry card background raster (`tech-services-card-bg-1.png`) is CHE IT's
+  **coral** gradient. It is no longer rendered at any opacity; the diagonal sweep is
+  reproduced as a CSS gradient in TechForbs blue/cyan. Same geometry, correct brand.
+- Grid decorative caps changed from the reference coral fill to the blue→cyan gradient.
+- Technology card divider translated from the reference coral rule to cyan.
+- Third-party tool logos and client logos keep their authentic colours (no blanket filters).
+
+### Changed — content integrity
+- Heading accents corrected to the reference's own `color-words-index`:
+  "What do **our AI & automation services** include?", "Winning with us: our clients'
+  **success**", "**Businesses we serve** with AI & automation".
+- Client success cards now render from `PORTFOLIO_DATA` — real TechForbs projects, real
+  screenshots, real copy — filtered to projects the data itself identifies as automation
+  work (Cabspot, Maxopolis, Hype Distribution). The invented SACLAB / TechHunt / HIVE
+  cards and their stock mockups are no longer referenced.
+- Testimonials replaced with the approved homepage testimonials (Robert Whitehead, Brad,
+  Dr. James Meschino, Oliver Stueck). Removed two testimonials carried over from the
+  reference (Iryna Kyselova / TechHunt, Oleksandra Kozak / Habitat) together with that
+  company's avatar assets, and a third attributed to a person who does not appear
+  anywhere in the project data.
+- Fixed two broken avatar paths (`.jpeg` where the files are `.jpg`).
+- Trust-logo heading no longer describes customer logos as review-platform recognition.
+  The reference's award badges are deliberately not copied.
+
+### Changed — animation & interaction
+- Hero now opens as a staged sequence (background → decor → heading → paragraph → CTA)
+  plus the circle stroke draw, instead of one blanket fade.
+- Removed a duplicate anchor-click handler that competed with Lenis for the same click.
+- Removed the dead `scrollBy()` carousel shims.
+- `ScrollTrigger.refresh()` is now driven by a `ResizeObserver` on each carousel plus
+  load and settle timers, mirroring the reference's own `watchSwipers()`.
+- All reveals are created at runtime by GSAP, so the page renders fully visible if the
+  bundle fails. `prefers-reduced-motion` disables motion and autoplay.
+
+### Verification
+- `tsc --noEmit`: clean.
+- `eslint`: 0 errors (14 pre-existing `no-img-element` warnings, consistent with the codebase).
+- `next build`: succeeds; all 12 routes prerender, including `/services/ai-automation`.
+- No live/browser QA and no deployment were performed, as instructed.
+
+### Known limitations
+- The reference collage morphs through six Lottie-driven states (`state_v0`–`state_v5`).
+  Only the resting `state_v0` composition is reproduced, with a scroll reveal.
+- Visual parity has not been confirmed in a browser — static checks only.
+- Pre-existing Pass #17 copy retains claims worth a factual review ("1,500+ apps",
+  "ISO and SOC security guidelines", "guaranteed SLA"); left unchanged as approved content.
+
+---
+
 ## [Pass #17: Precision Fidelity Pass — Global UI Refinements + Technology Page Alignment + First Complete Services Page: AI & Automation] - 2026-11-03
 
 ### Added & Refined
