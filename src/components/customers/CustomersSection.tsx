@@ -6,13 +6,35 @@ import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CUSTOMERS_CARDS } from "@/data/siteData";
+import { CUSTOMERS_CARDS, type CustomerCard } from "@/data/siteData";
 import { useIsClient } from "@/hooks/useIsClient";
+import { cx, type SectionBaseProps } from "@/components/types";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function CustomersSection() {
+export interface CustomersSectionProps extends SectionBaseProps {
+  /** Small uppercase eyebrow above the heading. */
+  label?: string;
+  /** Slides shown in the carousel. Defaults to the home-page customers. */
+  cards?: CustomerCard[];
+}
+
+/**
+ * "Our Customers" — heading with an animated strikethrough plus a Swiper
+ * carousel of customer cards.
+ *
+ * Animation: the strikethrough rule grows from 0% to 100% width over 0.85s
+ * once the section's top passes 75% of the viewport, played once. The carousel
+ * is arrow-driven (no autoplay) and is rendered only after mount, so the
+ * server markup stays stable.
+ */
+export default function CustomersSection({
+  id = "customers-section",
+  className,
+  label = "Our Customers",
+  cards = CUSTOMERS_CARDS,
+}: CustomersSectionProps = {}) {
   const swiperRef = useRef<SwiperType | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const strikethroughRef = useRef<HTMLDivElement>(null);
@@ -53,7 +75,7 @@ export default function CustomersSection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} id="customers-section" className="section--customers">
+    <section ref={sectionRef} id={id} className={cx("section--customers", className)}>
       <div className="section__pattern customers__pattern w-embed">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -75,9 +97,7 @@ export default function CustomersSection() {
           <div className="customers__heading">
             <div className="heading_combined">
               <div className="heading_label fade-up-alt">
-                <div className="body-smaller text-uppercase section-label">
-                  Our Customers
-                </div>
+                <div className="body-smaller text-uppercase section-label">{label}</div>
               </div>
               <div className="customers__title title_regular">
                 <div className="customers__title-row">
@@ -117,7 +137,7 @@ export default function CustomersSection() {
                   }}
                   className="swiper-wrapper customers-swiper w-dyn-items"
                 >
-                  {CUSTOMERS_CARDS.map((card) => (
+                  {cards.map((card) => (
                     <SwiperSlide key={card.id} className="swiper-slide w-dyn-item">
                       <div className="customers__item">
                         <img

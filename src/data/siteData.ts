@@ -29,16 +29,6 @@ export interface CustomerCard {
   description: string;
 }
 
-export interface SolutionTab {
-  id: string;
-  name: string;
-  category: string;
-  title: string;
-  description: string;
-  features: string[];
-  tags: string[];
-}
-
 export interface PortfolioItem {
   id: string;
   brand: string;
@@ -48,23 +38,6 @@ export interface PortfolioItem {
   bgColor: string;
   tags: string[];
   industry: string;
-}
-
-export interface TestimonialItem {
-  id: string;
-  name: string;
-  role: string;
-  company: string;
-  avatar: string;
-  quote: string;
-  highlights: string[];
-}
-
-export interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  image: string;
 }
 
 // EXACT 8 TECHNOLOGIES (Change 05)
@@ -271,127 +244,6 @@ export const CUSTOMERS_CARDS: CustomerCard[] = [
 ];
 
 // SOLUTIONS / WHAT WE DO (Pass #15 - 5 Exact Service Categories)
-export const SOLUTIONS_TABS: SolutionTab[] = [
-  {
-    id: "tab-shopify",
-    name: "Shopify Development",
-    category: "Certified Shopify Plus Experts",
-    title: "Shopify Development",
-    description: "Enterprise Shopify and Shopify Plus engineering tailored for global direct-to-consumer and B2B brands. From bespoke Liquid theme architecture to complex custom app ecosystems and performance optimization.",
-    features: [
-      "Theme Customization & Development",
-      "Custom App Development & Integration",
-      "Shopify Store Setup, Migration & Configuration",
-      "Core Web Vitals & Store Performance Optimization",
-    ],
-    tags: [
-      "Theme Customization",
-      "Theme Development",
-      "App Customization",
-      "App Development",
-      "App Integration",
-      "Shopify Store Setup & Configuration",
-      "Shopify Store Migration",
-      "Shopify Performance Optimization",
-    ],
-  },
-  {
-    id: "tab-wordpress",
-    name: "WordPress / WooCommerce Development",
-    category: "High-Performance Content & Commerce",
-    title: "WordPress / WooCommerce Development",
-    description: "Full-cycle WordPress and WooCommerce engineering. We build secure, headless and high-converting platforms with bespoke plugin architectures, seamless API pipelines, and custom payment integrations.",
-    features: [
-      "WordPress & WooCommerce Customization",
-      "Custom Plugin Development & Integration",
-      "Robust REST & GraphQL API Integration",
-      "Global Payment Gateway & Checkout Solutions",
-    ],
-    tags: [
-      "WordPress Customization",
-      "WordPress Development",
-      "WooCommerce Customization",
-      "WooCommerce Development",
-      "Plugin Customization",
-      "Plugin Development",
-      "Plugin Integration",
-      "API Integration",
-      "Payment Integration",
-    ],
-  },
-  {
-    id: "tab-custom-app",
-    name: "Custom Web Application",
-    category: "Enterprise Architecture & Portals",
-    title: "Custom Web Application",
-    description: "Bespoke full-stack web applications, SaaS platforms, and enterprise portals engineered for high concurrency, rock-solid security, and seamless integration with existing ERP and CRM backbones.",
-    features: [
-      "Laravel, Drupal & PHP enterprise backends",
-      "Next.js, React & Node.js scalable architectures",
-      "Angular & CakePHP application development",
-      "Sage CRM / ERP mission-critical enterprise integration",
-    ],
-    tags: [
-      "Laravel",
-      "Drupal",
-      "PHP",
-      "Next.js",
-      "Node.js",
-      "React",
-      "CakePHP",
-      "Angular",
-      "Sage CRM / ERP",
-    ],
-  },
-  {
-    id: "tab-ai-automation",
-    name: "AI & Automation",
-    category: "Intelligent Systems & Workflows",
-    title: "AI & Automation",
-    description: "Empower your enterprise with autonomous AI agents, conversational chatbots, intelligent automation workflows, and custom LLM deployments that streamline business operations and reduce overhead.",
-    features: [
-      "Intelligent Agent Development & Autonomous Workflows",
-      "Conversational AI & Custom Enterprise Chatbots",
-      "AI Application Development & Model Fine-Tuning",
-      "AI Strategy & Executive Roadmap Consulting",
-    ],
-    tags: [
-      "Intelligent Agent Development",
-      "Conversational AI & Chatbot",
-      "AI Application Development",
-      "AI Integration & Implementation",
-      "AI Strategy & Roadmap Consulting",
-    ],
-  },
-  {
-    id: "tab-digital-marketing",
-    name: "Digital Marketing",
-    category: "Data-Driven Growth & AI Search Dominance",
-    title: "Digital Marketing",
-    description: "",
-    features: [
-      "AI SEO (GEO/AEO)",
-      "Technical SEO Audit",
-      "On-Page & Content SEO",
-      "Local SEO",
-      "Paid Advertising (PPC)",
-      "Social Media Marketing",
-      "Email & Marketing Automation",
-      "Analytics & Conversion Optimization",
-    ],
-    tags: [
-      "AI SEO (GEO/AEO)",
-      "Technical SEO Audit",
-      "On-Page & Content SEO",
-      "Local SEO",
-      "Paid Advertising (PPC)",
-      "Social Media Marketing",
-      "Email & Marketing Automation",
-      "Analytics & Conversion Optimization",
-    ],
-  },
-];
-
 // EXACT SEVEN PORTFOLIO BRANDS (Change 10B)
 // 1. ALLMAX
 // 2. Bodhi Health
@@ -463,48 +315,284 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   },
 ];
 
-// TESTIMONIALS
-export const TESTIMONIALS_DATA: TestimonialItem[] = [
+// ---------------------------------------------------------------------------
+// WHO WE BUILD FOR
+// ---------------------------------------------------------------------------
+
+export interface BuildForCard {
+  /** Stable key, also used as the image alt text. */
+  title: string;
+  icon: string;
+  tag: string;
+  image: string;
+  text: string;
+  highlight: string;
+}
+
+export const BUILD_FOR_CARDS: BuildForCard[] = [
   {
-    id: "dr-james",
-    name: "Dr. James Meschino",
-    role: "Chief Scientific Officer",
-    company: "Bodhi Health Inc.",
-    avatar: "/images/testimonials/dr-james-meschino.jpeg",
-    quote: "TechForbs delivered an exceptional e-commerce platform that flawlessly communicates our clinical credibility while maximizing consumer conversions. Outstanding engineering precision.",
-    highlights: ["Sublingual delivery UX", "Subscription architecture", "High conversion rate"],
+    title: "Agencies",
+    icon: "/images/ui/6aaa94c9e50f2cf960d45869_build-icon-4.svg",
+    tag: "Grow your offering, get more projects",
+    image: "/images/ui/6aab97f523a7b38046bf5536_c909f9dc33e9f94bea483fcf8f0dbc73_build-card-wider-1.webp",
+    text: "Grow your services, handle more complex projects, and add new features for your clients without the expense of hiring your own development team.",
+    highlight: "We offer white label web development services that work under your brand.",
   },
   {
-    id: "robert-b",
-    name: "Robert Bajac",
-    role: "Managing Director",
-    company: "Whitehead Consulting",
-    avatar: "/images/testimonials/robert-bajac.jpeg",
-    quote: "Their team's architectural depth and agile delivery exceeded every expectation. They built a mission-critical platform that operates with rock-solid stability.",
-    highlights: ["Enterprise architecture", "Scalable data pipeline", "Zero downtime launch"],
+    title: "SMEs & Scaleups",
+    icon: "/images/ui/6aaa94c9e06967bb8d4c1435_build-icon-2.svg",
+    tag: "Grow fast, without losing control",
+    image: "/images/ui/6aab97f32ebdb85a19d554ac_build-card-wider-2.webp",
+    text: "We create custom solutions, connect your systems, automate tasks, improve workflows, and add smart AI features to help your business grow.",
+    highlight: "Our SME-focused software development makes your technology simpler, connects your systems, and improves your workflows.",
   },
   {
-    id: "brad-h",
+    title: "Startups",
+    icon: "/images/ui/6aaa8a13e180b2b29c7b64fb_build-icon-1.svg",
+    tag: "Launch faster, validate sooner",
+    image: "/images/ui/6aab97f43f0544d42354401d_build-card-wider-3.webp",
+    text: "We create MVPs, landing pages, and no-code or low-code solutions quickly, so you can move fast. Our flexible approach lets your project grow and change as you search for product-market fit.",
+    highlight: "Our startup software development and MVP development services help you launch working products really fast.",
+  },
+  {
+    title: "Enterprise",
+    icon: "/images/ui/6a93d0b2ecafc26748b0ea0a_Web and mobile, together.svg",
+    tag: "Complex systems, built right",
+    image: "/images/ui/6aab97f405bf88f2a4992f30_build-card-wider-4.webp",
+    text: "From custom platforms and system integrations to workflow optimization and smart AI features, we create technology that makes your enterprise work more efficiently.",
+    highlight: "Custom enterprise development services help you build and connect complex systems that can grow with your business.",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// WHAT WE DO / SOLUTIONS
+// ---------------------------------------------------------------------------
+
+export interface ServiceSubpoint {
+  title: string;
+  desc?: string;
+}
+
+export interface SolutionCategory {
+  id: string;
+  name: string;
+  tag: string;
+  description: string;
+  isDetailed?: boolean;
+  items: ServiceSubpoint[];
+}
+
+export const SOLUTIONS: SolutionCategory[] = [
+  {
+    id: "shopify-dev",
+    name: "Shopify Development",
+    tag: "Certified Shopify Plus Experts",
+    description:
+      "Enterprise Shopify and Shopify Plus engineering tailored for global direct-to-consumer and B2B brands. From bespoke Liquid theme architecture to complex custom app ecosystems and performance optimization.",
+    items: [
+      { title: "Theme Customization" },
+      { title: "Theme Development" },
+      { title: "App Customization" },
+      { title: "App Development" },
+      { title: "App Integration" },
+      { title: "Shopify Store Setup & Configuration" },
+      { title: "Shopify Store Migration" },
+      { title: "Shopify Performance Optimization" },
+    ],
+  },
+  {
+    id: "wordpress-woo",
+    name: "WordPress / WooCommerce Development",
+    tag: "High-Performance Content & Commerce",
+    description:
+      "Full-cycle WordPress and WooCommerce engineering. We build secure, headless and high-converting platforms with bespoke plugin architectures, seamless API pipelines, and custom payment integrations.",
+    items: [
+      { title: "WordPress Customization" },
+      { title: "WordPress Development" },
+      { title: "WooCommerce Customization" },
+      { title: "WooCommerce Development" },
+      { title: "Plugin Customization" },
+      { title: "Plugin Development" },
+      { title: "Plugin Integration" },
+      { title: "API Integration" },
+      { title: "Payment Integration" },
+    ],
+  },
+  {
+    id: "custom-web-app",
+    name: "Custom Web Application",
+    tag: "Enterprise Architecture & Portals",
+    description:
+      "Bespoke full-stack web applications, SaaS platforms, and enterprise portals engineered for high concurrency, rock-solid security, and seamless integration with existing ERP and CRM backbones.",
+    items: [
+      { title: "Laravel" },
+      { title: "Drupal" },
+      { title: "PHP" },
+      { title: "Next.js" },
+      { title: "Node.js" },
+      { title: "React" },
+      { title: "CakePHP" },
+      { title: "Angular" },
+      { title: "Sage CRM / ERP" },
+    ],
+  },
+  {
+    id: "ai-automation",
+    name: "AI & Automation",
+    tag: "Intelligent Systems & Workflows",
+    description:
+      "Empower your enterprise with autonomous AI agents, conversational chatbots, intelligent automation workflows, and custom LLM deployments that streamline business operations and reduce overhead.",
+    items: [
+      { title: "Intelligent Agent Development" },
+      { title: "Conversational AI & Chatbot" },
+      { title: "AI Application Development" },
+      { title: "AI Integration & Implementation" },
+      { title: "AI Strategy & Roadmap Consulting" },
+    ],
+  },
+  {
+    id: "digital-marketing",
+    name: "Digital Marketing",
+    tag: "Data-Driven Growth & AI Search Dominance",
+    description:
+      "Full-funnel digital marketing strategies combining AI-driven search optimization, high-ROAS paid advertising, performance content marketing, and conversion rate optimization to scale your brand revenue.",
+    items: [
+      { title: "AI SEO (GEO/AEO)" },
+      { title: "Technical SEO Audit" },
+      { title: "On-Page & Content SEO" },
+      { title: "Local SEO" },
+      { title: "Paid Advertising (PPC)" },
+      { title: "Social Media Marketing" },
+      { title: "Email & Marketing Automation" },
+      { title: "Analytics & Conversion Optimization" },
+    ],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// TESTIMONIALS (home-page chat-card variant)
+// ---------------------------------------------------------------------------
+
+export interface HomeTestimonialMessage {
+  text: string;
+  time: string;
+}
+
+export interface HomeTestimonial {
+  name: string;
+  position: string;
+  avatar: string;
+  /** Card background colour behind the brand artwork. */
+  bgColor: string;
+  brandLogo: string;
+  messages: HomeTestimonialMessage[];
+}
+
+export const HOME_TESTIMONIALS: HomeTestimonial[] = [
+  {
+    name: "Robert Whitehead",
+    position: "Founder, Whitehead Consulting (AM)",
+    avatar: "/images/testimonials/robert-whitehead.jpg",
+    bgColor: "#dbbaf4",
+    brandLogo: "/images/clients/pari.png",
+    messages: [
+      { text: "TechForbs team is truly exceptional", time: "4:45 PM" },
+      { text: "Our custom platform runs flawlessly", time: "4:56 PM" },
+      { text: "Super responsive communication", time: "4:57 PM" },
+      { text: "Delivered ahead of schedule", time: "4:58 PM" },
+    ],
+  },
+  {
     name: "Brad",
-    role: "Co-Founder & VP Operations",
-    company: "Hype Distribution",
-    avatar: "/images/testimonials/brad.jpeg",
-    quote: "From complex wholesale pricing rules to automated inventory synchronization, TechForbs handled our multi-tier requirements seamlessly.",
-    highlights: ["B2B wholesale portal", "Automated fulfillment", "Custom ERP integration"],
+    position: "E-Commerce Director, High-Growth D2C",
+    avatar: "/images/testimonials/brad.jpg",
+    bgColor: "#a0eeb0",
+    brandLogo: "/images/testimonials/brad.jpg",
+    messages: [
+      { text: "The Shopify migration was smooth and rapid", time: "2:15 PM" },
+      { text: "Conversion rate jumped by 34% in the first month", time: "2:16 PM" },
+      { text: "Technical competence across the board", time: "2:20 PM" },
+    ],
+  },
+  {
+    name: "Dr. James Meschino",
+    position: "Director, Adeeva Health",
+    avatar: "/images/clients/adeeva.png",
+    bgColor: "#ffb3b3",
+    brandLogo: "/images/clients/adeeva.png",
+    messages: [
+      { text: "Extremely thorough with enterprise healthcare compliance", time: "11:05 AM" },
+      { text: "Architecture handled our seasonal traffic surges with zero downtime", time: "11:08 AM" },
+      { text: "A truly reliable long-term technology partner", time: "11:12 AM" },
+    ],
+  },
+  {
+    name: "Oliver Stueck",
+    position: "VP Operations, ALLMAX Nutrition",
+    avatar: "/images/clients/allmax-nutrition.jpg",
+    bgColor: "#ffde82",
+    brandLogo: "/images/clients/allmax-nutrition.png",
+    messages: [
+      { text: "Our multi-region stores run with exceptional speed", time: "3:30 PM" },
+      { text: "Complex ERP integration solved seamlessly", time: "3:32 PM" },
+      { text: "High standard of engineering quality", time: "3:35 PM" },
+    ],
   },
 ];
 
-// TEAM DATA (10 authentic photos)
-export const TEAM_MEMBERS: TeamMember[] = [
-  { id: 1, name: "Leadership & Strategy", role: "Executive Direction", image: "/images/team/techforbs-team-1.jpg" },
-  { id: 2, name: "Solutions Architect", role: "Engineering Lead", image: "/images/team/techforbs-team-2.jpg" },
-  { id: 3, name: "Shopify Plus Specialist", role: "Frontend Architect", image: "/images/team/techforbs-team-3.jpg" },
-  { id: 4, name: "Product Design Lead", role: "UI/UX Specialist", image: "/images/team/techforbs-team-4.jpg" },
-  { id: 5, name: "Cloud Infrastructure Engineer", role: "DevOps & Cloud", image: "/images/team/techforbs-team-5.jpg" },
-  { id: 6, name: "Full-Stack Developer", role: "Backend Systems", image: "/images/team/techforbs-team-6.jpg" },
-  { id: 7, name: "Mobile App Architect", role: "iOS & Android", image: "/images/team/techforbs-team-7.jpg" },
-  { id: 8, name: "AI Automation Engineer", role: "Workflow Automation", image: "/images/team/techforbs-team-8.jpg" },
-  { id: 9, name: "Quality Assurance Lead", role: "Production QA", image: "/images/team/techforbs-team-9.jpg" },
-  { id: 10, name: "Client Success Partner", role: "Project Delivery", image: "/images/team/techforbs-team-10.jpg" },
-];
+// ---------------------------------------------------------------------------
+// TECHNOLOGY ECOSYSTEM TILES (services / technology pages)
+// ---------------------------------------------------------------------------
 
+export interface TechEcosystemItem {
+  /** Caption under the logo; also the React key. */
+  name: string;
+  icon: string;
+  /** Image alt text. Defaults to "<name> logo". */
+  alt?: string;
+  /** Tile link. Defaults to "#", which renders as a non-clickable tile. */
+  href?: string;
+}
+
+export const AI_AUTOMATION_ECOSYSTEM: TechEcosystemItem[] = [
+  {
+    name: "Make",
+    icon: "/images/services/ai-automation/69522e11748d65f95259bf76_make-color 1.svg",
+    alt: "Make (Integromat) automation platform logo",
+  },
+  {
+    name: "n8n",
+    icon: "/images/services/ai-automation/69522e119ada4a224d43f995_n8n-color 1.svg",
+    alt: "n8n workflow automation logo",
+  },
+  {
+    name: "Python",
+    icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg",
+    alt: "Python logo",
+  },
+  {
+    name: "Node.js",
+    icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg",
+    alt: "Node.js logo",
+  },
+  {
+    name: "React",
+    icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg",
+    alt: "React logo",
+  },
+  {
+    name: "Shopify",
+    icon: "/images/technologies/6613ba0792d3339b64c8a066_hopify.svg",
+    alt: "Shopify logo",
+  },
+  {
+    name: "WooCommerce",
+    icon: "/images/technologies/6613b99db664ec9b28788819_woocom.svg",
+    alt: "WooCommerce logo",
+  },
+  {
+    name: "PHP",
+    icon: "/images/technologies/6613b9a8135ca957aa3d95c4_php.svg",
+    alt: "PHP logo",
+  },
+];

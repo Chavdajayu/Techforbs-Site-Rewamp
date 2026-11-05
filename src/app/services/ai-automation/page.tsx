@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/navigation/Navbar";
-import BrandLogos from "@/components/brand-logos/BrandLogos";
-import ContactSection from "@/components/contact/ContactSection";
-import Footer from "@/components/footer/Footer";
-import SmoothScroll from "@/components/smooth-scroll/SmoothScroll";
-import AIAutomationClientInteractions from "@/components/services/AIAutomationClientInteractions";
+import {
+  Navbar,
+  BrandLogos,
+  ContactSection,
+  Footer,
+  SmoothScroll,
+  AIAutomationClientInteractions,
+  PortfolioCases,
+  TechEcosystem,
+} from "@/components";
+import { AI_AUTOMATION_ECOSYSTEM } from "@/data/siteData";
 
 export const metadata: Metadata = {
   title: "AI & Automation Services | Intelligent Workflows & Agent Engineering - TechForbs",
@@ -409,79 +414,7 @@ export default function AIAutomationPage() {
                 {/* =============================================================
                     05. WINNING WITH US: OUR CLIENTS' SUCCESS (CASE STUDIES)
                     ============================================================= */}
-                <section id="why-we" className="tech-benefits">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="5,6"
-                    className="tech-section-title mb-60"
-                  >
-                    Winning with us: our clients&#x27; success
-                  </h2>
-                  <div className="cases-wrap is-services-page">
-                    <div className="cases-slider w-dyn-list">
-                      <div role="list" className="swiper-wrapper w-dyn-items flex flex-col md:flex-row gap-6 overflow-x-auto pb-4">
-                        {/* Case 1: SACLAB */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#122336] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/f4e1f7273934d40237194f475ed8563c_Cover.webp"
-                                alt="SACLAB Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              SACLAB: Automated inventory &amp; luxury resale platform
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Integrated multi-channel inventory sync, automated authentication workflows, and instantaneous catalog generation.
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Case 2: TechHunt */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#251532] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/d8a87383a15993bdf8be94f08f0290ca_cover.webp"
-                                alt="TechHunt Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              TechHunt: AI-assisted talent matching &amp; vetting engine
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Automated resume parsing, semantic candidate scoring, and calendar scheduling integrations handling thousands of applicants.
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Case 3: HIVE */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#1a2d1d] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/hive-cover.webp"
-                                alt="HIVE Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              HIVE: Intelligent resource scheduling &amp; operational telemetry
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Dynamic utilization forecasting, real-time Slack/webhook alerts, and automated client billing pipelines.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+                <PortfolioCases />
 
                 {/* =============================================================
                     06. WHY TEAMS CHOOSE TECHFORBS
@@ -621,44 +554,10 @@ export default function AIAutomationPage() {
                 {/* =============================================================
                     08. TECHNOLOGIES WE USE IN AI & AUTOMATION
                     ============================================================= */}
-                <section id="ecosystem" className="tech-ecosystem">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="0"
-                    className="tech-section-title mb-60"
-                  >
-                    Technologies we use in AI &amp; automation
-                  </h2>
-                  <div className="fade-up-alt">
-                    <div className="tech-slider-wrap">
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        {[
-                          { name: "Make / Integromat", icon: "/images/services/ai-automation/69522e11748d65f95259bf76_make-color 1.svg" },
-                          { name: "n8n Automation", icon: "/images/services/ai-automation/69522e119ada4a224d43f995_n8n-color 1.svg" },
-                          { name: "Python AI & Agents", icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg" },
-                          { name: "Node.js Services", icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg" },
-                          { name: "Next.js & React", icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg" },
-                          { name: "Shopify Ecosystem", icon: "/images/technologies/6613ba0792d3339b64c8a066_hopify.svg" },
-                          { name: "WooCommerce API", icon: "/images/technologies/6613b99db664ec9b28788819_woocom.svg" },
-                          { name: "Enterprise PHP", icon: "/images/technologies/6613b9a8135ca957aa3d95c4_php.svg" },
-                        ].map((tech, idx) => (
-                          <div key={idx} className="tech-ecosystem-item p-4 rounded-xl bg-[#161616] border border-white/10 flex flex-col items-center justify-center text-center hover:border-[#00e5ff]/40 transition-all">
-                            <div className="tech-ecosystem-item-image-wrap h-12 w-12 flex items-center justify-center mb-3">
-                              <img
-                                src={tech.icon}
-                                alt={tech.name}
-                                className="max-h-10 max-w-10 object-contain"
-                              />
-                            </div>
-                            <div className="text-sm font-medium text-white/90">{tech.name}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </section>
+                <TechEcosystem
+                  title="Technologies we use in AI & automation"
+                  items={AI_AUTOMATION_ECOSYSTEM}
+                />
 
                 {/* =============================================================
                     09. TESTIMONIALS SECTION
@@ -1144,3 +1043,4 @@ export default function AIAutomationPage() {
     </SmoothScroll>
   );
 }
+

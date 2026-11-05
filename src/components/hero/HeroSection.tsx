@@ -4,8 +4,58 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import Hero3DCanvas from "./Hero3DCanvas";
+import { cx, type SectionBaseProps } from "@/components/types";
 
-export default function HeroSection() {
+export interface HeroSectionProps extends SectionBaseProps {
+  /**
+   * The four headline fragments, laid out top-left, top-right, bottom-left,
+   * bottom-right around the 3D model.
+   */
+  words?: [string, string, string, string];
+  /** Screen-reader headline. Defaults to `words` joined with spaces. */
+  srHeadline?: string;
+  /** Faceted background artwork behind the 3D stage. */
+  backgroundImage?: string;
+  /** Alt text for the background artwork. */
+  backgroundAlt?: string;
+  /** Paragraph under the headline (mobile only). */
+  supportingText?: string;
+  /** Target of the floating mobile contact button. */
+  ctaHref?: string;
+  /**
+   * Whether this hero plays the navbar's slide-down entrance.
+   *
+   * The `.header` element lives outside the hero, so the hero drives it. Set
+   * this to `false` if a page renders the hero somewhere other than directly
+   * under the navbar, or renders more than one hero, and the header should
+   * stay put.
+   */
+  animateHeader?: boolean;
+}
+
+/**
+ * Home hero: faceted stage with a 3D Shopify model, headline split around it.
+ *
+ * Animation (one timeline, 0.15s delay): header slides down at 0.1s, the stage
+ * blooms from scale 0.01 with `expo.inOut` at 0.35s, the cyan gradient fades in
+ * at 1.5s, headline row 1 reveals at 1.35s and row 2 at 1.48s, supporting text
+ * at 1.95s and the button at 2.15s. A 2.5s failsafe forces everything visible
+ * if the timeline is interrupted. Honours `prefers-reduced-motion`.
+ *
+ * All element lookups are scoped to this section, so two heroes on one page
+ * animate independently.
+ */
+export default function HeroSection({
+  id,
+  className,
+  words = ["Powering", "Shopify", "Stores to", "Grow"],
+  srHeadline,
+  backgroundImage = "/images/hero/hero-section-image.png",
+  backgroundAlt = "TechForbs: Shopify Experts",
+  supportingText = "Scale your e-commerce platform with precision engineering, headless Shopify architectures, and enterprise development.",
+  ctaHref = "#contact-section",
+  animateHeader = true,
+}: HeroSectionProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -13,12 +63,16 @@ export default function HeroSection() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const ctx = gsap.context(() => {
-      const header = document.querySelector(".header");
-      const heroStage = document.querySelector(".hero__content-top");
-      const heroGradient = document.querySelector(".hero__gradient");
-      const wordElements = document.querySelectorAll(".hero-word-text");
-      const heroText = document.querySelector(".hero__content-text");
-      const heroButtons = document.querySelector(".hero__content-buttons");
+      const root = sectionRef.current;
+      if (!root) return;
+
+      // `.header` is the navbar, which sits outside this section.
+      const header = animateHeader ? document.querySelector(".header") : null;
+      const heroStage = root.querySelector(".hero__content-top");
+      const heroGradient = root.querySelector(".hero__gradient");
+      const wordElements = root.querySelectorAll(".hero-word-text");
+      const heroText = root.querySelector(".hero__content-text");
+      const heroButtons = root.querySelector(".hero__content-buttons");
 
       if (prefersReducedMotion) {
         if (header) gsap.set(header, { yPercent: 0, opacity: 1 });
@@ -144,10 +198,10 @@ export default function HeroSection() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [animateHeader]);
 
   return (
-    <section ref={sectionRef} className="section--hero" style={{ backgroundColor: "#101010" }}>
+    <section ref={sectionRef} id={id} className={cx("section--hero", className)} style={{ backgroundColor: "#101010" }}>
       <div className="hero__content" style={{ backgroundColor: "#101010" }}>
         <div className="hero__gradient home-page" style={{ opacity: 0 }} />
         <div
@@ -166,11 +220,11 @@ export default function HeroSection() {
         >
           {/* Background Image - CHANGE 07: Exact supplied Hero Section Image */}
           <img
-            src="/images/hero/hero-section-image.png"
+            src={backgroundImage}
             loading="eager"
             width={1424}
             height={1468}
-            alt="TechForbs: Shopify Experts"
+            alt={backgroundAlt}
             fetchPriority="high"
             className="hero__content-top-bg"
             style={{
@@ -182,13 +236,13 @@ export default function HeroSection() {
           <div className="hero-composition-wrap">
             <h1 className="hero-heading-h1">
               {/* Semantic full title for SEO & accessibility */}
-              <span className="sr-only">Powering Shopify Stores to Grow</span>
+              <span className="sr-only">{srHeadline ?? words.join(" ")}</span>
 
               <div className="hero-headline-grid" aria-hidden="true">
                 {/* Row 1 Left: POWERING */}
                 <div className="hero-grid-col hero-grid-left-1">
                   <div className="hero-text-row overflow-hidden">
-                    <span className="hero-word-text">Powering</span>
+                    <span className="hero-word-text">{words[0]}</span>
                   </div>
                 </div>
 
@@ -200,21 +254,21 @@ export default function HeroSection() {
                 {/* Row 1 Right: SHOPIFY */}
                 <div className="hero-grid-col hero-grid-right-1">
                   <div className="hero-text-row overflow-hidden">
-                    <span className="hero-word-text">Shopify</span>
+                    <span className="hero-word-text">{words[1]}</span>
                   </div>
                 </div>
 
                 {/* Row 2 Left: STORES TO */}
                 <div className="hero-grid-col hero-grid-left-2" style={{ whiteSpace: "nowrap" }}>
                   <div className="hero-text-row overflow-hidden" style={{ whiteSpace: "nowrap" }}>
-                    <span className="hero-word-text" style={{ whiteSpace: "nowrap" }}>Stores to</span>
+                    <span className="hero-word-text" style={{ whiteSpace: "nowrap" }}>{words[2]}</span>
                   </div>
                 </div>
 
                 {/* Row 2 Right: GROW */}
                 <div className="hero-grid-col hero-grid-right-2">
                   <div className="hero-text-row overflow-hidden">
-                    <span className="hero-word-text">Grow</span>
+                    <span className="hero-word-text">{words[3]}</span>
                   </div>
                 </div>
               </div>
@@ -231,13 +285,13 @@ export default function HeroSection() {
                   lineHeight: 1.6,
                 }}
               >
-                Scale your e-commerce platform with precision engineering, headless Shopify architectures, and enterprise development.
+                {supportingText}
               </p>
             </div>
 
             {/* Floating / Mobile Contact Icon */}
             <div className="hero__content-buttons md:hidden" style={{ display: "flex", justifyContent: "center", marginTop: "1.5rem", position: "relative", zIndex: 12 }}>
-              <Link href="#contact-section" title="Contact us" className="w-inline-block">
+              <Link href={ctaHref} title="Contact us" className="w-inline-block">
                 <div
                   className="hero__heading-icon-inner hover mobile-icon"
                   style={{

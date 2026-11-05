@@ -3,8 +3,22 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { TECHNOLOGIES_DATA } from "@/data/siteData";
+import { cx } from "@/components/types";
 
-export default function Navbar() {
+export interface NavbarProps {
+  /** Extra class names appended to the <header> element. */
+  className?: string;
+}
+
+/**
+ * Site navigation bar.
+ *
+ * Renders the fixed `.header` element every page expects. Its entrance
+ * (slide down from -100%) is owned by whichever hero is on the page, so on a
+ * page without `HeroSection` the header is simply visible from the first
+ * paint. Escape closes any open dropdown and the mobile menu.
+ */
+export default function Navbar({ className }: NavbarProps = {}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -29,7 +43,7 @@ export default function Navbar() {
   };
 
   return (
-    <header data-w-id="0034b592-6b66-56b4-a574-da42086397f0" className="header">
+    <header data-w-id="0034b592-6b66-56b4-a574-da42086397f0" className={cx("header", className)}>
       <div className="container header__container">
         <div data-w-id="0034b592-6b66-56b4-a574-da42086397f2" className="header__inner">
           {/* Logo */}

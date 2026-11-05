@@ -1,19 +1,41 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { PORTFOLIO_DATA } from "@/data/siteData";
+import { PORTFOLIO_DATA, type PortfolioItem } from "@/data/siteData";
+import { cx, type SectionBaseProps } from "@/components/types";
+import PortfolioCard from "./PortfolioCard";
 import { useIsClient } from "@/hooks/useIsClient";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function PortfolioSection() {
+export interface PortfolioSectionProps extends SectionBaseProps {
+  /** Small uppercase eyebrow above the heading. */
+  label?: string;
+  /** Case-study slides. Defaults to the seven home-page brands. */
+  items?: PortfolioItem[];
+}
+
+/**
+ * "Portfolio" — hand-drawn circle around the heading plus an autoplaying
+ * Swiper of case-study cards.
+ *
+ * Animation: the circle SVG draws itself over 1.2s (stroke-dashoffset) and the
+ * cards rise from 40% with a 0.1s stagger, both triggered once when the section
+ * reaches 80%/75% of the viewport. The carousel autoplays every 3.5s and pauses
+ * on hover.
+ */
+export default function PortfolioSection({
+  id = "portfolio-section",
+  className,
+  label = "Portfolio",
+  items = PORTFOLIO_DATA,
+}: PortfolioSectionProps = {}) {
   const swiperRef = useRef<SwiperType | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const circlePathRef = useRef<SVGPathElement>(null);
@@ -93,10 +115,10 @@ export default function PortfolioSection() {
   return (
     <section
       ref={sectionRef}
-      id="portfolio-section"
+      id={id}
       itemScope
       itemType="https://schema.org/CollectionPage"
-      className="section--portfolio is-main-page section-gray"
+      className={cx("section--portfolio is-main-page section-gray", className)}
     >
       <div className="wrapper-gray is-home-portfolio">
         {/* Top Heading Container with Title Circle Oval */}
@@ -106,9 +128,7 @@ export default function PortfolioSection() {
               <div className="heading_combined">
                 <div className="heading_label">
                   <div className="fade-up">
-                    <div className="body-smaller text-uppercase section-label">
-                      Portfolio
-                    </div>
+                    <div className="body-smaller text-uppercase section-label">{label}</div>
                   </div>
                 </div>
                 <div className="portfolio__heading-title is-homepage">
@@ -184,61 +204,9 @@ export default function PortfolioSection() {
                 }}
                 className="swiper-wrapper w-dyn-items"
               >
-                {PORTFOLIO_DATA.map((item) => (
+                {items.map((item) => (
                   <SwiperSlide key={item.id} className="swiper-slide w-dyn-item">
-                    <div className="case-item is-no-link">
-                      <Link href="#portfolio-section" className="case-item_link w-inline-block">
-                        <span className="sr-only">{item.title}</span>
-                      </Link>
-                      <div
-                        className="case-item-image"
-                        style={{
-                          backgroundColor: item.bgColor,
-                          borderTopLeftRadius: "0px",
-                          borderTopRightRadius: "2.25rem",
-                          borderBottomLeftRadius: "0px",
-                          borderBottomRightRadius: "0px",
-                        }}
-                      >
-                        <img
-                          width={416}
-                          height={439}
-                          alt="TechForbs case study"
-                          src="/images/ui/66335e1b00f641134b6bcbef_case-bg.svg"
-                          loading="lazy"
-                          className="case-item-circles"
-                        />
-                        <img
-                          className="case-item-thumb min-height"
-                          src={item.image}
-                          width={745}
-                          height={618}
-                          alt={item.title}
-                          loading="lazy"
-                          style={{
-                            borderTopLeftRadius: "0px",
-                            borderTopRightRadius: "2rem",
-                            borderBottomLeftRadius: "0px",
-                            borderBottomRightRadius: "0px",
-                          }}
-                        />
-                      </div>
-
-                      <h4 itemProp="headline" className="case-item-title">
-                        {item.title}
-                      </h4>
-                      <div className="case-item_tags">
-                        <div className="w-dyn-list">
-                          <div role="list" className="cms-tag_list w-dyn-items">
-                            {item.tags.map((tag) => (
-                              <div key={tag} role="listitem" className="cms-tag w-dyn-item">
-                                <div>{tag}</div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <PortfolioCard item={item} href={`#${id}`} />
                   </SwiperSlide>
                 ))}
               </Swiper>

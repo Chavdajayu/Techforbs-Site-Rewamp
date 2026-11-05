@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/navigation/Navbar";
-import BrandLogos from "@/components/brand-logos/BrandLogos";
-import ContactSection from "@/components/contact/ContactSection";
-import Footer from "@/components/footer/Footer";
-import SmoothScroll from "@/components/smooth-scroll/SmoothScroll";
-import TechClientInteractions from "@/components/technologies/TechClientInteractions";
+import {
+  Navbar,
+  BrandLogos,
+  ContactSection,
+  Footer,
+  SmoothScroll,
+  TechClientInteractions,
+} from "@/components";
 
 export const metadata: Metadata = {
   title: "React Development Services | Custom React & Next.js Apps - TechForbs",

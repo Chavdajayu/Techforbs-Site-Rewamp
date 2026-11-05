@@ -3,9 +3,25 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { BRAND_LOGOS } from "@/data/siteData";
+import { BRAND_LOGOS, type BrandLogo } from "@/data/siteData";
+import { cx, type SectionBaseProps } from "@/components/types";
 
-export default function BrandLogos() {
+export interface BrandLogosProps extends SectionBaseProps {
+  /** Logo grid contents. Defaults to the ten home-page brands. */
+  logos?: BrandLogo[];
+}
+
+/**
+ * Brand logo grid.
+ *
+ * Animation: the grid items fade and rise 25px with a 0.06s stagger once the
+ * section's top passes 80% of the viewport, played once.
+ */
+export default function BrandLogos({
+  id = "brands-section",
+  className,
+  logos = BRAND_LOGOS,
+}: BrandLogosProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -41,12 +57,12 @@ export default function BrandLogos() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="brands-section" className="section--awards-grid is_home">
+    <section ref={sectionRef} id={id} className={cx("section--awards-grid is_home", className)}>
       <div className="container">
         <div itemType="https://schema.org/Organization" itemScope>
           <div className="w-dyn-list">
             <div role="list" className="awards-grid w-dyn-items">
-              {BRAND_LOGOS.map((logo) => (
+              {logos.map((logo) => (
                 <div role="listitem" key={logo.name} className="awards-grid__item w-dyn-item">
                   <img
                     src={logo.src}

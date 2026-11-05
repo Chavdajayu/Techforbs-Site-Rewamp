@@ -3,12 +3,42 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cx, type SectionBaseProps } from "@/components/types";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function TeamSection() {
+export interface TeamSectionProps extends SectionBaseProps {
+  /** Small uppercase eyebrow above the heading. */
+  label?: string;
+  /** Heading text before the circled words. */
+  headingPrefix?: string;
+  /** Words wrapped by the hand-drawn circle. */
+  headingHighlight?: string;
+  /** Line under the photo grid. */
+  caption?: string;
+  /** Pull quote under the caption. */
+  quote?: string;
+}
+
+/**
+ * "Our Team" — circled heading over a photo grid that cycles through layout
+ * states.
+ *
+ * Animation: the heading rises into place, the circle SVG draws itself over
+ * 1.2s, and the grid steps through its `state_v*_mod` classes on a GSAP
+ * delayedCall loop (desktop only, via gsap.matchMedia).
+ */
+export default function TeamSection({
+  id = "team-section",
+  className,
+  label = "Our Team",
+  headingPrefix = "Meet our",
+  headingHighlight = "expert team",
+  caption = "25+ dedicated full-stack engineers & specialists",
+  quote = "“We engineer robust, high-converting digital flagships. Our focus is absolute technical quality, speed to delivery, and building systems that scale seamlessly with your growth.”",
+}: TeamSectionProps = {}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
   const ovalPathRef = useRef<SVGPathElement | null>(null);
@@ -117,7 +147,7 @@ export default function TeamSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="team-section" className="section--team">
+    <section ref={sectionRef} id={id} className={cx("section--team", className)}>
       <div className="section__pattern team__pattern w-embed">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -138,15 +168,13 @@ export default function TeamSection() {
         <div className="team__animation">
           <div className="heading_combined">
             <div className="heading_label fade-up-alt">
-              <div className="body-smaller text-uppercase section-label">
-                Our Team
-              </div>
+              <div className="body-smaller text-uppercase section-label">{label}</div>
             </div>
             <div className="team__heading-title">
               <h2 className="title_regular">
-                Meet our{" "}
+                {headingPrefix}{" "}
                 <span className="team-circle-wrap relative inline-block text-[#00e5ff] px-2 py-0.5 whitespace-nowrap">
-                  expert team
+                  {headingHighlight}
                   <span
                     data-wf--title-circle--variant="base"
                     className="title-circle service-hero_circle"
@@ -281,14 +309,8 @@ export default function TeamSection() {
             </div>
 
             <div className="team__lottieanim-caption">
-              <p className="color-white-70">
-                25+ dedicated full-stack engineers &amp; specialists
-              </p>
-              <p className="body-bigger our-team-quote">
-                “We engineer robust, high-converting digital flagships. Our focus is
-                absolute technical quality, speed to delivery, and building systems
-                that scale seamlessly with your growth.”
-              </p>
+              <p className="color-white-70">{caption}</p>
+              <p className="body-bigger our-team-quote">{quote}</p>
             </div>
           </div>
         </div>

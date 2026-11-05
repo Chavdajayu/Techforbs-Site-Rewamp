@@ -3,12 +3,38 @@
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cx, type SectionBaseProps } from "@/components/types";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function ContactSection() {
+export interface ContactSectionProps extends SectionBaseProps {
+  /** Small uppercase eyebrow above the heading. */
+  label?: string;
+  /**
+   * Prefix for the form controls' own ids (`<prefix>-name`, `-email`,
+   * `-message`). Change it alongside `id` when the section is used twice in
+   * one document so the labels keep pointing at the right fields.
+   */
+  fieldIdPrefix?: string;
+  /** Called with the field values on submit, in addition to the built-in thank-you state. */
+  onSubmit?: (values: { name: string; email: string; message: string }) => void;
+}
+
+/**
+ * "Contact Us" — office details beside the enquiry form.
+ *
+ * Animation: the left and right columns rise 35px with a 0.15s stagger when
+ * the section reaches 80% of the viewport, and reverse when scrolled back out.
+ */
+export default function ContactSection({
+  id = "contact-section",
+  className,
+  label = "CONTACT US",
+  fieldIdPrefix = "contact",
+  onSubmit,
+}: ContactSectionProps = {}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -42,15 +68,16 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    onSubmit?.(formData);
     setSubmitted(true);
   };
 
   return (
     <section
       ref={sectionRef}
-      id="contact-section"
+      id={id}
       data-wf--form-get-in-touch--variant="base"
-      className="section--contact"
+      className={cx("section--contact", className)}
     >
       <div className="contact__inner">
         <img
@@ -64,9 +91,7 @@ export default function ContactSection() {
         <div className="contact__inner-left desktop">
           <div className="contact__heading">
             <div className="contact__heading-label">
-              <div className="body-smaller text-uppercase section-label">
-                CONTACT US
-              </div>
+              <div className="body-smaller text-uppercase section-label">{label}</div>
             </div>
             <h3 className="contact-section__title title_regular">
               Let’s build your <br />
@@ -178,17 +203,17 @@ export default function ContactSection() {
             {!submitted ? (
               <form onSubmit={handleSubmit} className="contact__form">
                 <div className="contact__form-title">
-                  <p className="body-bigger weight-600">GET IN TOUCH</p>
+                  <p className="body-bigger weight-600">Get in touch</p>
                   <p className="contact__form-title-subtext">
                     OUR TEAM WILL RESPOND TO YOU WITHIN 1 BUSINESS DAY
                   </p>
                 </div>
 
-                <label htmlFor="contact-name" className="hidden">
+                <label htmlFor={`${fieldIdPrefix}-name`} className="hidden">
                   Name
                 </label>
                 <input
-                  id="contact-name"
+                  id={`${fieldIdPrefix}-name`}
                   className="contact__form-field w-input"
                   maxLength={256}
                   placeholder="NAME"
@@ -200,11 +225,11 @@ export default function ContactSection() {
                   }
                 />
 
-                <label htmlFor="contact-email" className="hidden">
+                <label htmlFor={`${fieldIdPrefix}-email`} className="hidden">
                   Email
                 </label>
                 <input
-                  id="contact-email"
+                  id={`${fieldIdPrefix}-email`}
                   className="contact__form-field w-input"
                   maxLength={256}
                   placeholder="EMAIL"
@@ -216,11 +241,11 @@ export default function ContactSection() {
                   }
                 />
 
-                <label htmlFor="contact-message" className="hidden">
+                <label htmlFor={`${fieldIdPrefix}-message`} className="hidden">
                   Message
                 </label>
                 <textarea
-                  id="contact-message"
+                  id={`${fieldIdPrefix}-message`}
                   placeholder="PROJECT DETAILS / MESSAGE"
                   maxLength={5000}
                   className="contact__form-field is-text-area w-input"

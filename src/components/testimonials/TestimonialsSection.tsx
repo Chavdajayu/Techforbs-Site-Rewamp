@@ -7,6 +7,8 @@ import type { Swiper as SwiperType } from "swiper";
 import { useIsClient } from "@/hooks/useIsClient";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HOME_TESTIMONIALS, type HomeTestimonial } from "@/data/siteData";
+import { cx, type SectionBaseProps } from "@/components/types";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -15,59 +17,29 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const TESTIMONIALS = [
-  {
-    name: "Robert Whitehead",
-    position: "Founder, Whitehead Consulting (AM)",
-    avatar: "/images/testimonials/robert-whitehead.jpg",
-    bgColor: "#dbbaf4",
-    brandLogo: "/images/clients/pari.png",
-    messages: [
-      { text: "TechForbs team is truly exceptional", time: "4:45 PM" },
-      { text: "Our custom platform runs flawlessly", time: "4:56 PM" },
-      { text: "Super responsive communication", time: "4:57 PM" },
-      { text: "Delivered ahead of schedule", time: "4:58 PM" },
-    ],
-  },
-  {
-    name: "Brad",
-    position: "E-Commerce Director, High-Growth D2C",
-    avatar: "/images/testimonials/brad.jpg",
-    bgColor: "#a0eeb0",
-    brandLogo: "/images/testimonials/brad.jpg",
-    messages: [
-      { text: "The Shopify migration was smooth and rapid", time: "2:15 PM" },
-      { text: "Conversion rate jumped by 34% in the first month", time: "2:16 PM" },
-      { text: "Technical competence across the board", time: "2:20 PM" },
-    ],
-  },
-  {
-    name: "Dr. James Meschino",
-    position: "Director, Adeeva Health",
-    avatar: "/images/clients/adeeva.png",
-    bgColor: "#ffb3b3",
-    brandLogo: "/images/clients/adeeva.png",
-    messages: [
-      { text: "Extremely thorough with enterprise healthcare compliance", time: "11:05 AM" },
-      { text: "Architecture handled our seasonal traffic surges with zero downtime", time: "11:08 AM" },
-      { text: "A truly reliable long-term technology partner", time: "11:12 AM" },
-    ],
-  },
-  {
-    name: "Oliver Stueck",
-    position: "VP Operations, ALLMAX Nutrition",
-    avatar: "/images/clients/allmax-nutrition.jpg",
-    bgColor: "#ffde82",
-    brandLogo: "/images/clients/allmax-nutrition.png",
-    messages: [
-      { text: "Our multi-region stores run with exceptional speed", time: "3:30 PM" },
-      { text: "Complex ERP integration solved seamlessly", time: "3:32 PM" },
-      { text: "High standard of engineering quality", time: "3:35 PM" },
-    ],
-  },
-];
+export interface TestimonialsSectionProps extends SectionBaseProps {
+  /** Small uppercase eyebrow above the heading. */
+  label?: string;
+  /** Section heading. */
+  title?: string;
+  /** Testimonial cards. Defaults to the four home-page clients. */
+  testimonials?: HomeTestimonial[];
+}
 
-export default function TestimonialsSection() {
+/**
+ * "Testimonials" — looping Swiper of chat-style client cards.
+ *
+ * Animation: the cards rise 60px with a 0.12s stagger when the section reaches
+ * 78% of the viewport, and each card's chat bubbles pop in (height 0 -> auto,
+ * scale 0 -> 1) whenever that card becomes the active slide.
+ */
+export default function TestimonialsSection({
+  id = "testimonials-section",
+  className,
+  label = "TESTIMONIALS",
+  title = "What our clients are saying... verified feedback",
+  testimonials = HOME_TESTIMONIALS,
+}: TestimonialsSectionProps = {}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
   const mounted = useIsClient();
@@ -146,7 +118,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section ref={sectionRef} id="testimonials-section" className="section--testimonials">
+    <section ref={sectionRef} id={id} className={cx("section--testimonials", className)}>
       <div className="section__pattern testimonials__pattern w-embed">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -165,16 +137,12 @@ export default function TestimonialsSection() {
 
       <section className="tech-testimonials">
         <div className="portfolio__heading testimonials-heading">
-          <div id="testimonials-section" className="container">
+          <div className="container">
             <div className="heading_combined">
               <div className="heading_label fade-up-alt">
-                <div itemProp="name" className="body-smaller text-uppercase section-label">
-                  TESTIMONIALS
-                </div>
+                <div itemProp="name" className="body-smaller text-uppercase section-label">{label}</div>
               </div>
-              <h2 className="title_regular">
-                What our clients are saying... verified feedback
-              </h2>
+              <h2 className="title_regular">{title}</h2>
             </div>
           </div>
         </div>
@@ -199,7 +167,7 @@ export default function TestimonialsSection() {
                     }}
                     className="swiper-wrapper w-dyn-items"
                   >
-                    {TESTIMONIALS.map((t) => (
+                    {testimonials.map((t) => (
                       <SwiperSlide key={t.name} className="swiper-slide w-dyn-item">
                         <div className="testimonials__card home-variant">
                           <div className="testimonials__card-inner">

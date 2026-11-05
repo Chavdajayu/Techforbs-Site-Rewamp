@@ -2,10 +2,17 @@
 
 import React from "react";
 import Link from "next/link";
+import { cx } from "@/components/types";
 
-export default function Footer() {
+export interface FooterProps {
+  /** Extra class names appended to the <footer> element. */
+  className?: string;
+}
+
+/** Site footer: logo, navigation, social links and legal row. */
+export default function Footer({ className }: FooterProps = {}) {
   return (
-    <footer className="footer">
+    <footer className={cx("footer", className)}>
       <div className="container">
         <div className="footer-inner">
           <div className="footer_row">
