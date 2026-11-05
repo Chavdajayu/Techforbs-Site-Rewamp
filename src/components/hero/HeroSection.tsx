@@ -1,18 +1,29 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import Hero3DCanvas from "./Hero3DCanvas";
 import { cx, type SectionBaseProps } from "@/components/types";
 
+const DEFAULT_WORDS: [string, string, string] = ["Stores", "built", "to"];
+const DEFAULT_ROTATING_WORDS = ["sell.", "scale.", "convert.", "win."];
+
 export interface HeroSectionProps extends SectionBaseProps {
   /**
-   * The four headline fragments, laid out top-left, top-right, bottom-left,
-   * bottom-right around the 3D model.
+   * The static headline fragments around the 3D model, in visual order:
+   * top-left, bottom-left, top-right. The bottom-right slot is the cycling
+   * word, which comes from `rotatingWords`.
    */
-  words?: [string, string, string, string];
-  /** Screen-reader headline. Defaults to `words` joined with spaces. */
+  words?: [string, string, string];
+  /**
+   * Accent words cycled through in the bottom-right slot. Each is shown for
+   * `rotateInterval`, then fades down and is replaced.
+   */
+  rotatingWords?: string[];
+  /** How long each rotating word is held, in ms. */
+  rotateInterval?: number;
+  /** Screen-reader headline. Defaults to the static words plus the first rotating word. */
   srHeadline?: string;
   /** Faceted background artwork behind the 3D stage. */
   backgroundImage?: string;
@@ -48,7 +59,9 @@ export interface HeroSectionProps extends SectionBaseProps {
 export default function HeroSection({
   id,
   className,
-  words = ["Powering", "Shopify", "Stores to", "Grow"],
+  words = DEFAULT_WORDS,
+  rotatingWords = DEFAULT_ROTATING_WORDS,
+  rotateInterval = 2600,
   srHeadline,
   backgroundImage = "/images/hero/hero-section-image.png",
   backgroundAlt = "TechForbs: Shopify Experts",
@@ -57,6 +70,36 @@ export default function HeroSection({
   animateHeader = true,
 }: HeroSectionProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [wordVisible, setWordVisible] = useState(true);
+
+  // Cycle the accent word: hold, fade down, swap, fade back up.
+  // Mirrors the reference timing - 2600ms hold, 380ms crossfade.
+  //
+  // The effect keys off the word COUNT, not the array itself: a caller passing
+  // an inline array literal would otherwise give it a fresh identity on every
+  // render and restart the timer before it ever completed a cycle.
+  const wordCount = rotatingWords.length;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (wordCount < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let swap: ReturnType<typeof setTimeout> | undefined;
+    const timer = setInterval(() => {
+      setWordVisible(false);
+      swap = setTimeout(() => {
+        setWordIndex((i) => (i + 1) % wordCount);
+        setWordVisible(true);
+      }, 380);
+    }, rotateInterval);
+
+    return () => {
+      clearInterval(timer);
+      if (swap) clearTimeout(swap);
+    };
+  }, [wordCount, rotateInterval]);
 
   useEffect(() => {
     // Respect reduced motion
@@ -78,7 +121,7 @@ export default function HeroSection({
         if (header) gsap.set(header, { yPercent: 0, opacity: 1 });
         if (heroStage) gsap.set(heroStage, { scale: 1, x: 0, y: 0, opacity: 1 });
         if (heroGradient) gsap.set(heroGradient, { opacity: 1 });
-        gsap.set(wordElements, { yPercent: 0, opacity: 1 });
+        gsap.set(wordElements, { y: 0, opacity: 1 });
         if (heroText) gsap.set(heroText, { y: 0, opacity: 1 });
         if (heroButtons) gsap.set(heroButtons, { y: 0, opacity: 1 });
         return;
@@ -91,7 +134,7 @@ export default function HeroSection({
       if (header) gsap.set(header, { yPercent: -100, opacity: 0 });
       if (heroStage) gsap.set(heroStage, { scale: 0.01, x: "-2.25rem", y: "4rem", transformOrigin: "50% 50%", opacity: 1 });
       if (heroGradient) gsap.set(heroGradient, { opacity: 0 });
-      gsap.set(wordElements, { yPercent: 120, opacity: 0 });
+      gsap.set(wordElements, { y: 26, opacity: 0 });
       if (heroText) gsap.set(heroText, { y: 30, opacity: 0 });
       if (heroButtons) gsap.set(heroButtons, { y: 20, opacity: 0 });
 
@@ -132,28 +175,26 @@ export default function HeroSection({
         );
       }
 
-      // Step 3: At 1.35s, Heading Row 1 reveals: "Powering" and "Shopify"
+      // Step 3: At 1.35s, Heading Row 1 rises in: "Stores" and "to"
       tl.to(
         ".hero-grid-left-1 .hero-word-text, .hero-grid-right-1 .hero-word-text",
         {
-          yPercent: 0,
           y: 0,
           opacity: 1,
-          duration: 1.1,
-          ease: "expo.out",
+          duration: 0.9,
+          ease: "power2.out",
         },
         1.35
       );
 
-      // Step 4: At 1.48s, Heading Row 2 reveals: "Stores to" and "Grow"
+      // Step 4: At 1.48s, Heading Row 2 rises in: "built" and the cycling accent word
       tl.to(
         ".hero-grid-left-2 .hero-word-text, .hero-grid-right-2 .hero-word-text",
         {
-          yPercent: 0,
           y: 0,
           opacity: 1,
-          duration: 1.1,
-          ease: "expo.out",
+          duration: 0.9,
+          ease: "power2.out",
         },
         1.48
       );
@@ -189,7 +230,7 @@ export default function HeroSection({
       const safetyTimer = setTimeout(() => {
         if (heroStage) gsap.to(heroStage, { scale: 1, x: 0, y: 0, opacity: 1, duration: 0.3 });
         if (heroGradient) gsap.to(heroGradient, { opacity: 1, duration: 0.3 });
-        gsap.to(".hero-word-text", { yPercent: 0, y: 0, opacity: 1, duration: 0.3 });
+        gsap.to(".hero-word-text", { y: 0, opacity: 1, duration: 0.3 });
       }, 2500);
 
       return () => {
@@ -236,12 +277,19 @@ export default function HeroSection({
           <div className="hero-composition-wrap">
             <h1 className="hero-heading-h1">
               {/* Semantic full title for SEO & accessibility */}
-              <span className="sr-only">{srHeadline ?? words.join(" ")}</span>
+              <span className="sr-only">
+                {srHeadline ?? `${words.join(" ")} ${rotatingWords[0] ?? ""}`.trim()}
+              </span>
+
+              {/* Accent bloom behind the headline */}
+              <div aria-hidden="true" className="hero-headline-glow-anchor">
+                <div className="hero-headline-glow" />
+              </div>
 
               <div className="hero-headline-grid" aria-hidden="true">
-                {/* Row 1 Left: POWERING */}
+                {/* Row 1 Left: Stores */}
                 <div className="hero-grid-col hero-grid-left-1">
-                  <div className="hero-text-row overflow-hidden">
+                  <div className="hero-text-row">
                     <span className="hero-word-text">{words[0]}</span>
                   </div>
                 </div>
@@ -251,24 +299,31 @@ export default function HeroSection({
                   <Hero3DCanvas />
                 </div>
 
-                {/* Row 1 Right: SHOPIFY */}
+                {/* Row 1 Right: to */}
                 <div className="hero-grid-col hero-grid-right-1">
-                  <div className="hero-text-row overflow-hidden">
+                  <div className="hero-text-row">
+                    <span className="hero-word-text">{words[2]}</span>
+                  </div>
+                </div>
+
+                {/* Row 2 Left: built */}
+                <div className="hero-grid-col hero-grid-left-2">
+                  <div className="hero-text-row">
                     <span className="hero-word-text">{words[1]}</span>
                   </div>
                 </div>
 
-                {/* Row 2 Left: STORES TO */}
-                <div className="hero-grid-col hero-grid-left-2" style={{ whiteSpace: "nowrap" }}>
-                  <div className="hero-text-row overflow-hidden" style={{ whiteSpace: "nowrap" }}>
-                    <span className="hero-word-text" style={{ whiteSpace: "nowrap" }}>{words[2]}</span>
-                  </div>
-                </div>
-
-                {/* Row 2 Right: GROW */}
+                {/* Row 2 Right: cycling accent word */}
                 <div className="hero-grid-col hero-grid-right-2">
-                  <div className="hero-text-row overflow-hidden">
-                    <span className="hero-word-text">{words[3]}</span>
+                  <div className="hero-text-row">
+                    <span className="hero-word-text">
+                      <span
+                        className="hero-word-accent"
+                        data-visible={wordVisible ? "true" : "false"}
+                      >
+                        {rotatingWords[wordIndex] ?? ""}
+                      </span>
+                    </span>
                   </div>
                 </div>
               </div>

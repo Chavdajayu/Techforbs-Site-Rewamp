@@ -148,15 +148,74 @@ body {
 }
 
 .hero-word-text {
-  font-family: Inter, sans-serif;
-  font-weight: 700;
-  font-size: clamp(2.75rem, 5.0vw, 5.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
+  font-family: var(--font-sora), Sora, Inter, sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
   color: #ffffff;
-  text-transform: uppercase;
+  text-transform: none;
   display: inline-block;
   white-space: nowrap !important;
+}
+
+/* Cycling accent word. The GSAP intro animates .hero-word-text, so the swap
+   transition lives on this inner span and the two never fight. */
+.hero-word-accent {
+  display: inline-block;
+  color: #00e5ff;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hero-word-accent[data-visible="false"] {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* Accent bloom behind the headline */
+.hero-headline-glow-anchor {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-headline-glow {
+  position: absolute;
+  left: -300px;
+  top: -10px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 229, 255, 0.28) 0%,
+    rgba(0, 229, 255, 0.08) 42%,
+    rgba(0, 229, 255, 0) 68%
+  );
+  animation: hero-glow 5s ease-in-out infinite;
+}
+
+@keyframes hero-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-headline-glow {
+    animation: none;
+  }
+  .hero-word-accent {
+    transition: none;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -166,7 +225,7 @@ body {
     margin-top: -3rem;
   }
   .hero-word-text {
-    font-size: clamp(2.3rem, 4.4vw, 4.0rem);
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
   }
   .hero-grid-left-1,
   .hero-grid-left-2 {
@@ -188,7 +247,7 @@ body {
     height: 300px;
   }
   .hero-word-text {
-    font-size: clamp(1.85rem, 3.6vw, 2.7rem);
+    font-size: clamp(2.1rem, 5vw, 3.2rem);
   }
   .hero-grid-left-1,
   .hero-grid-left-2 {
@@ -209,15 +268,25 @@ body {
     gap: 0.4rem;
     margin-top: 0;
   }
+  /* The grid becomes a column here, so align-self switches to the HORIZONTAL
+     axis - the row-alignment !important rules above would otherwise shove the
+     words alternately to the right and left edges. */
+  .hero-grid-left-1,
+  .hero-grid-left-2,
+  .hero-grid-right-1,
+  .hero-grid-right-2 {
+    align-self: center !important;
+    width: 100%;
+  }
   .hero-grid-left-1 {
     order: 1;
     text-align: center;
-    padding: 0;
+    padding: 0 !important;
   }
-  .hero-grid-right-1 {
+  .hero-grid-left-2 {
     order: 2;
     text-align: center;
-    padding: 0;
+    padding: 0 !important;
   }
   .hero-grid-center {
     order: 3;
@@ -225,15 +294,15 @@ body {
     height: 200px;
     margin: 0.75rem auto;
   }
-  .hero-grid-left-2 {
+  .hero-grid-right-1 {
     order: 4;
     text-align: center;
-    padding: 0;
+    padding: 0 !important;
   }
   .hero-grid-right-2 {
     order: 5;
     text-align: center;
-    padding: 0;
+    padding: 0 !important;
   }
   .hero-word-text {
     font-size: clamp(2.0rem, 7.5vw, 2.6rem);
