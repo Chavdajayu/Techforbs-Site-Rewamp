@@ -99,10 +99,10 @@ export default function Hero3DCanvas() {
     scene.add(logoGroup);
 
     // Ambient and directional lighting for deep, non-shiny, matte volume with dark shadows
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.45);
     scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.15);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.85);
     dirLight.position.set(10, 45, 35);
     scene.add(dirLight);
 
@@ -115,16 +115,16 @@ export default function Hero3DCanvas() {
       const ctx = shadowCanvas.getContext("2d");
       if (ctx) {
         const gradient = ctx.createRadialGradient(128, 128, 0, 128, 128, 124);
-        gradient.addColorStop(0, "rgba(0, 0, 0, 0.98)");
-        gradient.addColorStop(0.35, "rgba(0, 0, 0, 0.90)");
-        gradient.addColorStop(0.65, "rgba(0, 0, 0, 0.60)");
-        gradient.addColorStop(0.88, "rgba(0, 0, 0, 0.20)");
+        gradient.addColorStop(0, "rgba(0, 0, 0, 1.0)");
+        gradient.addColorStop(0.4, "rgba(0, 0, 0, 0.96)");
+        gradient.addColorStop(0.7, "rgba(0, 0, 0, 0.70)");
+        gradient.addColorStop(0.88, "rgba(0, 0, 0, 0.28)");
         gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, 256, 256);
 
         const shadowTexture = new THREE.CanvasTexture(shadowCanvas);
-        const shadowGeo = new THREE.PlaneGeometry(82 * config.scale, 82 * config.scale);
+        const shadowGeo = new THREE.PlaneGeometry(96 * config.scale, 96 * config.scale);
         const shadowMat = new THREE.MeshBasicMaterial({
           map: shadowTexture,
           transparent: true,
@@ -132,7 +132,7 @@ export default function Hero3DCanvas() {
         });
         shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
         shadowMesh.rotation.x = -Math.PI / 2;
-        shadowMesh.position.set(0, config.logoY - 25 * config.scale, 0);
+        shadowMesh.position.set(0, config.logoY - 24 * config.scale, 0);
         scene.add(shadowMesh);
       }
     }
@@ -172,19 +172,19 @@ export default function Hero3DCanvas() {
           extrudeDepth = 12.2;
           bevelSize = 0.6;
           bevelThickness = 0.8;
-          matFront = new THREE.MeshLambertMaterial({ color: 0x4a7330 });
-          matSide = new THREE.MeshLambertMaterial({ color: 0x385724 });
+          matFront = new THREE.MeshLambertMaterial({ color: 0x3d5d22 });
+          matSide = new THREE.MeshLambertMaterial({ color: 0x273d15 });
         } else if (hex === "ffffff") {
           // Authentic Embossed White 'S' emblem
           extrudeDepth = 2.5;
           bevelSize = 0.35;
           bevelThickness = 0.45;
-          matFront = new THREE.MeshLambertMaterial({ color: 0xffffff });
-          matSide = new THREE.MeshLambertMaterial({ color: 0xe0e0e0 });
+          matFront = new THREE.MeshLambertMaterial({ color: 0xededed });
+          matSide = new THREE.MeshLambertMaterial({ color: 0xcccccc });
         } else {
           // Authentic Shopify Green main body (matte, non-neon, rich shadow contrast)
-          matFront = new THREE.MeshLambertMaterial({ color: 0x82b536 });
-          matSide = new THREE.MeshLambertMaterial({ color: 0x628a27 });
+          matFront = new THREE.MeshLambertMaterial({ color: 0x6e9a2d });
+          matSide = new THREE.MeshLambertMaterial({ color: 0x48691b });
         }
 
         const geom = new THREE.ExtrudeGeometry(shape, {
@@ -415,7 +415,7 @@ export default function Hero3DCanvas() {
         userSelect: "none",
         touchAction: "none",
         zIndex: 15,
-        filter: "drop-shadow(0 28px 38px rgba(0, 0, 0, 0.95)) drop-shadow(0 12px 18px rgba(0, 0, 0, 0.9))",
+        filter: "drop-shadow(0 32px 32px rgba(0, 0, 0, 0.98)) drop-shadow(0 14px 16px rgba(0, 0, 0, 0.92))",
       }}
     >
       <canvas

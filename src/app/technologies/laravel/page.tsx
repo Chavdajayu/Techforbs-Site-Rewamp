@@ -25,7 +25,7 @@ export default function TechPage() {
             <div className="tech-hero-content">
                 <div className="tech-hero-title__wrap">
                     <div data-wf--title-circle--variant="base" className="title-circle service-hero_circle w-embed"><svg width="100%" height="100%" viewBox="0 0 453 89" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<path d="M316.771 87C405.472 79.7966 451 58.571 451 43.7797C451 20.7054 350.488 2 226.5 2C102.512 2 2.00001 20.7054 2.00001 43.7797C2.00001 66.8539 102.512 85.5593 226.5 85.5593C268.367 85.5593 324.621 81.9576 362.299 71.8729" stroke="#EB5951" strokeWidth="3" strokeLinecap="round"/>
+<path d="M316.771 87C405.472 79.7966 451 58.571 451 43.7797C451 20.7054 350.488 2 226.5 2C102.512 2 2.00001 20.7054 2.00001 43.7797C2.00001 66.8539 102.512 85.5593 226.5 85.5593C268.367 85.5593 324.621 81.9576 362.299 71.8729" stroke="#00e5ff" strokeWidth="3" strokeLinecap="round"/>
 </svg></div>
                     <h1 circle-width="8" text-split="" lines-slide-up="" circle-index="5" className="tech-hero-title tech-hero-title_small-mobile">Build scalable enterprise systems<br />with Laravel engineering</h1>
                 </div>
@@ -41,7 +41,7 @@ export default function TechPage() {
         <div className="tech-main-inner z-index-3 is-sticky-wr">
             <div className="tech-content tab-mw-100">
                 <section id="services" className="tech-services">
-                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="0" className="tech-section-title mb-60"><span>Services</span> to deliver maximum impact</h2>
+                    <h2 color-word="#00e5ff" text-split="" lines-slide-up="" color-words-index="0" className="tech-section-title mb-60"><span>Services</span> to deliver maximum impact</h2>
                     <ul role="list" className="tech-service-list">
                         <li className="tech-service-item fade-up-alt">
                             <div className="tech-service-item-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="none">
@@ -85,19 +85,19 @@ export default function TechPage() {
                         </li>
                     </ul><img src="/images/technologies/65c10507e4c82427ebacb631_content-line-1.svg" loading="lazy" alt="" className="tech-services-decor in-new-page" /></section>
                 <section id="why-we" className="tech-benefits">
-                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="4,5" className="tech-section-title mb-60">Winning with us: our clients' success</h2>
+                    <h2 color-word="#00e5ff" text-split="" lines-slide-up="" color-words-index="4,5" className="tech-section-title mb-60">Winning with us: our clients' success</h2>
                     <div className="cases-wrap">
                         <div className="swiper cases-slider w-dyn-list">
                             <div itemType="https://schema.org/ItemList" itemScope={true} role="list" className="swiper-wrapper w-dyn-items">
                                 <div itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem" className="swiper-slide w-dyn-item">
                                     <div className="case-item is-no-link">
                                         <a href="/portfolio/harley-davidson" className="case-item_link w-inline-block">
-                                            <div className="hidden">custom CRM development for Harley Davidson</div>
+                                            <div className="hidden">Custom CRM development for Harley Davidson</div>
                                         </a>
                                         <div style={{ backgroundColor: "#f96601" }} className="case-item-image"><img width="416" height="439" alt="" src="/images/technologies/66335e1b00f641134b6bcbef_case-bg.svg" loading="lazy" className="case-item-circles" /><img className="case-item-thumb min-height"
                                                 src="/images/technologies/67ebaf9e43a6b4badaf09631_6.jpg" width="745" height="618" alt="Bütikofer Harley-Davidson Zürich personalized landing page screenshot, portfolio project of TechForbs" itemProp="image" loading="lazy"
                                             /></div>
-                                        <h4 itemProp="headline" className="case-item-title">custom CRM development for Harley Davidson</h4>
+                                        <h4 itemProp="headline" className="case-item-title">Custom CRM development for Harley Davidson</h4>
                                         <p itemProp="description" className="case-item-excerpt hidden w-condition-invisible w-dyn-bind-empty"></p>
                                         <div className="case-item_tags">
                                             <div className="w-dyn-list">
@@ -178,12 +178,12 @@ export default function TechPage() {
                                 <div itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem" className="swiper-slide w-dyn-item">
                                     <div className="case-item is-no-link">
                                         <a href="/portfolio/warehouse" className="case-item_link w-inline-block">
-                                            <div className="hidden">global shopify order management: from chaos to seamless control</div>
+                                            <div className="hidden">Global Shopify order management: from chaos to seamless control</div>
                                         </a>
                                         <div style={{ backgroundColor: "#70859e" }} className="case-item-image"><img width="416" height="439" alt="" src="/images/technologies/66335e1b00f641134b6bcbef_case-bg.svg" loading="lazy" className="case-item-circles" /><img className="case-item-thumb min-height"
                                                 src="/images/technologies/67ea410abecd965d4c17e515_12.webp" width="745" height="618" alt="Order and warehouse management system for a Shopify business screenshot, portfolio project" itemProp="image" loading="lazy"
                                             /></div>
-                                        <h4 itemProp="headline" className="case-item-title">global shopify order management: from chaos to seamless control</h4>
+                                        <h4 itemProp="headline" className="case-item-title">Global Shopify order management: from chaos to seamless control</h4>
                                         <p itemProp="description" className="case-item-excerpt hidden w-condition-invisible w-dyn-bind-empty"></p>
                                         <div className="case-item_tags">
                                             <div className="w-dyn-list">
@@ -264,12 +264,12 @@ export default function TechPage() {
                                 <div itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem" className="swiper-slide w-dyn-item">
                                     <div className="case-item is-no-link">
                                         <a href="/portfolio/marketing-agency" className="case-item_link w-inline-block">
-                                            <div className="hidden">innovative web development for a marketing agency: creative and technical masterpiece</div>
+                                            <div className="hidden">Innovative web development for a marketing agency: creative and technical masterpiece</div>
                                         </a>
                                         <div style={{ backgroundColor: "#f8c3d9" }} className="case-item-image"><img width="416" height="439" alt="" src="/images/technologies/66335e1b00f641134b6bcbef_case-bg.svg" loading="lazy" className="case-item-circles" /><img className="case-item-thumb min-height"
                                                 src="/images/technologies/67ea422dbdd9a4cda0fb7ee5_7.jpg" width="745" height="618" alt="Creative agency homepage screenshot with a fried egg visual and design, content, digital service tags" itemProp="image" loading="lazy"
                                             /></div>
-                                        <h4 itemProp="headline" className="case-item-title">innovative web development for a marketing agency: creative and technical masterpiece</h4>
+                                        <h4 itemProp="headline" className="case-item-title">Innovative web development for a marketing agency: creative and technical masterpiece</h4>
                                         <p itemProp="description" className="case-item-excerpt hidden w-condition-invisible w-dyn-bind-empty"></p>
                                         <div className="case-item_tags">
                                             <div className="w-dyn-list">
@@ -307,13 +307,13 @@ export default function TechPage() {
                                 <div itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem" className="swiper-slide w-dyn-item">
                                     <div className="case-item is-no-link">
                                         <a href="/portfolio/automotive" className="case-item_link w-inline-block">
-                                            <div className="hidden">automotive CRM development services: keep deals moving</div>
+                                            <div className="hidden">Automotive CRM development services: keep deals moving</div>
                                         </a>
                                         <div style={{ backgroundColor: "#da0023" }} className="case-item-image"><img width="416" height="439" alt="" src="/images/technologies/66335e1b00f641134b6bcbef_case-bg.svg" loading="lazy" className="case-item-circles" /><img className="case-item-thumb min-height"
                                                 src="/images/technologies/67ebaff7e0cc7f1da43be19d_8.webp" width="745" height="618" alt="Automotive CRM homepage screenshot, portfolio project of TechForbs"
                                                 itemProp="image" loading="lazy"
                                             /></div>
-                                        <h4 itemProp="headline" className="case-item-title">automotive CRM development services: keep deals moving</h4>
+                                        <h4 itemProp="headline" className="case-item-title">Automotive CRM development services: keep deals moving</h4>
                                         <p itemProp="description" className="case-item-excerpt hidden w-condition-invisible w-dyn-bind-empty"></p>
                                         <div className="case-item_tags">
                                             <div className="w-dyn-list">
@@ -360,17 +360,17 @@ export default function TechPage() {
                             </div>
                         </div>
                     </div>
-                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="3,5" className="tech-section-title mb-60">We build for reliability and performance</h2>
+                    <h2 color-word="#00e5ff" text-split="" lines-slide-up="" color-words-index="3,5" className="tech-section-title mb-60">We build for reliability and performance</h2>
                     <ul role="list" className="tech-service-list is-2-grid">
                         <li className="tech-service-item fade-up-alt">
                             <div className="tech-service-item-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
-<rect width="7.46667" height="17.7333" rx="1.46296" fill="#EB5951"/>
-<rect x="10.2656" width="7.46667" height="7.46667" rx="1.46296" fill="#EB5951"/>
+<rect width="7.46667" height="17.7333" rx="1.46296" fill="#00e5ff"/>
+<rect x="10.2656" width="7.46667" height="7.46667" rx="1.46296" fill="#00e5ff"/>
 <rect x="10.2656" y="10.2656" width="7.46667" height="7.46667" rx="3.73333" fill="white" fillOpacity="0.3"/>
 <rect y="20.5312" width="7.46667" height="7.46667" rx="3.73333" fill="white" fillOpacity="0.3"/>
 <rect x="28.002" y="28" width="7.46667" height="17.7333" rx="1.46296" transform="rotate(-180 28.002 28)" fill="#585858"/>
 <rect x="28.002" y="7.46484" width="7.46667" height="7.46667" rx="3.73333" transform="rotate(-180 28.002 7.46484)" fill="white" fillOpacity="0.3"/>
-<rect x="9.99609" y="20.5312" width="7.46667" height="7.46667" rx="1.46296" fill="#EB5951"/>
+<rect x="9.99609" y="20.5312" width="7.46667" height="7.46667" rx="1.46296" fill="#00e5ff"/>
 </svg></div>
                             <div className="tech-service-item-caption">
                                 <h3 className="tech-service-item-title">Market-driven approach</h3>
@@ -379,13 +379,13 @@ export default function TechPage() {
                         </li>
                         <li className="tech-service-item fade-up-alt">
                             <div className="tech-service-item-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
-<rect width="7.46667" height="17.7333" rx="1.46296" fill="#EB5951"/>
-<rect x="10.2656" width="7.46667" height="7.46667" rx="1.46296" fill="#EB5951"/>
+<rect width="7.46667" height="17.7333" rx="1.46296" fill="#00e5ff"/>
+<rect x="10.2656" width="7.46667" height="7.46667" rx="1.46296" fill="#00e5ff"/>
 <rect x="10.2656" y="10.2656" width="7.46667" height="7.46667" rx="3.73333" fill="white" fillOpacity="0.3"/>
 <rect y="20.5312" width="7.46667" height="7.46667" rx="3.73333" fill="white" fillOpacity="0.3"/>
 <rect x="28.002" y="28" width="7.46667" height="17.7333" rx="1.46296" transform="rotate(-180 28.002 28)" fill="#585858"/>
 <rect x="28.002" y="7.46484" width="7.46667" height="7.46667" rx="3.73333" transform="rotate(-180 28.002 7.46484)" fill="white" fillOpacity="0.3"/>
-<rect x="9.99609" y="20.5312" width="7.46667" height="7.46667" rx="1.46296" fill="#EB5951"/>
+<rect x="9.99609" y="20.5312" width="7.46667" height="7.46667" rx="1.46296" fill="#00e5ff"/>
 </svg></div>
                             <div className="tech-service-item-caption">
                                 <h3 className="tech-service-item-title">Accelerated delivery</h3>
@@ -394,13 +394,13 @@ export default function TechPage() {
                         </li>
                         <li className="tech-service-item fade-up-alt">
                             <div className="tech-service-item-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
-<rect width="7.46667" height="17.7333" rx="1.46296" fill="#EB5951"/>
-<rect x="10.2656" width="7.46667" height="7.46667" rx="1.46296" fill="#EB5951"/>
+<rect width="7.46667" height="17.7333" rx="1.46296" fill="#00e5ff"/>
+<rect x="10.2656" width="7.46667" height="7.46667" rx="1.46296" fill="#00e5ff"/>
 <rect x="10.2656" y="10.2656" width="7.46667" height="7.46667" rx="3.73333" fill="white" fillOpacity="0.3"/>
 <rect y="20.5312" width="7.46667" height="7.46667" rx="3.73333" fill="white" fillOpacity="0.3"/>
 <rect x="28.002" y="28" width="7.46667" height="17.7333" rx="1.46296" transform="rotate(-180 28.002 28)" fill="#585858"/>
 <rect x="28.002" y="7.46484" width="7.46667" height="7.46667" rx="3.73333" transform="rotate(-180 28.002 7.46484)" fill="white" fillOpacity="0.3"/>
-<rect x="9.99609" y="20.5312" width="7.46667" height="7.46667" rx="1.46296" fill="#EB5951"/>
+<rect x="9.99609" y="20.5312" width="7.46667" height="7.46667" rx="1.46296" fill="#00e5ff"/>
 </svg></div>
                             <div className="tech-service-item-caption">
                                 <h3 className="tech-service-item-title">Modular architecture</h3>
@@ -409,13 +409,13 @@ export default function TechPage() {
                         </li>
                         <li className="tech-service-item fade-up-alt">
                             <div className="tech-service-item-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
-<rect width="7.46667" height="17.7333" rx="1.46296" fill="#EB5951"/>
-<rect x="10.2656" width="7.46667" height="7.46667" rx="1.46296" fill="#EB5951"/>
+<rect width="7.46667" height="17.7333" rx="1.46296" fill="#00e5ff"/>
+<rect x="10.2656" width="7.46667" height="7.46667" rx="1.46296" fill="#00e5ff"/>
 <rect x="10.2656" y="10.2656" width="7.46667" height="7.46667" rx="3.73333" fill="white" fillOpacity="0.3"/>
 <rect y="20.5312" width="7.46667" height="7.46667" rx="3.73333" fill="white" fillOpacity="0.3"/>
 <rect x="28.002" y="28" width="7.46667" height="17.7333" rx="1.46296" transform="rotate(-180 28.002 28)" fill="#585858"/>
 <rect x="28.002" y="7.46484" width="7.46667" height="7.46667" rx="3.73333" transform="rotate(-180 28.002 7.46484)" fill="white" fillOpacity="0.3"/>
-<rect x="9.99609" y="20.5312" width="7.46667" height="7.46667" rx="1.46296" fill="#EB5951"/>
+<rect x="9.99609" y="20.5312" width="7.46667" height="7.46667" rx="1.46296" fill="#00e5ff"/>
 </svg></div>
                             <div className="tech-service-item-caption">
                                 <h3 className="tech-service-item-title">Enterprise-grade stability</h3>
@@ -428,7 +428,7 @@ export default function TechPage() {
                     </div>
                 </section>
                 <section id="ecosystem" className="tech-ecosystem">
-                    <h2 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="1" className="tech-section-title mb-60">Laravel ecosystem we work with</h2>
+                    <h2 color-word="#00e5ff" text-split="" lines-slide-up="" color-words-index="1" className="tech-section-title mb-60">Laravel ecosystem we work with</h2>
                     <div className="fade-up-alt"></div>
                     <div className="fade-up-alt">
                         <div className="tech-slider-wrap">
@@ -494,8 +494,8 @@ export default function TechPage() {
                     </div>
                 </section>
                 <section id="testimonials-section" className="tech-testimonials">
-                    <h2 data-testimonials-title="" text-split="" lines-slide-up="" color-words-index="4,5" color-word="#eb5951" className="tech-section-title mb-60 desktop">what our clients say… for real</h2>
-                    <h2 data-testimonials-title="" text-split="" lines-slide-up="" color-words-index="4,5" color-word="#eb5951" className="tech-section-title mb-60 mobile">what our clients say…<br/>for real</h2>
+                    <h2 data-testimonials-title="" text-split="" lines-slide-up="" color-words-index="4,5" color-word="#00e5ff" className="tech-section-title mb-60 desktop">What our clients say… for real</h2>
+                    <h2 data-testimonials-title="" text-split="" lines-slide-up="" color-words-index="4,5" color-word="#00e5ff" className="tech-section-title mb-60 mobile">What our clients say…<br/>for real</h2>
                     <div className="fade-up-alt">
                         <div className="tech-testimonials__slider">
                             <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
@@ -1002,7 +1002,7 @@ export default function TechPage() {
                                 <div className="cta-bn__name">Sunil Panchani</div>
                                 <div className="cta-bn__position">Founder & Director, TechForbs</div>
                             </div>
-                        </div><a href="#contact-section" className="button button_smaller button_red cta-btn-contact"><strong>Contact</strong></a></div>
+                        </div><a href="#contact-section" className="button button_smaller button_blue cta-btn-contact"><strong>Contact</strong></a></div>
                 </div>
             </aside>
         </div>
@@ -1012,7 +1012,7 @@ export default function TechPage() {
                 <div className="fade-up-alt">
                     <div className="cta-banner">
                         <div className="cta-banner-caption">
-                            <h3 color-word="#eb5951" text-split="" lines-slide-up="" color-words-index="5,6,7,8" className="cta-banner-title">Choose a tech partner that challenges, guides, and delivers</h3>
+                            <h3 color-word="#00e5ff" text-split="" lines-slide-up="" color-words-index="5,6,7,8" className="cta-banner-title">Choose a tech partner that challenges, guides, and delivers</h3>
                         </div>
                         <div className="cta-banner-right">
                             <div className="fade-up-alt">
@@ -1023,7 +1023,7 @@ export default function TechPage() {
                                         <h4 className="cta-bn__name">Sunil Panchani</h4>
                                         <p className="cta-bn__position">Founder & Director, TechForbs</p>
                                 </div>
-                                <div className="cta-banner-person-buttons"><a href="/contact" className="button button_smaller button_red">Contact</a></div>
+                                <div className="cta-banner-person-buttons"><a href="/contact" className="button button_smaller button_blue">Contact</a></div>
                             </div>
                         </div>
                     </div>
