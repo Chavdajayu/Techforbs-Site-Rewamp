@@ -3,9 +3,13 @@
 import React from "react";
 import Link from "next/link";
 
-export default function Footer() {
+export interface FooterProps {
+  className?: string;
+}
+
+export default function Footer({ className = "footer" }: FooterProps = {}) {
   return (
-    <footer className="footer">
+    <footer className={className}>
       <div className="container">
         <div className="footer-inner">
           <div className="footer_row">
@@ -41,29 +45,29 @@ export default function Footer() {
                 <div className="footer__nav">
                   <ul role="list" className="footer__nav-list">
                     <li className="footer__nav-item">
-                      <Link href="#portfolio-section" className="footer__nav-link">
+                      <Link href="/#portfolio-section" className="footer__nav-link">
                         Portfolio
                       </Link>
                     </li>
                     <li className="footer__nav-item">
-                      <Link href="#solutions-section" className="footer__nav-link">
+                      <Link href="/#solutions-section" className="footer__nav-link">
                         Dedicated teams
                       </Link>
                     </li>
                   </ul>
                   <ul role="list" className="footer__nav-list">
                     <li className="footer__nav-item">
-                      <Link href="#solutions-section" className="footer__nav-link">
+                      <Link href="/#solutions-section" className="footer__nav-link">
                         Web design
                       </Link>
                     </li>
                     <li className="footer__nav-item">
-                      <Link href="#solutions-section" className="footer__nav-link">
+                      <Link href="/#solutions-section" className="footer__nav-link">
                         Web development
                       </Link>
                     </li>
                     <li className="footer__nav-item">
-                      <Link href="#solutions-section" className="footer__nav-link">
+                      <Link href="/services/ai-automation" className="footer__nav-link">
                         AI &amp; automation
                       </Link>
                     </li>

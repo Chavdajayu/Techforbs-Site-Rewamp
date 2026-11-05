@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -106,7 +105,19 @@ export const SOLUTIONS: SolutionCategory[] = [
   },
 ];
 
-export default function SolutionsSection() {
+export interface SolutionsSectionProps {
+  id?: string;
+  className?: string;
+  sectionLabel?: string;
+  title?: string;
+}
+
+export default function SolutionsSection({
+  id = "solutions-section",
+  className = "section--solutions",
+  sectionLabel = "What We Do",
+  title = "Full-cycle web development and automation in one place",
+}: SolutionsSectionProps = {}) {
   const [activeTab, setActiveTab] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -170,18 +181,18 @@ export default function SolutionsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="solutions-section" className="section--solutions">
+    <section ref={sectionRef} id={id} className={className}>
       <div className="solutions__inner">
         <div className="solutions__inner-head">
           <div className="heading_combined">
             <div className="heading_label fade-up-alt">
               <div className="body-smaller text-uppercase section-label">
-                What We Do
+                {sectionLabel}
               </div>
             </div>
             <div className="max-w-760">
               <h2 className="title_regular">
-                Full-cycle web development and automation in one place
+                {title}
               </h2>
             </div>
           </div>
@@ -278,3 +289,5 @@ export default function SolutionsSection() {
     </section>
   );
 }
+
+export const WhatWeDo = SolutionsSection;

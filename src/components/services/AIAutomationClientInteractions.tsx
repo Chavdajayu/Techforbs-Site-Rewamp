@@ -66,42 +66,17 @@ export default function AIAutomationClientInteractions() {
       }
     };
 
-    // 3. Testimonials & Case Study Navigation Slider buttons
-    const handleSliderPrev = (e: MouseEvent) => {
-      const btn = (e.target as HTMLElement).closest(".testimonials-slider-prev, .cases-slider-prev, .swiper-button-prev");
-      if (!btn) return;
-      const slider = btn.closest(".tech-testimonials, .cases-wrap, .tech-slider-wrap");
-      const wrapper = slider ? slider.querySelector(".swiper-wrapper, .tech-testimonials__slider-wrapper") : null;
-      if (wrapper) {
-        wrapper.scrollBy({ left: -420, behavior: "smooth" });
-      }
-    };
-
-    const handleSliderNext = (e: MouseEvent) => {
-      const btn = (e.target as HTMLElement).closest(".testimonials-slider-next, .cases-slider-next, .swiper-button-next");
-      if (!btn) return;
-      const slider = btn.closest(".tech-testimonials, .cases-wrap, .tech-slider-wrap");
-      const wrapper = slider ? slider.querySelector(".swiper-wrapper, .tech-testimonials__slider-wrapper") : null;
-      if (wrapper) {
-        wrapper.scrollBy({ left: 420, behavior: "smooth" });
-      }
-    };
-
     document.addEventListener("click", handleFaqClick);
     document.addEventListener("click", handleHashClick);
-    document.addEventListener("click", handleSliderPrev);
-    document.addEventListener("click", handleSliderNext);
 
     if (prefersReducedMotion) {
       return () => {
         document.removeEventListener("click", handleFaqClick);
         document.removeEventListener("click", handleHashClick);
-        document.removeEventListener("click", handleSliderPrev);
-        document.removeEventListener("click", handleSliderNext);
       };
     }
 
-    // 4. GSAP animations for Hero & Section elements
+    // 3. GSAP animations for Hero & Section elements
     const ctx = gsap.context(() => {
       // Circle stroke draw animation
       const heroCircle = document.querySelector(".service-hero_circle path");
@@ -142,8 +117,6 @@ export default function AIAutomationClientInteractions() {
       ctx.revert();
       document.removeEventListener("click", handleFaqClick);
       document.removeEventListener("click", handleHashClick);
-      document.removeEventListener("click", handleSliderPrev);
-      document.removeEventListener("click", handleSliderNext);
     };
   }, []);
 

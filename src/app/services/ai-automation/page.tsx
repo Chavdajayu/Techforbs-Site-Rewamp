@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/navigation/Navbar";
+import PortfolioSection from "@/components/portfolio/PortfolioSection";
+import TechEcosystemSection from "@/components/tech-ecosystem/TechEcosystemSection";
+import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
 import BrandLogos from "@/components/brand-logos/BrandLogos";
 import ContactSection from "@/components/contact/ContactSection";
 import Footer from "@/components/footer/Footer";
 import SmoothScroll from "@/components/smooth-scroll/SmoothScroll";
 import AIAutomationClientInteractions from "@/components/services/AIAutomationClientInteractions";
+import { AI_AUTOMATION_CASES, AI_AUTOMATION_TESTIMONIALS } from "@/data/siteData";
 
 export const metadata: Metadata = {
-  title: "AI & Automation Services | Intelligent Workflows & Agent Engineering - TechForbs",
+  title: "AI & Automation Services (Make, n8n, Zapier, Retool) | TechForbs",
   description:
-    "Deploy custom intelligent agents, end-to-end workflow automation, and LLM orchestration engineered for high ROI, measurable speed, and enterprise reliability by TechForbs.",
+    "AI-driven business process automation with Make, n8n, Zapier, Retool. Smart email/document parsing, CRM sync, lead enrichment, ticket triage, HR onboarding with safe AI, human-in-the-loop, and measurable ROI by TechForbs.",
   keywords: [
     "AI automation",
-    "intelligent agents",
-    "workflow automation",
-    "n8n automation",
     "Make automation",
-    "LLM integration",
+    "n8n automation",
+    "Zapier integration",
+    "workflow automation",
+    "intelligent agents",
+    "LLM workflows",
     "TechForbs AI",
   ],
 };
@@ -77,7 +82,7 @@ export default function AIAutomationPage() {
                       circle-index="0"
                       className="service-hero-title"
                     >
-                      AI &amp; Automation = Faster Workflows → Higher ROI
+                      AI & Automation = Faster Workflows → Higher ROI
                     </h1>
                   </div>
                   <div className="service-hero__content-text">
@@ -112,7 +117,7 @@ export default function AIAutomationPage() {
                     color-words-index="2,3,4,5,6"
                     className="tech-section-title mb-60"
                   >
-                    What do our AI &amp; automation services include?
+                    What do our <span className="text-[#00e5ff]">AI & automation services include?</span>
                   </h2>
                   <div className="text-block is-gray margin-bottom-50">
                     We build, connect, and scale automations that save time and prevent human errors —
@@ -120,7 +125,7 @@ export default function AIAutomationPage() {
                   </div>
                   <div className="w-dyn-list">
                     <div role="list" className="tech-service-cards w-dyn-items">
-                      {/* Card 1 */}
+                      {/* Card 1: Workflow automation */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
                           <div
@@ -131,9 +136,11 @@ export default function AIAutomationPage() {
                             className="tech-services-card-bg is-first"
                           ></div>
                           <div className="tech-service-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                            </svg>
+                            <img
+                              src="/images/services/ai-automation/692742a882a7dc0bc18fedfe_cug.svg"
+                              loading="lazy"
+                              alt="Workflow automation icon"
+                            />
                           </div>
                           <div className="tech-service-card-caption">
                             <h3 className="tech-service-item-title">
@@ -147,22 +154,22 @@ export default function AIAutomationPage() {
                         </div>
                       </div>
 
-                      {/* Card 2 */}
+                      {/* Card 2: AI in your workflows */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
                           <div
                             style={{
                               backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
+                                "url('/images/services/ai-automation/68d52ea3fbeee273024f9d8a_tech-services-card-bg-2.webp')",
                             }}
                             className="tech-services-card-bg is-first"
                           ></div>
                           <div className="tech-service-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <circle cx="12" cy="12" r="10"></circle>
-                              <path d="M12 16v-4"></path>
-                              <path d="M12 8h.01"></path>
-                            </svg>
+                            <img
+                              src="/images/services/ai-automation/6927431ee95570ca22524488_head.svg"
+                              loading="lazy"
+                              alt="AI in workflows icon"
+                            />
                           </div>
                           <div className="tech-service-card-caption">
                             <h3 className="tech-service-item-title">
@@ -176,25 +183,26 @@ export default function AIAutomationPage() {
                         </div>
                       </div>
 
-                      {/* Card 3 */}
+                      {/* Card 3: Email & document processing */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
                           <div
                             style={{
                               backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
+                                "url('/images/services/ai-automation/68d52ef3a569956809ce0677_tech-services-card-bg-3.webp')",
                             }}
                             className="tech-services-card-bg is-first"
                           ></div>
                           <div className="tech-service-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                              <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
+                            <img
+                              src="/images/services/ai-automation/69282fa87f3ced4dd7b3569c_lucide_mail.svg"
+                              loading="lazy"
+                              alt="Email & document processing icon"
+                            />
                           </div>
                           <div className="tech-service-card-caption">
                             <h3 className="tech-service-item-title">
-                              Email &amp; document processing
+                              Email & document processing
                             </h3>
                             <p className="text-body in-tech-service-card">
                               AI-assisted parsing of high-volume inboxes, invoices, and PDFs: extract structured data
@@ -204,28 +212,29 @@ export default function AIAutomationPage() {
                         </div>
                       </div>
 
-                      {/* Card 4 */}
+                      {/* Card 4: Ops for sales & support */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
                           <div
                             style={{
                               backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
+                                "url('/images/services/ai-automation/68d52f0b354fc6199419a618_tech-services-card-bg-4.webp')",
                             }}
                             className="tech-services-card-bg is-first"
                           ></div>
                           <div className="tech-service-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                            </svg>
+                            <img
+                              src="/images/services/ai-automation/692830135db380f7128cf54f_hugeicons_briefcase-03.svg"
+                              loading="lazy"
+                              alt="Sales and support operations icon"
+                            />
                           </div>
                           <div className="tech-service-card-caption">
                             <h3 className="tech-service-item-title">
-                              Ops for sales &amp; support
+                              Ops for sales & support
                             </h3>
                             <p className="text-body in-tech-service-card">
-                              Lead sourcing &amp; enrichment, bi-directional CRM synchronization, automated ticket
+                              Lead sourcing & enrichment, bi-directional CRM synchronization, automated ticket
                               triage, suggested replies, and guaranteed SLA incident escalation alerts.
                             </p>
                           </div>
@@ -246,7 +255,7 @@ export default function AIAutomationPage() {
                     color-words-index="3,4"
                     className="tech-section-title mb-60"
                   >
-                    AI + automation: better together
+                    AI + automation: <span className="text-[#00e5ff]">better together</span>
                   </h2>
                   <div className="text-block is-gray margin-bottom-50">
                     AI gives context, automation delivers action. Together, they turn manual effort into measurable growth.
@@ -273,8 +282,10 @@ export default function AIAutomationPage() {
                     <li className="tech-service-item fade-up-alt">
                       <div className="tech-service-item-icon w-embed">
                         <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle cx="20" cy="20" r="16" stroke="#00e5ff" strokeWidth="3" />
-                          <path d="M14 20l4 4 8-8" stroke="#00e5ff" strokeWidth="3" strokeLinecap="round" />
+                          <rect x="4" y="0" width="8.5" height="20" rx="2" fill="#00e5ff" />
+                          <rect x="15.7" y="0" width="8.5" height="8.5" rx="2" fill="#00e5ff" />
+                          <rect x="15.7" y="11.7" width="8.5" height="8.5" rx="4.2" fill="white" fillOpacity="0.3" />
+                          <rect x="4" y="23.5" width="8.5" height="8.5" rx="4.2" fill="white" fillOpacity="0.3" />
                         </svg>
                       </div>
                       <div className="service-service-item-caption">
@@ -324,7 +335,7 @@ export default function AIAutomationPage() {
                 {/* =============================================================
                     04. HOW WE BUILD AUTOMATIONS THAT WORK
                     ============================================================= */}
-                <section id="services" className="tech-services">
+                <section className="tech-services">
                   <h2
                     color-word="#00e5ff"
                     text-split=""
@@ -332,7 +343,7 @@ export default function AIAutomationPage() {
                     color-words-index="3,4,5"
                     className="tech-section-title mb-60"
                   >
-                    How we build automations that work
+                    How we build <span className="text-[#00e5ff]">automations that work</span>
                   </h2>
                   <ul role="list" className="tech-service-list">
                     <li className="tech-service-item fade-up-alt">
@@ -343,7 +354,7 @@ export default function AIAutomationPage() {
                         </svg>
                       </div>
                       <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Discovery &amp; mapping</h3>
+                        <h3 className="tech-service-item-title">Discovery & mapping</h3>
                         <p className="text-body">
                           We analyze your operational workflows, audit tool stacks, identify friction points,
                           and model high-ROI automation candidates.
@@ -359,7 +370,7 @@ export default function AIAutomationPage() {
                         </svg>
                       </div>
                       <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Integration &amp; setup</h3>
+                        <h3 className="tech-service-item-title">Integration & setup</h3>
                         <p className="text-body">
                           Connect APIs, configure secure webhooks, set up reliable queuing systems, and establish
                           idempotent data pipelines across your services.
@@ -391,7 +402,7 @@ export default function AIAutomationPage() {
                         </svg>
                       </div>
                       <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Testing &amp; handoff</h3>
+                        <h3 className="tech-service-item-title">Testing & handoff</h3>
                         <p className="text-body">
                           Comprehensive failure simulation, telemetry setup, automated documentation, and
                           interactive handoff sessions to empower your team.
@@ -407,86 +418,27 @@ export default function AIAutomationPage() {
                 </section>
 
                 {/* =============================================================
-                    05. WINNING WITH US: OUR CLIENTS' SUCCESS (CASE STUDIES)
+                    05. WINNING WITH US: OUR CLIENTS' SUCCESS (PORTFOLIO SECTION)
+                    Exact Reusable Component from Home Page configured for Services!
                     ============================================================= */}
-                <section id="why-we" className="tech-benefits">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="5,6"
-                    className="tech-section-title mb-60"
-                  >
-                    Winning with us: our clients&#x27; success
-                  </h2>
-                  <div className="cases-wrap is-services-page">
-                    <div className="cases-slider w-dyn-list">
-                      <div role="list" className="swiper-wrapper w-dyn-items flex flex-col md:flex-row gap-6 overflow-x-auto pb-4">
-                        {/* Case 1: SACLAB */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#122336] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/f4e1f7273934d40237194f475ed8563c_Cover.webp"
-                                alt="SACLAB Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              SACLAB: Automated inventory &amp; luxury resale platform
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Integrated multi-channel inventory sync, automated authentication workflows, and instantaneous catalog generation.
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Case 2: TechHunt */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#251532] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/d8a87383a15993bdf8be94f08f0290ca_cover.webp"
-                                alt="TechHunt Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              TechHunt: AI-assisted talent matching &amp; vetting engine
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Automated resume parsing, semantic candidate scoring, and calendar scheduling integrations handling thousands of applicants.
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Case 3: HIVE */}
-                        <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                          <div className="case-item is-no-link bg-[#181818] p-6 rounded-2xl border border-white/10 hover:border-[#00e5ff]/40 transition-all">
-                            <div className="case-item-image rounded-xl overflow-hidden mb-5 bg-[#1a2d1d] p-4 flex items-center justify-center">
-                              <img
-                                src="/images/home/hive-cover.webp"
-                                alt="HIVE Platform"
-                                className="case-item-thumb rounded-lg max-h-48 object-cover"
-                              />
-                            </div>
-                            <h4 className="title_20 font-semibold mb-2">
-                              HIVE: Intelligent resource scheduling &amp; operational telemetry
-                            </h4>
-                            <p className="text-body body-smaller text-white/70">
-                              Dynamic utilization forecasting, real-time Slack/webhook alerts, and automated client billing pipelines.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+                <PortfolioSection
+                  id="why-we"
+                  variant="services"
+                  title={
+                    <>
+                      Winning with us: <span className="text-[#00e5ff]">our clients&apos; success</span>
+                    </>
+                  }
+                  items={AI_AUTOMATION_CASES}
+                  showViewAll={true}
+                  viewAllHref="/#portfolio-section"
+                  viewAllText="View all"
+                />
 
                 {/* =============================================================
                     06. WHY TEAMS CHOOSE TECHFORBS
                     ============================================================= */}
-                <section id="services" className="tech-services">
+                <section className="tech-services">
                   <h2
                     color-word="#00e5ff"
                     text-split=""
@@ -494,14 +446,17 @@ export default function AIAutomationPage() {
                     color-words-index="3,4"
                     className="tech-section-title mb-60"
                   >
-                    Why teams choose TechForbs
+                    Why teams <span className="text-[#00e5ff]">choose TechForbs</span>
                   </h2>
                   <ul role="list" className="tech-service-list">
                     <li className="tech-service-item fade-up-alt">
                       <div className="tech-service-item-icon is-large w-embed">
                         <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
-                          <path d="M22 26l-6-6 6-6M26 26l6-6-6-6" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
+                          <rect x="0.387" y="0.387" width="47.2" height="47.2" rx="13.5" stroke="#FAFAFA" strokeOpacity="0.3" strokeWidth="0.77" />
+                          <path d="M22 25.4c.34 0 .62.28.62.62v6.54c0 .55-.67.83-1.06.44l-6.52-6.54c-.39-.39-.11-1.06.44-1.06H22Z" fill="white" fillOpacity="0.3" />
+                          <path d="M22.6 15.2c.34 0 .62.28.62.62v6.53c0 .55-.67.83-1.06.44L15.6 16.2c-.39-.39-.11-1.06.44-1.06h6.53Z" fill="white" fillOpacity="0.3" />
+                          <path d="M32.5 25.2c.34 0 .62.28.62.62v6.53c0 .55-.67.83-1.06.44l-6.52-6.54c-.39-.39-.11-1.06.44-1.06h6.53Z" fill="white" fillOpacity="0.3" />
+                          <path d="M33.1 15.2c.34 0 .62.28.62.62v6.53c0 .55-.67.83-1.06.44L26.1 16.2c-.39-.39-.11-1.06.44-1.06h6.53Z" fill="#00e5ff" />
                         </svg>
                       </div>
                       <div className="service-service-item-caption">
@@ -516,9 +471,9 @@ export default function AIAutomationPage() {
                     <li className="tech-service-item fade-up-alt">
                       <div className="tech-service-item-icon is-large w-embed">
                         <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
-                          <circle cx="24" cy="24" r="10" stroke="#00e5ff" strokeWidth="2" />
-                          <path d="M24 18v6l4 2" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
+                          <rect x="0.387" y="0.387" width="47.2" height="47.2" rx="13.5" stroke="#FAFAFA" strokeOpacity="0.3" strokeWidth="0.77" />
+                          <circle cx="27.5" cy="21.5" r="8.1" fill="white" fillOpacity="0.3" />
+                          <circle cx="21.5" cy="27.5" r="8.1" fill="#00e5ff" />
                         </svg>
                       </div>
                       <div className="service-service-item-caption">
@@ -533,12 +488,13 @@ export default function AIAutomationPage() {
                     <li className="tech-service-item fade-up-alt">
                       <div className="tech-service-item-icon is-large w-embed">
                         <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
-                          <path d="M16 24l5 5 11-11" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <rect x="0.387" y="0.387" width="47.2" height="47.2" rx="13.5" stroke="#FAFAFA" strokeOpacity="0.3" strokeWidth="0.77" />
+                          <path opacity="0.3" d="M19.3 16.4l11.8 11.8-3 3-11.8-11.8 3-3Z" fill="white" />
+                          <rect x="12.4" y="12.4" width="8.5" height="8.5" rx="4.25" fill="#00e5ff" />
                         </svg>
                       </div>
                       <div className="service-service-item-caption">
-                        <h3 className="tech-service-item-title">Predictable &amp; secure delivery</h3>
+                        <h3 className="tech-service-item-title">Predictable & secure delivery</h3>
                         <p className="text-body">
                           Every automation scenario is built with explicit rollback provisions, end-to-end logging,
                           and strict adherence to ISO and SOC security guidelines.
@@ -549,7 +505,7 @@ export default function AIAutomationPage() {
                 </section>
 
                 {/* =============================================================
-                    07. ENTERPRISE AI AUTOMATION ARCHITECTURE
+                    07. CERTIFIED PARTNER & ARCHITECTURE
                     ============================================================= */}
                 <section className="tech-sertificate">
                   <h2
@@ -559,11 +515,11 @@ export default function AIAutomationPage() {
                     color-words-index="1"
                     className="tech-section-title"
                   >
-                    Enterprise AI automation architecture
+                    Certified <span className="text-[#00e5ff]">automation partner</span>
                   </h2>
                   <div className="text-body">
-                    We engineer resilient, production-ready AI pipelines and automated workflows
-                    built on enterprise architectural standards.
+                    We’re officially certified automation specialists — meaning your enterprise automations
+                    are engineered and optimized by verified experts.
                   </div>
                   <div className="w-layout-grid tech_3col">
                     <div className="tech_sertificate_item">
@@ -588,14 +544,12 @@ export default function AIAutomationPage() {
                     </div>
 
                     <div className="tech_sertificate_img flex items-center justify-center p-4">
-                      <div className="w-32 h-32 rounded-2xl bg-[#141414] border border-[#00e5ff]/30 flex flex-col items-center justify-center p-4 shadow-[0_0_30px_rgba(0,229,255,0.15)]">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                          <line x1="8" y1="21" x2="16" y2="21"></line>
-                          <line x1="12" y1="17" x2="12" y2="21"></line>
-                        </svg>
-                        <span className="text-xs uppercase tracking-wider font-semibold text-[#00e5ff] mt-2">Enterprise AI</span>
-                      </div>
+                      <img
+                        src="/images/services/ai-automation/693050f600731f56aa77d6d2_Group 1171276601.png"
+                        loading="lazy"
+                        alt="Make certified partner badge"
+                        className="max-h-40 object-contain"
+                      />
                     </div>
 
                     <div className="tech_sertificate_item">
@@ -619,155 +573,25 @@ export default function AIAutomationPage() {
                 </section>
 
                 {/* =============================================================
-                    08. TECHNOLOGIES WE USE IN AI & AUTOMATION
+                    08. TECHNOLOGIES WE USE IN AI & AUTOMATION (SWIPER ECOSYSTEM)
+                    Exact Reusable Component matching authentic Webflow ecosystem slider!
                     ============================================================= */}
-                <section id="ecosystem" className="tech-ecosystem">
-                  <h2
-                    color-word="#00e5ff"
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="0"
-                    className="tech-section-title mb-60"
-                  >
-                    Technologies we use in AI &amp; automation
-                  </h2>
-                  <div className="fade-up-alt">
-                    <div className="tech-slider-wrap">
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        {[
-                          { name: "Make / Integromat", icon: "/images/services/ai-automation/69522e11748d65f95259bf76_make-color 1.svg" },
-                          { name: "n8n Automation", icon: "/images/services/ai-automation/69522e119ada4a224d43f995_n8n-color 1.svg" },
-                          { name: "Python AI & Agents", icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg" },
-                          { name: "Node.js Services", icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg" },
-                          { name: "Next.js & React", icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg" },
-                          { name: "Shopify Ecosystem", icon: "/images/technologies/6613ba0792d3339b64c8a066_hopify.svg" },
-                          { name: "WooCommerce API", icon: "/images/technologies/6613b99db664ec9b28788819_woocom.svg" },
-                          { name: "Enterprise PHP", icon: "/images/technologies/6613b9a8135ca957aa3d95c4_php.svg" },
-                        ].map((tech, idx) => (
-                          <div key={idx} className="tech-ecosystem-item p-4 rounded-xl bg-[#161616] border border-white/10 flex flex-col items-center justify-center text-center hover:border-[#00e5ff]/40 transition-all">
-                            <div className="tech-ecosystem-item-image-wrap h-12 w-12 flex items-center justify-center mb-3">
-                              <img
-                                src={tech.icon}
-                                alt={tech.name}
-                                className="max-h-10 max-w-10 object-contain"
-                              />
-                            </div>
-                            <div className="text-sm font-medium text-white/90">{tech.name}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </section>
+                <TechEcosystemSection />
 
                 {/* =============================================================
-                    09. TESTIMONIALS SECTION
+                    09. TESTIMONIALS SECTION (SWIPER CLIENT CHAT REVIEWS)
+                    Exact Reusable Component configured with authentic service reviews!
                     ============================================================= */}
-                <section id="testimonials-section" className="tech-testimonials">
-                  <h2
-                    data-testimonials-title=""
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="4,5"
-                    color-word="#00e5ff"
-                    className="tech-section-title mb-60 desktop"
-                  >
-                    What our clients say… for real
-                  </h2>
-                  <h2
-                    data-testimonials-title=""
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="4,5"
-                    color-word="#00e5ff"
-                    className="tech-section-title mb-60 mobile"
-                  >
-                    What our clients say…<br />for real
-                  </h2>
-                  <div className="fade-up-alt">
-                    <div className="tech-testimonials__slider">
-                      <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
-                        <div role="list" className="swiper-wrapper w-dyn-items flex flex-col md:flex-row gap-6 overflow-x-auto pb-4">
-                          {/* Testimonial 1 */}
-                          <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                            <div className="testimonials__card tech-variant">
-                              <div className="testimonials__card-inner">
-                                <div style={{ backgroundColor: "#00e5ff22" }} className="testimonials__card-bg"></div>
-                                <div className="testimonials__card-caption tech-variant">
-                                  <img
-                                    loading="lazy"
-                                    alt="Client avatar"
-                                    src="/images/technologies/68502c460e19db138dd98e5a_kiseliova.webp"
-                                    className="testimonials__card-avatar tech-variant"
-                                  />
-                                  <p className="testimonials__card-name">Iryna Kyselova</p>
-                                  <p className="testimonials__card-position body-smaller text-uppercase">CEO, TechHunt</p>
-                                </div>
-                                <div className="testimonials__card-inner-scroller">
-                                  <div className="testimonials__card-list">
-                                    <div className="testimonials__card-message-wrapper tech-variant">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Automated matching pipeline works flawlessly</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:45 PM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Saved 30+ recruiting hours every week</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:56 PM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Highly recommend TechForbs team!</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:58 PM</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Testimonial 2 */}
-                          <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                            <div className="testimonials__card tech-variant">
-                              <div className="testimonials__card-inner">
-                                <div style={{ backgroundColor: "#22c55e22" }} className="testimonials__card-bg"></div>
-                                <div className="testimonials__card-caption tech-variant">
-                                  <img
-                                    loading="lazy"
-                                    alt="Client avatar"
-                                    src="/images/technologies/68502b31c839a090ed9cb36d_kozak.webp"
-                                    className="testimonials__card-avatar tech-variant"
-                                  />
-                                  <p className="testimonials__card-name">Oleksandra Kozak</p>
-                                  <p className="testimonials__card-position body-smaller text-uppercase">CXO, Habitat</p>
-                                </div>
-                                <div className="testimonials__card-inner-scroller">
-                                  <div className="testimonials__card-list">
-                                    <div className="testimonials__card-message-wrapper tech-variant">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Automation handles 75k daily operations</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">12:28 AM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Zero downtime during peak spikes</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">12:32 AM</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+                <TestimonialsSection
+                  id="testimonials-section"
+                  variant="services"
+                  title={
+                    <>
+                      What our clients say… <span className="text-[#00e5ff]">for real</span>
+                    </>
+                  }
+                  items={AI_AUTOMATION_TESTIMONIALS}
+                />
 
                 {/* =============================================================
                     10. BUSINESSES WE SERVE WITH AI & AUTOMATION
@@ -780,7 +604,7 @@ export default function AIAutomationPage() {
                     color-words-index="0,1,2"
                     className="tech-section-title mb-60"
                   >
-                    Businesses we serve with AI &amp; automation
+                    <span className="text-[#00e5ff]">Businesses we serve</span> with AI & automation
                   </h2>
                   <div className="w-dyn-list">
                     <div role="list" className="tech-service-cards w-dyn-items">
@@ -795,11 +619,11 @@ export default function AIAutomationPage() {
                             className="tech-services-card-bg is-first"
                           ></div>
                           <div className="tech-service-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                              <line x1="8" y1="21" x2="16" y2="21"></line>
-                              <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
+                            <img
+                              src="/images/services/ai-automation/68d52e481162e0f92ee41817_Group 63800.svg"
+                              loading="lazy"
+                              alt="Agencies icon"
+                            />
                           </div>
                           <div className="tech-service-card-caption">
                             <h3 className="tech-service-item-title">Agencies</h3>
@@ -817,14 +641,16 @@ export default function AIAutomationPage() {
                           <div
                             style={{
                               backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
+                                "url('/images/services/ai-automation/68d52ea3fbeee273024f9d8a_tech-services-card-bg-2.webp')",
                             }}
                             className="tech-services-card-bg is-first"
                           ></div>
                           <div className="tech-service-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                            </svg>
+                            <img
+                              src="/images/services/ai-automation/68d52ec3d584a70bcfbed5c1_Group 63801.svg"
+                              loading="lazy"
+                              alt="Startups icon"
+                            />
                           </div>
                           <div className="tech-service-card-caption">
                             <h3 className="tech-service-item-title">Startups</h3>
@@ -842,16 +668,16 @@ export default function AIAutomationPage() {
                           <div
                             style={{
                               backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
+                                "url('/images/services/ai-automation/68d52ef3a569956809ce0677_tech-services-card-bg-3.webp')",
                             }}
                             className="tech-services-card-bg is-first"
                           ></div>
                           <div className="tech-service-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <line x1="18" y1="20" x2="18" y2="10"></line>
-                              <line x1="12" y1="20" x2="12" y2="4"></line>
-                              <line x1="6" y1="20" x2="6" y2="14"></line>
-                            </svg>
+                            <img
+                              src="/images/services/ai-automation/68d52edfe5970647b0d82282_Group 63800(1).svg"
+                              loading="lazy"
+                              alt="SMEs icon"
+                            />
                           </div>
                           <div className="tech-service-card-caption">
                             <h3 className="tech-service-item-title">SMEs</h3>
@@ -869,14 +695,16 @@ export default function AIAutomationPage() {
                           <div
                             style={{
                               backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
+                                "url('/images/services/ai-automation/68d52f0b354fc6199419a618_tech-services-card-bg-4.webp')",
                             }}
                             className="tech-services-card-bg is-first"
                           ></div>
                           <div className="tech-service-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
+                            <img
+                              src="/images/services/ai-automation/68d52ed92cec1b33151e415c_Group 63800.svg"
+                              loading="lazy"
+                              alt="Enterprises icon"
+                            />
                           </div>
                           <div className="tech-service-card-caption">
                             <h3 className="tech-service-item-title">Enterprises</h3>
@@ -909,7 +737,7 @@ export default function AIAutomationPage() {
                       </div>
                       <div className="cta-bn__content">
                         <div className="cta-bn__name">Sunil Panchani</div>
-                        <div className="cta-bn__position">Founder &amp; Director, TechForbs</div>
+                        <div className="cta-bn__position">Founder & Director, TechForbs</div>
                       </div>
                     </div>
                     <a
@@ -959,7 +787,7 @@ export default function AIAutomationPage() {
                           </div>
                           <div className="cta-bn__content">
                             <h4 className="cta-bn__name">Sunil Panchani</h4>
-                            <p className="cta-bn__position">Founder &amp; Director, TechForbs</p>
+                            <p className="cta-bn__position">Founder & Director, TechForbs</p>
                           </div>
                           <div className="cta-banner-person-buttons">
                             <a href="#contact-section" className="button button_smaller button_red">

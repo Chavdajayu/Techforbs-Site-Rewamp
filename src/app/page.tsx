@@ -1,15 +1,17 @@
-import Navbar from "@/components/navigation/Navbar";
-import HeroSection from "@/components/hero/HeroSection";
-import WhoWeBuildFor from "@/components/who-we-build-for/WhoWeBuildFor";
-import BrandLogos from "@/components/brand-logos/BrandLogos";
-import CustomersSection from "@/components/customers/CustomersSection";
-import SolutionsSection from "@/components/solutions/SolutionsSection";
-import PortfolioSection from "@/components/portfolio/PortfolioSection";
-import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
-import TeamSection from "@/components/team/TeamSection";
-import ContactSection from "@/components/contact/ContactSection";
-import Footer from "@/components/footer/Footer";
-import SmoothScroll from "@/components/smooth-scroll/SmoothScroll";
+import {
+  Navbar,
+  HeroSection,
+  WhoWeBuildFor,
+  BrandLogos,
+  CustomersSection,
+  SolutionsSection,
+  PortfolioSection,
+  TestimonialsSection,
+  TeamSection,
+  ContactSection,
+  Footer,
+  SmoothScroll,
+} from "@/components";
 
 export default function HomePage() {
   return (

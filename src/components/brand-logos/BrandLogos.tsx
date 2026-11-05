@@ -5,7 +5,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BRAND_LOGOS } from "@/data/siteData";
 
-export default function BrandLogos() {
+export interface BrandLogosProps {
+  id?: string;
+  className?: string;
+}
+
+export default function BrandLogos({
+  id = "brands-section",
+  className = "section--awards-grid is_home",
+}: BrandLogosProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -41,7 +49,7 @@ export default function BrandLogos() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="brands-section" className="section--awards-grid is_home">
+    <section ref={sectionRef} id={id} className={className}>
       <div className="container">
         <div itemType="https://schema.org/Organization" itemScope>
           <div className="w-dyn-list">
@@ -77,3 +85,5 @@ export default function BrandLogos() {
     </section>
   );
 }
+
+export const BrandLogosSection = BrandLogos;

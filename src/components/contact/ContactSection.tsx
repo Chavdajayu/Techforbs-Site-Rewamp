@@ -8,7 +8,25 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function ContactSection() {
+export interface ContactSectionProps {
+  id?: string;
+  className?: string;
+  sectionLabel?: string;
+  title?: React.ReactNode;
+}
+
+export default function ContactSection({
+  id = "contact-section",
+  className = "section--contact",
+  sectionLabel = "CONTACT US",
+  title = (
+    <>
+      Let’s build your <br />
+      next digital <br />
+      flagship together
+    </>
+  ),
+}: ContactSectionProps = {}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -48,9 +66,9 @@ export default function ContactSection() {
   return (
     <section
       ref={sectionRef}
-      id="contact-section"
+      id={id}
       data-wf--form-get-in-touch--variant="base"
-      className="section--contact"
+      className={className}
     >
       <div className="contact__inner">
         <img
@@ -65,13 +83,11 @@ export default function ContactSection() {
           <div className="contact__heading">
             <div className="contact__heading-label">
               <div className="body-smaller text-uppercase section-label">
-                CONTACT US
+                {sectionLabel}
               </div>
             </div>
             <h3 className="contact-section__title title_regular">
-              Let’s build your <br />
-              next digital <br />
-              flagship together
+              {title}
             </h3>
           </div>
 
@@ -178,7 +194,7 @@ export default function ContactSection() {
             {!submitted ? (
               <form onSubmit={handleSubmit} className="contact__form">
                 <div className="contact__form-title">
-                  <p className="body-bigger weight-600">GET IN TOUCH</p>
+                  <p className="body-bigger weight-600">Get in touch</p>
                   <p className="contact__form-title-subtext">
                     OUR TEAM WILL RESPOND TO YOU WITHIN 1 BUSINESS DAY
                   </p>
@@ -367,3 +383,5 @@ export default function ContactSection() {
     </section>
   );
 }
+
+export const ContactUs = ContactSection;

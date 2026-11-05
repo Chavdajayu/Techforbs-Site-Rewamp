@@ -5,7 +5,21 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function WhoWeBuildFor() {
+export interface WhoWeBuildForProps {
+  id?: string;
+  className?: string;
+  sectionLabel?: string;
+  heading?: string;
+  description?: string;
+}
+
+export default function WhoWeBuildFor({
+  id = "build-for-section",
+  className = "section--build-for",
+  sectionLabel = "Who We Build For",
+  heading = "Empowering global brands with scalable IT solutions",
+  description = "Every stage comes with different priorities, constraints, and opportunities. We tailor the technology, team, and delivery approach to help you move forward with confidence.",
+}: WhoWeBuildForProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -41,7 +55,7 @@ export default function WhoWeBuildFor() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="build-for-section" className="section--build-for">
+    <section ref={sectionRef} id={id} className={className}>
       <div className="spacer-42"></div>
       <div className="build-for__seciton-overlay-wrap">
         <div className="build-for__seciton-overlay"></div>
@@ -53,19 +67,17 @@ export default function WhoWeBuildFor() {
             <div className="heading_combined is-vertical">
               <div className="heading_label fade-up-alt">
                 <div className="body-smaller text-uppercase section-label">
-                  Who We Build For
+                  {sectionLabel}
                 </div>
               </div>
               <h2 className="h2 is-56">
-                Empowering global brands with scalable IT solutions
+                {heading}
               </h2>
             </div>
             <div className="max-w-760">
               <div className="build_rich-text w-richtext">
                 <p>
-                  Every stage comes with different priorities, constraints,
-                  and opportunities. We tailor the technology, team, and
-                  delivery approach to help you move forward with confidence.
+                  {description}
                 </p>
               </div>
             </div>

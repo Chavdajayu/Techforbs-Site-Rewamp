@@ -41,13 +41,14 @@ export interface SolutionTab {
 
 export interface PortfolioItem {
   id: string;
-  brand: string;
+  brand?: string;
   title: string;
-  description: string;
+  description?: string;
   image: string;
-  bgColor: string;
+  bgColor?: string;
   tags: string[];
-  industry: string;
+  industry?: string;
+  link?: string;
 }
 
 export interface TestimonialItem {
@@ -507,4 +508,154 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 9, name: "Quality Assurance Lead", role: "Production QA", image: "/images/team/techforbs-team-9.jpg" },
   { id: 10, name: "Client Success Partner", role: "Project Delivery", image: "/images/team/techforbs-team-10.jpg" },
 ];
+
+// =============================================================================
+// AI & AUTOMATION SERVICES DATA (Authentic Webflow/Che IT Group Reference)
+// =============================================================================
+
+export const AI_AUTOMATION_CASES: PortfolioItem[] = [
+  {
+    id: "ai-procurement-assistant",
+    title: "procurement co-pilot for AI-powered tender management",
+    image: "/images/services/ai-automation/68023525725115f2d217da9f_Card Cover.webp",
+    bgColor: "#3269ac",
+    tags: ["Government", "Procurement", "Custom Web Development", "AI & Automation"],
+    industry: "Government & Procurement",
+  },
+  {
+    id: "time-maestro-platform",
+    title: "beyond tracking: building our perfect internal management platform",
+    image: "/images/services/ai-automation/681b3e5f8560d4a7e784e232_Card Cover.webp",
+    bgColor: "#356445",
+    tags: ["IT services", "SaaS", "UX/UI", "Custom Web Development", "Systems Integration"],
+    industry: "IT Services & SaaS",
+  },
+  {
+    id: "construction-automation-platform",
+    title: "revolutionizing construction project management with automation",
+    image: "/images/services/ai-automation/682c6a34d60f448a3c023395_11.webp",
+    bgColor: "#cae3fe",
+    tags: ["Real estate", "Proptech", "Custom Web Development", "UX/UI", "Systems Integration"],
+    industry: "Real Estate & PropTech",
+  },
+  {
+    id: "ai-furniture-design-platform",
+    title: "smart spaces: how AI furnished a design revolution",
+    image: "/images/services/ai-automation/682ed8126e0fdb65110409a0_Card Cover.webp",
+    bgColor: "#86bfff",
+    tags: ["Retail", "Manufacturing", "Platform Development", "UX/UI", "AI & Automation"],
+    industry: "Retail & Manufacturing",
+  },
+  {
+    id: "lead-generation-platform",
+    title: "intelligent B2B lead generation automation",
+    image: "/images/services/ai-automation/68381b612098e700ff329e46_Card Cover.webp",
+    bgColor: "#65728a",
+    tags: ["Martech", "SaaS", "AI & Automation", "UX/UI", "Systems Integration"],
+    industry: "MarTech & B2B SaaS",
+  },
+];
+
+export interface TechEcosystemItem {
+  name: string;
+  icon: string;
+  alt?: string;
+  href?: string;
+}
+
+export const AI_AUTOMATION_TECHNOLOGIES: TechEcosystemItem[] = [
+  {
+    name: "Make",
+    icon: "/images/services/ai-automation/688c609479d7f378d3a90e0a_make.svg",
+    alt: "Make (Integromat) automation platform logo",
+  },
+  {
+    name: "Hubspot",
+    icon: "/images/services/ai-automation/664af16516e4c502e7f45038_hubspot.svg",
+    alt: "HubSpot logo",
+  },
+  {
+    name: "Zapier",
+    icon: "/images/services/ai-automation/664af11caf11aec9d18151c7_zapier.svg",
+    alt: "Zapier logo",
+  },
+  {
+    name: "Airtable",
+    icon: "/images/services/ai-automation/66963dc71dd45225934947f6_airtable-svgrepo-com (1) 1.svg",
+    alt: "Airtable logo",
+  },
+  {
+    name: "n8n",
+    icon: "/images/services/ai-automation/69522e119ada4a224d43f995_n8n-color 1.svg",
+    alt: "n8n automation platform logo",
+  },
+  {
+    name: "Python",
+    icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg",
+    alt: "Python logo",
+  },
+  {
+    name: "Node.js",
+    icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg",
+    alt: "Node.js logo",
+  },
+  {
+    name: "React",
+    icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg",
+    alt: "React logo",
+  },
+];
+
+export interface ServiceTestimonial {
+  name: string;
+  position: string;
+  avatar: string;
+  bgColor: string;
+  overview: string;
+  messages: { text: string; time: string }[];
+}
+
+export const AI_AUTOMATION_TESTIMONIALS: ServiceTestimonial[] = [
+  {
+    name: "Iryna Kyselova",
+    position: "CEO, TechHunt (AM)",
+    avatar: "/images/technologies/68502c460e19db138dd98e5a_kiseliova.webp",
+    bgColor: "#dbbaf4",
+    overview: "/images/technologies/69415648fb54d47025658431_68502c28fbdaa5e4f7401a80_techhunt (1).webp",
+    messages: [
+      { text: "Ok", time: "4:45 PM" },
+      { text: "Site works great", time: "4:56 PM" },
+      { text: "On time as promised", time: "4:57 PM" },
+      { text: "Reasonable price", time: "4:58 PM" },
+      { text: "Will recommend", time: "4:59 PM" },
+    ],
+  },
+  {
+    name: "Oleksandra Kozak",
+    position: "CXO, Habitat",
+    avatar: "/images/technologies/68502b31c839a090ed9cb36d_kozak.webp",
+    bgColor: "#a0eeb0",
+    overview: "/images/technologies/68502b378775a7fe00bb4fab_habitat.webp",
+    messages: [
+      { text: "Platform handles 75k users now", time: "12:28 AM" },
+      { text: "92% satisfaction!", time: "12:32 AM" },
+      { text: "user engagement +45%", time: "12:34 AM" },
+      { text: "revenue is growing so fast 🔥", time: "12:45 AM" },
+    ],
+  },
+  {
+    name: "Kjartan Pedersen",
+    position: "Managing Director, NUCC",
+    avatar: "/images/technologies/68502a0bc839a090ed9be559_pedersen.webp",
+    bgColor: "#ffb3b3",
+    overview: "/images/technologies/694156c8a2a51c888dc8f3d8_68502a3f8efdae84c0a2bfa5_nucc (1).webp",
+    messages: [
+      { text: "traffic increased tenfold!", time: "11:24 AM" },
+      { text: "288 → 3,614 visitors", time: "11:27 AM" },
+      { text: "love working with specialists", time: "11:28 AM" },
+      { text: "always available", time: "11:31 AM" },
+    ],
+  },
+];
+
 

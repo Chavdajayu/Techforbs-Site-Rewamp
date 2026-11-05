@@ -5,7 +5,31 @@ import Link from "next/link";
 import gsap from "gsap";
 import Hero3DCanvas from "./Hero3DCanvas";
 
-export default function HeroSection() {
+export interface HeroSectionProps {
+  id?: string;
+  className?: string;
+  headlineRow1Left?: string;
+  headlineRow1Right?: string;
+  headlineRow2Left?: string;
+  headlineRow2Right?: string;
+  description?: string;
+  contactHref?: string;
+  show3DCanvas?: boolean;
+  animateHeader?: boolean;
+}
+
+export default function HeroSection({
+  id = "hero-section",
+  className = "section--hero",
+  headlineRow1Left = "Powering",
+  headlineRow1Right = "Shopify",
+  headlineRow2Left = "Stores to",
+  headlineRow2Right = "Grow",
+  description = "Scale your e-commerce platform with precision engineering, headless Shopify architectures, and enterprise development.",
+  contactHref = "#contact-section",
+  show3DCanvas = true,
+  animateHeader = true,
+}: HeroSectionProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -13,7 +37,7 @@ export default function HeroSection() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const ctx = gsap.context(() => {
-      const header = document.querySelector(".header");
+      const header = animateHeader ? document.querySelector(".header") : null;
       const heroStage = document.querySelector(".hero__content-top");
       const heroGradient = document.querySelector(".hero__gradient");
       const wordElements = document.querySelectorAll(".hero-word-text");
@@ -147,7 +171,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section--hero" style={{ backgroundColor: "#101010" }}>
+    <section ref={sectionRef} id={id} className={className} style={{ backgroundColor: "#101010" }}>
       <div className="hero__content" style={{ backgroundColor: "#101010" }}>
         <div className="hero__gradient home-page" style={{ opacity: 0 }} />
         <div
@@ -182,39 +206,39 @@ export default function HeroSection() {
           <div className="hero-composition-wrap">
             <h1 className="hero-heading-h1">
               {/* Semantic full title for SEO & accessibility */}
-              <span className="sr-only">Powering Shopify Stores to Grow</span>
+              <span className="sr-only">{headlineRow1Left} {headlineRow1Right} {headlineRow2Left} {headlineRow2Right}</span>
 
               <div className="hero-headline-grid" aria-hidden="true">
-                {/* Row 1 Left: POWERING */}
+                {/* Row 1 Left */}
                 <div className="hero-grid-col hero-grid-left-1">
                   <div className="hero-text-row overflow-hidden">
-                    <span className="hero-word-text">Powering</span>
+                    <span className="hero-word-text">{headlineRow1Left}</span>
                   </div>
                 </div>
 
                 {/* Center: Dedicated Reserved Space for 3D Shopify Model spanning Row 1 & 2 */}
                 <div className="hero-grid-col hero-grid-center">
-                  <Hero3DCanvas />
+                  {show3DCanvas && <Hero3DCanvas />}
                 </div>
 
-                {/* Row 1 Right: SHOPIFY */}
+                {/* Row 1 Right */}
                 <div className="hero-grid-col hero-grid-right-1">
                   <div className="hero-text-row overflow-hidden">
-                    <span className="hero-word-text">Shopify</span>
+                    <span className="hero-word-text">{headlineRow1Right}</span>
                   </div>
                 </div>
 
-                {/* Row 2 Left: STORES TO */}
+                {/* Row 2 Left */}
                 <div className="hero-grid-col hero-grid-left-2" style={{ whiteSpace: "nowrap" }}>
                   <div className="hero-text-row overflow-hidden" style={{ whiteSpace: "nowrap" }}>
-                    <span className="hero-word-text" style={{ whiteSpace: "nowrap" }}>Stores to</span>
+                    <span className="hero-word-text" style={{ whiteSpace: "nowrap" }}>{headlineRow2Left}</span>
                   </div>
                 </div>
 
-                {/* Row 2 Right: GROW */}
+                {/* Row 2 Right */}
                 <div className="hero-grid-col hero-grid-right-2">
                   <div className="hero-text-row overflow-hidden">
-                    <span className="hero-word-text">Grow</span>
+                    <span className="hero-word-text">{headlineRow2Right}</span>
                   </div>
                 </div>
               </div>
@@ -231,13 +255,13 @@ export default function HeroSection() {
                   lineHeight: 1.6,
                 }}
               >
-                Scale your e-commerce platform with precision engineering, headless Shopify architectures, and enterprise development.
+                {description}
               </p>
             </div>
 
             {/* Floating / Mobile Contact Icon */}
             <div className="hero__content-buttons md:hidden" style={{ display: "flex", justifyContent: "center", marginTop: "1.5rem", position: "relative", zIndex: 12 }}>
-              <Link href="#contact-section" title="Contact us" className="w-inline-block">
+              <Link href={contactHref} title="Contact us" className="w-inline-block">
                 <div
                   className="hero__heading-icon-inner hover mobile-icon"
                   style={{

@@ -12,7 +12,15 @@ import { useIsClient } from "@/hooks/useIsClient";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function CustomersSection() {
+export interface CustomersSectionProps {
+  id?: string;
+  className?: string;
+}
+
+export default function CustomersSection({
+  id = "customers-section",
+  className = "section--customers",
+}: CustomersSectionProps = {}) {
   const swiperRef = useRef<SwiperType | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const strikethroughRef = useRef<HTMLDivElement>(null);
@@ -53,7 +61,7 @@ export default function CustomersSection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} id="customers-section" className="section--customers">
+    <section ref={sectionRef} id={id} className={className}>
       <div className="section__pattern customers__pattern w-embed">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -207,3 +215,5 @@ export default function CustomersSection() {
     </section>
   );
 }
+
+export const OurCustomers = CustomersSection;

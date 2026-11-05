@@ -8,7 +8,17 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function TeamSection() {
+export interface TeamSectionProps {
+  id?: string;
+  className?: string;
+  sectionLabel?: string;
+}
+
+export default function TeamSection({
+  id = "team-section",
+  className = "section--team",
+  sectionLabel = "Our Team",
+}: TeamSectionProps = {}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
   const ovalPathRef = useRef<SVGPathElement | null>(null);
@@ -117,7 +127,7 @@ export default function TeamSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="team-section" className="section--team">
+    <section ref={sectionRef} id={id} className={className}>
       <div className="section__pattern team__pattern w-embed">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +149,7 @@ export default function TeamSection() {
           <div className="heading_combined">
             <div className="heading_label fade-up-alt">
               <div className="body-smaller text-uppercase section-label">
-                Our Team
+                {sectionLabel}
               </div>
             </div>
             <div className="team__heading-title">
@@ -296,3 +306,5 @@ export default function TeamSection() {
     </section>
   );
 }
+
+export const OurTeam = TeamSection;

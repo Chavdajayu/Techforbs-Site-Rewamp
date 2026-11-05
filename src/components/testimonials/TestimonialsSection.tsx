@@ -7,6 +7,7 @@ import type { Swiper as SwiperType } from "swiper";
 import { useIsClient } from "@/hooks/useIsClient";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AI_AUTOMATION_TESTIMONIALS, type ServiceTestimonial } from "@/data/siteData";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -15,7 +16,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const TESTIMONIALS = [
+const HOMEPAGE_TESTIMONIALS = [
   {
     name: "Robert Whitehead",
     position: "Founder, Whitehead Consulting (AM)",
@@ -67,10 +68,31 @@ const TESTIMONIALS = [
   },
 ];
 
-export default function TestimonialsSection() {
+export interface TestimonialsSectionProps {
+  id?: string;
+  className?: string;
+  sectionLabel?: string;
+  title?: React.ReactNode;
+  variant?: "homepage" | "services";
+  items?: ServiceTestimonial[];
+}
+
+export default function TestimonialsSection({
+  id,
+  className,
+  sectionLabel = "TESTIMONIALS",
+  title,
+  variant = "homepage",
+  items,
+}: TestimonialsSectionProps = {}) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
   const mounted = useIsClient();
+
+  const isServices = variant === "services";
+  const sectionId = id || "testimonials-section";
+  const sectionClass = className || (isServices ? "tech-testimonials" : "section--testimonials");
+  const serviceItems = items || AI_AUTOMATION_TESTIMONIALS;
 
   const animateCardMessages = (card: HTMLElement) => {
     const wrappers = card.querySelectorAll(".testimonials__card-message-wrapper");
@@ -102,21 +124,23 @@ export default function TestimonialsSection() {
     if (!mounted || !sectionRef.current) return;
     const ctx = gsap.context(() => {
       // Heading reveal
-      gsap.fromTo(
-        ".testimonials-heading .heading_combined",
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+      if (!isServices) {
+        gsap.fromTo(
+          ".testimonials-heading .heading_combined",
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
 
       // Chat bubble reveal on enter
       ScrollTrigger.create({
@@ -124,7 +148,9 @@ export default function TestimonialsSection() {
         start: "top 70%",
         once: true,
         onEnter: () => {
-          const cards = sectionRef.current?.querySelectorAll<HTMLElement>(".swiper-slide-active .testimonials__card, .swiper-slide-next .testimonials__card");
+          const cards = sectionRef.current?.querySelectorAll<HTMLElement>(
+            ".swiper-slide-active .testimonials__card, .swiper-slide-next .testimonials__card"
+          );
           if (cards && cards.length > 0) {
             cards.forEach((card, idx) => {
               setTimeout(() => animateCardMessages(card), idx * 400);
@@ -135,7 +161,7 @@ export default function TestimonialsSection() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [mounted]);
+  }, [mounted, isServices]);
 
   const handleSlideChange = (swiper: SwiperType) => {
     const activeSlide = swiper.slides[swiper.activeIndex];
@@ -145,8 +171,259 @@ export default function TestimonialsSection() {
     }
   };
 
+  // =========================================================================
+  // SERVICES VARIANT (Authentic Webflow/Che IT Group structure)
+  // =========================================================================
+  if (isServices) {
+    return (
+      <section ref={sectionRef} id={sectionId} className={sectionClass}>
+        <h2
+          data-testimonials-title=""
+          text-split=""
+          lines-slide-up=""
+          color-words-index="4,5"
+          color-word="#00e5ff"
+          className="tech-section-title mb-60 desktop"
+        >
+          {title || (
+            <>
+              What our clients say… <span className="text-[#00e5ff]">for real</span>
+            </>
+          )}
+        </h2>
+        <h2
+          data-testimonials-title=""
+          text-split=""
+          lines-slide-up=""
+          color-words-index="4,5"
+          color-word="#00e5ff"
+          className="tech-section-title mb-60 mobile"
+        >
+          {title || (
+            <>
+              What our clients say…<br />
+              <span className="text-[#00e5ff]">for real</span>
+            </>
+          )}
+        </h2>
+
+        {/* Client Brand Logos Navigation Header */}
+        <div className="fade-up-alt">
+          <div className="tech-testimonials-nav-wrapper">
+            <img
+              loading="lazy"
+              width={388}
+              alt="Rocken logo"
+              src="/images/technologies/6728d7bf836265b91b254072_18a913691312578a585d58229f3c678d_rocken.svg"
+              className="tech-nav-image"
+            />
+            <img
+              loading="lazy"
+              width={388}
+              alt="Porsche logo"
+              src="/images/technologies/689c07329e44da2cc1a1e83b_1c70833c7f74d1c57bb7cf76f8864b3f_porsche.svg"
+              className="tech-nav-image"
+            />
+            <img
+              loading="lazy"
+              width={388}
+              alt="Schulthess logo"
+              src="/images/technologies/689c07074c6a141440e0d2bf_226637c022b6798b3c761027f2846685_schulthess.svg"
+              className="tech-nav-image"
+            />
+            <img
+              loading="lazy"
+              width={388}
+              alt="Saclab logo"
+              src="/images/technologies/689c08adbd25c4e4049dd52f_saclab2.svg"
+              className="tech-nav-image"
+            />
+            <img
+              loading="lazy"
+              width={388}
+              alt="ONELINE company logo"
+              src="/images/technologies/689c076ede348681637aa039_d312de86af198654ae64e71cde86e325_oneline.svg"
+              className="tech-nav-image"
+            />
+          </div>
+        </div>
+
+        {/* Testimonials Slider */}
+        <div className="fade-up-alt">
+          <div className="tech-testimonials__slider">
+            {mounted ? (
+              <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
+                <Swiper
+                  modules={[Navigation]}
+                  onBeforeInit={(swiper) => {
+                    swiperRef.current = swiper;
+                  }}
+                  onSlideChange={handleSlideChange}
+                  loop={true}
+                  speed={1000}
+                  slidesPerView={1}
+                  spaceBetween={16}
+                  breakpoints={{
+                    480: { slidesPerView: 1, spaceBetween: 16 },
+                    768: { slidesPerView: 2, spaceBetween: 16 },
+                    992: { slidesPerView: 2, spaceBetween: 50 },
+                  }}
+                  className="swiper-wrapper w-dyn-items"
+                >
+                  {serviceItems.map((t, idx) => (
+                    <SwiperSlide key={idx} className="swiper-slide w-dyn-item">
+                      <div className="testimonials__card tech-variant">
+                        <div className="testimonials__card-inner">
+                          <div style={{ backgroundColor: t.bgColor }} className="testimonials__card-bg"></div>
+                          <img
+                            loading="lazy"
+                            width={388}
+                            alt={`Screenshot from ${t.name} website`}
+                            src={t.overview}
+                            className="testimonials__card-overview tech-variant"
+                          />
+                          <div className="testimonials__card-caption tech-variant">
+                            <img
+                              loading="lazy"
+                              alt={t.name}
+                              src={t.avatar}
+                              className="testimonials__card-avatar tech-variant"
+                            />
+                            <p className="testimonials__card-name">{t.name}</p>
+                            <p className="testimonials__card-position body-smaller text-uppercase">
+                              {t.position}
+                            </p>
+                          </div>
+                          <div className="testimonials__card-inner-scroller">
+                            <div className="testimonials__card-list">
+                              {t.messages.map((m, mIdx) => (
+                                <div key={mIdx} className="testimonials__card-message-wrapper tech-variant">
+                                  <div className="testimonials__card-message tech-variant">
+                                    <p className="testimonials__card-message-text tech-variant">{m.text}</p>
+                                    <p className="testimonials__card-message-time tech-variant color-white-70">
+                                      {m.time}
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            ) : (
+              <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
+                <div className="swiper-wrapper w-dyn-items">
+                  {serviceItems.map((t, idx) => (
+                    <div key={idx} className="swiper-slide w-dyn-item">
+                      <div className="testimonials__card tech-variant">
+                        <div className="testimonials__card-inner">
+                          <div style={{ backgroundColor: t.bgColor }} className="testimonials__card-bg"></div>
+                          <img
+                            loading="lazy"
+                            width={388}
+                            alt={`Screenshot from ${t.name} website`}
+                            src={t.overview}
+                            className="testimonials__card-overview tech-variant"
+                          />
+                          <div className="testimonials__card-caption tech-variant">
+                            <img
+                              loading="lazy"
+                              alt={t.name}
+                              src={t.avatar}
+                              className="testimonials__card-avatar tech-variant"
+                            />
+                            <p className="testimonials__card-name">{t.name}</p>
+                            <p className="testimonials__card-position body-smaller text-uppercase">
+                              {t.position}
+                            </p>
+                          </div>
+                          <div className="testimonials__card-inner-scroller">
+                            <div className="testimonials__card-list">
+                              {t.messages.map((m, mIdx) => (
+                                <div key={mIdx} className="testimonials__card-message-wrapper tech-variant">
+                                  <div className="testimonials__card-message tech-variant">
+                                    <p className="testimonials__card-message-text tech-variant">{m.text}</p>
+                                    <p className="testimonials__card-message-time tech-variant color-white-70">
+                                      {m.time}
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="slider-buttons">
+              <button
+                type="button"
+                aria-label="Previous testimonial"
+                className="button button_slider testimonials-slider-prev"
+                onClick={() => swiperRef.current?.slidePrev()}
+              >
+                <div className="button-slider-arrow w-embed">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M15 6L9 12L15 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <button
+                type="button"
+                aria-label="Next testimonial"
+                className="button button_slider testimonials-slider-next"
+                onClick={() => swiperRef.current?.slideNext()}
+              >
+                <div className="button-slider-arrow w-embed">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M9 6L15 12L9 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // =========================================================================
+  // HOMEPAGE VARIANT
+  // =========================================================================
   return (
-    <section ref={sectionRef} id="testimonials-section" className="section--testimonials">
+    <section ref={sectionRef} id={sectionId} className={sectionClass}>
       <div className="section__pattern testimonials__pattern w-embed">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -163,176 +440,159 @@ export default function TestimonialsSection() {
         </svg>
       </div>
 
-      <section className="tech-testimonials">
-        <div className="portfolio__heading testimonials-heading">
-          <div id="testimonials-section" className="container">
-            <div className="heading_combined">
-              <div className="heading_label fade-up-alt">
-                <div itemProp="name" className="body-smaller text-uppercase section-label">
-                  TESTIMONIALS
-                </div>
+      <div className="portfolio__heading testimonials-heading">
+        <div className="container">
+          <div className="heading_combined">
+            <div className="heading_label fade-up-alt">
+              <div itemProp="name" className="body-smaller text-uppercase section-label">
+                {sectionLabel}
               </div>
-              <h2 className="title_regular">
-                What our clients are saying... verified feedback
-              </h2>
             </div>
+            <h2 className="title_regular">{title || "What our clients are saying... verified feedback"}</h2>
           </div>
         </div>
+      </div>
 
-        <div className="home-testimonials">
-          <div className="fade-up-alt">
-            <div className="tech-testimonials__slider home-variant">
-              {mounted ? (
-                <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
-                  <Swiper
-                    modules={[Navigation]}
-                    onBeforeInit={(swiper) => {
-                      swiperRef.current = swiper;
-                    }}
-                    onSlideChange={handleSlideChange}
-                    loop={true}
-                    spaceBetween={24}
-                    slidesPerView={1.1}
-                    breakpoints={{
-                      768: { slidesPerView: 2.1, spaceBetween: 28 },
-                      1024: { slidesPerView: 2.5, spaceBetween: 32 },
-                    }}
-                    className="swiper-wrapper w-dyn-items"
-                  >
-                    {TESTIMONIALS.map((t) => (
-                      <SwiperSlide key={t.name} className="swiper-slide w-dyn-item">
-                        <div className="testimonials__card home-variant">
-                          <div className="testimonials__card-inner">
-                            <div
-                              style={{ backgroundColor: t.bgColor }}
-                              className="testimonials__card-bg"
-                            />
+      <div className="home-testimonials">
+        <div className="fade-up-alt">
+          <div className="tech-testimonials__slider home-variant">
+            {mounted ? (
+              <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
+                <Swiper
+                  modules={[Navigation]}
+                  onBeforeInit={(swiper) => {
+                    swiperRef.current = swiper;
+                  }}
+                  onSlideChange={handleSlideChange}
+                  loop={true}
+                  spaceBetween={24}
+                  slidesPerView={1.1}
+                  breakpoints={{
+                    768: { slidesPerView: 2.1, spaceBetween: 28 },
+                    1024: { slidesPerView: 2.5, spaceBetween: 32 },
+                  }}
+                  className="swiper-wrapper w-dyn-items"
+                >
+                  {HOMEPAGE_TESTIMONIALS.map((t) => (
+                    <SwiperSlide key={t.name} className="swiper-slide w-dyn-item">
+                      <div className="testimonials__card home-variant">
+                        <div className="testimonials__card-inner">
+                          <div style={{ backgroundColor: t.bgColor }} className="testimonials__card-bg" />
+                          <img
+                            loading="eager"
+                            width={500}
+                            height={910}
+                            src={t.brandLogo}
+                            alt={t.name}
+                            className="testimonials__card-overview tech-variant"
+                          />
+                          <div className="testimonials__card-caption tech-variant">
                             <img
                               loading="eager"
-                              width={500}
-                              height={910}
-                              src={t.brandLogo}
                               alt={t.name}
-                              className="testimonials__card-overview tech-variant"
+                              src={t.avatar}
+                              className="testimonials__card-avatar tech-variant"
                             />
-                            <div className="testimonials__card-caption tech-variant">
-                              <img
-                                loading="eager"
-                                alt={t.name}
-                                src={t.avatar}
-                                className="testimonials__card-avatar tech-variant"
-                              />
-                              <p className="testimonials__card-name">{t.name}</p>
-                              <p className="testimonials__card-position body-smaller text-uppercase">
-                                {t.position}
-                              </p>
-                            </div>
-                            <div className="testimonials__card-inner-scroller">
-                              <div className="testimonials__card-list">
-                                {t.messages.map((m, idx) => (
-                                  <div
-                                    key={idx}
-                                    className="testimonials__card-message-wrapper tech-variant"
-                                  >
-                                    <div className="testimonials__card-message tech-variant">
-                                      <p className="testimonials__card-message-text tech-variant">
-                                        {m.text}
-                                      </p>
-                                      <p className="testimonials__card-message-time tech-variant color-white-70">
-                                        {m.time}
-                                      </p>
-                                    </div>
+                            <p className="testimonials__card-name">{t.name}</p>
+                            <p className="testimonials__card-position body-smaller text-uppercase">
+                              {t.position}
+                            </p>
+                          </div>
+                          <div className="testimonials__card-inner-scroller">
+                            <div className="testimonials__card-list">
+                              {t.messages.map((m, idx) => (
+                                <div
+                                  key={idx}
+                                  className="testimonials__card-message-wrapper tech-variant"
+                                >
+                                  <div className="testimonials__card-message tech-variant">
+                                    <p className="testimonials__card-message-text tech-variant">
+                                      {m.text}
+                                    </p>
+                                    <p className="testimonials__card-message-time tech-variant color-white-70">
+                                      {m.time}
+                                    </p>
                                   </div>
-                                ))}
-                              </div>
+                                </div>
+                              ))}
                             </div>
                           </div>
                         </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </div>
-              ) : (
-                <div>Loading client testimonials...</div>
-              )}
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            ) : (
+              <div>Loading client testimonials...</div>
+            )}
 
-              <div
-                className="slider-buttons"
+            <div
+              className="slider-buttons"
+              style={{
+                display: "flex",
+                gap: "0.75rem",
+                justifyContent: "flex-end",
+                marginTop: "1.5rem",
+                marginRight: "2rem",
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => swiperRef.current?.slidePrev()}
+                className="button button_slider testimonials-slider-prev"
+                aria-label="Previous testimonial"
                 style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "12px",
                   display: "flex",
-                  gap: "0.75rem",
-                  justifyContent: "flex-end",
-                  marginTop: "1.5rem",
-                  marginRight: "2rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
                 }}
               >
-                <button
-                  type="button"
-                  onClick={() => swiperRef.current?.slidePrev()}
-                  className="button button_slider testimonials-slider-prev"
-                  aria-label="Previous testimonial"
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                  }}
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path
+                    d="M15 6L9 12L15 18"
                     stroke="currentColor"
-                  >
-                    <path
-                      d="M15 6L9 12L15 18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => swiperRef.current?.slideNext()}
-                  className="button button_slider testimonials-slider-next"
-                  aria-label="Next testimonial"
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                  }}
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={() => swiperRef.current?.slideNext()}
+                className="button button_slider testimonials-slider-next"
+                aria-label="Next testimonial"
+                style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "12px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                }}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path
+                    d="M9 6L15 12L9 18"
                     stroke="currentColor"
-                  >
-                    <path
-                      d="M9 6L15 12L9 18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </section>
   );
 }
+
+export const Testimonials = TestimonialsSection;

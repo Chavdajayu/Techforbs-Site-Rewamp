@@ -4,7 +4,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { TECHNOLOGIES_DATA } from "@/data/siteData";
 
-export default function Navbar() {
+export interface NavbarProps {
+  className?: string;
+}
+
+export default function Navbar({ className = "header" }: NavbarProps = {}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -29,7 +33,7 @@ export default function Navbar() {
   };
 
   return (
-    <header data-w-id="0034b592-6b66-56b4-a574-da42086397f0" className="header">
+    <header data-w-id="0034b592-6b66-56b4-a574-da42086397f0" className={className}>
       <div className="container header__container">
         <div data-w-id="0034b592-6b66-56b4-a574-da42086397f2" className="header__inner">
           {/* Logo */}
