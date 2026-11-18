@@ -8,6 +8,7 @@ import {
   AIAutomationClientInteractions,
   PortfolioCases,
   TechEcosystem,
+  TestimonialsSection,
 } from "@/components";
 import { AI_AUTOMATION_ECOSYSTEM } from "@/data/siteData";
 
@@ -128,13 +129,7 @@ export default function AIAutomationPage() {
                       {/* Card 1 */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -155,13 +150,7 @@ export default function AIAutomationPage() {
                       {/* Card 2 */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <circle cx="12" cy="12" r="10"></circle>
@@ -184,13 +173,7 @@ export default function AIAutomationPage() {
                       {/* Card 3 */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -212,13 +195,7 @@ export default function AIAutomationPage() {
                       {/* Card 4 */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
@@ -560,113 +537,13 @@ export default function AIAutomationPage() {
                 />
 
                 {/* =============================================================
-                    09. TESTIMONIALS SECTION
+                    09. TESTIMONIALS SECTION (Matching Home Page 3D Orbital Deck)
                     ============================================================= */}
-                <section id="testimonials-section" className="tech-testimonials">
-                  <h2
-                    data-testimonials-title=""
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="4,5"
-                    color-word="#00e5ff"
-                    className="tech-section-title mb-60 desktop"
-                  >
-                    What our clients say… for real
-                  </h2>
-                  <h2
-                    data-testimonials-title=""
-                    text-split=""
-                    lines-slide-up=""
-                    color-words-index="4,5"
-                    color-word="#00e5ff"
-                    className="tech-section-title mb-60 mobile"
-                  >
-                    What our clients say…<br />for real
-                  </h2>
-                  <div className="fade-up-alt">
-                    <div className="tech-testimonials__slider">
-                      <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
-                        <div role="list" className="swiper-wrapper w-dyn-items flex flex-col md:flex-row gap-6 overflow-x-auto pb-4">
-                          {/* Testimonial 1 */}
-                          <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                            <div className="testimonials__card tech-variant">
-                              <div className="testimonials__card-inner">
-                                <div style={{ backgroundColor: "#00e5ff22" }} className="testimonials__card-bg"></div>
-                                <div className="testimonials__card-caption tech-variant">
-                                  <img
-                                    loading="lazy"
-                                    alt="Client avatar"
-                                    src="/images/technologies/68502c460e19db138dd98e5a_kiseliova.webp"
-                                    className="testimonials__card-avatar tech-variant"
-                                  />
-                                  <p className="testimonials__card-name">Iryna Kyselova</p>
-                                  <p className="testimonials__card-position body-smaller text-uppercase">CEO, TechHunt</p>
-                                </div>
-                                <div className="testimonials__card-inner-scroller">
-                                  <div className="testimonials__card-list">
-                                    <div className="testimonials__card-message-wrapper tech-variant">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Automated matching pipeline works flawlessly</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:45 PM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Saved 30+ recruiting hours every week</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:56 PM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Highly recommend TechForbs team!</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">4:58 PM</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Testimonial 2 */}
-                          <div role="listitem" className="swiper-slide w-dyn-item min-w-[340px] md:min-w-[420px]">
-                            <div className="testimonials__card tech-variant">
-                              <div className="testimonials__card-inner">
-                                <div style={{ backgroundColor: "#22c55e22" }} className="testimonials__card-bg"></div>
-                                <div className="testimonials__card-caption tech-variant">
-                                  <img
-                                    loading="lazy"
-                                    alt="Client avatar"
-                                    src="/images/technologies/68502b31c839a090ed9cb36d_kozak.webp"
-                                    className="testimonials__card-avatar tech-variant"
-                                  />
-                                  <p className="testimonials__card-name">Oleksandra Kozak</p>
-                                  <p className="testimonials__card-position body-smaller text-uppercase">CXO, Habitat</p>
-                                </div>
-                                <div className="testimonials__card-inner-scroller">
-                                  <div className="testimonials__card-list">
-                                    <div className="testimonials__card-message-wrapper tech-variant">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Automation handles 75k daily operations</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">12:28 AM</p>
-                                      </div>
-                                    </div>
-                                    <div className="testimonials__card-message-wrapper">
-                                      <div className="testimonials__card-message tech-variant">
-                                        <p className="testimonials__card-message-text tech-variant">Zero downtime during peak spikes</p>
-                                        <p className="testimonials__card-message-time tech-variant color-white-70">12:32 AM</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+                <TestimonialsSection
+                  className="is-services-page"
+                  title="What our clients say… for real"
+                  label="TESTIMONIALS"
+                />
 
                 {/* =============================================================
                     10. BUSINESSES WE SERVE WITH AI & AUTOMATION
@@ -686,13 +563,7 @@ export default function AIAutomationPage() {
                       {/* Card 1: Agencies */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
@@ -713,13 +584,7 @@ export default function AIAutomationPage() {
                       {/* Card 2: Startups */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -738,13 +603,7 @@ export default function AIAutomationPage() {
                       {/* Card 3: SMEs */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <line x1="18" y1="20" x2="18" y2="10"></line>
@@ -765,13 +624,7 @@ export default function AIAutomationPage() {
                       {/* Card 4: Enterprises */}
                       <div role="listitem" className="w-dyn-item">
                         <div className="tech-service-card">
-                          <div
-                            style={{
-                              backgroundImage:
-                                "url('/images/services/ai-automation/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')",
-                            }}
-                            className="tech-services-card-bg is-first"
-                          ></div>
+                          <div className="tech-services-card-bg is-first"></div>
                           <div className="tech-service-card-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>

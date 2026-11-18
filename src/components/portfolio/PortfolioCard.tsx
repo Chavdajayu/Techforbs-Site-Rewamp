@@ -31,28 +31,26 @@ export default function PortfolioCard({ item, href }: PortfolioCardProps) {
           borderTopRightRadius: "2.25rem",
           borderBottomLeftRadius: "0px",
           borderBottomRightRadius: "0px",
+          overflow: "hidden",
         }}
       >
-        <img
-          width={416}
-          height={439}
-          alt="TechForbs case study"
-          src="/images/ui/66335e1b00f641134b6bcbef_case-bg.svg"
-          loading="lazy"
-          className="case-item-circles"
-        />
         <img
           className="case-item-thumb min-height"
           src={item.image}
           width={745}
           height={618}
           alt={item.title}
-          loading="lazy"
+          loading="eager"
+          decoding="async"
           style={{
             borderTopLeftRadius: "0px",
-            borderTopRightRadius: "2rem",
+            borderTopRightRadius: "2.25rem",
             borderBottomLeftRadius: "0px",
             borderBottomRightRadius: "0px",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
           }}
         />
       </div>

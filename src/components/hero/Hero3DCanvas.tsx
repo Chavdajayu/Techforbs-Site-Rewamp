@@ -98,57 +98,24 @@ export default function Hero3DCanvas() {
     logoGroup.rotation.set(initialRotX, initialRotY, 0);
     scene.add(logoGroup);
 
-    // Ambient and directional lighting for deep, non-shiny, matte volume with dark shadows
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
+    // Studio 3-point lighting for vivid, bright, natural Shopify bag volume
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.05);
     scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.15);
-    dirLight.position.set(10, 45, 35);
-    scene.add(dirLight);
+    const keyLight = new THREE.DirectionalLight(0xffffff, 1.45);
+    keyLight.position.set(18, 40, 35);
+    scene.add(keyLight);
 
-    // Deep dark black contact ground shadow directly on podium plane
-    let shadowMesh: THREE.Mesh | null = null;
-    function createGroundShadow() {
-      const shadowCanvas = document.createElement("canvas");
-      shadowCanvas.width = 256;
-      shadowCanvas.height = 256;
-      const ctx = shadowCanvas.getContext("2d");
-      if (ctx) {
-        const gradient = ctx.createRadialGradient(128, 128, 0, 128, 128, 124);
-        gradient.addColorStop(0, "rgba(0, 0, 0, 0.98)");
-        gradient.addColorStop(0.35, "rgba(0, 0, 0, 0.90)");
-        gradient.addColorStop(0.65, "rgba(0, 0, 0, 0.60)");
-        gradient.addColorStop(0.88, "rgba(0, 0, 0, 0.20)");
-        gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 256, 256);
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.65);
+    fillLight.position.set(-25, 18, 25);
+    scene.add(fillLight);
 
-        const shadowTexture = new THREE.CanvasTexture(shadowCanvas);
-        const shadowGeo = new THREE.PlaneGeometry(82 * config.scale, 82 * config.scale);
-        const shadowMat = new THREE.MeshBasicMaterial({
-          map: shadowTexture,
-          transparent: true,
-          depthWrite: false,
-        });
-        shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
-        shadowMesh.rotation.x = -Math.PI / 2;
-        shadowMesh.position.set(0, config.logoY - 25 * config.scale, 0);
-        scene.add(shadowMesh);
-      }
-    }
-    createGroundShadow();
+    const rimLight = new THREE.DirectionalLight(0xffffff, 0.40);
+    rimLight.position.set(0, 45, -20);
+    scene.add(rimLight);
 
-    // Physics & Interaction State
-    let targetRotationY = initialRotY;
-    let targetRotationX = initialRotX;
+    // Autonomous Floating & Rotation State (Non-Interactive, Clean Levitation without Ground Shadow)
     let currentRotationY = initialRotY;
-    let currentRotationX = initialRotX;
-    let velocityY = 0;
-    let velocityX = 0;
-    let isDragging = false;
-    let lastPointerX = 0;
-    let lastPointerY = 0;
-    let lastInteractionTime = performance.now();
 
     // Parse and build true 3D extruded geometry
     const loader = new SVGLoader();
@@ -163,7 +130,7 @@ export default function Hero3DCanvas() {
         let bevelSize = 0.8;
         let bevelThickness = 0.9;
 
-        // Natural Brand Colors - matte non-shiny MeshLambertMaterial with deep natural shadows
+        // Vivid, Bright & Authentic Brand Colors (non-neon, healthy brand green)
         let matFront: THREE.MeshLambertMaterial;
         let matSide: THREE.MeshLambertMaterial;
 
@@ -172,19 +139,19 @@ export default function Hero3DCanvas() {
           extrudeDepth = 12.2;
           bevelSize = 0.6;
           bevelThickness = 0.8;
-          matFront = new THREE.MeshLambertMaterial({ color: 0x4a7330 });
-          matSide = new THREE.MeshLambertMaterial({ color: 0x385724 });
+          matFront = new THREE.MeshLambertMaterial({ color: 0x5E8E3E });
+          matSide = new THREE.MeshLambertMaterial({ color: 0x48702C });
         } else if (hex === "ffffff") {
-          // Authentic Embossed White 'S' emblem
+          // Authentic Crisp Embossed White 'S' emblem
           extrudeDepth = 2.5;
           bevelSize = 0.35;
           bevelThickness = 0.45;
-          matFront = new THREE.MeshLambertMaterial({ color: 0xffffff });
-          matSide = new THREE.MeshLambertMaterial({ color: 0xe0e0e0 });
+          matFront = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+          matSide = new THREE.MeshLambertMaterial({ color: 0xEEEEEE });
         } else {
-          // Authentic Shopify Green main body (matte, non-neon, rich shadow contrast)
-          matFront = new THREE.MeshLambertMaterial({ color: 0x82b536 });
-          matSide = new THREE.MeshLambertMaterial({ color: 0x628a27 });
+          // Authentic Shopify Vibrant Green body (matte, well-lit, non-dark)
+          matFront = new THREE.MeshLambertMaterial({ color: 0x95BF46 });
+          matSide = new THREE.MeshLambertMaterial({ color: 0x7CA836 });
         }
 
         const geom = new THREE.ExtrudeGeometry(shape, {
@@ -221,64 +188,11 @@ export default function Hero3DCanvas() {
       });
     });
 
-    // Interaction Handlers
-    function onPointerDown(e: PointerEvent) {
-      if (!container || !canvas) return;
-      if (e.button !== undefined && e.button !== 0) return;
-      isDragging = true;
-      lastPointerX = e.clientX;
-      lastPointerY = e.clientY;
-      velocityY = 0;
-      velocityX = 0;
-      lastInteractionTime = performance.now();
-      container.style.cursor = "grabbing";
-
-      if (e.pointerId !== undefined && canvas.setPointerCapture) {
-        try {
-          canvas.setPointerCapture(e.pointerId);
-        } catch {
-          // pointer capture fallback
-        }
-      }
+    // Set container to default non-interactable cursor
+    if (container) {
+      container.style.cursor = "default";
+      container.style.userSelect = "none";
     }
-
-    function onPointerMove(e: PointerEvent) {
-      if (!isDragging) return;
-      const deltaX = e.clientX - lastPointerX;
-      const deltaY = e.clientY - lastPointerY;
-
-      targetRotationY += deltaX * 0.009;
-      const maxTilt = 0.44;
-      targetRotationX = Math.max(-maxTilt, Math.min(maxTilt, targetRotationX + deltaY * 0.005));
-
-      velocityY = deltaX * 0.008;
-      velocityX = deltaY * 0.005;
-
-      lastPointerX = e.clientX;
-      lastPointerY = e.clientY;
-      lastInteractionTime = performance.now();
-    }
-
-    function onPointerUp(e: PointerEvent) {
-      if (!isDragging) return;
-      isDragging = false;
-      lastInteractionTime = performance.now();
-      if (container) container.style.cursor = "grab";
-
-      if (canvas && e.pointerId !== undefined && canvas.releasePointerCapture) {
-        try {
-          canvas.releasePointerCapture(e.pointerId);
-        } catch {
-          // release capture fallback
-        }
-      }
-    }
-
-    // Attach listeners
-    container.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", onPointerUp);
-    window.addEventListener("pointercancel", onPointerUp);
 
     function onResize() {
       if (!container || !renderer) return;
@@ -293,9 +207,6 @@ export default function Hero3DCanvas() {
       camera.updateProjectionMatrix();
 
       logoGroup.position.y = config.logoY;
-      if (shadowMesh) {
-        shadowMesh.position.y = config.logoY - 25 * config.scale;
-      }
       logoGroup.children.forEach((child) => {
         if (child instanceof THREE.Mesh) {
           const s = config.scale;
@@ -311,7 +222,7 @@ export default function Hero3DCanvas() {
 
     window.addEventListener("resize", onResize);
 
-    // Animation Loop with Inertia and Auto-Resume
+    // Continuous Autonomous Floating & Subtle Bobbing Animation
     let animId: number;
     let lastTime = performance.now();
 
@@ -320,29 +231,20 @@ export default function Hero3DCanvas() {
       const delta = Math.min((now - lastTime) / 1000, 0.1);
       lastTime = now;
 
-      const idleDuration = (now - lastInteractionTime) / 1000;
-
-      if (!isDragging) {
-        if (idleDuration > 2.0) {
-          // Auto-resume gentle idle rotation (Change 01)
-          targetRotationY += 0.5 * delta;
-          targetRotationX += (initialRotX - targetRotationX) * 1.5 * delta;
-        } else {
-          // Inertia damping after release
-          targetRotationY += velocityY;
-          targetRotationX = Math.max(-0.44, Math.min(0.44, targetRotationX + velocityX));
-          velocityY *= 0.94;
-          velocityX *= 0.94;
-        }
-      }
-
-      // Smooth interpolation
-      const smoothFactor = 1 - Math.exp(-12 * delta);
-      currentRotationY += (targetRotationY - currentRotationY) * smoothFactor;
-      currentRotationX += (targetRotationX - currentRotationX) * smoothFactor;
-
+      // 1. Continuous smooth rotation around Y axis
+      currentRotationY += 0.45 * delta;
       logoGroup.rotation.y = currentRotationY;
-      logoGroup.rotation.x = currentRotationX;
+
+      // 2. Continuous vertical sinusoidal bobbing (-8px to +8px relative to config.logoY)
+      const floatCycle = now * 0.0018; // ~3.5s smooth cycle
+      const bobOffset = Math.sin(floatCycle) * 3.6 * config.scale;
+      logoGroup.position.y = config.logoY + bobOffset;
+
+      // 3. Subtle organic floating pitch & roll oscillation
+      const floatTiltX = initialRotX + Math.sin(now * 0.0012) * 0.035;
+      const floatRollZ = Math.cos(now * 0.0010) * 0.025;
+      logoGroup.rotation.x = floatTiltX;
+      logoGroup.rotation.z = floatRollZ;
 
       renderer.render(scene, camera);
     }
@@ -353,10 +255,6 @@ export default function Hero3DCanvas() {
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", onResize);
-      container.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerup", onPointerUp);
-      window.removeEventListener("pointercancel", onPointerUp);
 
       scene.traverse((obj) => {
         if (obj instanceof THREE.Mesh) {
@@ -413,7 +311,7 @@ export default function Hero3DCanvas() {
         justifyContent: "center",
         cursor: "grab",
         userSelect: "none",
-        touchAction: "none",
+        touchAction: "pan-y",
         zIndex: 15,
         filter: "drop-shadow(0 28px 38px rgba(0, 0, 0, 0.95)) drop-shadow(0 12px 18px rgba(0, 0, 0, 0.9))",
       }}

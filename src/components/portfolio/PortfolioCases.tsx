@@ -72,12 +72,13 @@ export default function PortfolioCases({
               }}
               loop={false}
               speed={700}
-              spaceBetween={16}
+              spaceBetween={20}
               slidesPerView={1.15}
               breakpoints={{
-                480: { slidesPerView: 1.45, spaceBetween: 16 },
-                768: { slidesPerView: 2, spaceBetween: 24 },
-                992: { slidesPerView: 3, spaceBetween: 36 },
+                480: { slidesPerView: 1.25, spaceBetween: 16 },
+                768: { slidesPerView: 1.6, spaceBetween: 20 },
+                992: { slidesPerView: 2, spaceBetween: 28 },
+                1280: { slidesPerView: 2, spaceBetween: 32 },
               }}
               className="swiper-wrapper w-dyn-items"
             >

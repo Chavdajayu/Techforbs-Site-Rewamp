@@ -107,10 +107,10 @@ export default function CustomersSection({
                     <div ref={strikethroughRef} className="customers__title-line"></div>
                   </div>
                   <div>
-                    people<span className="mobile-words"> we</span>
+                    people<span className="mobile-words">&nbsp;we</span>
                   </div>
                   <div>
-                    <span className="desktop-words">we</span> work with
+                    <span className="desktop-words">we </span>work with
                   </div>
                 </div>
               </div>
@@ -149,19 +149,16 @@ export default function CustomersSection({
                           loading="eager"
                         />
                         <div className="customers__item-gradient"></div>
-                        <img
-                          loading="eager"
-                          width="220"
-                          height="50"
-                          src={card.logo}
-                          alt={card.brand}
-                          className="customers__item-logo"
-                          style={{
-                            maxHeight: "48px",
-                            width: "auto",
-                            filter: "brightness(0) invert(1)",
-                          }}
-                        />
+                        <div className="customers__item-logo-wrap">
+                          <img
+                            loading="eager"
+                            width="220"
+                            height="48"
+                            src={card.logo}
+                            alt={card.brand}
+                            className="customers__item-logo"
+                          />
+                        </div>
                         <p className="customers__item-desc">
                           {card.description}
                         </p>

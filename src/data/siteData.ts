@@ -197,49 +197,56 @@ export const BRAND_LOGOS: BrandLogo[] = [
   },
 ];
 
-// OUR CUSTOMERS CARDS (Change 09)
+// OUR CUSTOMERS CARDS (Pass #14 - 7 Unique Designer Visuals & Normalized Logos)
 export const CUSTOMERS_CARDS: CustomerCard[] = [
   {
-    id: "whitehead",
-    brand: "Whitehead Consulting",
-    logo: "/images/clients/whitehead-consulting.png",
-    bgImage: "/images/portfolio/aldonexport.png",
-    description: "Strategic business advisory & technology partner empowering Fortune-tier enterprises.",
-  },
-  {
-    id: "pari",
-    brand: "Pari",
-    logo: "/images/clients/pari.png",
-    bgImage: "/images/portfolio/black.png",
-    description: "High-growth direct-to-consumer lifestyle brand with advanced global e-commerce.",
-  },
-  {
-    id: "allmax",
-    brand: "Allmax Nutrition",
-    logo: "/images/clients/allmax-nutrition.png",
-    bgImage: "/images/portfolio/maxopolis.png",
+    id: "customer-01-allmax",
+    brand: "ALLMAX Nutrition",
+    logo: "/images/customers/logos/allmax-logo-white.png",
+    bgImage: "/images/customers/customer-01-allmax.webp",
     description: "Industry-leading sports nutrition enterprise operating high-throughput international web stores.",
   },
   {
-    id: "adeeva",
-    brand: "Adeeva",
-    logo: "/images/clients/adeeva.png",
-    bgImage: "/images/portfolio/bodhi.png",
-    description: "Comprehensive healthcare and longevity brand powering global professional nutraceutical commerce.",
+    id: "customer-02-gima",
+    brand: "GLOBAL Integrative Medicine Academy (GIMA)",
+    logo: "/images/customers/logos/gima-logo-white.png",
+    bgImage: "/images/customers/customer-02-gima.webp",
+    description: "Global integrative medicine academy delivering accredited medical curriculum and interactive digital portals.",
   },
   {
-    id: "kilongwan",
-    brand: "Kilongwan",
-    logo: "/images/clients/kilongwan.png",
-    bgImage: "/images/clients/kilongwan-preview.png",
-    description: "Modern apparel brand expanding across international markets with high-conversion Shopify architecture.",
+    id: "customer-03-bodhi-health",
+    brand: "BODHI Health Inc.",
+    logo: "/images/customers/logos/bodhi-health-logo-white.png",
+    bgImage: "/images/customers/customer-03-bodhi-health.webp",
+    description: "Innovative wellness & bioavailability brand pioneering rapid sublingual oral strip health technologies.",
   },
   {
-    id: "finarkein",
+    id: "customer-04-fintech",
     brand: "Finarkein",
-    logo: "/images/clients/finarkein.png",
-    bgImage: "/images/portfolio/finarkein.png",
-    description: "Enterprise open-finance data ecosystem facilitating millions of secure API transactions.",
+    logo: "/images/customers/logos/finarkein-logo-white.png",
+    bgImage: "/images/customers/customer-04-fintech.webp",
+    description: "Pioneering open-finance data infrastructure and developer ecosystem powering high-scale transactions.",
+  },
+  {
+    id: "customer-05-hype",
+    brand: "HYPE Distribution",
+    logo: "/images/customers/logos/hype-logo-white.png",
+    bgImage: "/images/customers/customer-05-hype.webp",
+    description: "High-capacity wholesale distribution network and digital B2B commerce platform with automated logistics.",
+  },
+  {
+    id: "customer-06-digicio",
+    brand: "digicio",
+    logo: "/images/customers/logos/digicio-logo-white.png",
+    bgImage: "/images/customers/customer-06-digicio.webp",
+    description: "Strategic digital transformation partner delivering cloud architecture and bespoke enterprise engineering.",
+  },
+  {
+    id: "customer-07-kilongwan",
+    brand: "Kilon'Gwan",
+    logo: "/images/customers/logos/kilongwan-logo-white.png",
+    bgImage: "/images/customers/customer-07-kilongwan.webp",
+    description: "High-growth direct-to-consumer lifestyle and premium fashion brand with seamless global checkout.",
   },
 ];
 
@@ -247,71 +254,107 @@ export const CUSTOMERS_CARDS: CustomerCard[] = [
 // EXACT SEVEN PORTFOLIO BRANDS (Change 10B)
 // 1. ALLMAX
 // 2. Bodhi Health
-// 3. Finarkein
-// 4. Hype Distribution
-// 5. Digicio
-// 6. Kilongwan
-// 7. GIMA
+// EXACT 10-BRAND PORTFOLIO CAROUSEL (Mandatory Sequence 1-10)
+// Slide 01: ALLMAX Nutrition
+// Slide 02: Adeeva
+// Slide 03: Kilon'Gwan
+// Slide 04: GLOBAL Integrative Medicine Academy (GIMA)
+// Slide 05: BODHI Health Inc.
+// Slide 06: Finarkein
+// Slide 07: HYPE Distribution
+// Slide 08: digicio (Digital Innovation)
+// Slide 09: BRIDGE STUDIO
+// Slide 10: Peddlers 30A
 export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
-    id: "maxopolis",
-    brand: "Maxopolis",
-    title: "Maxopolis: Luxury Flagship Store",
-    description: "Enterprise luxury flagship store and digital showroom engineered for direct-to-consumer high conversion.",
-    image: "/images/portfolio/maxopolis.png",
-    bgColor: "#55a090",
-    tags: ["HR tech", "Web portals", "AI & Automation", "Database Systems", "Platform Development"],
-    industry: "Luxury Retail",
+    id: "01-allmax",
+    brand: "ALLMAX Nutrition",
+    title: "ALLMAX: High-Performance Sports Nutrition",
+    description: "Enterprise high-throughput e-commerce architecture engineered for direct-to-consumer international scale.",
+    image: "/images/portfolio/01-allmax.webp",
+    bgColor: "#9e9e9e",
+    tags: ["Shopify Plus", "E-commerce", "D2C", "Mobile-First", "Performance"],
+    industry: "Sports Nutrition",
   },
   {
-    id: "hype-distribution",
-    brand: "Hype Distribution",
-    title: "from vision to vintage: building a digital showroom",
-    description: "High-capacity digital showroom and retail platform engineered with custom pricing and automated catalog management.",
-    image: "/images/portfolio/hype-distribution.png",
-    bgColor: "#eefb9f",
-    tags: ["Retail", "E-commerce", "UX/UI", "Platform Development"],
-    industry: "Fashion & Retail",
+    id: "03-kilongwan",
+    brand: "Kilon'Gwan",
+    title: "Kilon'Gwan: Premium Lifestyle Apparel",
+    description: "Modern apparel brand expanding across international markets with high-conversion Shopify architecture.",
+    image: "/images/portfolio/03-kilongwan.webp",
+    bgColor: "#dbb8a7",
+    tags: ["Shopify", "Fashion & Retail", "UX/UI", "Mobile Commerce"],
+    industry: "Fashion & Apparel",
   },
   {
-    id: "cabspot",
-    brand: "Cabspot",
-    title: "scalable n8n workflow automation for B2B outreach",
-    description: "Scalable workflow automation and custom portal architecture for automated B2B customer acquisition and dispatch.",
-    image: "/images/portfolio/cabspot.webp",
-    bgColor: "#82c3ec",
-    tags: ["Martech", "SaaS", "AI & Automation", "Database Systems", "Custom Web Development"],
-    industry: "Mobility & SaaS",
+    id: "04-gima",
+    brand: "GLOBAL Integrative Medicine Academy (GIMA)",
+    title: "GIMA: Global Integrative Medicine Academy",
+    description: "Global education academy & healthcare training platform with comprehensive student portal.",
+    image: "/images/portfolio/04-gima.webp",
+    bgColor: "#b5d5e8",
+    tags: ["Education Tech", "Web Portal", "Custom Platform", "Full-Stack"],
+    industry: "Medical Education",
   },
   {
-    id: "black",
-    brand: "BC hero",
-    title: "BC hero: building tomorrow's workspace today",
-    description: "High-performance commercial workspace platform engineered with modern headless CMS and SEO optimization.",
-    image: "/images/portfolio/black.png",
-    bgColor: "#c5b3e6",
-    tags: ["Real estate", "Business services", "Custom Web Development", "CMS Development", "SEO"],
-    industry: "Commercial Real Estate",
+    id: "05-bodhi-health",
+    brand: "BODHI Health Inc.",
+    title: "Bodhi Health: Precision Sublingual Technology",
+    description: "Science-backed supplement platform with breakthrough curcumin oral strips for rapid bioavailability.",
+    image: "/images/portfolio/05-bodhi-health.webp",
+    bgColor: "#e8f4d1",
+    tags: ["Webflow", "E-commerce", "HealthTech", "Subscription UX"],
+    industry: "HealthTech & Bioavailability",
   },
   {
-    id: "aldonexport",
-    brand: "Black",
-    title: "Black: Minimalist Lifestyle Digital Store",
-    description: "Minimalist direct-to-consumer lifestyle store with custom Shopify theme architecture and fluid checkout.",
-    image: "/images/portfolio/aldonexport.png",
-    bgColor: "#e8b4b8",
-    tags: ["Retail", "E-commerce", "Custom Web Development", "UX/UI", "Frontend Development"],
-    industry: "Lifestyle Retail",
+    id: "06-finarkein",
+    brand: "Finarkein",
+    title: "Finarkein: Open-Finance Data Ecosystem",
+    description: "Enterprise open-finance data infrastructure and developer platform facilitating high-volume transactions.",
+    image: "/images/portfolio/06-finarkein.webp",
+    bgColor: "#dedede",
+    tags: ["Fintech", "Enterprise Portal", "API Integration", "Data Architecture"],
+    industry: "Fintech & Data Infrastructure",
   },
   {
-    id: "bodhi",
-    brand: "Webflow D2C",
-    title: "Webflow membership platform for 500+ verified D2C tools",
-    description: "Verified D2C tool directory and membership platform built with complex no-code databases and scalable integrations.",
-    image: "/images/portfolio/bodhi.png",
-    bgColor: "#a3c4bc",
-    tags: ["Web portals", "E-commerce", "No-code development", "Systems Integration", "CMS Development"],
-    industry: "E-Commerce Tools",
+    id: "07-hype-distribution",
+    brand: "HYPE Distribution",
+    title: "Hype Distribution: Digital Showroom & Wholesale",
+    description: "High-capacity digital showroom and retail platform engineered with custom pricing and automated catalog.",
+    image: "/images/portfolio/07-hype-distribution.webp",
+    bgColor: "#bcadd9",
+    tags: ["WooCommerce", "B2B Wholesale", "ERP Integration", "Catalog Automation"],
+    industry: "Wholesale & Distribution",
+  },
+  {
+    id: "08-digicio",
+    brand: "digicio (Digital Innovation)",
+    title: "Digicio: Strategic Technology Innovation Partner",
+    description: "Full-service enterprise transformation agency platform engineered with seamless headless integration.",
+    image: "/images/portfolio/08-digicio.webp",
+    bgColor: "#d6fff3",
+    tags: ["Enterprise Platform", "Agency Partner", "Cloud Systems", "Custom Engineering"],
+    industry: "Technology & Digital Innovation",
+  },
+  {
+    id: "09-bridge-studio",
+    brand: "BRIDGE STUDIO",
+    title: "Bridge Studio: Architecture & Spatial Design Portfolio",
+    description: "High-performance visual portfolio and spatial design showcase with immersive gallery interactions.",
+    image: "/images/portfolio/09-bridge-studio.webp",
+    bgColor: "#dedede",
+    tags: ["Architecture", "Visual Portfolio", "Interactive UX", "Headless CMS"],
+    industry: "Architecture & Design",
+  },
+  {
+    id: "10-peddlers-30a",
+    brand: "Peddlers 30A",
+    title: "Peddlers 30A: Premier Coastal Bike Rentals & Retail",
+    description: "Turnkey fleet rental reservation and coastal e-commerce store with real-time booking pipelines.",
+    image: "/images/portfolio/10-peddlers-30a.webp",
+    bgColor: "#e2f7fc",
+    tags: ["E-Commerce", "Booking Systems", "Shopify", "UX/UI Optimization"],
+    industry: "Tourism & Fleet Rentals",
   },
 ];
 
@@ -356,7 +399,7 @@ export const BUILD_FOR_CARDS: BuildForCard[] = [
   },
   {
     title: "Enterprise",
-    icon: "/images/ui/6a93d0b2ecafc26748b0ea0a_Web and mobile, together.svg",
+    icon: "/images/ui/6a93d0b2ecafc26748b0ea0a_build-icon-enterprise.svg",
     tag: "Complex systems, built right",
     image: "/images/ui/6aab97f405bf88f2a4992f30_build-card-wider-4.webp",
     text: "From custom platforms and system integrations to workflow optimization and smart AI features, we create technology that makes your enterprise work more efficiently.",
@@ -467,6 +510,23 @@ export const SOLUTIONS: SolutionCategory[] = [
       { title: "Analytics & Conversion Optimization" },
     ],
   },
+  {
+    id: "white-label",
+    name: "White-label development",
+    tag: "MORE PROJECTS, SAME TEAM",
+    description:
+      "As your white label agency partner, we work behind the scenes to help you deliver complex web projects without growing your in-house team. We handle development, integrations, and technical implementation, so you can focus on your clients.",
+    items: [
+      { title: "Web development" },
+      { title: "Integrations" },
+      { title: "Technical implementation" },
+      { title: "Custom solutions" },
+      { title: "Scalable delivery" },
+      { title: "Behind-the-scenes support" },
+      { title: "No in-house hiring needed" },
+      { title: "Focus on your clients" },
+    ],
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -477,6 +537,79 @@ export interface HomeTestimonialMessage {
   text: string;
   time: string;
 }
+
+export interface StackedTestimonial {
+  id: string;
+  name: string;
+  company: string;
+  avatar: string;
+  logo: string;
+  pullQuote: string;
+  fullQuote: string;
+}
+
+export const STACKED_TESTIMONIALS: StackedTestimonial[] = [
+  {
+    id: "dr-james-meschino",
+    name: "Dr. James Meschino",
+    company: "Meschino Health",
+    avatar: "/images/testimonials/dr-james-meschino.jpg",
+    logo: "/images/testimonials/logos/meschino-health.png",
+    pullQuote: "The fastest way to scale our digital health platform",
+    fullQuote:
+      "“TechForbs transformed our online presence and e-commerce workflow covering custom architecture, seamless user journeys, and store performance. It makes managing and scaling our business much more efficient.”",
+  },
+  {
+    id: "brad",
+    name: "Brad",
+    company: "Allmax Nutrition",
+    avatar: "/images/testimonials/brad.jpg",
+    logo: "/images/testimonials/logos/allmax-nutrition.png",
+    pullQuote: "Built for high-volume global store conversions",
+    fullQuote:
+      "“Working with TechForbs gave our brand the exact technical foundation we needed. Their Shopify engineering improved our checkout flow, page speed, and overall product profitability across every market.”",
+  },
+  {
+    id: "robert-whitehead",
+    name: "Robert Whitehead",
+    company: "Whitehead Consulting",
+    avatar: "/images/testimonials/robert-whitehead.jpg",
+    logo: "/images/testimonials/logos/whitehead-consulting.png",
+    pullQuote: "A reliable partner for complex web engineering",
+    fullQuote:
+      "“The team delivered every milestone with precision and clarity. From custom integrations to responsive storefront polish, TechForbs made our entire digital transformation smooth and measurable.”",
+  },
+  {
+    id: "adeeva-team",
+    name: "Adeeva Nutrition Team",
+    company: "Adeeva Health",
+    avatar: "/images/testimonials/adeeva-team.jpg",
+    logo: "/images/testimonials/logos/adeeva.png",
+    pullQuote: "Seamless store migration and faster performance",
+    fullQuote:
+      "“TechForbs handled our entire store upgrade without a single disruption to our customers. Our new storefront loads faster, converts higher, and gives our team complete control.”",
+  },
+  {
+    id: "gima-academy",
+    name: "GIMA Academy",
+    company: "Global Integrative Medicine",
+    avatar: "/images/testimonials/gima-dr.jpg",
+    logo: "/images/testimonials/logos/gima.png",
+    pullQuote: "Custom learning and commerce unified in one place",
+    fullQuote:
+      "“Their engineering team understood our exact requirements from day one. They built a rock-solid platform that handles course enrollments and digital transactions effortlessly.”",
+  },
+  {
+    id: "bodhi-health",
+    name: "Bodhi Health",
+    company: "Bodhi Health Inc.",
+    avatar: "/images/testimonials/bodhi-founder.jpg",
+    logo: "/images/testimonials/logos/bodhi.png",
+    pullQuote: "Exceptional craftsmanship and ongoing support",
+    fullQuote:
+      "“From storefront UX to backend optimization, TechForbs exceeded our expectations. They are proactive, fast to respond, and genuinely invested in helping our store win.”",
+  },
+];
 
 export interface HomeTestimonial {
   name: string;

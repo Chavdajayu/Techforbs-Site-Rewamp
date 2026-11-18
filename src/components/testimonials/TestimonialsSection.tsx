@@ -1,17 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import type { Swiper as SwiperType } from "swiper";
-import { useIsClient } from "@/hooks/useIsClient";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { HOME_TESTIMONIALS, type HomeTestimonial } from "@/data/siteData";
+import { STACKED_TESTIMONIALS, type StackedTestimonial } from "@/data/siteData";
+import { useIsClient } from "@/hooks/useIsClient";
 import { cx, type SectionBaseProps } from "@/components/types";
-
-import "swiper/css";
-import "swiper/css/navigation";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -22,61 +16,74 @@ export interface TestimonialsSectionProps extends SectionBaseProps {
   label?: string;
   /** Section heading. */
   title?: string;
-  /** Testimonial cards. Defaults to the four home-page clients. */
-  testimonials?: HomeTestimonial[];
+  /** Testimonial cards. Defaults to the six verified TechForbs clients. */
+  testimonials?: StackedTestimonial[];
 }
 
 /**
- * "Testimonials" — looping Swiper of chat-style client cards.
+ * Precision Fidelity Pass #17: 100vh Single-Screen Circular Orbital Testimonials
  *
- * Animation: the cards rise 60px with a 0.12s stagger when the section reaches
- * 78% of the viewport, and each card's chat bubbles pop in (height 0 -> auto,
- * scale 0 -> 1) whenever that card becomes the active slide.
+ * Visual & Motion Anatomy:
+ * 1. Heading True Center: Absolute left-pinned badge + dead-centered editorial heading across viewport.
+ * 2. 100vh Single-Screen Fit: Header + Orbital Stage + Pagination locked inside 100vh without vertical scroll.
+ * 3. 3-Slot Circular Orbital Flow:
+ *    - Center Active (Slot A): rotate(0deg), scale(1), full opacity & interaction
+ *    - Left Upcoming (Slot B): rotate(-14deg), scale(0.76), lower-left peripheral slot
+ *    - Right Completed (Slot C): rotate(14deg), scale(0.76), lower-right peripheral slot
+ *    - Bottom-stacked bunch completely eliminated.
+ * 4. Choreography: Cycles every 2.8s (or on click/arrow), moving Left -> Center -> Right in an infinite circular conveyor.
  */
 export default function TestimonialsSection({
   id = "testimonials-section",
   className,
   label = "TESTIMONIALS",
   title = "What our clients are saying... verified feedback",
-  testimonials = HOME_TESTIMONIALS,
+  testimonials = STACKED_TESTIMONIALS,
 }: TestimonialsSectionProps = {}) {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const swiperRef = useRef<SwiperType | null>(null);
+  const deckRef = useRef<HTMLDivElement | null>(null);
   const mounted = useIsClient();
 
-  const animateCardMessages = (card: HTMLElement) => {
-    const wrappers = card.querySelectorAll(".testimonials__card-message-wrapper");
-    const messages = card.querySelectorAll(".testimonials__card-message");
-    if (!wrappers.length || !messages.length) return;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hasTransitioned, setHasTransitioned] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const pointerStartX = useRef<number | null>(null);
+  const pointerStartTime = useRef<number | null>(null);
 
-    gsap.killTweensOf(wrappers);
-    gsap.killTweensOf(messages);
-    gsap.set(wrappers, { height: "0rem" });
-    gsap.set(messages, { scale: 0 });
+  const total = testimonials.length;
 
-    gsap.to(wrappers, {
-      height: "2.375rem",
-      duration: 0.35,
-      delay: 0.3,
-      stagger: 0.45,
-      ease: "power2.out",
-    });
-    gsap.to(messages, {
-      scale: 1,
-      duration: 0.35,
-      delay: 0.3,
-      stagger: 0.45,
-      ease: "back.out(1.4)",
-    });
+  const nextSlide = useCallback(() => {
+    setHasTransitioned(true);
+    setActiveIndex((prev) => (prev + 1) % total);
+  }, [total]);
+
+  const prevSlide = useCallback(() => {
+    setHasTransitioned(true);
+    setActiveIndex((prev) => (prev - 1 + total) % total);
+  }, [total]);
+
+  const goToSlide = (index: number) => {
+    setHasTransitioned(true);
+    setActiveIndex(index);
   };
 
+  // Auto-advance every 2.8s (pauses on hover, resets on manual change)
+  useEffect(() => {
+    if (!mounted || isHovered) return;
+    const interval = setInterval(() => {
+      setHasTransitioned(true);
+      setActiveIndex((prev) => (prev + 1) % total);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, [mounted, isHovered, total, activeIndex]);
+
+  // Entrance animation for heading
   useEffect(() => {
     if (!mounted || !sectionRef.current) return;
     const ctx = gsap.context(() => {
-      // Heading reveal
       gsap.fromTo(
-        ".testimonials-heading .heading_combined",
-        { y: 30, opacity: 0 },
+        ".testimonials-heading",
+        { y: 25, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -90,30 +97,56 @@ export default function TestimonialsSection({
         }
       );
 
-      // Chat bubble reveal on enter
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top 70%",
-        once: true,
-        onEnter: () => {
-          const cards = sectionRef.current?.querySelectorAll<HTMLElement>(".swiper-slide-active .testimonials__card, .swiper-slide-next .testimonials__card");
-          if (cards && cards.length > 0) {
-            cards.forEach((card, idx) => {
-              setTimeout(() => animateCardMessages(card), idx * 400);
-            });
-          }
-        },
-      });
+      gsap.fromTo(
+        ".testimonials-orbital-wrapper",
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          delay: 0.12,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
   }, [mounted]);
 
-  const handleSlideChange = (swiper: SwiperType) => {
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    if (activeSlide) {
-      const card = activeSlide.querySelector<HTMLElement>(".testimonials__card");
-      if (card) animateCardMessages(card);
+  // Pointer / Touch Swipe Handlers
+  const handlePointerDown = (e: React.PointerEvent) => {
+    pointerStartX.current = e.clientX;
+    pointerStartTime.current = Date.now();
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (pointerStartX.current === null) return;
+    const deltaX = e.clientX - pointerStartX.current;
+
+    if (Math.abs(deltaX) > 40) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+
+    pointerStartX.current = null;
+    pointerStartTime.current = null;
+  };
+
+  const handleCardClick = (offset: number) => {
+    if (offset === 1) {
+      nextSlide();
+    } else if (offset === total - 1) {
+      prevSlide();
+    } else if (offset === 0) {
+      nextSlide();
     }
   };
 
@@ -135,172 +168,188 @@ export default function TestimonialsSection({
         </svg>
       </div>
 
-      <section className="tech-testimonials">
-        <div className="portfolio__heading testimonials-heading">
-          <div className="container">
-            <div className="heading_combined">
-              <div className="heading_label fade-up-alt">
-                <div itemProp="name" className="body-smaller text-uppercase section-label">{label}</div>
-              </div>
-              <h2 className="title_regular">{title}</h2>
-            </div>
+      {/* ZONE 1: Section Heading (True Center Across Viewport) */}
+      <div className="portfolio__heading testimonials-heading">
+        <div className="container" style={{ position: "relative" }}>
+          <div className="testimonials-heading__badge">
+            <span className="body-smaller text-uppercase section-label">{label}</span>
           </div>
+          <h2 className="title_regular testimonials-title-centered">{title}</h2>
         </div>
+      </div>
 
-        <div className="home-testimonials">
-          <div className="fade-up-alt">
-            <div className="tech-testimonials__slider home-variant">
-              {mounted ? (
-                <div className="tech-testimonials__slider-wrapper tech-variant swiper w-dyn-list">
-                  <Swiper
-                    modules={[Navigation]}
-                    onBeforeInit={(swiper) => {
-                      swiperRef.current = swiper;
-                    }}
-                    onSlideChange={handleSlideChange}
-                    loop={true}
-                    spaceBetween={24}
-                    slidesPerView={1.1}
-                    breakpoints={{
-                      768: { slidesPerView: 2.1, spaceBetween: 28 },
-                      1024: { slidesPerView: 2.5, spaceBetween: 32 },
-                    }}
-                    className="swiper-wrapper w-dyn-items"
-                  >
-                    {testimonials.map((t) => (
-                      <SwiperSlide key={t.name} className="swiper-slide w-dyn-item">
-                        <div className="testimonials__card home-variant">
-                          <div className="testimonials__card-inner">
-                            <div
-                              style={{ backgroundColor: t.bgColor }}
-                              className="testimonials__card-bg"
-                            />
-                            <img
-                              loading="eager"
-                              width={500}
-                              height={910}
-                              src={t.brandLogo}
-                              alt={t.name}
-                              className="testimonials__card-overview tech-variant"
-                            />
-                            <div className="testimonials__card-caption tech-variant">
-                              <img
-                                loading="eager"
-                                alt={t.name}
-                                src={t.avatar}
-                                className="testimonials__card-avatar tech-variant"
-                              />
-                              <p className="testimonials__card-name">{t.name}</p>
-                              <p className="testimonials__card-position body-smaller text-uppercase">
-                                {t.position}
-                              </p>
-                            </div>
-                            <div className="testimonials__card-inner-scroller">
-                              <div className="testimonials__card-list">
-                                {t.messages.map((m, idx) => (
-                                  <div
-                                    key={idx}
-                                    className="testimonials__card-message-wrapper tech-variant"
-                                  >
-                                    <div className="testimonials__card-message tech-variant">
-                                      <p className="testimonials__card-message-text tech-variant">
-                                        {m.text}
-                                      </p>
-                                      <p className="testimonials__card-message-time tech-variant color-white-70">
-                                        {m.time}
-                                      </p>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </div>
-              ) : (
-                <div>Loading client testimonials...</div>
-              )}
+      {/* ZONE 2: 3-Slot Circular Orbital Conveyor Stage */}
+      {mounted ? (
+        <div className="testimonials-orbital-wrapper">
+          {/* Left Arrow Button */}
+          <button
+            type="button"
+            className="testimonials-deck-btn testimonials-deck-btn--prev"
+            onClick={prevSlide}
+            aria-label="Previous testimonial"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
 
-              <div
-                className="slider-buttons"
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  justifyContent: "flex-end",
-                  marginTop: "1.5rem",
-                  marginRight: "2rem",
-                }}
-              >
-                <button
-                  type="button"
-                  onClick={() => swiperRef.current?.slidePrev()}
-                  className="button button_slider testimonials-slider-prev"
-                  aria-label="Previous testimonial"
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                  }}
+          {/* Orbital Stage */}
+          <div
+            ref={deckRef}
+            className="testimonials-orbital-stage"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            role="region"
+            aria-label="Client Testimonials Circular Orbit"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowRight") nextSlide();
+              if (e.key === "ArrowLeft") prevSlide();
+            }}
+          >
+            {testimonials.map((t, idx) => {
+              const offset = (idx - activeIndex + total) % total;
+
+              let slotClass = "orbital-slot--hidden";
+              let isAriaHidden = true;
+
+              if (offset === 0) {
+                // SLOT A: Center Active Card
+                slotClass = "orbital-slot--center";
+                isAriaHidden = false;
+              } else if (offset === 1) {
+                // SLOT B: Left Upcoming Card (tilted -14deg)
+                slotClass = "orbital-slot--left";
+                isAriaHidden = false;
+              } else if (offset === total - 1) {
+                // SLOT C: Right Completed Card (tilted +14deg, visible after first transition or click)
+                slotClass = hasTransitioned ? "orbital-slot--right" : "orbital-slot--initial-hidden-right";
+                isAriaHidden = !hasTransitioned;
+              } else if (offset === 2) {
+                // Pre-stage Queue Left
+                slotClass = "orbital-slot--queue-left";
+              } else if (offset === total - 2) {
+                // Post-stage Queue Right
+                slotClass = "orbital-slot--queue-right";
+              }
+
+              return (
+                <article
+                  key={t.id}
+                  className={cx("testimonials-deck-card", slotClass)}
+                  aria-hidden={isAriaHidden}
+                  onClick={() => handleCardClick(offset)}
                 >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M15 6L9 12L15 18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => swiperRef.current?.slideNext()}
-                  className="button button_slider testimonials-slider-next"
-                  aria-label="Next testimonial"
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                  }}
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M9 6L15 12L9 18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
+                  {/* ZONE A: Header Row */}
+                  <div className="testimonials-deck-header">
+                    <div className="testimonials-deck-author">
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        className="testimonials-deck-avatar"
+                        loading="eager"
+                      />
+                      <div className="testimonials-deck-author-meta">
+                        <h3 className="testimonials-deck-name">{t.name}</h3>
+                        <p className="testimonials-deck-company">{t.company}</p>
+                      </div>
+                    </div>
+
+                    {/* Right Client Brand Logo (Pass #16) */}
+                    <div className="testimonial-card__brand-logo-wrap">
+                      <img
+                        src={t.logo}
+                        alt={t.company}
+                        className="testimonial-card__brand-logo"
+                        loading="eager"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Hairline Divider */}
+                  <div className="testimonials-deck-divider" />
+
+                  {/* ZONE B: Bottom Body Split */}
+                  <div className="testimonials-deck-body">
+                    {/* Left Column: Editorial Serif Pull-Quote */}
+                    <blockquote className="testimonials-deck-pullquote">
+                      {t.pullQuote}
+                    </blockquote>
+
+                    {/* Right Column: Full Detailed Quote */}
+                    <p className="testimonials-deck-fullquote">
+                      {t.fullQuote}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
+
+          {/* Right Arrow Button */}
+          <button
+            type="button"
+            className="testimonials-deck-btn testimonials-deck-btn--next"
+            onClick={nextSlide}
+            aria-label="Next testimonial"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
-      </section>
+      ) : (
+        <div style={{ color: "rgba(255,255,255,0.5)", padding: "40px" }}>
+          Loading testimonials...
+        </div>
+      )}
+
+      {/* ZONE 3: Bottom Pagination Pill / Dot Bar */}
+      {mounted && (
+        <div
+          className="testimonials-deck-pagination"
+          role="tablist"
+          aria-label="Testimonial Navigation"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {testimonials.map((t, idx) => {
+            const isActive = idx === activeIndex;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-label={`Go to slide ${idx + 1}: ${t.name}`}
+                className={cx("testimonials-deck-dot", isActive && "is-active")}
+                onClick={() => goToSlide(idx)}
+              />
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 }
+

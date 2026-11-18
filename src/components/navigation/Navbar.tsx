@@ -13,10 +13,8 @@ export interface NavbarProps {
 /**
  * Site navigation bar.
  *
- * Renders the fixed `.header` element every page expects. Its entrance
- * (slide down from -100%) is owned by whichever hero is on the page, so on a
- * page without `HeroSection` the header is simply visible from the first
- * paint. Escape closes any open dropdown and the mobile menu.
+ * Renders the fixed `.header` element every page expects. Escape closes
+ * any open dropdown and the mobile menu.
  */
 export default function Navbar({ className }: NavbarProps = {}) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -43,7 +41,10 @@ export default function Navbar({ className }: NavbarProps = {}) {
   };
 
   return (
-    <header data-w-id="0034b592-6b66-56b4-a574-da42086397f0" className={cx("header", className)}>
+    <header
+      data-w-id="0034b592-6b66-56b4-a574-da42086397f0"
+      className={cx("header", className)}
+    >
       <div className="container header__container">
         <div data-w-id="0034b592-6b66-56b4-a574-da42086397f2" className="header__inner">
           {/* Logo */}
@@ -52,17 +53,18 @@ export default function Navbar({ className }: NavbarProps = {}) {
             href="/"
             onClick={closeAll}
             className="header__logo w-inline-block w--current"
+            style={{ display: "flex", alignItems: "center" }}
           >
             <img
               src="/images/brand/logo_footer.png"
               loading="eager"
               width={183}
-              height={32}
+              height={28}
               className="header__logo-image"
               style={{
-                height: "32px",
+                height: "28px",
                 width: "auto",
-                maxWidth: "180px",
+                maxWidth: "175px",
                 objectFit: "contain",
               }}
               alt="TechForbs"

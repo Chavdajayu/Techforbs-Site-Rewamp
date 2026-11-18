@@ -6,6 +6,277 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Precision Fidelity Pass #21: Navbar Recovery, Luxury Dark Scrollbar, Smooth Solutions Scroll, & AI Services Page Redesign] - 2026-11-18
+
+### Added & Refined
+- **Navbar Full Visibility & Animation Decoupling Recovery:**
+  - Resolved root cause of Navbar disappearing from the viewport: removed `initialHidden` inline transform styles that were conflicting with GSAP's `yPercent` transform matrix calculations.
+  - Implemented clean `gsap.fromTo(header, { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.85, ease: 'power2.out', clearProps: 'transform' })` in `HeroSection.tsx`, guaranteeing `.header` returns to its natural `transform: none` state.
+  - Restored 100% full visibility, exact top positioning (`top: 7.9px`), and interactivity across all pages.
+- **Custom Luxury Dark Scrollbar:**
+  - Implemented modern slim scrollbar design across both `techforbs-theme.css` and static site styles (`scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.25) #090a0f;`).
+  - Added custom `::-webkit-scrollbar` with 7px width, obsidian track `#090a0f`, rounded translucent pill thumb with 1px border, and smooth `#0077ff` cyan/blue glow on hover.
+  - Replaced the wide, dated default Windows 10/11 browser scrollbar with a sleek, native dark luxury aesthetic.
+- **What We Do (Solutions) Section — Silky-Smooth Scroll Dynamics:**
+  - Reduced pinned scroll distance from an excessive `end: "+=3200"` to an agile, natural `end: "+=1500"` in `SolutionsSection.tsx`.
+  - Snapped scrub response time from `0.5s` to `0.2s` (`scrub: 0.2`), eliminating the heavy, sluggish drag sensation and providing responsive tab switching.
+- **AI & Automation Services Page — Box Blue Background Theme Overhaul (Image 1):**
+  - Removed outdated red/maroon background PNGs (`68d52d57009f7380eb0f180d_tech-services-card-bg-1.png`) across all 8 service cards in Section 02 ("What do our AI & automation services include?") and Section 10 ("Businesses we serve with AI & automation").
+  - Upgraded `.tech-service-card` to a sleek TechForbs blue/cyan radial theme: `radial-gradient(circle at 85% 85%, rgba(0, 119, 255, 0.18) 0%, rgba(0, 163, 255, 0.06) 45%, rgba(13, 14, 21, 0.98) 100%)` with `1px solid rgba(0, 163, 255, 0.22)` and glowing hover transitions.
+  - Updated button styles to match TechForbs blue branding.
+- **AI & Automation Services Page — Portfolio Carousel 2-at-once (Image 2):**
+  - Updated Swiper responsive breakpoints in `PortfolioCases.tsx` so desktop displays exactly `slidesPerView: 2` with `spaceBetween: 28` alongside the sticky Sunil Panchani sidebar.
+  - Sized each case study card with spacious width (~386px each), eliminating cramped 3-card squishing.
+- **AI & Automation Services Page — Testimonials 3D Orbital Deck Integration (Image 3):**
+  - Replaced legacy static chat-bubble testimonial section with the newly perfected Home page `<TestimonialsSection className="is-services-page" title="What our clients say… for real" label="TESTIMONIALS" />`.
+  - Added solid opaque obsidian black card backgrounds (`#090a0f`) to prevent text bleed-through during transitions.
+  - Calibrated `.is-services-page` orbital card scale and angle to fit seamlessly inside the content column.
+
+---
+
+## [Precision Fidelity Pass #20: Hero Intro Flash Elimination, Subtle Hero BG Shadow, Testimonials Vertical Gap & Void Removal] - 2026-11-18
+
+### Added & Refined
+- **Hero Initial Load / Refresh Flash Elimination (Zero FOUC / Zero Stuck Background):**
+  - Resolved root cause where Next.js SSR rendered `.hero__content-top` at default full scale prior to client-side GSAP hydration, causing the background image and pedestal to momentarily flash/stick on screen for 0.5s–1s before the curtain animation triggered.
+  - Initialized `.hero__content-top` directly in SSR HTML and CSS with `scale(0.001); opacity: 0; transform-origin: 50% 50%; will-change: transform, opacity`.
+  - Initialized `<Navbar initialHidden />` on home page with `transform: translateY(-100%); opacity: 0;` ensuring pure dark opening canvas.
+  - GSAP intro timeline seamlessly scales stage to `1` and fades in smoothly as the dark curtain sweeps open.
+  - Verified with `01-hero-initial-load-zero-fouc.png` capturing pure dark initial paint with JS disabled.
+- **Hero Background Image — Subtle Shadow Overlay:**
+  - Added dedicated `.hero__bg-shadow-overlay` inside the background image container.
+  - Applied subtle architectural grading to `.hero__content-top-bg`: `filter: brightness(0.86) contrast(1.04) !important`.
+  - Added a soft vignette overlay (`radial-gradient(circle at 65% 45%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.28) 100%)` layered with `linear-gradient(rgba(8, 8, 12, 0.18), rgba(8, 8, 12, 0.35))`).
+  - Preserved 100% luminosity on typography and the Shopify 3D model while giving the background refined cinematic depth.
+- **Testimonials Section — Heading to Card Deck Gap Fix:**
+  - Identified root cause of title overlapping active cards: `.portfolio__heading` had `top: 5.3125rem` (85px) in `webflow.css`, which was inherited when `position: relative` was applied to `.testimonials-heading`.
+  - Overrode with `top: auto !important; bottom: auto !important; padding-top: 0 !important; padding-bottom: 0 !important; margin-bottom: clamp(32px, 4vh, 48px) !important;`.
+  - Restored a crisp 40px vertical breathing room between heading and center card deck.
+- **Testimonials Section — Compact Proportions (Bottom Void Elimination):**
+  - Reduced `.testimonials-deck-card` height from `375px` to `285px`, eliminating the large ~140px empty black void at the bottom of shorter testimonials.
+  - Reduced `.testimonials-orbital-wrapper` height to `300px`.
+  - Recalibrated header padding (`16px 28px 12px`), avatar size (`56px`), pullquote font (`24px`, line-height `1.22`), and body text (`14.5px`, line-height `1.52`).
+  - Re-anchored orbital side card tilts: left card at `rotate(-13deg) scale(0.78)` and right card at `rotate(13deg) scale(0.78)`.
+  - The entire testimonial section fits cleanly within one viewport (780px) with zero scroll clipping.
+
+---
+
+## [Precision Fidelity Pass #19: "Who We Build For" Dynamic Morphing Text & Single-Screen Viewport Fit] - 2026-11-18
+
+### Added & Refined
+- **"Who We Build For" Interactive Dynamic Morphing Headline:**
+  - Added dynamic word flip cycling in sync with the active category cards (`Agencies`, `SMEs & Scaleups`, `Startups`, `Enterprise`).
+  - Animated with smooth vertical slide + blur-fade transitions matching the hero section headline.
+- **Vertical Spacing Optimization (Who We Build For & What We Do):**
+  - Removed excessive top/bottom margins and dead gaps between section headers and card grids.
+  - Guaranteed full visibility of all active cards within a single 780px viewport without clipping bottom edges or action tags.
+
+---
+
+## [Precision Fidelity Pass #18: Testimonials 3D Orbital Carousel Redesign] - 2026-11-18
+
+### Added & Refined
+- **Orbital Perspective Testimonials Deck:**
+  - Redesigned testimonials from a vertical stack to an expansive 3D horizontal orbital perspective carousel.
+  - Active card centered with elevated glow; previous and next cards tilted on left and right orbital wings (`-13deg` / `+13deg`).
+  - Single-screen fit ensuring full section visibility without requiring vertical page scroll.
+
+---
+
+## [Precision Fidelity Pass #17: Testimonials Scale & Avatar Face Framing] - 2026-11-18
+
+### Added & Refined
+- **Typography & Scale Adjustment:**
+  - Scaled testimonial card container width and typography for clear legibility.
+  - Adjusted avatar aspect-ratio and object-position to ensure human faces are centered and framed cleanly without cropping.
+
+---
+
+## [Precision Fidelity Pass #16: Adeeva Portfolio Card Removal & 3D Stacked Card Deck Testimonials Redesign] - 2026-11-18
+
+### Added & Refined
+- **Portfolio Section Adeeva Card Removal:**
+  - Removed exclusively the Adeeva carousel card (`02-adeeva`) from the Portfolio carousel as directed.
+  - Kept all remaining 9 portfolio brands intact in exact sequence (ALLMAX, Kilon'Gwan, GIMA, Bodhi Health, Finarkein, Hype Distribution, Digicio, Bridge Studio, Peddlers 30A) across both Next.js (`siteData.ts`, `PortfolioSection.tsx`) and static site (`Techforbs-New-Site/index.html`).
+- **Complete Visual Redesign of Testimonials Section (Stacked 3D Card Deck):**
+  - Built from scratch based on the user's uploaded visual reference (`media_1794983671175_c77a30fd.png`).
+  - **3-Card Layered Fan Stack**:
+    - Active front card: `rotate(0deg) scale(1)` with deep obsidian black background (`#090a0f`), 18px rounded radius, subtle metallic border (`1px solid rgba(255, 255, 255, 0.15)`), and elevation drop-shadow (`0 28px 60px rgba(0, 0, 0, 0.85)`).
+    - 2nd card peeking underneath (+1): `translate3d(14px, 24px, 0) rotate(-2.8deg) scale(0.97)` with `opacity: 0.82` and subtle surface highlight.
+    - 3rd card peeking deeper (+2): `translate3d(6px, 44px, 0) rotate(2.2deg) scale(0.94)` with `opacity: 0.55`.
+    - Remaining cards smoothly positioned off-stage (`opacity: 0; pointer-events: none;`).
+  - **Zone A (Header)**: Circular client avatar (58px), bold white author name (18px), muted company (15px), and exact slanted geometric quote emblem (`\ \ •` in `#9CA3AF`).
+  - **Full-Width Hairline Divider**: Crisp 1px horizontal rule (`rgba(255, 255, 255, 0.12)`) spanning 100% of the card width.
+  - **Zone B (Body Split)**:
+    - Left column (`44%`): Large Editorial Serif pull-quote (`Georgia`, `29px`, line-height `1.15`, pure white typography with no vertical line).
+    - Right column (`56%`): Full detailed quote in clean sans-serif (`Inter`, `14.5px`, line-height `1.58`, muted white/gray `rgba(255, 255, 255, 0.72)` in quotes).
+  - **Bottom Pagination Bar**: Centered underneath with 1 active elongated pill (`36×6px`, white) and 5 inactive rounded dots (`8×6px`, `rgba(255, 255, 255, 0.28)`).
+  - **Interactive Mechanics**: Click/tap advances card; drag/swipe gesture support; dot click jumps to specific card; auto-advance every 5.5s with pause on hover; keyboard arrow navigation.
+  - **6 Authentic TechForbs Client Testimonials**:
+    1. Dr. James Meschino (`Meschino Health`)
+    2. Brad (`Allmax Nutrition`)
+    3. Robert Whitehead (`Whitehead Consulting`)
+    4. Adeeva Nutrition Team (`Adeeva Health`)
+    5. GIMA Academy (`Global Integrative Medicine`)
+    6. Bodhi Health (`Bodhi Health Inc.`)
+- **Port & Verification**:
+  - Live on `http://localhost:5500` with zero extraneous background ports.
+  - Validated with Puppeteer visual QA across desktop and mobile viewports.
+
+---
+
+## [Precision Fidelity Pass #15: "Our Customers" Carousel Overhaul — 7 Unique Lifestyle/Brand Visuals & Normalized Sizing] - 2026-11-18
+
+### Added & Refined
+- **Replaced Recycled Mockups with Exactly 7 Unique Designer Visuals:**
+  - Sourced all 7 brand-new full-bleed customer visuals from `F:\__TECHFORBS-web-Redesign\Website-Crausol-Images\Our-Customers-crausol-images`:
+    1. **ALLMAX Nutrition**: `customer-01-allmax.webp` (athlete drinking from shaker in gym)
+    2. **GLOBAL Integrative Medicine Academy (GIMA)**: `customer-02-gima.webp` (medical doctors & educators in scrubs with tablet)
+    3. **BODHI Health Inc.**: `customer-03-bodhi-health.webp` (wellness woman in kitchen with health product)
+    4. **Finarkein**: `customer-04-fintech.webp` (corporate executive with open-finance digital data tablet)
+    5. **HYPE Distribution**: `customer-05-hype.webp` (modern high-capacity wholesale warehouse with pallets)
+    6. **digicio**: `customer-06-digicio.webp` (modern tech workstations and digital innovation lab)
+    7. **Kilon'Gwan**: `customer-07-kilongwan.webp` (lifestyle couple in premium lounge apparel)
+  - Resized and compressed all 7 raw images (previously 70MB total) into high-fidelity 1092×930 Retina WebP and fallback JPEG formats (<700KB total carousel payload).
+- **Auto-Trimmed & Normalized Logo Optical Sizing:**
+  - Ingested all 7 customer logos from `F:\__TECHFORBS-web-Redesign\Website-Crausol-Images\Our-Customers-crausol-images-Logos`.
+  - Processed with `sharp.trim()` to eliminate 100% of dead transparent margins (fixing Whitehead's microscopic text and Kilongwan's 66% dead vertical padding).
+  - Enforced uniform optical container bounds (`.customers__item-logo-wrap` at `height: 48px`, `.customers__item-logo` at `max-height: 42px`, `max-width: 180px`).
+  - Pre-rendered crisp white high-resolution PNG assets with subtle drop shadow (`filter: drop-shadow(0 2px 6px rgba(0,0,0,0.75))`), eliminating clunky gray capsules or mismatched badge styles, matching the CHE IT reference site.
+- **Enhanced Card Overlay & Typography:**
+  - Replaced shallow bottom overlay with seamless dual-zone gradient (`linear-gradient(180deg, rgba(8,8,12,0.35) 0%, rgba(8,8,12,0.05) 35%, rgba(8,8,12,0.70) 70%, rgba(8,8,12,0.95) 100%)`).
+  - Verified 2–3 line customer description text at bottom-left in crisp white typography.
+  - Fixed mobile title row non-breaking space between "people" and "we".
+- **Synchronized Across Both Architectures:**
+  - Updated `CUSTOMERS_CARDS` in `TechForbs-NextJS-Rewamp/src/data/siteData.ts`, `CustomersSection.tsx`, and `techforbs-theme.css`.
+  - Mirrored identical card slides, assets, and styling into static site `Techforbs-New-Site/index.html` and `css/techforbs-theme.css`.
+- **Live Verification on Port 5500:**
+  - Rebuilt production bundle and validated on `http://localhost:5500` with Puppeteer.
+  - Confirmed all 7 cards load with exact optical dimensions and crisp rendering on desktop and mobile viewports.
+
+---
+
+## [Precision Fidelity Pass #14: Hero Shadow Removal, Brighter 2880px Hero Background & 10 Designer Carousel Images Replacement] - 2026-11-18
+
+### Added & Refined
+- **Hero 3D Model Dark Shadow Complete Removal:**
+  - Fully deleted `shadowMesh`, `createGroundShadow()`, contact ground shadow canvas layers, and radial gradient textures from `Hero3DCanvas.tsx`.
+  - The 3D Shopify bag now floats cleanly and weightlessly in pure levitation over the architectural stage with zero dark/dirty shadow patch underneath.
+- **Brighter Boosted Hero Architectural Background (`hero-2880-boosted.png`):**
+  - Integrated the brighter, clean 2880×1101 architectural booster asset from `E:\__TECHFORBS-web-Redesign\scratch\hero-2880-boosted.png`.
+  - Processed into high-fidelity WebP (`hero-section-image-extended.webp`), AVIF (`hero-section-image-extended.avif`), and PNG across both Next.js `public/images/hero/` and static `Techforbs-New-Site/images/hero/`.
+  - Perfectly preserved the 60% Left (Editorial Typography) / 40% Right (Square Pedestal + 3D Model) layout with enhanced low-poly facet clarity and metallic pedestal finish.
+- **Portfolio Carousel 10-Brand Designer Images Replacement:**
+  - Sourced and imported all 10 brand-new designer showcase images from `F:\__TECHFORBS-web-Redesign\Website-Crausol-Images\NEW-website-crausol-images`:
+    1. **ALLMAX Nutrition**: `01-allmax.webp` (from `ALLMAX.png`, 1080×1080)
+    2. **Adeeva**: `02-adeeva.webp` (uniform 1080×1080 device mockup with soft `#f2f6f0` background)
+    3. **Kilon'Gwan**: `03-kilongwan.webp` (from `kilongwan.png`, 1080×1080)
+    4. **GLOBAL Integrative Medicine Academy (GIMA)**: `04-gima.webp` (from `global.png`, 1080×1080)
+    5. **BODHI Health Inc.**: `05-bodhi-health.webp` (from `bodhi- #e8f4d1.png`, 1080×1080)
+    6. **Finarkein**: `06-finarkein.webp` (from `finarkin 2.png`, 1080×1080)
+    7. **HYPE Distribution**: `07-hype-distribution.webp` (from `hypedistribution  - #bcadd9.png`, 1080×1080)
+    8. **digicio**: `08-digicio.webp` (from `digicio - #d6fff3.png`, 1080×1080)
+    9. **BRIDGE STUDIO**: `09-bridge-studio.webp` (from `bridge studio - #dedede.png`, 1080×1080)
+    10. **Peddlers 30A**: `10-peddlers-30a.webp` (from `peddlers 1.png`, 1080×1080)
+  - Processed all assets to optimized WebP and PNG format in both `TechForbs-NextJS-Rewamp/public/images/portfolio/` and `Techforbs-New-Site/images/portfolio/`.
+  - Maintained exact 1-to-10 brand sequence matching the brand logos strip.
+  - Uniform card framing, 2.25rem asymmetric border-radius, smooth Swiper looping, and GSAP ScrollTrigger entrance animation.
+- **Verification & Deployment:**
+  - Verified on `http://localhost:5500` with desktop and mobile viewport checks.
+  - Zero extraneous ports running in background.
+
+---
+
+## [Precision Fidelity Pass #13: Hero Vertical Centering, Autonomous Bobbing 3D Model, & Navbar Alignment] - 2026-11-17
+
+### Added & Refined
+- **Hero Vertical Alignment ("Top Centred" Composition & Blank Space Elimination):**
+  - Eliminated the massive ~300px blank void between the navbar and the headline by reducing `.hero__content-top` excessive padding (`paddingTop: 4.25rem`, `paddingBottom: 1.5rem`, `minHeight: clamp(600px, 78vh, 780px)`).
+  - Shifted `.hero-split-container` into the upper-middle focal zone (`margin-top: -5.5rem`), elevating both the headline and the 3D stage.
+  - Balanced the extended background artwork focal position (`object-position: 78% 40%`) so the architectural square pedestal rises synchronously with the composition.
+  - Scaled headline typography to bold, commanding dimensions (`clamp(3.8rem, 7.0vw, 7.2rem)`), ensuring the hero fills the viewport gracefully without feeling empty or pushed down to the bottom.
+- **Autonomous Continuous Floating / Bobbing 3D Model (Non-Interactive):**
+  - Removed user drag and pointer capture event listeners (`pointerdown`, `pointermove`, `pointerup`, `pointercancel`) from `Hero3DCanvas.tsx`; reset cursor to default.
+  - Implemented smooth sinusoidal vertical bobbing (`floatCycle = now * 0.0018`, ~3.5s period) creating an organic levitation effect over the pedestal.
+  - Added subtle floating pitch and roll dynamics (`rotation.x` and `rotation.z` micro-oscillations) combined with continuous gentle Y-axis rotation (`0.45 * delta`).
+  - Synchronized the contact ground shadow geometry and opacity dynamically with the model's floating elevation (scales and breathes naturally).
+- **3D Model Illumination & Brand Colors (Clean, Vibrant, Non-Dark):**
+  - Replaced single harsh light with a balanced studio 3-point lighting setup:
+    - Pure white ambient baseline (`intensity: 1.05`) to eliminate murky dark green crevices.
+    - Key directional light (`intensity: 1.45`) from `(18, 40, 35)`.
+    - Fill directional light (`intensity: 0.65`) from `(-25, 18, 25)`.
+    - Top rim light (`intensity: 0.40`) to highlight bag handles and top edges.
+  - Updated materials to authentic, vivid Shopify brand colors: `#95BF46` (body front), `#7CA836` (body sides), `#5E8E3E` (fold), and `#FFFFFF` (embossed 'S').
+- **Navbar Realignment & Polish:**
+  - **Logo Vertical Centering:** Updated `.header__inner`, `.header__logo`, and `.header__logo-image` with `display: flex; align-items: center; justify-content: space-between; height: 3.25rem`. The TechForbs logo is now 100% vertically centered (11.7px padding above and below), completely eliminating the issue where the logo touched the top border.
+  - **Right-side Nav Container:** Reconciled `.header__nav-list` with the CHE IT reference design:
+    - Added sleek `border-radius: 0.625rem` (10px smooth pill radius).
+    - Applied translucent dark blur background (`rgba(18, 18, 20, 0.78)` + `backdrop-filter: blur(14px)`).
+    - Styled with subtle boundary border `1px solid rgba(255, 255, 255, 0.12)` and soft shadow.
+  - **"Let's Talk" CTA Button:** Styled with matching `border-radius: 0.625rem`, subtle translucent blue fill, and glowing hover state.
+- **Verification & Server Status:**
+  - Verified on `http://localhost:5500` across desktop and mobile viewports.
+  - Zero extra background processes; running exclusively on port 5500.
+
+---
+
+## [Precision Fidelity Pass #12: Hero 60/40 Redesign & Left-Extended Stage Background] - 2026-11-17
+
+### Added & Refined
+- **Single-Target Task: Full Hero Section 60/40 Asymmetric Redesign:**
+  - Removed outdated noisy, grainy background image and removed fake glowing "Shopify" text on the bottom stage faces.
+  - Sourced authentic clean, matte-black architectural reference artwork from `hero-section-image.avif` (2136×1101).
+  - Engineered seamless left-extended artwork (`hero-section-image-extended.avif`, `.webp`, `.png`) at 2880×1101 resolution:
+    - Shifted the square architectural stage cleanly to the **Right 40% column** (~77%–78% X center).
+    - Synthesized a seamless low-poly polygonal wall and dark floor continuation across the entire **Left 60% column** with 0% stage overlap and exact color/lighting continuity (`#08080a`–`#16161a`).
+    - Maintained exact unbranded, matte-black pedestal geometry without horizontal stretching.
+- **Left 60% Column Editorial Typography:**
+  - Replaced center-split 3-column headline with a cohesive, left-aligned editorial statement:
+    - Line 1: `Stores built`
+    - Line 2: `to ` + kinetic rotating accent word (`sell.` → `scale.` → `convert.` → `win.`) in vibrant TechForbs cyan (`#00e5ff`).
+  - Oversized bold Sora typography (`font-size: clamp(3.2rem, 6.2vw, 6.2rem)`), zero text wrap on longest word (`convert.`).
+- **Right 40% Column 3D Model & Stage Vertical Alignment:**
+  - Placed interactive Three.js 3D Shopify logo model in the Right 40% column directly centered over the square stage (`X = 78% ± 10px`).
+  - Vertically positioned the 3D model and its contact ground shadow to hover naturally above the top surface of the pedestal.
+  - Enabled smooth 360° horizontal drag rotation, controlled tilt, subtle idle resume, and non-blocking vertical scroll (`touch-action: pan-y`).
+- **Responsive Stacking:**
+  - Desktop (`>= 1024px`): Strict 60/40 side-by-side asymmetric split.
+  - Mobile & Tablet (`< 992px`): Clean stacked layout with headline and supporting text on top, and 3D model centered over the square stage below (`object-position: 78% center`).
+- **Server Deployment:**
+  - Running on `http://localhost:5500` with all extra background ports terminated.
+
+---
+
+## [Precision Fidelity Pass #11: Portfolio Carousel 10 Designer Post Images & Exact 10-Brand Sequence Alignment] - 2026-11-17
+
+### Added & Refined
+- **Single-Target Task: Portfolio Carousel 10-Brand Expansion & Designer Post Graphics:**
+  - Audited the designer images in `F:\__TECHFORBS-web-Redesign\Website-Crausol-Images\website crausol images` containing high-resolution 4:3 rectangular mockups.
+  - Processed all assets into optimized 1600×1200 WebP format (~1.1MB total footprint across all 10 cards) maintaining full retina clarity without payload bloat.
+  - Sourced authentic client mockups for missing brands (Slide 02: Adeeva, Slide 03: Kilon'Gwan) from authentic TechForbs assets to ensure a 100% complete 10-brand showcase.
+  - Strictly aligned the portfolio sequence 1-to-10 with the Brand Logos section:
+    1. **ALLMAX Nutrition**: High-Performance Sports Nutrition (`01-allmax.webp`)
+    2. **Adeeva**: Evidence-Based Clinical Nutraceuticals (`02-adeeva.webp`)
+    3. **Kilon'Gwan**: Premium Lifestyle Apparel (`03-kilongwan.webp`)
+    4. **GLOBAL Integrative Medicine Academy (GIMA)**: Global Integrative Medicine Academy (`04-gima.webp`)
+    5. **BODHI Health Inc.**: Precision Sublingual Technology (`05-bodhi-health.webp`)
+    6. **Finarkein**: Open-Finance Data Ecosystem (`06-finarkein.webp`)
+    7. **HYPE Distribution**: Digital Showroom & Wholesale (`07-hype-distribution.webp`)
+    8. **digicio (Digital Innovation)**: Strategic Technology Innovation Partner (`08-digicio.webp`)
+    9. **BRIDGE STUDIO**: Architecture & Spatial Design Portfolio (`09-bridge-studio.webp`)
+    10. **Peddlers 30A**: Premier Coastal Bike Rentals & Retail (`10-peddlers-30a.webp`)
+- **Card Geometry & Styling Normalization:**
+  - Removed outdated SVG circle overlay (`case-bg.svg`) in `PortfolioCard.tsx` that previously clashed with designer mockup borders.
+  - Standardized `.case-item-image` container styling to `border-top-right-radius: 2.25rem`, `overflow: hidden`, and `object-fit: cover; object-position: center` across all 10 cards.
+  - Set `loading="eager"` and `decoding="async"` for seamless carousel scrolling without blank loading gaps.
+  - Updated both Next.js app (`TechForbs-NextJS-Rewamp`) and static distribution (`Techforbs-New-Site/index.html`).
+- **Codebase Rollback & White-Label Preservation:**
+  - Preserved the new "White-label development" card and tab in Solutions / "What We Do" as the 6th sub-point, as requested, while discarding experimental hero modifications.
+- **Verification & QA:**
+  - Verified on `localhost:3000` across Desktop and Mobile viewports via Puppeteer automated testing suite. All 10 cards load with `naturalWidth: 1600`, `naturalHeight: 1200`, and proper aspect ratio.
+
+---
+
 ## [Pass #17: Precision Fidelity Pass — Global UI Refinements + Technology Page Alignment + First Complete Services Page: AI & Automation] - 2026-11-03
 
 ### Added & Refined

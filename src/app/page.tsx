@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <SmoothScroll>
       <div className="relative min-h-screen bg-[#101010] text-white selection:bg-[#00e5ff] selection:text-black">
-        {/* Navigation Bar (Change 03, 04, 05, 06) */}
+        {/* Navigation Bar */}
         <Navbar />
 
         {/* Main Content Area */}

@@ -14,16 +14,17 @@ export interface SolutionsSectionProps extends SectionBaseProps {
   label?: string;
   /** Section heading. */
   title?: string;
-  /** Tab contents. Defaults to the five home-page solution categories. */
+  /** Tab contents. Defaults to the six home-page solution categories. */
   solutions?: SolutionCategory[];
 }
 
 /**
- * "What We Do" — vertical tab list driving a detail panel.
+ * Precision Fidelity Pass #18: What We Do (Solutions)
+ * Pinned Scroll-Driven 6-Card Sequencer & 1-to-1 Left Tab Synchronization.
  *
- * Animation: the whole inner block fades and rises 35px over 0.9s once the
- * section's top passes 80% of the viewport, played once, followed by a
- * ScrollTrigger refresh so later sections keep their measurements.
+ * Smooth continuous progression cycling through all 6 services with silky
+ * glide & fade animations (opacity 0->1, translateY, scale, blur filter)
+ * and interactive left tab auto-highlighting & direct navigation click jumping.
  */
 export default function SolutionsSection({
   id = "solutions-section",
@@ -34,65 +35,61 @@ export default function SolutionsSection({
 }: SolutionsSectionProps = {}) {
   const [activeTab, setActiveTab] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     gsap.registerPlugin(ScrollTrigger);
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const inner = sectionRef.current?.querySelector<HTMLElement>(".solutions__inner");
-    if (!inner) return;
-
-    if (prefersReducedMotion) {
-      gsap.set(inner, { opacity: 1, y: 0 });
-      return;
-    }
-
-    // Fail-open strategy: check if section is already in or near viewport
-    const rect = sectionRef.current?.getBoundingClientRect();
-    const isAlreadyVisible = rect && rect.top < window.innerHeight * 0.85;
-
-    if (isAlreadyVisible) {
-      gsap.set(inner, { opacity: 1, y: 0 });
-      return;
-    }
+    const isDesktop = window.innerWidth >= 992;
 
     const ctx = gsap.context(() => {
-      // Set initial hidden state only when confirmed below viewport
-      gsap.set(inner, { opacity: 0, y: 35 });
-
-      const trigger = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top 80%",
-        once: true,
-        onEnter: () => {
-          gsap.to(inner, {
-            y: 0,
-            opacity: 1,
-            duration: 0.9,
-            ease: "power3.out",
-          });
-        },
-      });
-
-      // Safety failsafe: under NO circumstance can section remain hidden
-      const safetyTimer = setTimeout(() => {
-        gsap.to(inner, { opacity: 1, y: 0, duration: 0.3 });
-      }, 2000);
-
-      const refreshTimer = setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 350);
-
-      return () => {
-        clearTimeout(safetyTimer);
-        clearTimeout(refreshTimer);
-        trigger.kill();
-      };
+      if (isDesktop && !prefersReducedMotion && sectionRef.current) {
+        const total = solutions.length;
+        const st = ScrollTrigger.create({
+          trigger: sectionRef.current,
+          pin: true,
+          start: "top top",
+          end: "+=1500",
+          scrub: 0.2,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const step = Math.min(
+              total - 1,
+              Math.max(0, Math.floor(self.progress * total))
+            );
+            setActiveTab(step);
+          },
+        });
+        scrollTriggerRef.current = st;
+      }
     }, sectionRef);
 
-    return () => ctx.revert();
-  }, []);
+    // Refresh ScrollTrigger so all downstream measurements adjust with pin spacer
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 450);
+
+    return () => {
+      clearTimeout(timer);
+      ctx.revert();
+    };
+  }, [solutions.length]);
+
+  const handleTabClick = (index: number) => {
+    setActiveTab(index);
+    if (scrollTriggerRef.current) {
+      const st = scrollTriggerRef.current;
+      const progressPerItem = 1 / solutions.length;
+      const targetProgress = (index + 0.35) * progressPerItem;
+      const targetScroll = st.start + targetProgress * (st.end - st.start);
+      window.scrollTo({
+        top: targetScroll,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <section ref={sectionRef} id={id} className={cx("section--solutions", className)}>
@@ -110,88 +107,100 @@ export default function SolutionsSection({
 
         <div className="solutions__inner-content">
           <div className="solutions__tabs w-tabs">
-            {/* Left Tabs Nav */}
+            {/* Left Tabs Nav (1-to-1 Sync with scroll progress) */}
             <div className="solutions__tabs-nav w-tab-menu" role="tablist">
-              {solutions.map((item, index) => (
-                <button
-                  type="button"
-                  key={item.id}
-                  onClick={() => setActiveTab(index)}
-                  className={`solutions__tabs-nav-item w-inline-block w-tab-link ${
-                    activeTab === index ? "w--current" : ""
-                  }`}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    textAlign: "left",
-                    cursor: "pointer",
-                    width: "100%",
-                  }}
-                  role="tab"
-                  aria-selected={activeTab === index}
-                >
-                  <div>{item.name}</div>
-                </button>
-              ))}
+              {solutions.map((item, index) => {
+                const isActive = activeTab === index;
+                return (
+                  <button
+                    type="button"
+                    key={item.id}
+                    onClick={() => handleTabClick(index)}
+                    className={cx(
+                      "solutions__tabs-nav-item w-inline-block w-tab-link",
+                      isActive && "w--current is-active"
+                    )}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      textAlign: "left",
+                      cursor: "pointer",
+                      width: "100%",
+                    }}
+                    role="tab"
+                    aria-selected={isActive}
+                  >
+                    <div className="solutions__tab-label">{item.name}</div>
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Right Tab Content Panel */}
+            {/* Right Tab Content Panel (Animated 6-Card Sequencer Stage) */}
             <div className="solutions__tabs-content w-tab-content">
-              {solutions.map((item, index) => (
-                <div
-                  key={item.id}
-                  className={`solutions__tabs-pane w-tab-pane ${
-                    activeTab === index ? "w--tab-active" : ""
-                  }`}
-                  style={{
-                    display: activeTab === index ? "block" : "none",
-                  }}
-                  role="tabpanel"
-                >
-                  <div className="solutions__tabs-pane-content">
-                    <div className="solutions__tabs-head">
-                      <h3 className="heading-style-h3-24">{item.name}</h3>
-                      <div className="cms-tag is-bigger">{item.tag}</div>
-                      {item.description && (
-                        <p className="text-color-gray-40">{item.description}</p>
-                      )}
-                    </div>
+              {solutions.map((item, index) => {
+                let stateClass = "is-future";
+                if (activeTab === index) {
+                  stateClass = "is-active";
+                } else if (index < activeTab) {
+                  stateClass = "is-past";
+                }
 
-                    <ul
-                      role="list"
-                      className={`solutions__tabs-list ${
-                        item.id === "digital-marketing"
-                          ? "is-digital-marketing-list"
-                          : item.isDetailed
-                          ? "is-detailed-list"
-                          : ""
-                      }`}
-                    >
-                      {item.items.map((sub) => (
-                        <li
-                          key={sub.title}
-                          className={`solutions__tabs-item ${
-                            item.id === "digital-marketing"
-                              ? "is-digital-marketing-item"
-                              : item.isDetailed
-                              ? "is-detailed-item"
-                              : ""
-                          }`}
-                        >
-                          <div className={item.isDetailed ? "font-semibold text-white" : ""}>
-                            {sub.title}
-                          </div>
-                          {sub.desc && (
-                            <p className="text-xs text-gray-300 mt-1 leading-relaxed opacity-90">
-                              {sub.desc}
-                            </p>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
+                return (
+                  <div
+                    key={item.id}
+                    className={cx(
+                      "solutions__tabs-pane w-tab-pane",
+                      stateClass
+                    )}
+                    role="tabpanel"
+                    aria-hidden={activeTab !== index}
+                  >
+                    <div className="solutions__tabs-pane-content">
+                      <div className="solutions__tabs-head">
+                        <h3 className="heading-style-h3-24">{item.name}</h3>
+                        <div className="cms-tag is-bigger">{item.tag}</div>
+                        {item.description && (
+                          <p className="text-color-gray-40">{item.description}</p>
+                        )}
+                      </div>
+
+                      <ul
+                        role="list"
+                        className={`solutions__tabs-list ${
+                          item.id === "digital-marketing"
+                            ? "is-digital-marketing-list"
+                            : item.isDetailed
+                            ? "is-detailed-list"
+                            : ""
+                        }`}
+                      >
+                        {item.items.map((sub) => (
+                          <li
+                            key={sub.title}
+                            className={`solutions__tabs-item ${
+                              item.id === "digital-marketing"
+                                ? "is-digital-marketing-item"
+                                : item.isDetailed
+                                ? "is-detailed-item"
+                                : ""
+                            }`}
+                          >
+                            <div className={item.isDetailed ? "font-semibold text-white" : ""}>
+                              {sub.title}
+                            </div>
+                            {sub.desc && (
+                              <p className="text-xs text-gray-300 mt-1 leading-relaxed opacity-90">
+                                {sub.desc}
+                              </p>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

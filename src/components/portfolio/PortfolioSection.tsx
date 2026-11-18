@@ -17,7 +17,7 @@ import "swiper/css/navigation";
 export interface PortfolioSectionProps extends SectionBaseProps {
   /** Small uppercase eyebrow above the heading. */
   label?: string;
-  /** Case-study slides. Defaults to the seven home-page brands. */
+  /** Case-study slides. Defaults to the 10 home-page brands. */
   items?: PortfolioItem[];
 }
 
@@ -187,6 +187,15 @@ export default function PortfolioSection({
                 modules={[Autoplay, Navigation]}
                 onBeforeInit={(swiper) => {
                   swiperRef.current = swiper;
+                  if (typeof window !== "undefined") {
+                    (window as any).__portfolioSwiper = swiper;
+                  }
+                }}
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
+                  if (typeof window !== "undefined") {
+                    (window as any).__portfolioSwiper = swiper;
+                  }
                 }}
                 loop={true}
                 speed={1000}
