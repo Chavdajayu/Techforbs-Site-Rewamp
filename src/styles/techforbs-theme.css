@@ -196,13 +196,160 @@ body {
     transform: translateY(-1px) !important;
   }
 
+  /* ==========================================================================
+     LUXURY FROSTED GLASS DROPDOWNS (Technologies, Services, Portfolio, Company)
+     1-to-1 match with Navbar Blurry Frosted Glass Effect (28px blur + smoky frosted glass)
+     ========================================================================== */
+
+  /* Dropdown Positioning Container: Completely transparent wrapper, zero ghost borders */
   .header__nav-sub {
-    top: calc(100% + 14px) !important;
+    top: 100% !important;
+    padding-top: 0.625rem !important; /* 10px invisible bridge for seamless hover */
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Hide disjointed opaque SVG arrow so dropdowns have a sleek uninterrupted top edge */
+  .header__nav-sub-inner-arrow {
+    display: none !important;
+  }
+
+  /* Technologies, Portfolio, Company Glass Card */
+  .header__nav-sub-inner {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(18, 24, 38, 0.70) 100%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(190%) brightness(1.1) !important;
+    backdrop-filter: blur(28px) saturate(190%) brightness(1.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
     border-radius: 1rem !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+    overflow: hidden !important;
+    padding: 1.5rem !important;
+  }
+
+  /* Services Mega Dropdown Glass Card */
+  .header__nav-sub.is-large {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding-top: 0.625rem !important;
+  }
+
+  .header__nav-sub-body {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(18, 24, 38, 0.70) 100%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(190%) brightness(1.1) !important;
+    backdrop-filter: blur(28px) saturate(190%) brightness(1.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 1.25rem !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+    overflow: hidden !important;
+  }
+
+  /* Services Left Column: Frosted dark tint with subtle divider */
+  .sub-menu__left {
+    background: rgba(0, 0, 0, 0.28) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 1.25rem 0 0 1.25rem !important;
+    padding: 1.75rem 1.5rem !important;
+  }
+
+  /* Services Left Item Hover */
+  .sub-menu__item {
+    border-radius: 0.75rem !important;
+    padding: 0.5rem 0.65rem !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  .sub-menu__item:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    transform: translateX(3px) !important;
+  }
+
+  .sub-menu__icon {
+    background: rgba(0, 119, 255, 0.18) !important;
+    border: 1px solid rgba(0, 190, 255, 0.3) !important;
+    border-radius: 0.5rem !important;
+  }
+
+  /* Services Right Column */
+  .sub-menu__right {
+    padding: 1.75rem 1.5rem 1.25rem !important;
+  }
+
+  .sub-menu__title {
+    color: rgba(255, 255, 255, 0.55) !important;
+    font-size: 0.6875rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .sub-menu__divider {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .menu__link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    transition: all 0.2s ease !important;
+  }
+  .menu__link:hover {
+    color: #00a3ff !important;
+    padding-left: 3px !important;
+  }
+
+  /* Services Bottom Bar */
+  .sub-menu__bottom {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0.625rem !important;
+    margin: 1.25rem 0 0 0 !important;
+    padding: 0.625rem 1rem !important;
+  }
+
+  .sub-menu__bottom-text {
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  .sub-menu__bottom-link {
+    color: #00a3ff !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+  }
+  .sub-menu__bottom-link:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(0, 163, 255, 0.8) !important;
+  }
+
+  /* Submenu Links in Technologies, Portfolio, Company */
+  .header__nav-sub-group-title {
+    color: rgba(255, 255, 255, 0.55) !important;
+    font-size: 0.6875rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .header__nav-sub-link {
+    color: rgba(255, 255, 255, 0.88) !important;
+    border-radius: 0.5rem !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  .header__nav-sub-link:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    transform: translateX(2px) !important;
+  }
+
+  .header__nav-sub-link.with_icon:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+  }
+
+  .header__nav-sub-icon {
+    filter: none !important; /* Full vivid icon colors */
   }
 }
 

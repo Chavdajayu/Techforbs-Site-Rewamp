@@ -119,7 +119,13 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       </div>
                     </div>
                     <div className="header__nav-sub">
-                      <div className="header__nav-sub-inner">
+                      <div
+                        className="header__nav-sub-inner"
+                        style={{
+                          backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                          WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                        }}
+                      >
                         <div className="header__nav-sub-inner-arrow w-embed">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +209,13 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       </div>
                     </div>
                     <div className="header__nav-sub is-large">
-                      <div className="header__nav-sub-body">
+                      <div
+                        className="header__nav-sub-body"
+                        style={{
+                          backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                          WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                        }}
+                      >
                         {/* Services Left Column: Core Disciplines */}
                         <div className="sub-menu__left">
                           <Link
@@ -523,7 +535,13 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       </div>
                     </div>
                     <div className="header__nav-sub right-side">
-                      <div className="header__nav-sub-inner">
+                      <div
+                        className="header__nav-sub-inner"
+                        style={{
+                          backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                          WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                        }}
+                      >
                         <div className="header__nav-sub-inner-arrow w-embed">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -595,7 +613,13 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       </div>
                     </div>
                     <div className="header__nav-sub right-side">
-                      <div className="header__nav-sub-inner">
+                      <div
+                        className="header__nav-sub-inner"
+                        style={{
+                          backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                          WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                        }}
+                      >
                         <div className="header__nav-sub-inner-arrow w-embed">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
