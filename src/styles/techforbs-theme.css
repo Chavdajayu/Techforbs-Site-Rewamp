@@ -90,13 +90,16 @@ body {
 .header .container,
 .header__container {
   display: flex !important;
-  justify-content: center !important;
-  max-width: 1320px !important;
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  margin: 0 !important;
 }
 
-/* Desktop: Transparent Bar with Right-side Blurry Glass Navigation Square */
+/* Desktop: Full-Width Transparent Header Bar with Right-side Blurry Glass Navigation Square */
 @media screen and (min-width: 992px) {
   .header__inner {
     background: transparent !important;
@@ -106,13 +109,12 @@ body {
     box-shadow: none !important;
     border-radius: 0 !important;
     width: 100% !important;
-    max-width: 1320px !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    max-width: 100% !important;
+    padding: 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
   }
 
   .header__logo {
@@ -143,20 +145,21 @@ body {
     display: flex !important;
     align-items: center !important;
     gap: 0.75rem !important;
+    margin-left: auto !important;
   }
 
   .header__nav {
     background: transparent !important;
   }
 
-  /* Right-side Square with Blurry Glassy Effect (Semi-translucent dark smoke + blur) */
+  /* Right-side Square with Luxury Blurry Glass Effect (1-to-1 match with onrender reference) */
   .header__nav-list {
-    background: linear-gradient(135deg, rgba(20, 26, 40, 0.68) 0%, rgba(10, 14, 22, 0.58) 100%) !important;
-    backdrop-filter: blur(20px) saturate(170%) brightness(1.08) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(170%) brightness(1.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 40%, rgba(0, 0, 0, 0.38) 100%) !important;
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.12) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
     border-radius: 0.625rem !important; /* 10px rounded square matching user screenshot */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.22) !important;
     height: 3rem !important;
     padding-left: 0.85rem !important;
     padding-right: 0.85rem !important;
@@ -165,14 +168,14 @@ body {
     gap: 0.5rem !important;
   }
 
-  /* Harmonized CTA Button: Rounded Square Dark Glass matching nav list and user screenshot */
+  /* Harmonized CTA Button: Frosted Blue Glass matching nav list and onrender reference */
   .header__cta .button {
-    background: rgba(14, 22, 38, 0.75) !important;
-    backdrop-filter: blur(20px) saturate(170%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(170%) !important;
-    border: 1px solid rgba(0, 150, 255, 0.35) !important;
+    background: linear-gradient(135deg, rgba(0, 119, 255, 0.28) 0%, rgba(0, 60, 160, 0.22) 100%) !important;
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.12) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.12) !important;
+    border: 1px solid rgba(0, 190, 255, 0.5) !important;
     border-radius: 0.625rem !important; /* 10px rounded square */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
     height: 3rem !important;
     min-height: 3rem !important;
     padding: 0 1.5rem !important;
@@ -189,7 +192,7 @@ body {
     background: #0077ff !important;
     border-color: #0077ff !important;
     color: #ffffff !important;
-    box-shadow: 0 4px 22px rgba(0, 119, 255, 0.5) !important;
+    box-shadow: 0 4px 24px rgba(0, 119, 255, 0.6) !important;
     transform: translateY(-1px) !important;
   }
 
