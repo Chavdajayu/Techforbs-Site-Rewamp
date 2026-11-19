@@ -71,88 +71,156 @@ body {
 }
 
 /* ==========================================================================
-   01. HEADER & NAVIGATION (Vertically Centered Logo + Rounded Capsule Nav)
+   01. HEADER & NAVIGATION: UNIFIED LUXURY FLOATING GLASS CAPSULE (1-to-1 Match with Reference)
    ========================================================================== */
 .header {
   z-index: 1500 !important;
   width: 100% !important;
   position: fixed !important;
-  top: 0.5rem !important;
-  right: 0% !important;
+  top: 0.75rem !important;
+  left: 0 !important;
+  right: 0 !important;
   background: transparent !important;
-  border-bottom: none !important;
+  border: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  padding-top: 0.75rem !important;
-  padding-bottom: 0.75rem !important;
+  padding: 0 !important;
 }
 
-.header__inner {
+.header .container,
+.header__container {
   display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  height: 3.25rem !important;
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
-}
-
-.header__logo {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  height: 100% !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin: 0 !important;
-}
-
-.header__logo-image {
-  height: 28px !important;
-  width: auto !important;
-  max-width: 175px !important;
-  object-fit: contain !important;
-  display: block !important;
-  margin: auto 0 !important;
-}
-
-/* Right-side Nav Items Capsule Box with Premium Glassmorphism */
-.header__nav-list {
-  background: linear-gradient(135deg, rgba(16, 22, 36, 0.52) 0%, rgba(8, 11, 20, 0.38) 100%) !important;
-  backdrop-filter: blur(16px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  border-radius: 0.625rem !important; /* 10px smooth radius */
-  height: 3rem !important;
-  padding-left: 0.85rem !important;
-  padding-right: 0.85rem !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
-}
-
-/* CTA "Let's Talk" Button with Harmonized Glassmorphism */
-.header__cta .button {
-  border-radius: 0.625rem !important; /* 10px smooth radius matching nav capsule */
-  border: 1px solid rgba(0, 210, 255, 0.35) !important;
-  background-color: rgba(0, 102, 255, 0.18) !important;
-  backdrop-filter: blur(16px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
-  height: 3rem !important;
-  min-height: 3rem !important;
-  display: flex !important;
-  align-items: center !important;
   justify-content: center !important;
-  padding: 0 1.5rem !important;
-  font-weight: 600 !important;
-  color: #ffffff !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  max-width: 1320px !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 
-.header__cta .button:hover {
-  background-color: rgba(0, 119, 255, 0.85) !important;
-  border-color: rgba(0, 229, 255, 0.8) !important;
-  color: #ffffff !important;
-  box-shadow: 0 8px 32px rgba(0, 119, 255, 0.45), 0 0 20px rgba(0, 229, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-  transform: translateY(-1px) !important;
+/* Desktop: Single Seamless Floating Glass Capsule enclosing Logo + Nav + CTA */
+@media screen and (min-width: 992px) {
+  .header__inner {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(20, 26, 42, 0.45) 50%, rgba(10, 14, 24, 0.58) 100%) !important;
+    backdrop-filter: blur(20px) saturate(190%) brightness(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(190%) brightness(1.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+    height: 3.5rem !important;
+    padding: 0 0.6rem 0 1.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    max-width: 1220px !important;
+    margin: 0 auto !important;
+  }
+
+  .header__logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .header__logo-image {
+    height: 26px !important;
+    width: auto !important;
+    max-width: 165px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: auto 0 !important;
+  }
+
+  /* Remove all extra background boxes from desktop nav wrapper */
+  .header__mobile-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+  }
+
+  .header__nav {
+    background: transparent !important;
+  }
+
+  .header__nav-list {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  /* CTA "Let's Talk" Button: Vibrant Glowing Pill matching "Get Started" in Reference */
+  .header__cta .button {
+    background: linear-gradient(90deg, #00d2ff 0%, #0077ff 100%) !important;
+    border-radius: 9999px !important;
+    border: none !important;
+    box-shadow: 0 2px 14px rgba(0, 180, 255, 0.4) !important;
+    height: 2.35rem !important;
+    min-height: 2.35rem !important;
+    padding: 0 1.35rem !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.25s ease !important;
+  }
+
+  .header__cta .button:hover {
+    background: linear-gradient(90deg, #33dcff 0%, #0088ff 100%) !important;
+    box-shadow: 0 4px 22px rgba(0, 210, 255, 0.65) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .header__nav-sub {
+    top: calc(100% + 14px) !important;
+    border-radius: 1rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+  }
+}
+
+/* Mobile & Tablet: Floating Glass Pill Header */
+@media screen and (max-width: 991px) {
+  .header__inner {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(20, 26, 42, 0.5) 100%) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 9999px !important;
+    padding: 0.4rem 1.25rem !important;
+    height: 3.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: calc(100% - 1.5rem) !important;
+    margin: 0 auto !important;
+  }
+
+  .header__logo-image {
+    height: 24px !important;
+    max-width: 140px !important;
+  }
+
+  .header__mobile-wrapper {
+    border-radius: 1.25rem !important;
+    background-color: rgba(14, 18, 28, 0.96) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
 }
 
 /* Ensure hero circular upper-middle cyan glow is completely suppressed */
@@ -1788,8 +1856,10 @@ body {
 }
 
 /* Mobile Nav Drawer */
-.header__mobile-wrapper {
-  background-color: var(--tf-surface) !important;
+@media screen and (max-width: 991px) {
+  .header__mobile-wrapper {
+    background-color: var(--tf-surface) !important;
+  }
 }
 
 /* Utilities */
