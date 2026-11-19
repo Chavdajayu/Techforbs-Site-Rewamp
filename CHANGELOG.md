@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Precision Fidelity Pass #24: Calibrated 8px Blur Backdrop Filter for Navbar & All Dropdowns] - 2026-11-19
+
+### Added & Refined
+- **Backdrop-Filter Parameter Calibration (`blur(8px) saturate(180%) brightness(1.08)`):**
+  - Updated backdrop-filter across both the Navbar right-side pill (`.header__nav-list`), CTA button (`.header__cta .button`), and all 4 dropdown menus (`.header__nav-sub-inner` for Technologies, Portfolio, Company, and `.header__nav-sub-body` for Services).
+  - Aligned both the inline React style properties and stylesheet declarations (`-webkit-backdrop-filter` and `backdrop-filter`) to `blur(8px) saturate(180%) brightness(1.08) !important;`.
+  - Preserved crisp legibility and luminous frosted refraction while providing a sharper, modern edge definition for underlying 3D models and geometry.
+
+---
+
 ## [Precision Fidelity Pass #23: Blurry Frosted Glass Overhaul for Navbar & All Dropdown Menus] - 2026-11-19
 
 ### Added & Refined

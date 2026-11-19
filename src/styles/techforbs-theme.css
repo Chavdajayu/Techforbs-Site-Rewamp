@@ -152,11 +152,11 @@ body {
     background: transparent !important;
   }
 
-  /* Right-side Square with Blurry Frosted Glass Effect (Luminous semi-translucent glass + 32px blur) */
+  /* Right-side Square with Blurry Frosted Glass Effect (Luminous semi-translucent glass + 8px blur) */
   .header__nav-list {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 45%, rgba(10, 15, 28, 0.35) 100%) !important;
-    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.15) !important;
-    backdrop-filter: blur(32px) saturate(200%) brightness(1.15) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(180%) brightness(1.08) !important;
+    backdrop-filter: blur(8px) saturate(180%) brightness(1.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.24) !important;
     border-radius: 0.625rem !important; /* 10px rounded square matching user screenshot */
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.28) !important;
@@ -171,8 +171,8 @@ body {
   /* Harmonized CTA Button: Frosted Blue Glass matching nav list and user screenshot */
   .header__cta .button {
     background: linear-gradient(135deg, rgba(0, 140, 255, 0.45) 0%, rgba(0, 80, 200, 0.35) 100%) !important;
-    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.15) !important;
-    backdrop-filter: blur(32px) saturate(200%) brightness(1.15) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(180%) brightness(1.08) !important;
+    backdrop-filter: blur(8px) saturate(180%) brightness(1.08) !important;
     border: 1px solid rgba(0, 200, 255, 0.6) !important;
     border-radius: 0.625rem !important; /* 10px rounded square */
     box-shadow: 0 8px 32px rgba(0, 119, 255, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
@@ -211,8 +211,8 @@ body {
 
   .header__nav-sub-inner {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 40%, rgba(12, 18, 30, 0.50) 100%) !important;
-    -webkit-backdrop-filter: blur(36px) saturate(200%) brightness(1.15) !important;
-    backdrop-filter: blur(36px) saturate(200%) brightness(1.15) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(180%) brightness(1.08) !important;
+    backdrop-filter: blur(8px) saturate(180%) brightness(1.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.22) !important;
     border-radius: 1rem !important;
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
@@ -220,8 +220,8 @@ body {
 
   .header__nav-sub-body {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 40%, rgba(12, 18, 30, 0.50) 100%) !important;
-    -webkit-backdrop-filter: blur(36px) saturate(200%) brightness(1.15) !important;
-    backdrop-filter: blur(36px) saturate(200%) brightness(1.15) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(180%) brightness(1.08) !important;
+    backdrop-filter: blur(8px) saturate(180%) brightness(1.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.22) !important;
     border-radius: 1.25rem !important;
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;

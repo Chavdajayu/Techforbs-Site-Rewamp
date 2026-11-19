@@ -81,8 +81,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                 role="list"
                 className="header__nav-list"
                 style={{
-                  backdropFilter: "blur(32px) saturate(200%) brightness(1.15)",
-                  WebkitBackdropFilter: "blur(32px) saturate(200%) brightness(1.15)",
+                  backdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
+                  WebkitBackdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
                 }}
               >
                 {/* 1. TECHNOLOGIES (Change 05: Exact 8 in 2x4 grid) */}
@@ -92,9 +92,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <div
-                    className={`header__nav-item-drop ${
-                      activeDropdown === "technologies" ? "is-open" : ""
-                    }`}
+                    className={`header__nav-item-drop ${activeDropdown === "technologies" ? "is-open" : ""
+                      }`}
                   >
                     <div
                       className="header__nav-item-toggle"
@@ -122,8 +121,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(36px) saturate(200%) brightness(1.15)",
-                          WebkitBackdropFilter: "blur(36px) saturate(200%) brightness(1.15)",
+                          backdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
+                          WebkitBackdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -182,9 +181,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <div
-                    className={`header__nav-item-drop is-static ${
-                      activeDropdown === "services" ? "is-open" : ""
-                    }`}
+                    className={`header__nav-item-drop is-static ${activeDropdown === "services" ? "is-open" : ""
+                      }`}
                   >
                     <div
                       className="header__nav-item-toggle"
@@ -212,8 +210,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-body"
                         style={{
-                          backdropFilter: "blur(36px) saturate(200%) brightness(1.15)",
-                          WebkitBackdropFilter: "blur(36px) saturate(200%) brightness(1.15)",
+                          backdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
+                          WebkitBackdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
                         }}
                       >
                         {/* Services Left Column: Core Disciplines */}
@@ -508,9 +506,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <div
-                    className={`header__nav-item-drop ${
-                      activeDropdown === "portfolio" ? "is-open" : ""
-                    }`}
+                    className={`header__nav-item-drop ${activeDropdown === "portfolio" ? "is-open" : ""
+                      }`}
                   >
                     <div
                       className="header__nav-item-toggle"
@@ -538,8 +535,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(36px) saturate(200%) brightness(1.15)",
-                          WebkitBackdropFilter: "blur(36px) saturate(200%) brightness(1.15)",
+                          backdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
+                          WebkitBackdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -586,9 +583,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <div
-                    className={`header__nav-item-drop ${
-                      activeDropdown === "company" ? "is-open" : ""
-                    }`}
+                    className={`header__nav-item-drop ${activeDropdown === "company" ? "is-open" : ""
+                      }`}
                   >
                     <div
                       className="header__nav-item-toggle"
@@ -616,8 +612,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(36px) saturate(200%) brightness(1.15)",
-                          WebkitBackdropFilter: "blur(36px) saturate(200%) brightness(1.15)",
+                          backdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
+                          WebkitBackdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -681,8 +677,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                   onClick={closeAll}
                   className="button button_smaller w-inline-block"
                   style={{
-                    backdropFilter: "blur(32px) saturate(200%) brightness(1.15)",
-                    WebkitBackdropFilter: "blur(32px) saturate(200%) brightness(1.15)",
+                    backdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
+                    WebkitBackdropFilter: "blur(8px) saturate(180%) brightness(1.08)",
                   }}
                 >
                   <div>Let&apos;s Talk</div>
