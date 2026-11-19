@@ -281,10 +281,6 @@ export default function HeroSection({
                     {srHeadline ?? `${words.join(" ")} ${rotatingWords[0] ?? ""}`.trim()}
                   </span>
 
-                  <div aria-hidden="true" className="hero-headline-glow-anchor">
-                    <div className="hero-headline-glow" />
-                  </div>
-
                   <div className="hero-headline-lines" aria-hidden="true">
                     <div className="hero-text-line hero-text-line-1">
                       <span className="hero-word-text">{words[0]} {words[1]}</span>

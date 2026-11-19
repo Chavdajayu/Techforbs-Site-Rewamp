@@ -165,47 +165,7 @@ body {
   margin-top: -3.5rem; /* Aligns 3D model directly hovering above the square pedestal */
 }
 
-/* Accent bloom behind the headline */
-.hero-headline-glow-anchor {
-  position: absolute;
-  left: 28%;
-  top: 15%;
-  width: 0;
-  height: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero-headline-glow {
-  position: absolute;
-  left: -280px;
-  top: -280px;
-  width: 560px;
-  height: 560px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 229, 255, 0.22) 0%,
-    rgba(0, 229, 255, 0.06) 45%,
-    rgba(0, 229, 255, 0) 70%
-  );
-  animation: hero-glow 5s ease-in-out infinite;
-}
-
-@keyframes hero-glow {
-  0%,
-  100% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-headline-glow {
-    animation: none;
-  }
   .hero-word-accent {
     transition: none;
   }

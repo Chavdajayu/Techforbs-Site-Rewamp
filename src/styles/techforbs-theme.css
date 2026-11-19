@@ -115,26 +115,27 @@ body {
   margin: auto 0 !important;
 }
 
-/* Right-side Nav Items Capsule Box with Smooth Radius */
+/* Right-side Nav Items Capsule Box with Premium Glassmorphism */
 .header__nav-list {
-  background-color: rgba(18, 18, 20, 0.78) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: linear-gradient(135deg, rgba(16, 22, 36, 0.52) 0%, rgba(8, 11, 20, 0.38) 100%) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
   border-radius: 0.625rem !important; /* 10px smooth radius */
   height: 3rem !important;
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
+  padding-left: 0.85rem !important;
+  padding-right: 0.85rem !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
 }
 
-/* CTA "Let's Talk" Button with Matching Smooth Radius */
+/* CTA "Let's Talk" Button with Harmonized Glassmorphism */
 .header__cta .button {
   border-radius: 0.625rem !important; /* 10px smooth radius matching nav capsule */
-  border: 1px solid rgba(0, 119, 255, 0.6) !important;
-  background-color: rgba(0, 119, 255, 0.08) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(0, 210, 255, 0.35) !important;
+  background-color: rgba(0, 102, 255, 0.18) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
   height: 3rem !important;
   min-height: 3rem !important;
   display: flex !important;
@@ -142,15 +143,25 @@ body {
   justify-content: center !important;
   padding: 0 1.5rem !important;
   font-weight: 600 !important;
+  color: #ffffff !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .header__cta .button:hover {
-  background-color: #0077ff !important;
-  border-color: #0077ff !important;
+  background-color: rgba(0, 119, 255, 0.85) !important;
+  border-color: rgba(0, 229, 255, 0.8) !important;
   color: #ffffff !important;
-  box-shadow: 0 4px 22px rgba(0, 119, 255, 0.5) !important;
+  box-shadow: 0 8px 32px rgba(0, 119, 255, 0.45), 0 0 20px rgba(0, 229, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
   transform: translateY(-1px) !important;
+}
+
+/* Ensure hero circular upper-middle cyan glow is completely suppressed */
+.hero-headline-glow-anchor,
+.hero-headline-glow {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .footer__logo-image {
