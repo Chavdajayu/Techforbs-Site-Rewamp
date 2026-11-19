@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Precision Fidelity Pass #25: Calibrated 7px Blur Backdrop Filter & DevTools Class Clean-up for All Dropdowns] - 2026-11-19
+
+### Added & Refined
+- **Backdrop-Filter Formula Calibration (`blur(7px) saturate(180%) brightness(1.08)`):**
+  - Updated backdrop-filter across all 4 navigation dropdowns (Technologies, Services, Portfolio, Company), as well as the Navbar right container (`.header__nav-list`) and CTA button (`.header__cta .button`), to the exact requested formula:
+    `backdrop-filter: blur(7px) saturate(180%) brightness(1.08) !important;`
+  - Cleaned up Chrome DevTools styling warnings by declaring standard `backdrop-filter` directly and eliminating redundant/invalid vendor prefix properties in inline styles and stylesheets.
+  - Set `overflow: visible !important;` on `.header__nav-sub` to guarantee zero clipping of dropdown blur refraction.
+  - Verified live in Chrome Headless: all dropdowns render with 100% valid CSS properties (`parsedOk: true`), zero warnings in DevTools, and seamless frosted diffusion over underlying 3D models and page sections.
+
+---
+
 ## [Precision Fidelity Pass #24: Calibrated 8px Blur Backdrop Filter for Navbar & All Dropdowns] - 2026-11-19
 
 ### Added & Refined
