@@ -77,7 +77,14 @@ export default function Navbar({ className }: NavbarProps = {}) {
             className={`header__mobile-wrapper ${mobileOpen ? "is-open" : ""}`}
           >
             <nav className="header__nav">
-              <ul role="list" className="header__nav-list">
+              <ul
+                role="list"
+                className="header__nav-list"
+                style={{
+                  backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                  WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                }}
+              >
                 {/* 1. TECHNOLOGIES (Change 05: Exact 8 in 2x4 grid) */}
                 <li
                   className="header__nav-item"
@@ -649,6 +656,10 @@ export default function Navbar({ className }: NavbarProps = {}) {
                   href="#contact-section"
                   onClick={closeAll}
                   className="button button_smaller w-inline-block"
+                  style={{
+                    backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                    WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                  }}
                 >
                   <div>Let&apos;s Talk</div>
                 </Link>
