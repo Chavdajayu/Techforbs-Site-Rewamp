@@ -81,8 +81,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                 role="list"
                 className="header__nav-list"
                 style={{
-                  backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
-                  WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                  backdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
+                  WebkitBackdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
                 }}
               >
                 {/* 1. TECHNOLOGIES (Change 05: Exact 8 in 2x4 grid) */}
@@ -122,8 +122,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
-                          WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                          backdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
+                          WebkitBackdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -212,8 +212,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-body"
                         style={{
-                          backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
-                          WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                          backdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
+                          WebkitBackdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
                         }}
                       >
                         {/* Services Left Column: Core Disciplines */}
@@ -538,8 +538,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
-                          WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                          backdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
+                          WebkitBackdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -616,8 +616,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
-                          WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                          backdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
+                          WebkitBackdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -681,8 +681,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                   onClick={closeAll}
                   className="button button_smaller w-inline-block"
                   style={{
-                    backdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
-                    WebkitBackdropFilter: "blur(28px) saturate(190%) brightness(1.1)",
+                    backdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
+                    WebkitBackdropFilter: "blur(36px) saturate(180%) brightness(1.08)",
                   }}
                 >
                   <div>Let&apos;s Talk</div>
