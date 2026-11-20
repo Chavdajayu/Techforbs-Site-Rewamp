@@ -6,6 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Precision Fidelity Pass #27: Who We Build For Alignment Restoration, Enterprise Docking Fix & Our Customers Recovery] - 2026-11-20
+
+### Added & Refined
+- **"Who We Build For" Natural Top Alignment & Void Removal:**
+  - Restored `.build-for__inner-left` to top alignment with the right card (`top: clamp(75px, 9vh, 90px)`), completely removing the large awkward empty space above "WHO WE BUILD FOR".
+  - Balanced the layout so both the left heading and the right card start at the same visual baseline.
+  - Eliminated dead space voids at the bottom while preserving single-card visibility during scroll.
+- **Enterprise Card Full Docking Completion:**
+  - Added dedicated scroll runway on the final card (`.build-for__card:last-child { margin-bottom: clamp(35vh, 45vh, 55vh) !important; }`), allowing Card 3 ("Enterprise") to rise and dock completely at `top: clamp(75px, 9vh, 90px)` without stopping halfway.
+  - Verified 100% full card visibility on screen (title, badge, 3D server graphic, description, white-label box) and proper headline text rotation to "for Enterprise.".
+- **"Our Customers" Section Restoration:**
+  - Completely neutralized rogue sticky overlay `.build-for__seciton-overlay-wrap` / `.build-for__seciton-overlay` (`display: none !important;`) that had a 1120px tall black gradient pinning across sections and obscuring the customer carousel.
+  - Verified Our Customers carousel is 100% visible, unblocked, interactive, and responsive across all devices.
+
+
+---
+
 ## [Precision Fidelity Pass #26: Responsive Layout Alignment, Single-Card Viewport Docking & Digicio Partner Addition] - 2026-11-20
 
 ### Added & Refined

@@ -2036,23 +2036,30 @@ body {
   right: 0 !important;
 }
 
+.build-for__seciton-overlay-wrap,
+.build-for__seciton-overlay {
+  display: none !important;
+}
+
 .section--build-for {
-  padding-bottom: clamp(2.5rem, 5vh, 4rem) !important;
+  padding-top: clamp(2rem, 3.5vh, 3.5rem) !important;
+  padding-bottom: clamp(2rem, 3.5vh, 3.5rem) !important;
   margin-bottom: 0 !important;
   position: relative !important;
   overflow: visible !important;
 }
 
 @media screen and (min-width: 992px) {
-  /* Left Column: Vertically centered in visible viewport, strictly left-aligned text */
+  /* Left Column: Top-aligned with right card, sticky below navbar */
   .build-for__inner-left {
     position: sticky !important;
-    top: clamp(70px, 8.5vh, 85px) !important;
-    height: calc(100vh - clamp(70px, 8.5vh, 85px) - 20px) !important;
+    top: clamp(75px, 9vh, 90px) !important;
+    height: auto !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
-    padding-right: clamp(2rem, 3.5vw, 4.5rem) !important;
+    justify-content: flex-start !important;
+    padding-top: 0 !important;
+    padding-right: clamp(1.5rem, 3vw, 3.5rem) !important;
   }
 
   /* Right Column: Only ONE complete active card visible at a time */
@@ -2065,18 +2072,19 @@ body {
     transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease !important;
     padding: clamp(1rem, 1.8vh, 1.5rem) clamp(1.25rem, 1.8vw, 2rem) !important;
     position: sticky !important;
-    top: clamp(70px, 8.5vh, 85px) !important;
-    margin-bottom: clamp(35vh, 48vh, 60vh) !important;
+    top: clamp(75px, 9vh, 90px) !important;
+    margin-bottom: clamp(30vh, 38vh, 48vh) !important;
     max-height: calc(100vh - clamp(90px, 12vh, 120px)) !important;
     box-sizing: border-box !important;
   }
 
+  /* Sufficient runway so the last card (Enterprise) rises and docks completely */
   .build-for__card:last-child {
-    margin-bottom: 0 !important;
+    margin-bottom: clamp(35vh, 45vh, 55vh) !important;
   }
 
   .build-for__card-image {
-    max-height: clamp(160px, 22vh, 230px) !important;
+    max-height: clamp(180px, 26vh, 260px) !important;
     width: 100% !important;
     object-fit: cover !important;
     margin-top: clamp(0.4rem, 0.9vh, 0.75rem) !important;
