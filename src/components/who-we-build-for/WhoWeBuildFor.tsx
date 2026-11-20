@@ -72,7 +72,7 @@ export default function WhoWeBuildFor({
         if (cardEls[1]) {
           ScrollTrigger.create({
             trigger: cardEls[1],
-            start: "top 220px",
+            start: "top 250px",
             onEnter: () => setActiveAudienceIndex(1),
             onLeaveBack: () => setActiveAudienceIndex(0),
           });
@@ -82,7 +82,7 @@ export default function WhoWeBuildFor({
         if (cardEls[2]) {
           ScrollTrigger.create({
             trigger: cardEls[2],
-            start: "top 220px",
+            start: "top 250px",
             onEnter: () => setActiveAudienceIndex(2),
             onLeaveBack: () => setActiveAudienceIndex(1),
           });
@@ -92,7 +92,7 @@ export default function WhoWeBuildFor({
         if (cardEls[3]) {
           ScrollTrigger.create({
             trigger: cardEls[3],
-            start: "top 220px",
+            start: "top 250px",
             onEnter: () => setActiveAudienceIndex(3),
             onLeaveBack: () => setActiveAudienceIndex(2),
           });

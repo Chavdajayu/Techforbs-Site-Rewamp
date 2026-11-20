@@ -37,8 +37,35 @@
    Custom Luxury Sleek Scrollbar (Thin, Dark, Rounded with Brand Glow)
    ========================================================================== */
 html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.25) #090a0f;
+}
+
+@media screen and (min-width: 992px) {
+  html {
+    font-size: 1.09815vw;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 0.85vw;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  html {
+    font-size: 0.7vw;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  html {
+    font-size: calc(100vw / 375 * 16);
+  }
 }
 
 ::-webkit-scrollbar {
@@ -2042,77 +2069,217 @@ body {
 }
 
 .section--build-for {
-  padding-top: clamp(1.5rem, 2.5vh, 2.5rem) !important;
-  padding-bottom: clamp(1.5rem, 2.5vh, 2.5rem) !important;
-  margin-bottom: 0 !important;
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
   position: relative !important;
-  overflow: visible !important;
+  overflow: clip !important;
+  margin-bottom: 0 !important;
+}
+
+.section--build-for.is_home {
+  padding-bottom: 0.25rem !important;
+}
+
+.build-for__inner {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  display: flex !important;
 }
 
 @media screen and (min-width: 992px) {
-  /* Left Column: Top-aligned with right card, sticky below navbar */
   .build-for__inner-left {
-    position: sticky !important;
-    top: clamp(75px, 9vh, 85px) !important;
-    height: auto !important;
+    grid-column-gap: 4rem !important;
+    grid-row-gap: 4rem !important;
+    flex-flow: column !important;
+    flex: 1 !important;
+    padding-right: 5rem !important;
     display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    gap: clamp(1.5rem, 2.8vh, 2.5rem) !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-right: clamp(1.5rem, 3vw, 3.5rem) !important;
+    position: sticky !important;
+    top: 7rem !important;
+    height: auto !important;
     box-sizing: border-box !important;
   }
 
-  /* Right Column: Only ONE complete active card visible at a time */
   .build-for__inner-right {
+    grid-row-gap: 1rem !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    max-width: 40rem !important;
+    display: flex !important;
     position: relative !important;
   }
 
   .build-for__card {
+    grid-column-gap: 2rem !important;
+    grid-row-gap: 2rem !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease !important;
-    padding: clamp(1.25rem, 2vh, 1.75rem) clamp(1.5rem, 2vw, 2.25rem) !important;
-    position: sticky !important;
-    top: clamp(75px, 9vh, 85px) !important;
-    min-height: calc(100vh - clamp(75px, 9vh, 85px) - clamp(2.5rem, 4vh, 3.5rem)) !important;
-    height: calc(100vh - clamp(75px, 9vh, 85px) - clamp(2.5rem, 4vh, 3.5rem)) !important;
-    margin-bottom: clamp(25vh, 32vh, 40vh) !important;
-    box-sizing: border-box !important;
+    background-color: #13141f !important;
+    border-radius: 1.5rem 0.25rem !important;
+    flex-flow: column !important;
+    padding: 2.5rem !important;
     display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    background: #13141f !important;
+    position: sticky !important;
+    top: 7rem !important;
+    overflow: clip !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin-bottom: 0 !important;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease !important;
   }
 
-  /* Zero bottom blank space after the last card */
   .build-for__card:last-child {
     margin-bottom: 0 !important;
   }
 
+  .build-for__card-head {
+    z-index: 1 !important;
+    grid-column-gap: 1.5rem !important;
+    grid-row-gap: 1.5rem !important;
+    flex-flow: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    display: flex !important;
+    position: relative !important;
+  }
+
   .build-for__card-image {
-    height: clamp(200px, 28vh, 290px) !important;
-    max-height: clamp(200px, 28vh, 290px) !important;
-    width: 100% !important;
+    z-index: 1 !important;
+    aspect-ratio: 16/9 !important;
     object-fit: cover !important;
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.5rem !important;
+    border-radius: 1rem 0.25rem !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    display: block !important;
+    position: relative !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .build-for__card-content {
+    z-index: 1 !important;
+    grid-column-gap: 1.5rem !important;
+    grid-row-gap: 1.5rem !important;
+    flex-flow: column !important;
+    padding-top: 0.625rem !important;
+    display: flex !important;
+    position: relative !important;
+  }
+
+  .build-for__card-highlight {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-top-right-radius: 1rem !important;
+    border-bottom-left-radius: 1rem !important;
+    padding: 0.5rem !important;
   }
 }
 
+/* media for desktop wider screens */
+@media screen and (min-aspect-ratio: 16 / 8) and (min-width: 1600px) {
+  .build-for__card-image {
+    aspect-ratio: 716/295 !important;
+  }
+}
+
+/* media for laptop taller screens */
+@media screen and (min-width: 992px) and (max-width: 1599px) and (max-height: 960px) {
+  .build-for__card-image {
+    aspect-ratio: 716/295 !important;
+  }
+}
+
+/* media for laptop shorter screens */
+@media screen and (min-width: 992px) and (max-height: 740px) {
+  .build-for__card-image {
+    aspect-ratio: 716/250 !important;
+  }
+  .build-for__card {
+    padding: 1.5rem !important;
+    grid-row-gap: 1rem !important;
+  }
+  .build-for__card-content {
+    grid-row-gap: 1rem !important;
+    padding-top: 0 !important;
+  }
+  .build-for__card-highlight {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* TABLET: max-width: 991px */
 @media screen and (max-width: 991px) {
+  .build-for__inner {
+    grid-row-gap: 3rem !important;
+    flex-direction: column !important;
+  }
   .build-for__inner-left {
+    grid-column-gap: 2.5rem !important;
+    grid-row-gap: 2.5rem !important;
+    padding-right: 0 !important;
     position: static !important;
     height: auto !important;
-    padding-right: 0 !important;
   }
-
+  .build-for__inner-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-row-gap: 1.5rem !important;
+  }
   .build-for__card {
     position: relative !important;
     top: 0 !important;
-    margin-bottom: 1.5rem !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin-bottom: 0 !important;
+    padding: 2.5rem !important;
+  }
+}
+
+/* MOBILE LANDSCAPE / TABLET PORTRAIT: max-width: 767px */
+@media screen and (max-width: 767px) {
+  .build-for__inner-left {
+    grid-row-gap: 1rem !important;
+    flex-direction: column !important;
+  }
+  .build-for__card {
+    grid-column-gap: 1.25rem !important;
+    grid-row-gap: 1.25rem !important;
     padding: 1.5rem !important;
+  }
+  .build-for__card-head {
+    grid-row-gap: 1.25rem !important;
+  }
+  .build-for__card-content {
+    grid-column-gap: 1.25rem !important;
+    grid-row-gap: 1.25rem !important;
+    padding-top: 0 !important;
+  }
+  .build-for__seciton-overlay-wrap {
+    display: none !important;
+  }
+}
+
+/* MOBILE PORTRAIT: max-width: 479px */
+@media screen and (max-width: 479px) {
+  .section--build-for {
+    padding-bottom: 2.5rem !important;
+  }
+  .section--build-for.is_home {
+    padding-bottom: 1.5rem !important;
+  }
+  .build-for__card {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .build-for__card-head-right {
+    text-align: center !important;
+    flex-flow: column !important;
+    width: 100% !important;
+    display: flex !important;
+  }
+  .build-for__inner-right {
+    grid-row-gap: 0.75rem !important;
   }
 }
 

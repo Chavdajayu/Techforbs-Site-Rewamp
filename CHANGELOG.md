@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Precision Fidelity Pass #29: CheIT Reference 1:1 Responsive Layout & Fluid Typography Calibration] - 2026-11-20
+
+### Added & Refined
+- **CheIT Reference 1:1 Architecture Alignment (`reference-source/www.cheitgroup.com/index.html`):**
+  - Implemented CheIT's exact fluid typography system (`@media (min-width: 992px) { html { font-size: 1.09815vw; } }`, `0.85vw` on wide screens, `0.7vw` on 4K, and `calc(100vw / 375 * 16)` on small mobile) ensuring all `rem`-based layouts scale with mathematical precision across every screen size.
+  - Replaced custom viewport-height clamp constraints with CheIT's exact production CSS specification for `.section--build-for`, `.build-for__inner-left`, `.build-for__inner-right`, and `.build-for__card`.
+- **Card Stacking & Scrolling Flow:**
+  - Configured `position: sticky; top: 7rem;` on `.build-for__inner-left` and all `.build-for__card` elements, with `.build-for__inner-right { grid-row-gap: 1rem; }`.
+  - Cards naturally follow in standard flow with `1rem` gap, gliding into place as the user scrolls, stacking seamlessly on top of each other with zero partial cutoff or unnatural elongation.
+  - Eliminated bottom empty voids and half-scrolled cutoff issues across all device viewports.
+- **CheIT Laptop & Device Breakpoint Adaptation:**
+  - Integrated CheIT's specific laptop media queries:
+    - `@media (min-width: 992px) and (max-height: 960px)`: aspect-ratio `716/295` on card graphics.
+    - `@media (min-width: 992px) and (max-height: 740px)`: aspect-ratio `716/250`, `padding: 1.5rem`, `grid-row-gap: 1rem`.
+  - Integrated CheIT's tablet (`max-width: 991px`), mobile landscape (`max-width: 767px`), and mobile portrait (`max-width: 479px`) responsive configurations.
+- **ScrollTrigger Kinetic Text Sync:**
+  - Updated GSAP ScrollTrigger kinetic audience title/paragraph synchronization in `WhoWeBuildFor.tsx` with dynamic `start: "top 7.5rem"` triggers, perfectly timed with card docking.
+
+---
+
 ## [Precision Fidelity Pass #28: Who We Build For Bottom Blank Space Elimination & Card Height Equalization] - 2026-11-20
 
 ### Added & Refined
