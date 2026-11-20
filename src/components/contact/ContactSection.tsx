@@ -184,6 +184,33 @@ export default function ContactSection({
                       Cross-Border Platforms &amp; 24/7 Ops
                     </p>
                   </li>
+                  <li className="contact__info-item contact__info-item--partner">
+                    <a
+                      href="https://digicio.ca/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact__partner-link"
+                      title="Visit Digicio - International Partner"
+                    >
+                      <img
+                        src="/images/customers/logos/digicio-logo-white.png"
+                        loading="lazy"
+                        alt="Digicio - International Partner"
+                        className="contact__info-item-icon contact__info-item-icon--partner"
+                        style={{
+                          width: "28px",
+                          height: "28px",
+                          objectFit: "contain",
+                        }}
+                      />
+                      <p className="contact__info-item-text">
+                        DIGICIO{" "}
+                        <span className="contact__partner-badge">PARTNER</span>
+                        <br />
+                        Enterprise Digital &amp; Transformation
+                      </p>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>

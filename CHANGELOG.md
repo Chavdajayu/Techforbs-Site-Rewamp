@@ -6,6 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Precision Fidelity Pass #26: Responsive Layout Alignment, Single-Card Viewport Docking & Digicio Partner Addition] - 2026-11-20
+
+### Added & Refined
+- **"Who We Build For" Responsive Layout & Docking:**
+  - Vertically centered the left column content (eyebrow, headline, dynamic rotating word, and descriptive paragraph) within the left column on desktop (`min-width: 992px`) using flex column centering while maintaining strict left alignment.
+  - Implemented single-card viewport docking: configured `margin-bottom: clamp(35vh, 48vh, 60vh)` on `.build-for__card:not(:last-child)` so subsequent cards remain completely off-screen until scrolled, guaranteeing **exactly ONE complete active card visible at a time** (zero partial card bleeding / peeking).
+  - Tightened bottom padding to eliminate dead black space before the Brand Logos section.
+- **"What We Do" (Solutions) Responsive Vertical Centering:**
+  - Preserved the main heading ("Full-cycle web development and automation in one place") in its top-left position with safe top clearance below the sticky navbar.
+  - Vertically centered the left 6-service menu in alignment with the vertical midpoint of the active right-side card using `align-items: center !important;`.
+  - Eliminated the massive bottom void beneath the section across viewports (specifically tuned for baseline 1280×800 and shorter laptops).
+- **"Contact Us" Global Delivery Hubs — Digicio Partner Addition:**
+  - Added international partner **Digicio** (`https://digicio.ca/`) with official white logo (`/images/customers/logos/digicio-logo-white.png`), labeled as `PARTNER` / `Enterprise Digital & Transformation`.
+  - Preserved existing delivery hubs (Canada, USA, Australia & New Zealand).
+  - Opens in a new tab with `target="_blank" rel="noopener noreferrer"`.
+- **Full Cross-Device Responsiveness (Mobile, Tablet, Desktop, Laptop):**
+  - Added layout containment (`overflow-x: clip !important;`) on `html, body, main` and enclosed dynamic slots/marquees/carousels to ensure 0px horizontal overflow across all device viewports: Mobile (320px–480px, including 390px iPhone), Tablet (768px–1024px iPad), and Desktop/Laptop (1280px–2560px).
+
+
+---
+
 ## [Precision Fidelity Pass #25: Calibrated 7px Blur Backdrop Filter & DevTools Class Clean-up for All Dropdowns] - 2026-11-19
 
 ### Added & Refined
