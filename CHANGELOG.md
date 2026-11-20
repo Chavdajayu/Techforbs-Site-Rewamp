@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Precision Fidelity Pass #28: Who We Build For Bottom Blank Space Elimination & Card Height Equalization] - 2026-11-20
+
+### Added & Refined
+- **"Who We Build For" Bottom Blank Space Elimination:**
+  - Removed the artificial 360px dead space at the bottom of the section by resetting the last card's margin: `.build-for__card:last-child { margin-bottom: 0 !important; }`.
+  - Tightened section vertical padding to `clamp(1.5rem, 2.5vh, 2.5rem) !important;` so the next section (Brand Logos / Awards Grid) transitions smoothly without empty black space.
+  - Eliminated lower viewport emptiness across desktop viewports (1280×800 Nest Hub Max/laptop, 1440×900, 1920×1080).
+- **Equalized Card Heights & Zero Background Bleed:**
+  - Set explicit `min-height` and `height` on `.build-for__card` to `calc(100vh - clamp(75px, 9vh, 85px) - clamp(2.5rem, 4vh, 3.5rem)) !important;` with `background: #13141f !important;` and `display: flex; flex-direction: column; justify-content: space-between !important;`.
+  - Scaled `.build-for__card-image` to `height: clamp(200px, 28vh, 290px) !important; max-height: clamp(200px, 28vh, 290px) !important;` to ensure cards naturally expand and completely occupy the viewport card area.
+  - Solved the issue where the previous "Startups" card white-label box peeked out awkwardly under the shorter "Enterprise" card: all cards now have identical height and solid background, guaranteeing 100% full coverage when docked with zero peeking or bleeding.
+- **Left Column Content Proportional Spacing:**
+  - Added `gap: clamp(1.5rem, 2.8vh, 2.5rem) !important;` to `.build-for__inner-left` to maintain balanced visual hierarchy between the eyebrow, headline, dynamic rotating text, and descriptive paragraph without creating floating gaps.
+- **Full Cross-Device Responsive Verification:**
+  - Verified across Desktop (1280×800, 1440×900, 1920×1080), Tablet (768×1024), and Mobile (390×844) with zero horizontal overflow (`scrollWidth === innerWidth`), intact scroll animations, and clean section transitions.
+
+---
+
 ## [Precision Fidelity Pass #27: Who We Build For Alignment Restoration, Enterprise Docking Fix & Our Customers Recovery] - 2026-11-20
 
 ### Added & Refined
