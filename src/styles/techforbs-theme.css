@@ -2631,7 +2631,7 @@ body {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: 50% 20% !important;
+  object-position: center !important;
   display: block !important;
 }
 
