@@ -17,6 +17,14 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "TechForbs | Shopify Experts & Enterprise Web Development",
   description: "Powering Shopify stores to grow with scalable IT solutions, custom development, and full-stack engineering.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

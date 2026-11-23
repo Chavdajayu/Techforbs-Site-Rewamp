@@ -107,31 +107,31 @@ export default function HeroSection({
 
       // Initial state setup before animation starts
       if (header) gsap.set(header, { clearProps: "all" });
-      if (heroStage) gsap.set(heroStage, { scale: 0.001, x: "-2.25rem", y: "4rem", transformOrigin: "50% 50%", opacity: 0 });
+      if (heroStage) gsap.set(heroStage, { scale: 0.94, x: "0rem", y: "2rem", transformOrigin: "50% 50%", opacity: 0 });
       if (heroGradient) gsap.set(heroGradient, { opacity: 0 });
-      gsap.set(wordElements, { y: 26, opacity: 0 });
-      if (heroText) gsap.set(heroText, { y: 30, opacity: 0 });
+      gsap.set(wordElements, { y: 35, opacity: 0 });
+      if (heroText) gsap.set(heroText, { y: 25, opacity: 0 });
       if (heroButtons) gsap.set(heroButtons, { y: 20, opacity: 0 });
 
-      const tl = gsap.timeline({ delay: 0.15 });
+      const tl = gsap.timeline({ delay: 0.1 });
 
       // Step 1: At 0.1s, Header slides down and clears inline transforms
       if (header) {
         tl.fromTo(
           header,
-          { y: -80, opacity: 0 },
+          { y: -50, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.85,
-            ease: "power2.out",
+            duration: 0.8,
+            ease: "power3.out",
             clearProps: "transform",
           },
           0.1
         );
       }
 
-      // Step 2: At 0.35s, 3D stage and faceted background bloom up
+      // Step 2: At 0.2s, 3D stage and faceted background smoothly bloom up
       if (heroStage) {
         tl.to(
           heroStage,
@@ -140,61 +140,75 @@ export default function HeroSection({
             x: "0rem",
             y: "0rem",
             opacity: 1,
-            duration: 1.5,
-            ease: "expo.inOut",
+            duration: 1.2,
+            ease: "power3.out",
           },
-          0.35
+          0.2
         );
       }
 
-      // Step 3: At 1.5s, the glowing cyan/blue gradient fades in
+      // Step 3: At 0.35s, glowing cyan/blue ambient gradient fades in
       if (heroGradient) {
         tl.to(
           heroGradient,
           {
             opacity: 1,
-            duration: 1.25,
+            duration: 1.0,
             ease: "power2.out",
           },
-          1.5
+          0.35
         );
       }
 
-      // Step 4: At 1.35s, Headline Row 1 rises in: "Stores built"
+      // Step 4: At 0.45s, Headline Row 1 rises smoothly: "Stores built"
       tl.to(
         ".hero-text-line-1 .hero-word-text",
         {
           y: 0,
           opacity: 1,
-          duration: 0.9,
-          ease: "power2.out",
+          duration: 0.85,
+          ease: "power3.out",
         },
-        1.35
+        0.45
       );
 
-      // Step 5: At 1.48s, Headline Row 2 rises in: "to [accent word]"
+      // Step 5: At 0.6s, Headline Row 2 rises smoothly: "to [accent word]"
       tl.to(
         ".hero-text-line-2 .hero-word-text",
         {
           y: 0,
           opacity: 1,
-          duration: 0.9,
-          ease: "power2.out",
+          duration: 0.85,
+          ease: "power3.out",
         },
-        1.48
+        0.6
       );
 
-      // Step 6: At 1.95s, Supporting text rises into place
+      // Step 6: At 0.75s, Supporting text rises into place
       if (heroText) {
         tl.to(
           heroText,
           {
             y: 0,
             opacity: 1,
-            duration: 1.0,
-            ease: "power2.out",
+            duration: 0.8,
+            ease: "power3.out",
           },
-          1.95
+          0.75
+        );
+      }
+
+      // Step 7: At 0.9s, Mobile/desktop CTA buttons rise in
+      if (heroButtons) {
+        tl.to(
+          heroButtons,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          0.9
         );
       }
 

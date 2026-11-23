@@ -165,10 +165,10 @@ export default function ContactSection({
                         }}
                       />
                       <p className="contact__info-item-text">
-                        Canada - DIGICIO{" "}
-                        <span className="contact__partner-badge">PARTNER</span>
+                        <span className="contact__partner-badge" style={{ display: "inline-block", marginRight: "0.5rem", verticalAlign: "middle" }}>PARTNER</span>
+                        <strong style={{ verticalAlign: "middle" }}>DIGICIO - CANADA</strong>
                         <br />
-                        Enterprise Digital &amp; Transformation
+                        <span>Enterprise Digital &amp; Transformation</span>
                       </p>
                     </a>
                   </li>
@@ -339,9 +339,10 @@ export default function ContactSection({
                         }}
                       />
                       <p className="contact__info-item-text text-uppercase body-smaller weight-600">
-                        CANADA &mdash; DIGICIO
+                        <span className="contact__partner-badge" style={{ display: "inline-block", marginRight: "0.5rem", verticalAlign: "middle" }}>PARTNER</span>
+                        <strong style={{ verticalAlign: "middle" }}>DIGICIO - CANADA</strong>
                         <br />
-                        Enterprise Digital &amp; Transformation
+                        <span style={{ fontWeight: 400, textTransform: "none", opacity: 0.85 }}>Enterprise Digital &amp; Transformation</span>
                       </p>
                     </a>
                   </li>
