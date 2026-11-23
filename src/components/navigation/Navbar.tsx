@@ -120,7 +120,11 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(7px) saturate(180%) brightness(1.08)",
+                          background: "linear-gradient(180deg, rgba(12, 15, 24, 0.68) 0%, rgba(5, 7, 12, 0.92) 100%)",
+                          backdropFilter: "blur(18px) saturate(150%)",
+                          WebkitBackdropFilter: "blur(18px) saturate(150%)",
+                          border: "1px solid rgba(255, 255, 255, 0.12)",
+                          boxShadow: "0 22px 48px rgba(0, 0, 0, 0.82), 0 6px 18px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.10)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -208,7 +212,11 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-body"
                         style={{
-                          backdropFilter: "blur(7px) saturate(180%) brightness(1.08)",
+                          background: "linear-gradient(180deg, rgba(12, 15, 24, 0.68) 0%, rgba(5, 7, 12, 0.92) 100%)",
+                          backdropFilter: "blur(18px) saturate(150%)",
+                          WebkitBackdropFilter: "blur(18px) saturate(150%)",
+                          border: "1px solid rgba(255, 255, 255, 0.12)",
+                          boxShadow: "0 22px 48px rgba(0, 0, 0, 0.82), 0 6px 18px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.10)",
                         }}
                       >
                         {/* Services Left Column: Core Disciplines */}
@@ -532,7 +540,11 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(7px) saturate(180%) brightness(1.08)",
+                          background: "linear-gradient(180deg, rgba(12, 15, 24, 0.68) 0%, rgba(5, 7, 12, 0.92) 100%)",
+                          backdropFilter: "blur(18px) saturate(150%)",
+                          WebkitBackdropFilter: "blur(18px) saturate(150%)",
+                          border: "1px solid rgba(255, 255, 255, 0.12)",
+                          boxShadow: "0 22px 48px rgba(0, 0, 0, 0.82), 0 6px 18px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.10)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -608,7 +620,11 @@ export default function Navbar({ className }: NavbarProps = {}) {
                       <div
                         className="header__nav-sub-inner"
                         style={{
-                          backdropFilter: "blur(7px) saturate(180%) brightness(1.08)",
+                          background: "linear-gradient(180deg, rgba(12, 15, 24, 0.68) 0%, rgba(5, 7, 12, 0.92) 100%)",
+                          backdropFilter: "blur(18px) saturate(150%)",
+                          WebkitBackdropFilter: "blur(18px) saturate(150%)",
+                          border: "1px solid rgba(255, 255, 255, 0.12)",
+                          boxShadow: "0 22px 48px rgba(0, 0, 0, 0.82), 0 6px 18px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.10)",
                         }}
                       >
                         <div className="header__nav-sub-inner-arrow w-embed">
@@ -671,9 +687,6 @@ export default function Navbar({ className }: NavbarProps = {}) {
                   href="#contact-section"
                   onClick={closeAll}
                   className="button button_smaller w-inline-block"
-                  style={{
-                    backdropFilter: "blur(7px) saturate(180%) brightness(1.08)",
-                  }}
                 >
                   <div>Let&apos;s Talk</div>
                 </Link>

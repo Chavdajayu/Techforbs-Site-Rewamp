@@ -194,13 +194,12 @@ body {
     gap: 0.5rem !important;
   }
 
-  /* Harmonized CTA Button: Frosted Blue Glass matching nav list and user screenshot */
+  /* Harmonized CTA Button: Reversed Hover Effect (Solid Gradient Resting -> Glass Outline on Hover) */
   .header__cta .button {
-    background: linear-gradient(135deg, rgba(0, 140, 255, 0.45) 0%, rgba(0, 80, 200, 0.35) 100%) !important;
-    backdrop-filter: blur(7px) saturate(180%) brightness(1.08) !important;
-    border: 1px solid rgba(0, 200, 255, 0.6) !important;
+    background: linear-gradient(135deg, #0066ff 0%, #00d2ff 100%) !important;
+    border: 1px solid rgba(0, 210, 255, 0.6) !important;
     border-radius: 0.625rem !important; /* 10px rounded square */
-    box-shadow: 0 8px 32px rgba(0, 119, 255, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(0, 119, 255, 0.45) !important;
     height: 3rem !important;
     min-height: 3rem !important;
     padding: 0 1.5rem !important;
@@ -214,14 +213,16 @@ body {
   }
 
   .header__cta .button:hover {
-    background: #0077ff !important;
-    border-color: #0077ff !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 24px rgba(0, 119, 255, 0.6) !important;
+    background: rgba(12, 15, 24, 0.85) !important;
+    backdrop-filter: blur(8px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(160%) !important;
+    border-color: rgba(0, 210, 255, 0.7) !important;
+    color: #00d2ff !important;
+    box-shadow: 0 0 22px rgba(0, 102, 255, 0.3) !important;
     transform: translateY(-1px) !important;
   }
 
-  /* All Dropdown Menus: Seamless Frosted Blurry Glass Architecture */
+  /* All Dropdown Menus: Transparent to Deep Black Shadow Glass Architecture */
   .header__nav-sub {
     top: calc(100% + 14px) !important;
     background: transparent !important;
@@ -237,35 +238,52 @@ body {
   }
 
   .header__nav-sub-inner {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 40%, rgba(12, 18, 30, 0.50) 100%) !important;
-    backdrop-filter: blur(7px) saturate(180%) brightness(1.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    background: linear-gradient(180deg, rgba(12, 15, 24, 0.68) 0%, rgba(5, 7, 12, 0.92) 100%) !important;
+    backdrop-filter: blur(18px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 1rem !important;
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.82), 0 6px 18px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
   }
 
   .header__nav-sub-body {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 40%, rgba(12, 18, 30, 0.50) 100%) !important;
-    backdrop-filter: blur(7px) saturate(180%) brightness(1.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    background: linear-gradient(180deg, rgba(12, 15, 24, 0.68) 0%, rgba(5, 7, 12, 0.92) 100%) !important;
+    backdrop-filter: blur(18px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 1.25rem !important;
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.82), 0 6px 18px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.10) !important;
   }
 
   .sub-menu__left {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(12, 15, 24, 0.45) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 1.25rem 0 0 1.25rem !important;
   }
 
   .sub-menu__divider {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
   }
 
   .sub-menu__bottom {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(12, 15, 24, 0.55) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 0 0 1.25rem 1.25rem !important;
+  }
+
+  .sub-menu__bottom-link.services-book-call-btn {
+    background: linear-gradient(135deg, #0066ff 0%, #00d2ff 100%) !important;
+    border: 1px solid rgba(0, 210, 255, 0.5) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35) !important;
+    transition: all 0.25s ease !important;
+  }
+
+  .sub-menu__bottom-link.services-book-call-btn:hover {
+    background: rgba(12, 15, 24, 0.85) !important;
+    border-color: rgba(0, 210, 255, 0.7) !important;
+    color: #00d2ff !important;
+    box-shadow: 0 0 16px rgba(0, 102, 255, 0.25) !important;
   }
 
   .sub-menu__icon {
@@ -643,22 +661,27 @@ body {
   color: var(--tf-cyan-accent) !important;
 }
 
-/* Buttons */
+/* Buttons - Reverse Hover Effect (Vibrant Solid Gradient Resting -> Dark Translucent Glass Hover) */
 .button.is-primary,
 .button.is-red,
 .button-primary,
 .hero__content-buttons .button:first-child {
   background: var(--tf-gradient-primary) !important;
   color: #ffffff !important;
-  border: none !important;
-  box-shadow: 0 4px 20px rgba(0, 119, 255, 0.35) !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  border: 1px solid rgba(0, 210, 255, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(0, 119, 255, 0.4) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
 }
 
 .button.is-primary:hover,
 .hero__content-buttons .button:first-child:hover {
+  background: rgba(12, 15, 24, 0.85) !important;
+  backdrop-filter: blur(8px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(160%) !important;
+  border-color: rgba(0, 210, 255, 0.7) !important;
+  color: #00d2ff !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 229, 255, 0.5) !important;
+  box-shadow: 0 8px 30px rgba(0, 119, 255, 0.35) !important;
 }
 
 .button.is-secondary,
@@ -1324,7 +1347,7 @@ body {
   transition: none !important;
 }
 
-/* Flanking Arrow Buttons */
+/* Flanking Arrow Buttons - Hidden until user hovers over the Testimonials Section */
 .testimonials-deck-btn {
   position: absolute;
   top: 50%;
@@ -1339,19 +1362,44 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s ease;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
   z-index: 15;
   padding: 0;
   outline: none;
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, border-color 0.25s ease !important;
 }
 
-.testimonials-deck-btn:hover {
-  background: rgba(0, 210, 255, 0.18);
-  border-color: #00d2ff;
-  color: #ffffff;
-  transform: translateY(-50%) scale(1.08);
-  box-shadow: 0 0 20px rgba(0, 210, 255, 0.45);
+@media (hover: hover) and (pointer: fine) {
+  .testimonials-deck-btn {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-50%) scale(0.92) !important;
+  }
+
+  .section--testimonials:hover .testimonials-deck-btn,
+  .testimonials-deck-btn:focus-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(-50%) scale(1) !important;
+  }
+
+  .section--testimonials:hover .testimonials-deck-btn:hover {
+    background: rgba(0, 210, 255, 0.18) !important;
+    border-color: #00d2ff !important;
+    color: #ffffff !important;
+    transform: translateY(-50%) scale(1.08) !important;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.45) !important;
+  }
+}
+
+@media (hover: none) {
+  .testimonials-deck-btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
 }
 
 .testimonials-deck-btn:active {
@@ -1815,8 +1863,9 @@ body {
 }
 
 .contact__form-buttons .button {
-  background: rgba(0, 119, 255, 0.12) !important;
-  border: 1px solid #0077ff !important;
+  background: linear-gradient(135deg, #0077ff, #00e5ff) !important;
+  border: 1px solid rgba(0, 229, 255, 0.6) !important;
+  box-shadow: 0 4px 20px rgba(0, 119, 255, 0.4) !important;
   color: #ffffff !important;
   border-radius: 0.5rem !important;
   min-height: 3rem !important;
@@ -1831,10 +1880,13 @@ body {
 }
 
 .contact__form-buttons .button:hover {
-  background: linear-gradient(135deg, #0077ff, #00e5ff) !important;
-  border-color: var(--tf-cyan-accent) !important;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35) !important;
-  color: #ffffff !important;
+  background: rgba(12, 15, 24, 0.85) !important;
+  backdrop-filter: blur(8px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(160%) !important;
+  border-color: rgba(0, 210, 255, 0.7) !important;
+  box-shadow: 0 0 20px rgba(0, 119, 255, 0.25) !important;
+  color: #00d2ff !important;
+  transform: translateY(-1px) !important;
 }
 
 /* ==========================================================================
@@ -2107,6 +2159,7 @@ body {
     max-width: 40rem !important;
     display: flex !important;
     position: relative !important;
+    padding-bottom: 2.5rem !important;
   }
 
   .build-for__card {
@@ -2126,7 +2179,8 @@ body {
     min-height: auto !important;
     max-height: none !important;
     margin-bottom: 0 !important;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease !important;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease !important;
+    will-change: transform;
   }
 
   .build-for__card:last-child {
@@ -2549,7 +2603,8 @@ body {
 }
 .tech-aside.is-sticky {
   position: sticky !important;
-  top: 6.5rem !important;
+  top: 50vh !important;
+  transform: translateY(-50%) !important;
   z-index: 10 !important;
 }
 
@@ -2694,15 +2749,17 @@ body {
 }
 
 /* ==========================================================================
-   SERVICES PAGES: TESTIMONIALS 3D DECK EMBED (Pass #21)
+   SERVICES PAGES: FULL-WIDTH TESTIMONIALS & FAQ CENTERING (Pass #22)
    ========================================================================== */
 .section--testimonials.is-services-page {
   height: auto !important;
   min-height: auto !important;
   max-height: none !important;
-  padding: 3rem 0 2.5rem !important;
+  padding: 5rem 0 4rem !important;
   background-color: transparent !important;
   overflow: hidden !important;
+  width: 100% !important;
+  position: relative !important;
 }
 
 .section--testimonials.is-services-page .section__pattern {
@@ -2710,15 +2767,16 @@ body {
 }
 
 .section--testimonials.is-services-page .testimonials-heading {
+  position: relative !important;
   top: auto !important;
-  margin-bottom: 2rem !important;
+  margin-bottom: 2.5rem !important;
   padding: 0 !important;
-  text-align: left !important;
+  text-align: center !important;
 }
 
 .section--testimonials.is-services-page .testimonials-heading .container {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
 
 .section--testimonials.is-services-page .testimonials-heading__badge {
@@ -2729,34 +2787,56 @@ body {
 }
 
 .section--testimonials.is-services-page .testimonials-title-centered {
-  text-align: left !important;
-  margin: 0 !important;
-  font-size: clamp(2rem, 3.5vw, 2.75rem) !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  font-size: clamp(2rem, 3.5vw, 3rem) !important;
   line-height: 1.15 !important;
 }
 
 .section--testimonials.is-services-page .testimonials-orbital-wrapper {
   max-width: 100% !important;
   width: 100% !important;
-  height: 310px !important;
-  overflow: hidden !important;
   position: relative !important;
   margin: 0 auto !important;
 }
 
-.section--testimonials.is-services-page .testimonials-deck-card {
-  width: 740px !important;
-  max-width: calc(100% - 20px) !important;
+/* FAQ Section Centering */
+.tech-main-inner.is-faq-centered {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-.section--testimonials.is-services-page .testimonials-deck-card.orbital-slot--left {
-  transform: translate3d(calc(-50% - 370px), calc(-50% + 40px), 0) rotate(-11deg) scale(0.72) !important;
-  opacity: 0.65 !important;
+.tech-main-inner.is-faq-centered .tech-content {
+  width: 100% !important;
+  max-width: 880px !important;
+  margin: 0 auto !important;
 }
 
-.section--testimonials.is-services-page .testimonials-deck-card.orbital-slot--right {
-  transform: translate3d(calc(-50% + 370px), calc(-50% + 40px), 0) rotate(11deg) scale(0.72) !important;
-  opacity: 0.65 !important;
+.tech-main-inner.is-faq-centered .tech-faq {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.tech-main-inner.is-faq-centered .tech-section-title {
+  text-align: center !important;
+}
+
+.tech-main-inner.is-faq-centered .w-dyn-list {
+  text-align: left !important;
+}
+
+/* Ensure Sentence Case on all headings */
+.services-pages h1,
+.services-pages h2,
+.services-pages h3,
+.services-pages h4,
+.tech-section-title,
+.service-hero-title,
+.cta-banner-title {
+  text-transform: none !important;
 }
 
 /* ==========================================================================

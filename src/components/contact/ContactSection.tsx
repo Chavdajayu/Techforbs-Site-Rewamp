@@ -145,57 +145,18 @@ export default function ContactSection({
                   <p className="contact__info-col-title">GLOBAL DELIVERY HUBS</p>
                 </div>
                 <ul role="list" className="contact__info-list">
-                  <li className="contact__info-item">
-                    <img
-                      src="/images/ui/flag-ca.svg"
-                      loading="lazy"
-                      alt="Canada"
-                      className="contact__info-item-icon"
-                    />
-                    <p className="contact__info-item-text">
-                      CANADA
-                      <br />
-                      Enterprise Solutions &amp; Support
-                    </p>
-                  </li>
-                  <li className="contact__info-item">
-                    <img
-                      src="/images/ui/flag-us.svg"
-                      loading="lazy"
-                      alt="USA"
-                      className="contact__info-item-icon"
-                    />
-                    <p className="contact__info-item-text">
-                      USA
-                      <br />
-                      Digital Commerce &amp; Platforms
-                    </p>
-                  </li>
-                  <li className="contact__info-item">
-                    <img
-                      src="/images/ui/flag-au.svg"
-                      loading="lazy"
-                      alt="Australia"
-                      className="contact__info-item-icon"
-                    />
-                    <p className="contact__info-item-text">
-                      AUSTRALIA
-                      <br />
-                      Cross-Border Platforms &amp; 24/7 Ops
-                    </p>
-                  </li>
                   <li className="contact__info-item contact__info-item--partner">
                     <a
                       href="https://digicio.ca/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="contact__partner-link"
-                      title="Visit Digicio - International Partner"
+                      title="Visit Digicio - Canada Enterprise Digital & Transformation"
                     >
                       <img
                         src="/images/customers/logos/digicio-logo-white.png"
                         loading="lazy"
-                        alt="Digicio - International Partner"
+                        alt="Canada - DIGICIO Enterprise Digital & Transformation"
                         className="contact__info-item-icon contact__info-item-icon--partner"
                         style={{
                           width: "28px",
@@ -204,7 +165,7 @@ export default function ContactSection({
                         }}
                       />
                       <p className="contact__info-item-text">
-                        DIGICIO{" "}
+                        Canada - DIGICIO{" "}
                         <span className="contact__partner-badge">PARTNER</span>
                         <br />
                         Enterprise Digital &amp; Transformation
@@ -357,38 +318,32 @@ export default function ContactSection({
                   <p className="contact__info-col-title">GLOBAL DELIVERY HUBS</p>
                 </div>
                 <ul role="list" className="contact__info-list">
-                  <li className="contact__info-item">
-                    <img
-                      src="/images/ui/flag-ca.svg"
-                      loading="lazy"
-                      alt="Canada"
-                      className="contact__info-item-icon"
-                    />
-                    <p className="contact__info-item-text text-uppercase body-smaller weight-600">
-                      1. CANADA &mdash; Enterprise Solutions
-                    </p>
-                  </li>
-                  <li className="contact__info-item">
-                    <img
-                      src="/images/ui/flag-us.svg"
-                      loading="lazy"
-                      alt="USA"
-                      className="contact__info-item-icon"
-                    />
-                    <p className="contact__info-item-text text-uppercase body-smaller weight-600">
-                      2. USA &mdash; Digital Commerce
-                    </p>
-                  </li>
-                  <li className="contact__info-item">
-                    <img
-                      src="/images/ui/flag-au.svg"
-                      loading="lazy"
-                      alt="Australia"
-                      className="contact__info-item-icon"
-                    />
-                    <p className="contact__info-item-text text-uppercase body-smaller weight-600">
-                      3. AUSTRALIA &mdash; 24/7 Operations
-                    </p>
+                  <li className="contact__info-item contact__info-item--partner">
+                    <a
+                      href="https://digicio.ca/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact__partner-link"
+                      title="Visit Digicio - Canada Enterprise Digital & Transformation"
+                      style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none", color: "inherit" }}
+                    >
+                      <img
+                        src="/images/customers/logos/digicio-logo-white.png"
+                        loading="lazy"
+                        alt="Canada - DIGICIO Enterprise Digital & Transformation"
+                        className="contact__info-item-icon contact__info-item-icon--partner"
+                        style={{
+                          width: "28px",
+                          height: "28px",
+                          objectFit: "contain",
+                        }}
+                      />
+                      <p className="contact__info-item-text text-uppercase body-smaller weight-600">
+                        CANADA &mdash; DIGICIO
+                        <br />
+                        Enterprise Digital &amp; Transformation
+                      </p>
+                    </a>
                   </li>
                 </ul>
               </div>

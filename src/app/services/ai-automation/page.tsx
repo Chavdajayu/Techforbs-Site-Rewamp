@@ -83,7 +83,7 @@ export default function AIAutomationPage() {
                       circle-index="0"
                       className="service-hero-title"
                     >
-                      AI &amp; Automation = Faster Workflows → Higher ROI
+                      AI &amp; automation = faster workflows → higher ROI
                     </h1>
                   </div>
                   <div className="service-hero__content-text">
@@ -535,16 +535,53 @@ export default function AIAutomationPage() {
                   title="Technologies we use in AI & automation"
                   items={AI_AUTOMATION_ECOSYSTEM}
                 />
+              </div>
 
-                {/* =============================================================
-                    09. TESTIMONIALS SECTION (Matching Home Page 3D Orbital Deck)
-                    ============================================================= */}
-                <TestimonialsSection
-                  className="is-services-page"
-                  title="What our clients say… for real"
-                  label="TESTIMONIALS"
-                />
+              {/* ASIDE STICKY: FOUNDER PROFILE (SUNIL PANCHANI) - CENTER-RIGHT DOCKED */}
+              <aside className="tech-aside mobile-fixed is-sticky">
+                <div className="fade-up-alt_desktop">
+                  <div className="cta-bn__ceo">
+                    <div className="hide-mob-landscape">
+                      <div className="cta-bn__img">
+                        <img
+                          src="/images/technologies/sunil-panchani-director.jpg"
+                          loading="lazy"
+                          alt="Sunil Panchani photo, Founder & Director of TechForbs"
+                          className="img_cover"
+                        />
+                      </div>
+                      <div className="cta-bn__content">
+                        <div className="cta-bn__name">Sunil Panchani</div>
+                        <div className="cta-bn__position">Founder &amp; Director, TechForbs</div>
+                      </div>
+                    </div>
+                    <a
+                      href="#contact-section"
+                      className="button button_smaller button_red cta-btn-contact"
+                    >
+                      <strong>Contact</strong>
+                    </a>
+                  </div>
+                </div>
+              </aside>
+            </div>
 
+            {/* =================================================================
+                09. TESTIMONIALS SECTION (FULL-WIDTH: COVERS WHOLE WIDTH OF THE SCREEN)
+                ================================================================= */}
+            <div className="w-full relative z-10 overflow-hidden">
+              <TestimonialsSection
+                className="is-services-page full-width-testimonials"
+                title="What our clients say… for real"
+                label="TESTIMONIALS"
+              />
+            </div>
+
+            {/* =================================================================
+                BAND 3: LOWER SPLIT LAYOUT (BUSINESSES WE SERVE + FOUNDER PROFILE RE-ENTRY)
+                ================================================================= */}
+            <div className="tech-main-inner services-pages">
+              <div className="tech-content tab-mw-100">
                 {/* =============================================================
                     10. BUSINESSES WE SERVE WITH AI & AUTOMATION
                     ============================================================= */}
@@ -644,9 +681,7 @@ export default function AIAutomationPage() {
                 </section>
               </div>
 
-              {/* =============================================================
-                  ASIDE STICKY: FOUNDER PROFILE (SUNIL PANCHANI)
-                  ============================================================= */}
+              {/* ASIDE STICKY: FOUNDER PROFILE (SUNIL PANCHANI) - RETURNS TO CENTER-RIGHT */}
               <aside className="tech-aside mobile-fixed is-sticky">
                 <div className="fade-up-alt_desktop">
                   <div className="cta-bn__ceo">
@@ -727,15 +762,15 @@ export default function AIAutomationPage() {
             </div>
 
             {/* =================================================================
-                13. FAQ SECTION (AI & AUTOMATION SPECIFIC)
+                13. FAQ SECTION (AI & AUTOMATION SPECIFIC - CENTERED)
                 ================================================================= */}
-            <div className="tech-main-inner margin-bottom-7-5 overflow-hidden">
-              <div className="tech-content">
-                <section id="faq" className="tech-faq">
-                  <h2 lines-slide-up="" text-split="" className="tech-section-title mb-60">
+            <div className="tech-main-inner is-faq-centered margin-bottom-7-5 overflow-hidden">
+              <div className="tech-content" style={{ maxWidth: "880px", margin: "0 auto", width: "100%" }}>
+                <section id="faq" className="tech-faq" style={{ textAlign: "center" }}>
+                  <h2 lines-slide-up="" text-split="" className="tech-section-title mb-60" style={{ textAlign: "center" }}>
                     Frequently asked questions (FAQ)
                   </h2>
-                  <div className="w-dyn-list">
+                  <div className="w-dyn-list" style={{ textAlign: "left" }}>
                     <div
                       itemType="https://schema.org/FAQPage"
                       itemScope={true}
@@ -881,7 +916,6 @@ export default function AIAutomationPage() {
                   </div>
                 </section>
               </div>
-              <aside className="tech-aside is-empty"></aside>
             </div>
 
             {/* =================================================================

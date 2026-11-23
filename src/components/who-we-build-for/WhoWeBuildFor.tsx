@@ -49,55 +49,77 @@ export default function WhoWeBuildFor({
 
     const ctx = gsap.context(() => {
       const cardEls = sectionRef.current?.querySelectorAll<HTMLElement>(".build-for__card");
-      if (cardEls && cardEls.length) {
-        // Initial entrance stagger
-        gsap.fromTo(
-          cardEls,
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            stagger: 0.15,
-            duration: 0.9,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 75%",
-              once: true,
-            },
+      if (!cardEls || !cardEls.length) return;
+
+      const mm = gsap.matchMedia();
+
+      // Desktop / Laptop (min-width: 992px): MindMarket Deck Stacking Choreography
+      mm.add("(min-width: 992px)", () => {
+        cardEls.forEach((card, i) => {
+          if (i > 0) {
+            const rotStart = i % 2 === 1 ? -3.5 : 3.5;
+            // Entering card straightens from alternating tilt, scale 0.95 -> 1, y: 45 -> 0
+            gsap.fromTo(
+              card,
+              {
+                rotate: rotStart,
+                scale: 0.95,
+                y: 45,
+                transformOrigin: "center center",
+              },
+              {
+                rotate: 0,
+                scale: 1,
+                y: 0,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 95%",
+                  end: "top 120px",
+                  scrub: 0.5,
+                },
+              }
+            );
+
+            // Preceding card underneath recedes smoothly into stack (scale 0.97, brightness 0.9)
+            const prevCard = cardEls[i - 1];
+            if (prevCard) {
+              gsap.to(prevCard, {
+                scale: 0.97,
+                filter: "brightness(0.9)",
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 75%",
+                  end: "top 120px",
+                  scrub: 0.5,
+                },
+              });
+            }
           }
-        );
 
-        // State 1: Card 1 (SMEs & Scaleups) rises and docks
-        if (cardEls[1]) {
+          // Active audience kinetic text sync (Agencies -> SMEs -> Startups -> Enterprise)
           ScrollTrigger.create({
-            trigger: cardEls[1],
-            start: "top 250px",
-            onEnter: () => setActiveAudienceIndex(1),
-            onLeaveBack: () => setActiveAudienceIndex(0),
+            trigger: card,
+            start: i === 0 ? "top 80%" : "top 220px",
+            onEnter: () => setActiveAudienceIndex(i),
+            onLeaveBack: () => setActiveAudienceIndex(Math.max(0, i - 1)),
           });
-        }
+        });
+      });
 
-        // State 2: Card 2 (Startups) rises and docks
-        if (cardEls[2]) {
+      // Tablet / Mobile (max-width: 991px): Clean Sequential Stack
+      mm.add("(max-width: 991px)", () => {
+        cardEls.forEach((card, i) => {
           ScrollTrigger.create({
-            trigger: cardEls[2],
-            start: "top 250px",
-            onEnter: () => setActiveAudienceIndex(2),
-            onLeaveBack: () => setActiveAudienceIndex(1),
+            trigger: card,
+            start: "top 60%",
+            end: "bottom 40%",
+            onEnter: () => setActiveAudienceIndex(i),
+            onEnterBack: () => setActiveAudienceIndex(i),
           });
-        }
-
-        // State 3: Card 3 (Enterprise) rises and docks
-        if (cardEls[3]) {
-          ScrollTrigger.create({
-            trigger: cardEls[3],
-            start: "top 250px",
-            onEnter: () => setActiveAudienceIndex(3),
-            onLeaveBack: () => setActiveAudienceIndex(2),
-          });
-        }
-      }
+        });
+      });
     }, sectionRef);
 
     return () => ctx.revert();
