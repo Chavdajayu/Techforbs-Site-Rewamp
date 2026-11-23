@@ -2603,9 +2603,10 @@ body {
 }
 .tech-aside.is-sticky {
   position: sticky !important;
-  top: 50vh !important;
-  transform: translateY(-50%) !important;
+  top: 7.5rem !important;
+  transform: none !important;
   z-index: 10 !important;
+  padding-top: 1.25rem !important;
 }
 
 /* ==========================================================================
