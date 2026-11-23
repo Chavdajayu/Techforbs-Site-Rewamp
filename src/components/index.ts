@@ -66,6 +66,7 @@ export type { TechEcosystemProps } from "./technologies/TechEcosystem";
 // needed by the sections above, which each own their animations.
 export { default as TechClientInteractions } from "./technologies/TechClientInteractions";
 export { default as AIAutomationClientInteractions } from "./services/AIAutomationClientInteractions";
+export { default as ServiceClientInteractions } from "./services/ServiceClientInteractions";
 
 // --- Shared contracts ------------------------------------------------------
 export { cx } from "./types";

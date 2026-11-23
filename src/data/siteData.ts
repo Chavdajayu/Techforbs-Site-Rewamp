@@ -729,3 +729,175 @@ export const AI_AUTOMATION_ECOSYSTEM: TechEcosystemItem[] = [
     alt: "PHP logo",
   },
 ];
+
+export const WEB_DEVELOPMENT_ECOSYSTEM: TechEcosystemItem[] = [
+  {
+    name: "React",
+    icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg",
+    alt: "React logo",
+  },
+  {
+    name: "Next.js",
+    icon: "/images/technologies/664af3b89152d5738e5297e7_nextJS.svg",
+    alt: "Next.js logo",
+  },
+  {
+    name: "Node.js",
+    icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg",
+    alt: "Node.js logo",
+  },
+  {
+    name: "TypeScript",
+    icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg",
+    alt: "TypeScript / Python logo",
+  },
+  {
+    name: "Laravel",
+    icon: "/images/technologies/6630d61c4c4edfd2fc11e5c4_laravel.svg",
+    alt: "Laravel logo",
+  },
+  {
+    name: "PHP",
+    icon: "/images/technologies/6613b9a8135ca957aa3d95c4_php.svg",
+    alt: "PHP logo",
+  },
+  {
+    name: "Shopify",
+    icon: "/images/technologies/6613ba0792d3339b64c8a066_hopify.svg",
+    alt: "Shopify logo",
+  },
+  {
+    name: "GraphQL",
+    icon: "/images/technologies/688c5fea055c5070b38b092a_GraphQL.svg",
+    alt: "GraphQL logo",
+  },
+];
+
+export const MOBILE_DEVELOPMENT_ECOSYSTEM: TechEcosystemItem[] = [
+  {
+    name: "React Native",
+    icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg",
+    alt: "React Native logo",
+  },
+  {
+    name: "iOS / Swift",
+    icon: "/images/technologies/664af3a84d2f0c7a17418625_router.svg",
+    alt: "iOS Swift logo",
+  },
+  {
+    name: "Android",
+    icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg",
+    alt: "Android logo",
+  },
+  {
+    name: "Node.js Backend",
+    icon: "/images/technologies/664af8c8588e94bdb28086bb_expressjs.svg",
+    alt: "Node.js Express logo",
+  },
+  {
+    name: "Python APIs",
+    icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg",
+    alt: "Python logo",
+  },
+  {
+    name: "Redux",
+    icon: "/images/technologies/664af3c95ceb0875b3d51a46_redux.svg",
+    alt: "Redux logo",
+  },
+  {
+    name: "Socket.io",
+    icon: "/images/technologies/664af8da6b51cc0561ac1117_socketio.svg",
+    alt: "Socket.io logo",
+  },
+  {
+    name: "MySQL / DB",
+    icon: "/images/technologies/66963d979771a1787630197d_mysql.svg",
+    alt: "MySQL logo",
+  },
+];
+
+export const UI_UX_DESIGN_ECOSYSTEM: TechEcosystemItem[] = [
+  {
+    name: "Figma",
+    icon: "/images/services/ui-ux-design/6659bf8e881b694e67f1d766_Figma.webp",
+    alt: "Figma logo",
+  },
+  {
+    name: "ProtoPie",
+    icon: "/images/services/ui-ux-design/6659bf42c31732897b60da1b_ProtoPie.webp",
+    alt: "ProtoPie logo",
+  },
+  {
+    name: "InVision",
+    icon: "/images/services/ui-ux-design/6659bf221669ae7d9356d6d3_InVision.webp",
+    alt: "InVision logo",
+  },
+  {
+    name: "Marvel",
+    icon: "/images/services/ui-ux-design/6659bf7379d695426ccb849e_Marvel.webp",
+    alt: "Marvel App logo",
+  },
+  {
+    name: "Design Systems",
+    icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg",
+    alt: "Design Systems logo",
+  },
+  {
+    name: "Webflow",
+    icon: "/images/services/ui-ux-design/6630d584f41fff43f25a1b5f_webflow.svg",
+    alt: "Webflow logo",
+  },
+  {
+    name: "UI Prototyping",
+    icon: "/images/services/ui-ux-design/6659bef72b57b9fdd05d90a4_Property 1=hover.webp",
+    alt: "UI Prototyping logo",
+  },
+  {
+    name: "Motion Design",
+    icon: "/images/services/ui-ux-design/6659bfa668153eed9bf1cb38_Jim.webp",
+    alt: "Motion Design logo",
+  },
+];
+
+export const DEDICATED_TEAM_ECOSYSTEM: TechEcosystemItem[] = [
+  {
+    name: "React & Next.js",
+    icon: "/images/technologies/664af3b89152d5738e5297e7_nextJS.svg",
+    alt: "Next.js logo",
+  },
+  {
+    name: "Node.js & Express",
+    icon: "/images/technologies/6613ba19ecc9cd312295669d_nodevg.svg",
+    alt: "Node.js logo",
+  },
+  {
+    name: "Python & AI",
+    icon: "/images/technologies/6613b9be680c55ac4b07fa82_python.svg",
+    alt: "Python logo",
+  },
+  {
+    name: "Mobile Native",
+    icon: "/images/technologies/6613b9d1ecb1cc050a0e9b21_react.svg",
+    alt: "Mobile engineering logo",
+  },
+  {
+    name: "PHP & Laravel",
+    icon: "/images/technologies/6630d61c4c4edfd2fc11e5c4_laravel.svg",
+    alt: "Laravel logo",
+  },
+  {
+    name: "Cloud & DevOps",
+    icon: "/images/technologies/664af961a0988a838786e054_pm2.svg",
+    alt: "DevOps logo",
+  },
+  {
+    name: "Automation / n8n",
+    icon: "/images/services/ai-automation/69522e119ada4a224d43f995_n8n-color 1.svg",
+    alt: "Automation squad logo",
+  },
+  {
+    name: "Database Architecture",
+    icon: "/images/technologies/66963d979771a1787630197d_mysql.svg",
+    alt: "Database logo",
+  },
+];

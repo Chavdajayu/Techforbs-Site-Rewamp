@@ -244,7 +244,7 @@ export default function Navbar({ className }: NavbarProps = {}) {
                             </div>
                           </Link>
                           <Link
-                            href="#solutions-section"
+                            href="/services/web-development"
                             onClick={closeAll}
                             className="sub-menu__item w-inline-block"
                           >
@@ -266,7 +266,7 @@ export default function Navbar({ className }: NavbarProps = {}) {
                             </div>
                           </Link>
                           <Link
-                            href="#solutions-section"
+                            href="/services/mobile-development"
                             onClick={closeAll}
                             className="sub-menu__item w-inline-block"
                           >
@@ -288,7 +288,7 @@ export default function Navbar({ className }: NavbarProps = {}) {
                             </div>
                           </Link>
                           <Link
-                            href="#solutions-section"
+                            href="/services/ui-ux-design"
                             onClick={closeAll}
                             className="sub-menu__item w-inline-block"
                           >
@@ -310,7 +310,7 @@ export default function Navbar({ className }: NavbarProps = {}) {
                             </div>
                           </Link>
                           <Link
-                            href="#solutions-section"
+                            href="/services/dedicated-team"
                             onClick={closeAll}
                             className="sub-menu__item w-inline-block"
                           >
