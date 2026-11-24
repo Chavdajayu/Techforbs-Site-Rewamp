@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { TECHNOLOGIES_DATA } from "@/data/siteData";
 import { cx } from "@/components/types";
@@ -14,11 +14,30 @@ export interface NavbarProps {
  * Site navigation bar.
  *
  * Renders the fixed `.header` element every page expects. Escape closes
- * any open dropdown and the mobile menu.
+ * any open dropdown and the mobile menu. Includes hover bridge & grace timeout
+ * so dropdowns do not disappear when moving the cursor across elements.
  */
 export default function Navbar({ className }: NavbarProps = {}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (name: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveDropdown(name);
+  };
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 200);
+  };
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -28,7 +47,10 @@ export default function Navbar({ className }: NavbarProps = {}) {
       }
     }
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
   }, []);
 
   const toggleDropdown = (name: string) => {
@@ -36,6 +58,7 @@ export default function Navbar({ className }: NavbarProps = {}) {
   };
 
   const closeAll = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setActiveDropdown(null);
     setMobileOpen(false);
   };
@@ -87,8 +110,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                 {/* 1. TECHNOLOGIES (Change 05: Exact 8 in 2x4 grid) */}
                 <li
                   className="header__nav-item"
-                  onMouseEnter={() => setActiveDropdown("technologies")}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter("technologies")}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div
                     className={`header__nav-item-drop ${activeDropdown === "technologies" ? "is-open" : ""
@@ -116,7 +139,16 @@ export default function Navbar({ className }: NavbarProps = {}) {
                         </svg>
                       </div>
                     </div>
-                    <div className="header__nav-sub">
+                    <div
+                      className="header__nav-sub"
+                      onMouseEnter={() => {
+                        if (timeoutRef.current) {
+                          clearTimeout(timeoutRef.current);
+                          timeoutRef.current = null;
+                        }
+                      }}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       <div
                         className="header__nav-sub-inner"
                         style={{
@@ -179,8 +211,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                 {/* 2. SERVICES (Change 04: Book a call hover reversal) */}
                 <li
                   className="header__nav-item"
-                  onMouseEnter={() => setActiveDropdown("services")}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter("services")}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div
                     className={`header__nav-item-drop is-static ${activeDropdown === "services" ? "is-open" : ""
@@ -208,7 +240,16 @@ export default function Navbar({ className }: NavbarProps = {}) {
                         </svg>
                       </div>
                     </div>
-                    <div className="header__nav-sub is-large">
+                    <div
+                      className="header__nav-sub is-large"
+                      onMouseEnter={() => {
+                        if (timeoutRef.current) {
+                          clearTimeout(timeoutRef.current);
+                          timeoutRef.current = null;
+                        }
+                      }}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       <div
                         className="header__nav-sub-body"
                         style={{
@@ -507,8 +548,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                 {/* 3. PORTFOLIO */}
                 <li
                   className="header__nav-item"
-                  onMouseEnter={() => setActiveDropdown("portfolio")}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter("portfolio")}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div
                     className={`header__nav-item-drop ${activeDropdown === "portfolio" ? "is-open" : ""
@@ -536,7 +577,16 @@ export default function Navbar({ className }: NavbarProps = {}) {
                         </svg>
                       </div>
                     </div>
-                    <div className="header__nav-sub right-side">
+                    <div
+                      className="header__nav-sub right-side"
+                      onMouseEnter={() => {
+                        if (timeoutRef.current) {
+                          clearTimeout(timeoutRef.current);
+                          timeoutRef.current = null;
+                        }
+                      }}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       <div
                         className="header__nav-sub-inner"
                         style={{
@@ -587,8 +637,8 @@ export default function Navbar({ className }: NavbarProps = {}) {
                 {/* 4. COMPANY */}
                 <li
                   className="header__nav-item"
-                  onMouseEnter={() => setActiveDropdown("company")}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter("company")}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div
                     className={`header__nav-item-drop ${activeDropdown === "company" ? "is-open" : ""
@@ -616,7 +666,16 @@ export default function Navbar({ className }: NavbarProps = {}) {
                         </svg>
                       </div>
                     </div>
-                    <div className="header__nav-sub right-side">
+                    <div
+                      className="header__nav-sub right-side"
+                      onMouseEnter={() => {
+                        if (timeoutRef.current) {
+                          clearTimeout(timeoutRef.current);
+                          timeoutRef.current = null;
+                        }
+                      }}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       <div
                         className="header__nav-sub-inner"
                         style={{

@@ -223,15 +223,26 @@ body {
     transform: translateY(-1px) !important;
   }
 
-  /* All Dropdown Menus: Transparent to Deep Black Shadow Glass Architecture */
+  /* All Dropdown Menus: Transparent to Deep Black Shadow Glass Architecture with Seamless Hover Bridge */
   .header__nav-sub {
-    top: calc(100% + 14px) !important;
+    top: 100% !important;
+    padding-top: 14px !important;
     background: transparent !important;
     background-color: transparent !important;
     box-shadow: none !important;
     border: none !important;
-    padding: 0 !important;
     overflow: visible !important;
+  }
+
+  .header__nav-sub::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+    pointer-events: auto;
   }
 
   .header__nav-sub-inner-arrow {
@@ -294,15 +305,75 @@ body {
     text-decoration: underline !important;
   }
 
-  .sub-menu__icon {
-    background: rgba(0, 119, 255, 0.18) !important;
-    border: 1px solid rgba(0, 163, 255, 0.3) !important;
+  /* Refined dropdown item hover architecture matching CheIT reference (Image 3) */
+  .sub-menu__item {
+    padding: 0.625rem 0.875rem !important;
+    border-radius: 0.875rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.875rem !important;
+    background: transparent !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+    text-decoration: none !important;
   }
 
-  .header__nav-sub-link:hover,
   .sub-menu__item:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-radius: 0.5rem !important;
+    background-color: rgba(255, 255, 255, 0.07) !important;
+  }
+
+  .sub-menu__item:hover .sub-menu__name {
+    color: #00e5ff !important;
+  }
+
+  .sub-menu__name {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .sub-menu__desc {
+    font-size: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.55) !important;
+    margin-top: 2px !important;
+  }
+
+  .sub-menu__icon {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    border-radius: 0.625rem !important;
+    background: rgba(0, 229, 255, 0.12) !important;
+    border: 1px solid rgba(0, 229, 255, 0.22) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .sub-menu__item:hover .sub-menu__icon {
+    background: rgba(0, 229, 255, 0.22) !important;
+    border-color: rgba(0, 229, 255, 0.5) !important;
+    transform: scale(1.05) !important;
+  }
+
+  .header__nav-sub-link {
+    border-radius: 0.75rem !important;
+    padding: 0.625rem 0.875rem !important;
+    transition: background-color 0.2s ease, color 0.2s ease !important;
+  }
+
+  .header__nav-sub-link:hover {
+    background-color: rgba(255, 255, 255, 0.07) !important;
+    color: #00e5ff !important;
+  }
+
+  .header__nav-sub-link.with_icon:hover {
+    color: #ffffff !important;
+  }
+
+  .header__nav-sub-link.with_icon:hover .header__nav-sub-icon {
+    transform: scale(1.08) !important;
   }
 }
 
