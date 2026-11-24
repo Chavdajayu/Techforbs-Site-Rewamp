@@ -442,7 +442,7 @@ body {
 
 /* CHANGE 01A: Initial Hero Stage & Header Entrance (Zero FOUC, zero stuck image on load/refresh) */
 .section--hero .hero__content-top {
-  transform: translate3d(-2.25rem, 4rem, 0) scale(0.001);
+  transform: translate3d(-2.25rem, 4rem, 0) scale(0.12);
   transform-origin: 50% 50%;
   opacity: 0;
   will-change: transform, opacity;
@@ -461,8 +461,10 @@ body {
   position: absolute !important;
   top: 0.5rem !important;
   left: 50% !important;
-  transform: translate(-50%) !important;
+  transform: translateX(-50%) scale(var(--hero-bg-scale, 1)) !important;
+  transform-origin: 78% 40% !important;
   filter: brightness(0.86) contrast(1.04) !important;
+  will-change: transform;
 }
 
 /* Subtle architectural shadow overlay specifically on the BG image */

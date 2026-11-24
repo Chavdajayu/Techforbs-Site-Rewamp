@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 import Image from "next/image";
+import gsap from "gsap";
 
 // Embedded authentic Shopify SVG definition for 100% offline & deployment reliability
 const EMBEDDED_SHOPIFY_SVG = `<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -222,6 +223,29 @@ export default function Hero3DCanvas() {
 
     window.addEventListener("resize", onResize);
 
+    // Entrance Animation State (3D Shopify model smoothly blooms, spins, and floats into place)
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const entranceState = {
+      scale: prefersReducedMotion ? 1 : 0,
+      spinOffset: prefersReducedMotion ? 0 : -Math.PI * 1.5,
+      yOffset: prefersReducedMotion ? 0 : -22,
+    };
+
+    // Synchronized bloom starting at 0.45s as the hero architectural stage expands
+    const entranceTween = prefersReducedMotion
+      ? null
+      : gsap.to(entranceState, {
+          scale: 1,
+          spinOffset: 0,
+          yOffset: 0,
+          duration: 1.5,
+          delay: 0.45,
+          ease: "power3.out",
+        });
+
     // Continuous Autonomous Floating & Subtle Bobbing Animation
     let animId: number;
     let lastTime = performance.now();
@@ -231,16 +255,20 @@ export default function Hero3DCanvas() {
       const delta = Math.min((now - lastTime) / 1000, 0.1);
       lastTime = now;
 
-      // 1. Continuous smooth rotation around Y axis
+      // 1. Continuous smooth rotation around Y axis + entrance spin offset
       currentRotationY += 0.45 * delta;
-      logoGroup.rotation.y = currentRotationY;
+      logoGroup.rotation.y = currentRotationY + entranceState.spinOffset;
 
-      // 2. Continuous vertical sinusoidal bobbing (-8px to +8px relative to config.logoY)
+      // 2. Continuous vertical sinusoidal bobbing + entrance Y offset
       const floatCycle = now * 0.0018; // ~3.5s smooth cycle
       const bobOffset = Math.sin(floatCycle) * 3.6 * config.scale;
-      logoGroup.position.y = config.logoY + bobOffset;
+      logoGroup.position.y = config.logoY + entranceState.yOffset + bobOffset * entranceState.scale;
 
-      // 3. Subtle organic floating pitch & roll oscillation
+      // 3. Dynamic entrance scale
+      const currentScale = Math.max(0, entranceState.scale);
+      logoGroup.scale.set(currentScale, currentScale, currentScale);
+
+      // 4. Subtle organic floating pitch & roll oscillation
       const floatTiltX = initialRotX + Math.sin(now * 0.0012) * 0.035;
       const floatRollZ = Math.cos(now * 0.0010) * 0.025;
       logoGroup.rotation.x = floatTiltX;
@@ -253,6 +281,7 @@ export default function Hero3DCanvas() {
 
     // Cleanup
     return () => {
+      if (entranceTween) entranceTween.kill();
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", onResize);
 

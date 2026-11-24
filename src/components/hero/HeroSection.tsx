@@ -90,33 +90,118 @@ export default function HeroSection({
 
       const header = animateHeader ? document.querySelector(".header") : null;
       const heroStage = root.querySelector(".hero__content-top");
+      const heroBgImage = root.querySelector(".hero__content-top-bg");
       const heroGradient = root.querySelector(".hero__gradient");
+      const heroRightCol = root.querySelector(".hero-col-right");
       const heroText = root.querySelector(".hero__content-text");
       const heroButtons = root.querySelector(".hero__content-buttons");
 
       if (prefersReducedMotion) {
         if (header) gsap.set(header, { clearProps: "all", opacity: 1 });
         if (heroStage) gsap.set(heroStage, { scale: 1, x: 0, y: 0, opacity: 1 });
+        if (heroBgImage) gsap.set(heroBgImage, { "--hero-bg-scale": 1 });
         if (heroGradient) gsap.set(heroGradient, { opacity: 1 });
         gsap.set(".hero-word-text", { yPercent: 0, opacity: 1 });
-        gsap.set(".hero-col-right", { scale: 1, opacity: 1, y: 0 });
+        if (heroRightCol) gsap.set(heroRightCol, { scale: 1, opacity: 1, y: 0 });
         if (heroText) gsap.set(heroText, { y: 0, opacity: 1 });
         if (heroButtons) gsap.set(heroButtons, { y: 0, opacity: 1 });
         return;
       }
 
-      // Initial state setup: hidden & ready to bloom into place smoothly
-      if (header) gsap.set(header, { y: -45, opacity: 0 });
-      if (heroStage) gsap.set(heroStage, { scale: 0.90, y: "3rem", opacity: 0, transformOrigin: "50% 50%" });
+      // Initial state setup: hidden & ready to bloom into place with dramatic cinematic elegance
+      if (header) gsap.set(header, { y: -80, opacity: 0 });
+      if (heroStage) gsap.set(heroStage, { scale: 0.12, x: "-2.25rem", y: "4rem", opacity: 0, transformOrigin: "50% 50%" });
+      if (heroBgImage) gsap.set(heroBgImage, { "--hero-bg-scale": 1.25 });
       if (heroGradient) gsap.set(heroGradient, { opacity: 0 });
       gsap.set(".hero-word-text", { yPercent: 125, opacity: 0 });
-      gsap.set(".hero-col-right", { scale: 0.85, opacity: 0, y: 30, transformOrigin: "50% 50%" });
-      if (heroText) gsap.set(heroText, { y: 25, opacity: 0 });
-      if (heroButtons) gsap.set(heroButtons, { y: 20, opacity: 0 });
+      if (heroRightCol) gsap.set(heroRightCol, { scale: 0.25, opacity: 0, y: 50, transformOrigin: "50% 50%" });
+      if (heroText) gsap.set(heroText, { y: 30, opacity: 0 });
+      if (heroButtons) gsap.set(heroButtons, { y: 25, opacity: 0 });
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // 1. Header glides down at 0.05s
+      // 1. Stage Dramatic Swoop & Expansion at 0.15s (Exact CheIT inOutExpo signature curve)
+      if (heroStage) {
+        tl.to(
+          heroStage,
+          {
+            scale: 1,
+            x: "0rem",
+            y: "0rem",
+            opacity: 1,
+            duration: 1.5,
+            ease: "power4.inOut",
+          },
+          0.15
+        );
+      }
+
+      // 2. Background Image Settling Zoom at 0.18s (Parallax settling from 1.25 to 1.0)
+      if (heroBgImage) {
+        tl.to(
+          heroBgImage,
+          {
+            "--hero-bg-scale": 1,
+            duration: 1.8,
+            ease: "power3.out",
+          },
+          0.18
+        );
+      }
+
+      // 3. Ambient Background Gradient Blooms in at 0.25s
+      if (heroGradient) {
+        tl.to(
+          heroGradient,
+          {
+            opacity: 1,
+            duration: 1.5,
+            ease: "power2.out",
+          },
+          0.25
+        );
+      }
+
+      // 4. Right Column 3D Stage bloom & rise at 0.45s (synchronized with 3D model entrance)
+      if (heroRightCol) {
+        tl.to(
+          heroRightCol,
+          {
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            duration: 1.4,
+            ease: "power3.out",
+          },
+          0.45
+        );
+      }
+
+      // 5. Headline Row 1 reveals upward from overflow mask at 0.85s: "Stores built"
+      tl.to(
+        ".hero-text-line-1 .hero-word-text",
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1.1,
+          ease: "power4.out",
+        },
+        0.85
+      );
+
+      // 6. Headline Row 2 reveals upward from overflow mask at 1.05s: "to [accent word]"
+      tl.to(
+        ".hero-text-line-2 .hero-word-text",
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1.1,
+          ease: "power4.out",
+        },
+        1.05
+      );
+
+      // 7. Header glides down smoothly from above at 1.20s
       if (header) {
         tl.to(
           header,
@@ -127,76 +212,11 @@ export default function HeroSection({
             ease: "power3.out",
             clearProps: "transform",
           },
-          0.05
+          1.20
         );
       }
 
-      // 2. Ambient background gradient blooms in at 0.12s
-      if (heroGradient) {
-        tl.to(
-          heroGradient,
-          {
-            opacity: 1,
-            duration: 1.2,
-            ease: "power2.out",
-          },
-          0.12
-        );
-      }
-
-      // 3. Hero architectural stage smoothly rises & scales up at 0.15s
-      if (heroStage) {
-        tl.to(
-          heroStage,
-          {
-            scale: 1,
-            y: "0rem",
-            opacity: 1,
-            duration: 1.3,
-            ease: "power3.out",
-          },
-          0.15
-        );
-      }
-
-      // 4. Headline Row 1 reveals upward from mask at 0.35s: "Stores built"
-      tl.to(
-        ".hero-text-line-1 .hero-word-text",
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1.0,
-          ease: "power3.out",
-        },
-        0.35
-      );
-
-      // 5. Right Column 3D Shopify Stage blooms in at 0.40s
-      tl.to(
-        ".hero-col-right",
-        {
-          scale: 1,
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-        },
-        0.40
-      );
-
-      // 6. Headline Row 2 reveals upward from mask at 0.50s: "to [accent word]"
-      tl.to(
-        ".hero-text-line-2 .hero-word-text",
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1.0,
-          ease: "power3.out",
-        },
-        0.50
-      );
-
-      // 7. Mobile/tablet supporting text & buttons at 0.65s
+      // 8. Mobile/tablet supporting text & buttons at 1.35s
       if (heroText) {
         tl.to(
           heroText,
@@ -206,7 +226,7 @@ export default function HeroSection({
             duration: 0.85,
             ease: "power3.out",
           },
-          0.65
+          1.35
         );
       }
       if (heroButtons) {
@@ -218,18 +238,19 @@ export default function HeroSection({
             duration: 0.85,
             ease: "power3.out",
           },
-          0.75
+          1.45
         );
       }
 
-      // Safety failsafe guarantees all elements are 100% visible
+      // Safety failsafe guarantees all elements are 100% visible after 3.8s
       const safetyTimer = setTimeout(() => {
         if (header) gsap.to(header, { y: 0, opacity: 1, duration: 0.3, clearProps: "transform" });
         if (heroStage) gsap.to(heroStage, { scale: 1, x: 0, y: 0, opacity: 1, duration: 0.3 });
+        if (heroBgImage) gsap.to(heroBgImage, { "--hero-bg-scale": 1, duration: 0.3 });
         if (heroGradient) gsap.to(heroGradient, { opacity: 1, duration: 0.3 });
         gsap.to(".hero-word-text", { yPercent: 0, opacity: 1, duration: 0.3 });
-        gsap.to(".hero-col-right", { scale: 1, opacity: 1, y: 0, duration: 0.3 });
-      }, 2500);
+        if (heroRightCol) gsap.to(heroRightCol, { scale: 1, opacity: 1, y: 0, duration: 0.3 });
+      }, 3800);
 
       return () => {
         clearTimeout(safetyTimer);
@@ -274,6 +295,7 @@ export default function HeroSection({
               style={{
                 pointerEvents: "none",
                 objectPosition: "78% 40%",
+                ["--hero-bg-scale" as any]: "1.25",
               }}
             />
           </picture>
