@@ -164,12 +164,13 @@ export default function ContactSection({
                           objectFit: "contain",
                         }}
                       />
-                      <p className="contact__info-item-text">
-                        <span className="contact__partner-badge" style={{ display: "inline-block", marginRight: "0.5rem", verticalAlign: "middle" }}>PARTNER</span>
-                        <strong style={{ verticalAlign: "middle" }}>DIGICIO - CANADA</strong>
-                        <br />
-                        <span>Enterprise Digital &amp; Transformation</span>
-                      </p>
+                      <div className="contact__info-item-text" style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                        <div>
+                          <span className="contact__partner-badge" style={{ display: "inline-block" }}>Partner</span>
+                        </div>
+                        <strong style={{ fontSize: "0.95rem" }}>DIGICIO - CANADA</strong>
+                        <span style={{ fontWeight: 400, textTransform: "none", opacity: 0.85, fontSize: "0.85rem" }}>Enterprise Digital &amp; Transformation</span>
+                      </div>
                     </a>
                   </li>
                 </ul>
@@ -338,12 +339,13 @@ export default function ContactSection({
                           objectFit: "contain",
                         }}
                       />
-                      <p className="contact__info-item-text text-uppercase body-smaller weight-600">
-                        <span className="contact__partner-badge" style={{ display: "inline-block", marginRight: "0.5rem", verticalAlign: "middle" }}>PARTNER</span>
-                        <strong style={{ verticalAlign: "middle" }}>DIGICIO - CANADA</strong>
-                        <br />
-                        <span style={{ fontWeight: 400, textTransform: "none", opacity: 0.85 }}>Enterprise Digital &amp; Transformation</span>
-                      </p>
+                      <div className="contact__info-item-text text-uppercase body-smaller weight-600" style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                        <div>
+                          <span className="contact__partner-badge" style={{ display: "inline-block" }}>Partner</span>
+                        </div>
+                        <strong style={{ fontSize: "0.95rem" }}>DIGICIO - CANADA</strong>
+                        <span style={{ fontWeight: 400, textTransform: "none", opacity: 0.85, fontSize: "0.85rem" }}>Enterprise Digital &amp; Transformation</span>
+                      </div>
                     </a>
                   </li>
                 </ul>

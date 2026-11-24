@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import {
   Navbar,
+  BrandLogos,
   ContactSection,
   Footer,
   SmoothScroll,
   ServiceClientInteractions,
+  PortfolioCases,
+  TechEcosystem,
   TestimonialsSection,
 } from "@/components";
+import { UI_UX_DESIGN_ECOSYSTEM } from "@/data/siteData";
 
 export const metadata: Metadata = {
   title: "UI/UX & Web Design Services | High-Converting Interfaces - TechForbs",
@@ -25,23 +29,66 @@ export default function UIUXDesignPage() {
           {/* =================================================================
               01. HERO SECTION
               ================================================================= */}
-<section className="services-hero">
-<div className="tech-hero-gradient"></div>
-<div className="service-hero-inner"><img alt="" className="service-hero-bg" loading="lazy" src="/images/services/all_ref_assets/664c528d48ff839d28caaab9_ui-ux-design.webp"/><img alt="" className="service-hero-inner-decor" loading="lazy" src="/images/services/all_ref_assets/664319142c43bfb250429812_decor.svg"/>
-<div className="service-hero__content width-38">
-<div className="fade-up-alt">
-<div className="services-hero-title-wrap">
-<div className="title-circle service-hero_circle w-embed" data-wf--title-circle--variant="base"><svg fill="none" height="100%" preserveAspectRatio="none" viewBox="0 0 453 89" width="100%" xmlns="http://www.w3.org/2000/svg">
-<path d="M316.771 87C405.472 79.7966 451 58.571 451 43.7797C451 20.7054 350.488 2 226.5 2C102.512 2 2.00001 20.7054 2.00001 43.7797C2.00001 66.8539 102.512 85.5593 226.5 85.5593C268.367 85.5593 324.621 81.9576 362.299 71.8729" stroke="#00e5ff" strokeLinecap="round" strokeWidth="3"></path>
-</svg></div>
-<h1 circle-index="1" circle-width="13" className="service-hero-title" lines-slide-up="" text-split="">Web design that looks great and works even better</h1>
-</div>
-<div className="service-hero__content-text full-width">Research-driven, conversion-focused, and dev-ready. From wireframes and prototypes to polished interfaces and design systems your team can scale.</div>
-<div className="button-wrap on-service-page"><a className="button" href="/contact">Book a call</a></div>
-</div>
-</div>
-</div>
-</section>
+          <section className="services-hero">
+            <div className="tech-hero-gradient"></div>
+            <div className="service-hero-inner">
+              <img
+                src="/images/services/ui-ux-design/ui-ux-hero.webp"
+                loading="eager"
+                alt="Service Hero Background"
+                className="service-hero-bg"
+              />
+              <img
+                src="/images/services/ui-ux-design/hero-decor.svg"
+                loading="lazy"
+                alt=""
+                className="service-hero-inner-decor"
+              />
+              <div className="service-hero__content width-42">
+                <div className="fade-up-alt">
+                  <div className="services-hero-title-wrap">
+                    <div
+                      data-wf--title-circle--variant="base"
+                      className="title-circle service-hero_circle w-embed"
+                    >
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 453 89"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        preserveAspectRatio="none"
+                      >
+                        <path
+                          d="M316.771 87C405.472 79.7966 451 58.571 451 43.7797C451 20.7054 350.488 2 226.5 2C102.512 2 2.00001 20.7054 2.00001 43.7797C2.00001 66.8539 102.512 85.5593 226.5 85.5593C268.367 85.5593 324.621 81.9576 362.299 71.8729"
+                          stroke="#00e5ff"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </div>
+                    <h1
+                      circle-width="27"
+                      text-split=""
+                      lines-slide-up=""
+                      circle-index="0"
+                      className="service-hero-title"
+                    >
+                      Web design that looks great and works even better
+                    </h1>
+                  </div>
+                  <div className="service-hero__content-text">
+                    Research-driven, conversion-focused, and dev-ready. From wireframes and prototypes to polished interfaces and design systems your team can scale.
+                  </div>
+                  <div className="button-wrap on-service-page">
+                    <a href="#contact-section" className="button">
+                      Book a call
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* =================================================================
               MAIN CONTENT WRAPPER: 2-COLUMN SPLIT LAYOUT (CONTENT + STICKY ASIDE)
@@ -49,499 +96,368 @@ export default function UIUXDesignPage() {
           <main className="tech-main padding-top-112 pb-0">
             <div className="tech-main-inner services-pages">
               <div className="tech-content tab-mw-100">
-<section className="tech-customize" id="solutions">
-<h2 className="tech-section-title mb-60" color-word="#00e5ff" color-words-index="0,1,2" lines-slide-up="" text-split="">Businesses we serve with web design services</h2>
-<div className="w-dyn-list">
-<div className="tech-service-cards w-dyn-items" role="list">
-<div className="w-dyn-item" role="listitem">
-<div className="tech-service-card">
-<div className="tech-services-card-bg is-first" style={{ backgroundImage: "url('/images/services/all_ref_assets/68d52d57009f7380eb0f180d_tech-services-card-bg-1.png')" }}></div>
-<div className="tech-service-card-icon"><img alt="" loading="lazy" src="/images/services/all_ref_assets/68d52e481162e0f92ee41817_Group 63800.svg"/></div>
-<div className="tech-service-card-caption">
-<h3 className="tech-service-item-title">Agencies</h3>
-<p className="text-body in-tech-service-card">White-label UI/UX with dev-ready Figma files and proactive updates. We adapt to your tools and brand, so collaboration feels in-house - minus the overhead.</p>
-</div>
-</div>
-</div>
-<div className="w-dyn-item" role="listitem">
-<div className="tech-service-card">
-<div className="tech-services-card-bg is-first" style={{ backgroundImage: "url('/images/services/all_ref_assets/68d52ea3fbeee273024f9d8a_tech-services-card-bg-2.webp')" }}></div>
-<div className="tech-service-card-icon"><img alt="" loading="lazy" src="/images/services/all_ref_assets/68d52ec3d584a70bcfbed5c1_Group 63801.svg"/></div>
-<div className="tech-service-card-caption">
-<h3 className="tech-service-item-title">Startups</h3>
-<p className="text-body in-tech-service-card">Clickable prototypes and MVP interfaces in weeks. Discovery, UX flows, and a design system you can scale without redesigning later.</p>
-</div>
-</div>
-</div>
-<div className="w-dyn-item" role="listitem">
-<div className="tech-service-card">
-<div className="tech-services-card-bg is-first" style={{ backgroundImage: "url('/images/services/all_ref_assets/68d52ef3a569956809ce0677_tech-services-card-bg-3.webp')" }}></div>
-<div className="tech-service-card-icon"><img alt="" loading="lazy" src="/images/services/all_ref_assets/68d52edfe5970647b0d82282_Group 63800(1).svg"/></div>
-<div className="tech-service-card-caption">
-<h3 className="tech-service-item-title">SMEs</h3>
-<p className="text-body in-tech-service-card">Redesigns and UX audits that lift conversion. Clear funnels, CMS-friendly components, and handoff that speeds up your dev team.</p>
-</div>
-</div>
-</div>
-<div className="w-dyn-item" role="listitem">
-<div className="tech-service-card">
-<div className="tech-services-card-bg is-first" style={{ backgroundImage: "url('/images/services/all_ref_assets/68d52f0b354fc6199419a618_tech-services-card-bg-4.webp')" }}></div>
-<div className="tech-service-card-icon"><img alt="" loading="lazy" src="/images/services/all_ref_assets/68d52ed92cec1b33151e415c_Group 63800.svg"/></div>
-<div className="tech-service-card-caption">
-<h3 className="tech-service-item-title">Enterprises</h3>
-<p className="text-body in-tech-service-card">Enterprise-grade UX with design systems, governance, and WCAG-minded patterns. Multi-brand, localization, and stakeholder alignment covered.</p>
-</div>
-</div>
-</div>
-</div>
-</div><img alt="" className="service-left-top-decor" loading="lazy" src="/images/services/all_ref_assets/6643335bd84cf5b30b20f29b_left-top-decor.svg"/></section>
-<section className="tech-benefits" id="why-we">
-<h2 className="tech-section-title mb-60" color-word="#00e5ff" color-words-index="5,6" lines-slide-up="" text-split="">Winning with us: Our clients' success</h2>
-<div className="cases-wrap is-services-page">
-<div className="swiper cases-slider w-dyn-list">
-<div className="swiper-wrapper w-dyn-items" itemScope={true} itemType="https://schema.org/ItemList" role="list">
-<div className="swiper-slide w-dyn-item" itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem">
-<div className="case-item is-no-link">
-<a className="case-item_link w-inline-block" href="/portfolio/saclab">
-<div className="hidden">from 0 to 100: the story behind Saclab </div>
-</a>
-<div className="case-item-image" style={{ backgroundColor: "#d9d9d9" }}><img alt="" className="case-item-circles" height="439" loading="lazy" src="/images/services/all_ref_assets/66335e1b00f641134b6bcbef_case-bg.svg" width="416"/><img alt="Saclàb bags marketplace homepage screenshot, portfolio project of TechForbs" className="case-item-thumb min-height" height="618" itemProp="image" loading="lazy" src="/images/services/all_ref_assets/67ebafd836b1d570f0f5cccb_7.webp" width="745"/></div>
-<h4 className="case-item-title" itemProp="headline">From 0 to 100: The story behind saclab</h4>
-<p className="case-item-excerpt hidden" itemProp="description">Today this marketplace operates in over 20 countries</p>
-<div className="case-item_tags">
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">E-commerce</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">Retail</div>
-</div>
-</div>
-</div>
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">Data &amp; Analytics</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">UX/UI</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">SEO</div>
-</div>
-</div>
-</div>
-</div>
-<div className="hidden">
-<div fs-cmsfilter-field="country">Germany</div>
-<div fs-cmsfilter-field="techstack">WordPress</div>
-<div fs-cmsfilter-field="techstack">WooCommerce</div>
-<div className="w-dyn-bind-empty" fs-cmsfilter-field="techstack"></div>
-</div>
-</div>
-</div>
-<div className="swiper-slide w-dyn-item" itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem">
-<div className="case-item is-no-link">
-<a className="case-item_link w-inline-block" href="/portfolio/harley-davidson">
-<div className="hidden">custom CRM development for Harley Davidson</div>
-</a>
-<div className="case-item-image" style={{ backgroundColor: "#f96601" }}><img alt="" className="case-item-circles" height="439" loading="lazy" src="/images/services/all_ref_assets/66335e1b00f641134b6bcbef_case-bg.svg" width="416"/><img alt="Bütikofer Harley-Davidson Zürich personalized landing page screenshot, portfolio project of TechForbs" className="case-item-thumb min-height" height="618" itemProp="image" loading="lazy" src="/images/services/all_ref_assets/67ebaf9e43a6b4badaf09631_6.jpg" width="745"/></div>
-<h4 className="case-item-title" itemProp="headline">Custom CRM development for harley davidson</h4>
-<p className="case-item-excerpt hidden w-condition-invisible w-dyn-bind-empty" itemProp="description"></p>
-<div className="case-item_tags">
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">Automotive</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">Retail</div>
-</div>
-</div>
-</div>
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">CRM development</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">Data &amp; Analytics</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">AI &amp; Automation</div>
-</div>
-</div>
-</div>
-</div>
-<div className="hidden">
-<div fs-cmsfilter-field="country">Switzerland</div>
-<div fs-cmsfilter-field="techstack">PHP</div>
-<div className="w-dyn-bind-empty" fs-cmsfilter-field="techstack"></div>
-<div className="w-dyn-bind-empty" fs-cmsfilter-field="techstack"></div>
-</div>
-</div>
-</div>
-<div className="swiper-slide w-dyn-item" itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem">
-<div className="case-item is-no-link">
-<a className="case-item_link w-inline-block" href="/portfolio/roken">
-<div className="hidden">Rocken.jobs portal &amp; CRM development from scratch</div>
-</a>
-<div className="case-item-image" style={{ backgroundColor: "#4893f4" }}><img alt="" className="case-item-circles" height="439" loading="lazy" src="/images/services/all_ref_assets/66335e1b00f641134b6bcbef_case-bg.svg" width="416"/><img alt="Rocken homepage screenshot, portfolio project for a Swiss job matching platform" className="case-item-thumb min-height" height="618" itemProp="image" loading="lazy" src="/images/services/all_ref_assets/69cf8099fd61ff0874db3173_(745x618)%20(1).webp" width="745"/></div>
-<h4 className="case-item-title" itemProp="headline">Rocken.jobs portal &amp; CRM development from scratch</h4>
-<p className="case-item-excerpt hidden" itemProp="description">Built for the leading recruitment agency it now boasts 130k users/mo</p>
-<div className="case-item_tags">
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">HR tech</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">Web portals</div>
-</div>
-</div>
-</div>
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">Systems Integration</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">CRM development</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">Data &amp; Analytics</div>
-</div>
-</div>
-</div>
-</div>
-<div className="hidden">
-<div fs-cmsfilter-field="country">Switzerland</div>
-<div fs-cmsfilter-field="techstack">AI</div>
-<div fs-cmsfilter-field="techstack">WordPress</div>
-<div fs-cmsfilter-field="techstack">Laravel</div>
-</div>
-</div>
-</div>
-<div className="swiper-slide w-dyn-item" itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem">
-<div className="case-item is-no-link">
-<a className="case-item_link w-inline-block" href="/portfolio/brotherfilm">
-<div className="hidden">Brother Film Co: where creativity meets code</div>
-</a>
-<div className="case-item-image" style={{ backgroundColor: "#f3221c" }}><img alt="" className="case-item-circles" height="439" loading="lazy" src="/images/services/all_ref_assets/66335e1b00f641134b6bcbef_case-bg.svg" width="416"/><img alt="Brother Film homepage screenshot, portfolio project for a creative production company" className="case-item-thumb min-height" height="618" itemProp="image" loading="lazy" src="/images/services/all_ref_assets/67bf21e1791d368d24bcbe49_brothers-case.jpg" width="745"/></div>
-<h4 className="case-item-title" itemProp="headline">Brother film co: Where creativity meets code</h4>
-<p className="case-item-excerpt hidden w-condition-invisible w-dyn-bind-empty" itemProp="description"></p>
-<div className="case-item_tags">
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">Telecom &amp; Media</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">Entertainment</div>
-</div>
-</div>
-</div>
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">UX/UI</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">Systems Integration</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">AI &amp; Automation</div>
-</div>
-</div>
-</div>
-</div>
-<div className="hidden">
-<div fs-cmsfilter-field="country">UK</div>
-<div fs-cmsfilter-field="techstack">Wordpress</div>
-<div fs-cmsfilter-field="techstack">PHP</div>
-<div className="w-dyn-bind-empty" fs-cmsfilter-field="techstack"></div>
-</div>
-</div>
-</div>
-<div className="swiper-slide w-dyn-item" itemProp="itemListElement" itemScope={true} itemType="https://schema.org/CreativeWork" role="listitem">
-<div className="case-item is-no-link">
-<a className="case-item_link w-inline-block" href="/portfolio/marketing-agency">
-<div className="hidden">innovative web development for a marketing agency: creative and technical masterpiece</div>
-</a>
-<div className="case-item-image" style={{ backgroundColor: "#f8c3d9" }}><img alt="" className="case-item-circles" height="439" loading="lazy" src="/images/services/all_ref_assets/66335e1b00f641134b6bcbef_case-bg.svg" width="416"/><img alt="Creative agency homepage screenshot with a fried egg visual and design, content, digital service tags" className="case-item-thumb min-height" height="618" itemProp="image" loading="lazy" src="/images/services/all_ref_assets/67ea422dbdd9a4cda0fb7ee5_7.jpg" width="745"/></div>
-<h4 className="case-item-title" itemProp="headline">Innovative web development for a marketing agency: Creative and technical masterpiece</h4>
-<p className="case-item-excerpt hidden w-condition-invisible w-dyn-bind-empty" itemProp="description"></p>
-<div className="case-item_tags">
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">Telecom &amp; Media</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="industry">Marketing &amp; Advertising </div>
-</div>
-</div>
-</div>
-<div className="w-dyn-list">
-<div className="cms-tag_list w-dyn-items" role="list">
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">AI &amp; Automation</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">Data &amp; Analytics</div>
-</div>
-<div className="cms-tag w-dyn-item" role="listitem">
-<div fs-list-field="сapability">UX/UI</div>
-</div>
-</div>
-</div>
-</div>
-<div className="hidden">
-<div fs-cmsfilter-field="country">Switzerland</div>
-<div fs-cmsfilter-field="techstack">WordPress</div>
-<div fs-cmsfilter-field="techstack">php</div>
-<div className="w-dyn-bind-empty" fs-cmsfilter-field="techstack"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div className="slider-buttons slider-buttons_portfolio">
-<div className="button button_slider swis-portfolio-prev">
-<div className="button-slider-arrow w-embed"><svg fill="none" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-<path d="M15 6L9 12L15 18" stroke="currentColor" strokeWidth="2"></path>
-</svg></div>
-</div>
-<div className="button button_slider swis-portfolio-next">
-<div className="button-slider-arrow w-embed"><svg fill="none" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-<path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2"></path>
-</svg></div>
-</div>
-</div>
-</div>
-<div className="fade-up-alt">
-<div className="tech-benefits-buttons"><a className="button" href="/portfolio" target="_blank">View all</a></div>
-</div>
-</section>
-<section className="tech-services" id="services">
-<h2 className="tech-section-title mb-60" color-word="#00e5ff" color-words-index="3,4,5" lines-slide-up="" text-split="">What do our UI/UX design services include?</h2>
-<ul className="tech-service-list" role="list">
-<li className="tech-service-item fade-up-alt">
-<div className="tech-service-item-icon w-embed"><svg fill="none" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-<path clipRule="evenodd" d="M5.27729 5.27727C7.7642 2.79039 11.2034 1.25 15 1.25C18.7966 1.25 22.2358 2.79039 24.7227 5.27728C27.2096 7.76419 28.75 11.2034 28.75 15C28.75 18.7966 27.2096 22.2358 24.7227 24.7227C22.2358 27.2096 18.7966 28.75 15 28.75C11.2034 28.75 7.7642 27.2096 5.27728 24.7227C2.7904 22.2358 1.25 18.7966 1.25 15C1.25 11.2034 2.79041 7.76419 5.27729 5.27727ZM15 3.75C11.8931 3.75 9.08229 5.00783 7.04504 7.04505C5.00782 9.08231 3.75 11.8931 3.75 15C3.75 18.1069 5.00783 20.9177 7.04505 22.9549C9.0823 24.9922 11.8931 26.25 15 26.25C18.1069 26.25 20.9177 24.9922 22.9549 22.9549C24.9922 20.9177 26.25 18.1069 26.25 15C26.25 11.8931 24.9922 9.0823 22.9549 7.04505C20.9177 5.00783 18.1069 3.75 15 3.75ZM22.1339 10.3661C22.622 10.8543 22.622 11.6457 22.1339 12.1339L14.6339 19.6339C14.1457 20.122 13.3543 20.122 12.8661 19.6339L9.11612 15.8839C8.62796 15.3957 8.62796 14.6043 9.11612 14.1161C9.60427 13.628 10.3957 13.628 10.8839 14.1161L13.75 16.9822L20.3661 10.3661C20.8543 9.87796 21.6457 9.87796 22.1339 10.3661Z" fill="#616161" fillRule="evenodd"></path>
-<path clipRule="evenodd" d="M7.04504 7.04505C9.08229 5.00783 11.8931 3.75 15 3.75C18.1069 3.75 20.9177 5.00783 22.9549 7.04505C24.9922 9.0823 26.25 11.8931 26.25 15C26.25 18.1069 24.9922 20.9177 22.9549 22.9549C20.9177 24.9922 18.1069 26.25 15 26.25C11.8931 26.25 9.0823 24.9922 7.04505 22.9549C5.00783 20.9177 3.75 18.1069 3.75 15C3.75 11.8931 5.00782 9.08231 7.04504 7.04505ZM22.1339 10.3661C22.622 10.8543 22.622 11.6457 22.1339 12.1339L14.6339 19.6339C14.1457 20.122 13.3543 20.122 12.8661 19.6339L9.11612 15.8839C8.62796 15.3957 8.62796 14.6043 9.11612 14.1161C9.60427 13.628 10.3957 13.628 10.8839 14.1161L13.75 16.9822L20.3661 10.3661C20.8543 9.87796 21.6457 9.87796 22.1339 10.3661Z" fill="#A0EEB0" fillRule="evenodd"></path>
-</svg></div>
-<div className="service-service-item-caption">
-<h3 className="tech-service-item-title">Digital product ux</h3>
-<p className="text-body">UX discovery, user flows, information architecture, low-/hi-fi wireframes, interactive prototypes and usability testing.</p>
-</div>
-</li>
-<li className="tech-service-item fade-up-alt">
-<div className="tech-service-item-icon w-embed"><svg fill="none" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-<path clipRule="evenodd" d="M5.27729 5.27727C7.7642 2.79039 11.2034 1.25 15 1.25C18.7966 1.25 22.2358 2.79039 24.7227 5.27728C27.2096 7.76419 28.75 11.2034 28.75 15C28.75 18.7966 27.2096 22.2358 24.7227 24.7227C22.2358 27.2096 18.7966 28.75 15 28.75C11.2034 28.75 7.7642 27.2096 5.27728 24.7227C2.7904 22.2358 1.25 18.7966 1.25 15C1.25 11.2034 2.79041 7.76419 5.27729 5.27727ZM15 3.75C11.8931 3.75 9.08229 5.00783 7.04504 7.04505C5.00782 9.08231 3.75 11.8931 3.75 15C3.75 18.1069 5.00783 20.9177 7.04505 22.9549C9.0823 24.9922 11.8931 26.25 15 26.25C18.1069 26.25 20.9177 24.9922 22.9549 22.9549C24.9922 20.9177 26.25 18.1069 26.25 15C26.25 11.8931 24.9922 9.0823 22.9549 7.04505C20.9177 5.00783 18.1069 3.75 15 3.75ZM22.1339 10.3661C22.622 10.8543 22.622 11.6457 22.1339 12.1339L14.6339 19.6339C14.1457 20.122 13.3543 20.122 12.8661 19.6339L9.11612 15.8839C8.62796 15.3957 8.62796 14.6043 9.11612 14.1161C9.60427 13.628 10.3957 13.628 10.8839 14.1161L13.75 16.9822L20.3661 10.3661C20.8543 9.87796 21.6457 9.87796 22.1339 10.3661Z" fill="#616161" fillRule="evenodd"></path>
-<path clipRule="evenodd" d="M7.04504 7.04505C9.08229 5.00783 11.8931 3.75 15 3.75C18.1069 3.75 20.9177 5.00783 22.9549 7.04505C24.9922 9.0823 26.25 11.8931 26.25 15C26.25 18.1069 24.9922 20.9177 22.9549 22.9549C20.9177 24.9922 18.1069 26.25 15 26.25C11.8931 26.25 9.0823 24.9922 7.04505 22.9549C5.00783 20.9177 3.75 18.1069 3.75 15C3.75 11.8931 5.00782 9.08231 7.04504 7.04505ZM22.1339 10.3661C22.622 10.8543 22.622 11.6457 22.1339 12.1339L14.6339 19.6339C14.1457 20.122 13.3543 20.122 12.8661 19.6339L9.11612 15.8839C8.62796 15.3957 8.62796 14.6043 9.11612 14.1161C9.60427 13.628 10.3957 13.628 10.8839 14.1161L13.75 16.9822L20.3661 10.3661C20.8543 9.87796 21.6457 9.87796 22.1339 10.3661Z" fill="#A0EEB0" fillRule="evenodd"></path>
-</svg></div>
-<div className="service-service-item-caption">
-<h3 className="tech-service-item-title">Ui &amp; design systems</h3>
-<p className="text-body">Visual language, components, tokens, grids, motion; documentation for consistent, scalable delivery.</p>
-</div>
-</li>
-<li className="tech-service-item fade-up-alt">
-<div className="tech-service-item-icon w-embed"><svg fill="none" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-<path clipRule="evenodd" d="M5.27729 5.27727C7.7642 2.79039 11.2034 1.25 15 1.25C18.7966 1.25 22.2358 2.79039 24.7227 5.27728C27.2096 7.76419 28.75 11.2034 28.75 15C28.75 18.7966 27.2096 22.2358 24.7227 24.7227C22.2358 27.2096 18.7966 28.75 15 28.75C11.2034 28.75 7.7642 27.2096 5.27728 24.7227C2.7904 22.2358 1.25 18.7966 1.25 15C1.25 11.2034 2.79041 7.76419 5.27729 5.27727ZM15 3.75C11.8931 3.75 9.08229 5.00783 7.04504 7.04505C5.00782 9.08231 3.75 11.8931 3.75 15C3.75 18.1069 5.00783 20.9177 7.04505 22.9549C9.0823 24.9922 11.8931 26.25 15 26.25C18.1069 26.25 20.9177 24.9922 22.9549 22.9549C24.9922 20.9177 26.25 18.1069 26.25 15C26.25 11.8931 24.9922 9.0823 22.9549 7.04505C20.9177 5.00783 18.1069 3.75 15 3.75ZM22.1339 10.3661C22.622 10.8543 22.622 11.6457 22.1339 12.1339L14.6339 19.6339C14.1457 20.122 13.3543 20.122 12.8661 19.6339L9.11612 15.8839C8.62796 15.3957 8.62796 14.6043 9.11612 14.1161C9.60427 13.628 10.3957 13.628 10.8839 14.1161L13.75 16.9822L20.3661 10.3661C20.8543 9.87796 21.6457 9.87796 22.1339 10.3661Z" fill="#616161" fillRule="evenodd"></path>
-<path clipRule="evenodd" d="M7.04504 7.04505C9.08229 5.00783 11.8931 3.75 15 3.75C18.1069 3.75 20.9177 5.00783 22.9549 7.04505C24.9922 9.0823 26.25 11.8931 26.25 15C26.25 18.1069 24.9922 20.9177 22.9549 22.9549C20.9177 24.9922 18.1069 26.25 15 26.25C11.8931 26.25 9.0823 24.9922 7.04505 22.9549C5.00783 20.9177 3.75 18.1069 3.75 15C3.75 11.8931 5.00782 9.08231 7.04504 7.04505ZM22.1339 10.3661C22.622 10.8543 22.622 11.6457 22.1339 12.1339L14.6339 19.6339C14.1457 20.122 13.3543 20.122 12.8661 19.6339L9.11612 15.8839C8.62796 15.3957 8.62796 14.6043 9.11612 14.1161C9.60427 13.628 10.3957 13.628 10.8839 14.1161L13.75 16.9822L20.3661 10.3661C20.8543 9.87796 21.6457 9.87796 22.1339 10.3661Z" fill="#A0EEB0" fillRule="evenodd"></path>
-</svg></div>
-<div className="service-service-item-caption">
-<h3 className="tech-service-item-title">Web experiences</h3>
-<p className="text-body">Marketing sites, landings, and complex web apps where clarity, speed to content, and conversion matter.</p>
-</div>
-</li>
-<li className="tech-service-item fade-up-alt">
-<div className="tech-service-item-icon w-embed"><svg fill="none" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-<path clipRule="evenodd" d="M5.27729 5.27727C7.7642 2.79039 11.2034 1.25 15 1.25C18.7966 1.25 22.2358 2.79039 24.7227 5.27728C27.2096 7.76419 28.75 11.2034 28.75 15C28.75 18.7966 27.2096 22.2358 24.7227 24.7227C22.2358 27.2096 18.7966 28.75 15 28.75C11.2034 28.75 7.7642 27.2096 5.27728 24.7227C2.7904 22.2358 1.25 18.7966 1.25 15C1.25 11.2034 2.79041 7.76419 5.27729 5.27727ZM15 3.75C11.8931 3.75 9.08229 5.00783 7.04504 7.04505C5.00782 9.08231 3.75 11.8931 3.75 15C3.75 18.1069 5.00783 20.9177 7.04505 22.9549C9.0823 24.9922 11.8931 26.25 15 26.25C18.1069 26.25 20.9177 24.9922 22.9549 22.9549C24.9922 20.9177 26.25 18.1069 26.25 15C26.25 11.8931 24.9922 9.0823 22.9549 7.04505C20.9177 5.00783 18.1069 3.75 15 3.75ZM22.1339 10.3661C22.622 10.8543 22.622 11.6457 22.1339 12.1339L14.6339 19.6339C14.1457 20.122 13.3543 20.122 12.8661 19.6339L9.11612 15.8839C8.62796 15.3957 8.62796 14.6043 9.11612 14.1161C9.60427 13.628 10.3957 13.628 10.8839 14.1161L13.75 16.9822L20.3661 10.3661C20.8543 9.87796 21.6457 9.87796 22.1339 10.3661Z" fill="#616161" fillRule="evenodd"></path>
-<path clipRule="evenodd" d="M7.04504 7.04505C9.08229 5.00783 11.8931 3.75 15 3.75C18.1069 3.75 20.9177 5.00783 22.9549 7.04505C24.9922 9.0823 26.25 11.8931 26.25 15C26.25 18.1069 24.9922 20.9177 22.9549 22.9549C20.9177 24.9922 18.1069 26.25 15 26.25C11.8931 26.25 9.0823 24.9922 7.04505 22.9549C5.00783 20.9177 3.75 18.1069 3.75 15C3.75 11.8931 5.00782 9.08231 7.04504 7.04505ZM22.1339 10.3661C22.622 10.8543 22.622 11.6457 22.1339 12.1339L14.6339 19.6339C14.1457 20.122 13.3543 20.122 12.8661 19.6339L9.11612 15.8839C8.62796 15.3957 8.62796 14.6043 9.11612 14.1161C9.60427 13.628 10.3957 13.628 10.8839 14.1161L13.75 16.9822L20.3661 10.3661C20.8543 9.87796 21.6457 9.87796 22.1339 10.3661Z" fill="#A0EEB0" fillRule="evenodd"></path>
-</svg></div>
-<div className="service-service-item-caption">
-<h3 className="tech-service-item-title">Mobile UI/UX</h3>
-<p className="text-body">iOS/Android interfaces optimized for small screens, accessibility, and native patterns.</p>
-</div>
-</li>
-</ul>
-<div className="tech-benefits-buttons fade-up-alt"><a className="button button_smaller" href="/contact">Book a call</a></div>
-</section>
-<section className="tech-services" id="services">
-<h2 className="tech-section-title mb-60" color-word="#00e5ff" color-words-index="3" lines-slide-up="" text-split="">Why teams pick techforbs</h2>
-<ul className="tech-service-list" role="list">
-<li className="tech-service-item fade-up-alt">
-<div className="tech-service-item-icon is-large w-embed"><svg fill="none" height="100%" viewBox="0 0 48 48" width="100%" xmlns="http://www.w3.org/2000/svg">
-<rect height="47.2258" rx="13.5484" stroke="#FAFAFA" strokeOpacity="0.3" strokeWidth="0.774194" width="47.2258" x="0.387097" y="0.387097"></rect>
-<path d="M21.959 25.4158C22.301 25.4161 22.5781 25.6937 22.5777 26.0357L22.5716 32.5666C22.5711 33.1184 21.9037 33.3941 21.5139 33.0036L14.9891 26.4665C14.5993 26.076 14.8763 25.4091 15.4281 25.4096L21.959 25.4158Z" fill="white" fillOpacity="0.3"></path>
-<path d="M22.5863 15.1583C22.9284 15.1586 23.2054 15.4362 23.2051 15.7782L23.1989 22.3091C23.1984 22.8609 22.531 23.1366 22.1412 22.7461L15.6165 16.2091C15.2267 15.8185 15.5036 15.1516 16.0554 15.1522L22.5863 15.1583Z" fill="white" fillOpacity="0.3"></path>
-<path d="M32.4576 25.2321C32.7997 25.2324 33.0767 25.51 33.0764 25.8521L33.0703 32.383C33.0697 32.9348 32.4023 33.2105 32.0125 32.8199L25.4878 26.2829C25.098 25.8923 25.3749 25.2255 25.9267 25.226L32.4576 25.2321Z" fill="white" fillOpacity="0.3"></path>
-<path d="M33.0847 15.1681C33.4268 15.1685 33.7038 15.446 33.7035 15.7881L33.6973 22.319C33.6968 22.8708 33.0294 23.1465 32.6396 22.7559L26.1149 16.2189C25.7251 15.8283 26.002 15.1615 26.5538 15.162L33.0847 15.1681Z" fill="#00e5ff"></path>
-</svg></div>
-<div className="tech-service-item-caption">
-<h3 className="tech-service-item-title">Communication you can rely on</h3>
-<p className="text-body">Proactive updates, structured reporting, and smooth handovers. Feels in‑house - without hiring overhead.</p>
-</div>
-</li>
-<li className="tech-service-item fade-up-alt">
-<div className="tech-service-item-icon is-large w-embed"><svg fill="none" height="100%" viewBox="0 0 48 48" width="100%" xmlns="http://www.w3.org/2000/svg">
-<rect height="47.2258" rx="13.5484" stroke="#FAFAFA" strokeOpacity="0.3" strokeWidth="0.774194" width="47.2258" x="0.387097" y="0.387097"></rect>
-<circle cx="27.5681" cy="21.5266" fill="white" fillOpacity="0.3" r="6.40072" transform="rotate(-45 27.5681 21.5266)"></circle>
-<circle cx="21.5272" cy="27.5677" fill="#00e5ff" r="8.11557" transform="rotate(-45 21.5272 27.5677)"></circle>
-</svg></div>
-<div className="tech-service-item-caption">
-<h3 className="tech-service-item-title">Speed without chaos</h3>
-<p className="text-body">Launch without delays or downtime; we plan for stable growth from day one.</p>
-</div>
-</li>
-<li className="tech-service-item fade-up-alt">
-<div className="tech-service-item-icon is-large w-embed"><svg fill="none" height="100%" viewBox="0 0 48 48" width="100%" xmlns="http://www.w3.org/2000/svg">
-<rect height="47.2258" rx="13.5484" stroke="#FAFAFA" strokeOpacity="0.3" strokeWidth="0.774194" width="47.2258" x="0.387097" y="0.387097"></rect>
-<path d="M19.3238 16.4124L31.1745 28.263L28.1088 31.3286L16.2582 19.478L19.3238 16.4124Z" fill="white" opacity="0.3"></path>
-<rect fill="#00e5ff" height="8.51613" rx="4.25806" width="8.51613" x="12.3871" y="12.3872"></rect>
-<rect fill="white" height="6.96774" opacity="0.3" rx="3.48387" width="6.96774" x="13.1613" y="27.8711"></rect>
-<rect fill="white" height="6.96774" opacity="0.3" rx="3.48387" width="6.96774" x="27.871" y="13.1614"></rect>
-<rect fill="#00e5ff" height="8.51613" rx="4.25806" width="8.51613" x="27.0968" y="27.0969"></rect>
-</svg></div>
-<div className="tech-service-item-caption">
-<h3 className="tech-service-item-title">Predictable &amp; secure delivery</h3>
-<p className="text-body">Clear scope control, NDA, limited access, and backups - so your IP stays safe.</p>
-</div>
-</li>
-</ul>
-<div className="team__lottieanim">
-<div className="team__grid__wrap">
-<div className="hidden w-embed">
+                <section id="solutions" className="tech-customize">
+                  <h2
+                    color-word="#00e5ff"
+                    text-split=""
+                    lines-slide-up=""
+                    color-words-index="0,1,2"
+                    className="tech-section-title mb-60"
+                  >
+                    What do our design services include?
+                  </h2>
+                  <div className="text-block is-gray margin-bottom-50">
+                    Design that transforms complex user workflows into intuitive, engaging, and high-converting interfaces.
+                  </div>
+                  <div className="w-dyn-list">
+                    <div role="list" className="tech-service-cards w-dyn-items">
+                      <div role="listitem" className="w-dyn-item">
+                        <div className="tech-service-card">
+                          <div className="tech-services-card-bg is-first"></div>
+                          <div className="tech-service-card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg>
+                          </div>
+                          <div className="tech-service-card-caption">
+                            <h3 className="tech-service-item-title">
+                              Product & SaaS interface design
+                            </h3>
+                            <p className="text-body in-tech-service-card">
+                              Complex dashboard interfaces, data visualizations, and multi-step workflows simplified into clean, user-centric experiences.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div role="listitem" className="w-dyn-item">
+                        <div className="tech-service-card">
+                          <div className="tech-services-card-bg is-first"></div>
+                          <div className="tech-service-card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                          </div>
+                          <div className="tech-service-card-caption">
+                            <h3 className="tech-service-item-title">
+                              Design systems & component libraries
+                            </h3>
+                            <p className="text-body in-tech-service-card">
+                              Scalable Figma design tokens, atomic UI components, and accessible color palettes that keep your product cohesive as it grows.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div role="listitem" className="w-dyn-item">
+                        <div className="tech-service-card">
+                          <div className="tech-services-card-bg is-first"></div>
+                          <div className="tech-service-card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                          </div>
+                          <div className="tech-service-card-caption">
+                            <h3 className="tech-service-item-title">
+                              Conversion rate optimization (CRO)
+                            </h3>
+                            <p className="text-body in-tech-service-card">
+                              User research, heatmaps, and funnel auditing that pinpoint drop-offs and redesign checkout or onboarding journeys for higher conversion.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div role="listitem" className="w-dyn-item">
+                        <div className="tech-service-card">
+                          <div className="tech-services-card-bg is-first"></div>
+                          <div className="tech-service-card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                          </div>
+                          <div className="tech-service-card-caption">
+                            <h3 className="tech-service-item-title">
+                              Pixel-perfect developer handoff
+                            </h3>
+                            <p className="text-body in-tech-service-card">
+                              Auto-layout Figma files with comprehensive spacing specs, responsive breakpoints, interaction states, and exported SVG assets.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
 
-</div>
-<div className="w-dyn-list">
-<div className="team__grid in-service-page w-dyn-items" role="list">
-<div className="team__grid_item state_v0_mod w-dyn-item" role="listitem">
-<div className="team__grid_pic_wrap">
-<div className="team__grid_pic w-condition-invisible"><img alt="" className="team__grid_img w-dyn-bind-empty" loading="lazy" src=""/></div>
-<div className="team__grid_pic w-condition-invisible"><img alt="" className="team__grid_img w-dyn-bind-empty" loading="eager" src=""/></div>
-</div>
-</div>
-<div className="team__grid_item state_v0_mod w-dyn-item" role="listitem">
-<div className="team__grid_pic_wrap">
-<div className="team__grid_pic"><img alt="" className="team__grid_img" loading="lazy" src="/images/services/all_ref_assets/68b16384bc82562dbb06e978_item6.jpg"/></div>
-<div className="team__grid_pic"><img alt="TechForbs team member works on terrace" className="team__grid_img" loading="eager" src="/images/services/all_ref_assets/654d32a3c70833d9812a979a_image1.webp"/></div>
-</div>
-</div>
-<div className="team__grid_item state_v0_mod w-dyn-item" role="listitem">
-<div className="team__grid_pic_wrap">
-<div className="team__grid_pic"><img alt="TechForbs team on bicycles on the street" className="team__grid_img" loading="lazy" src="/images/services/all_ref_assets/68b16408edee885012895bc1_item7.jpg"/></div>
-<div className="team__grid_pic w-condition-invisible"><img alt="" className="team__grid_img w-dyn-bind-empty" loading="eager" src=""/></div>
-</div>
-</div>
-<div className="team__grid_item state_v0_mod w-dyn-item" role="listitem">
-<div className="team__grid_pic_wrap">
-<div className="team__grid_pic"><img alt="TechForbs team meet" className="team__grid_img" loading="lazy" src="/images/services/all_ref_assets/68b1642724ef4f812b34ab8d_item8.jpg"/></div>
-<div className="team__grid_pic w-condition-invisible"><img alt="" className="team__grid_img w-dyn-bind-empty" loading="eager" src=""/></div>
-</div>
-</div>
-<div className="team__grid_item state_v0_mod w-dyn-item" role="listitem">
-<div className="team__grid_pic_wrap">
-<div className="team__grid_pic"><img alt="TechForbs team photo in front of building" className="team__grid_img" loading="lazy" src="/images/services/all_ref_assets/68b1635694cdf6c0f3622d66_item5.jpg"/></div>
-<div className="team__grid_pic"><img alt="TechForbs team meeting" className="team__grid_img" loading="eager" src="/images/services/all_ref_assets/68b16705d6aec8cc05df963c_image6.webp"/></div>
-</div>
-</div>
-<div className="team__grid_item state_v0_mod w-dyn-item" role="listitem">
-<div className="team__grid_pic_wrap w-condition-invisible">
-<div className="team__grid_pic w-condition-invisible"><img alt="" className="team__grid_img w-dyn-bind-empty" loading="lazy" src=""/></div>
-<div className="team__grid_pic w-condition-invisible"><img alt="" className="team__grid_img w-dyn-bind-empty" loading="eager" src=""/></div>
-</div>
-</div>
-<div className="team__grid_item state_v0_mod w-dyn-item" role="listitem">
-<div className="team__grid_pic_wrap">
-<div className="team__grid_pic w-condition-invisible"><img alt="" className="team__grid_img w-dyn-bind-empty" loading="lazy" src=""/></div>
-<div className="team__grid_pic w-condition-invisible"><img alt="" className="team__grid_img w-dyn-bind-empty" loading="eager" src=""/></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div className="tech-benefits-buttons fade-up-alt"><a className="button button_smaller" href="#contact-section">Get expert advice</a></div>
-</section>
-<section className="tech-ecosystem" id="ecosystem">
-<h2 className="tech-section-title mb-24" color-word="#00e5ff" color-words-index="0,1,2" lines-slide-up="" text-split="">Technologies and tools we use in UI/UX</h2>
-<div className="fade-up-alt">
-<p className="tech-section-subtext mb-60">When you hire TechForbs, you get confidence that only advanced tools and technologies will be used in your project, such as:</p>
-</div>
-<div className="fade-up-alt">
-<div className="tech-slider-wrap">
-<div className="swiper tech-slider w-dyn-list">
-<div className="tech-ecosystem-grid swiper-wrapper w-dyn-items" role="list">
-<div className="swiper-slide w-dyn-item" role="listitem">
-<a className="tech-ecosystem-item w-inline-block" href="#">
-<div className="tech-ecosystem-item-image-wrap"><img alt="Miro logo" className="tech-ecosystem-item-image" loading="lazy" src="/images/services/all_ref_assets/6659bef72b57b9fdd05d90a4_Property 1=hover.webp"/></div>
-<div className="tech-ecosystem-item-divider"></div>
-<div className="tech-ecosystem-item-title">Miro</div>
-</a>
-</div>
-<div className="swiper-slide w-dyn-item" role="listitem">
-<a className="tech-ecosystem-item w-inline-block" href="#">
-<div className="tech-ecosystem-item-image-wrap"><img alt="InVision logo" className="tech-ecosystem-item-image" loading="lazy" src="/images/services/all_ref_assets/6659bf221669ae7d9356d6d3_InVision.webp"/></div>
-<div className="tech-ecosystem-item-divider"></div>
-<div className="tech-ecosystem-item-title">InVision</div>
-</a>
-</div>
-<div className="swiper-slide w-dyn-item" role="listitem">
-<a className="tech-ecosystem-item w-inline-block" href="#">
-<div className="tech-ecosystem-item-image-wrap"><img alt="PhotoPie logo" className="tech-ecosystem-item-image" loading="lazy" src="/images/services/all_ref_assets/6659bf42c31732897b60da1b_ProtoPie.webp"/></div>
-<div className="tech-ecosystem-item-divider"></div>
-<div className="tech-ecosystem-item-title">ProtoPie</div>
-</a>
-</div>
-<div className="swiper-slide w-dyn-item" role="listitem">
-<a className="tech-ecosystem-item w-inline-block" href="#">
-<div className="tech-ecosystem-item-image-wrap"><img alt="Marvel logo" className="tech-ecosystem-item-image" loading="lazy" src="/images/services/all_ref_assets/6659bf7379d695426ccb849e_Marvel.webp"/></div>
-<div className="tech-ecosystem-item-divider"></div>
-<div className="tech-ecosystem-item-title">Marvel</div>
-</a>
-</div>
-<div className="swiper-slide w-dyn-item" role="listitem">
-<a className="tech-ecosystem-item w-inline-block" href="#">
-<div className="tech-ecosystem-item-image-wrap"><img alt="Figma logo" className="tech-ecosystem-item-image" loading="lazy" src="/images/services/all_ref_assets/6659bf8e881b694e67f1d766_Figma.webp"/></div>
-<div className="tech-ecosystem-item-divider"></div>
-<div className="tech-ecosystem-item-title">Figma</div>
-</a>
-</div>
-<div className="swiper-slide w-dyn-item" role="listitem">
-<a className="tech-ecosystem-item w-inline-block" href="#">
-<div className="tech-ecosystem-item-image-wrap"><img alt="Jim logo" className="tech-ecosystem-item-image" loading="lazy" src="/images/services/all_ref_assets/6659bfa668153eed9bf1cb38_Jim.webp"/></div>
-<div className="tech-ecosystem-item-divider"></div>
-<div className="tech-ecosystem-item-title">Jim</div>
-</a>
-</div>
-<div className="swiper-slide w-dyn-item" role="listitem">
-<a className="tech-ecosystem-item w-inline-block" href="/technologies/webflow">
-<div className="tech-ecosystem-item-image-wrap"><img alt="" className="tech-ecosystem-item-image" loading="lazy" src="/images/services/all_ref_assets/6630d584f41fff43f25a1b5f_webflow.svg"/></div>
-<div className="tech-ecosystem-item-divider"></div>
-<div className="tech-ecosystem-item-title">Webflow</div>
-</a>
-</div>
-</div>
-</div>
-<div className="slider-buttons">
-<div className="button button_slider tech-slider-prev">
-<div className="button-slider-arrow w-embed"><svg fill="none" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-<path d="M15 6L9 12L15 18" stroke="currentColor" strokeWidth="2"></path>
-</svg></div>
-</div>
-<div className="button button_slider tech-slider-next">
-<div className="button-slider-arrow w-embed"><svg fill="none" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg">
-<path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2"></path>
-</svg></div>
-</div>
-</div>
-</div>
-</div>
-</section>
+                <section id="services" className="tech-services">
+                  <h2
+                    color-word="#00e5ff"
+                    text-split=""
+                    lines-slide-up=""
+                    color-words-index="3,4"
+                    className="tech-section-title mb-60"
+                  >
+                    Design that drives measurable business growth
+                  </h2>
+                  <div className="text-block is-gray margin-bottom-50">
+                    We bridge aesthetic beauty with cognitive science and business metrics.
+                  </div>
+                  <ul role="list" className="tech-service-list is-2-grid">
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon w-embed">
+                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="28" height="24" rx="3" stroke="#00e5ff" strokeWidth="2.5" /><line x1="6" y1="16" x2="34" y2="16" stroke="#00e5ff" strokeWidth="2.5" /></svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">User-tested wireframes</h3>
+                        <p className="text-body">
+                          Rapid low-fidelity validation to confirm user journeys, architecture hierarchy, and interaction mechanics before visual styling.
+                        </p>
+                      </div>
+                    </li>
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon w-embed">
+                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="16" stroke="#00e5ff" strokeWidth="3" /><circle cx="20" cy="14" r="3" fill="#00e5ff" /><path d="M12 20h16M20 20v10" stroke="#00e5ff" strokeWidth="2.5" /></svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">WCAG AA accessibility</h3>
+                        <p className="text-body">
+                          Contrast-compliant colors, screen-reader friendly typography scales, and keyboard accessible focus states.
+                        </p>
+                      </div>
+                    </li>
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon w-embed">
+                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="12 16 6 20 12 24" stroke="#00e5ff" strokeWidth="2.5" /><polyline points="28 16 34 20 28 24" stroke="#00e5ff" strokeWidth="2.5" /><line x1="22" y1="12" x2="18" y2="28" stroke="#00e5ff" strokeWidth="2.5" /></svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">Design tokens for dev speed</h3>
+                        <p className="text-body">
+                          Design variables mapped directly to Tailwind CSS or CSS variables, enabling engineering teams to implement designs 2x faster.
+                        </p>
+                      </div>
+                    </li>
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon w-embed">
+                        <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="20 4 24 14 34 16 26 23 28 34 20 28 12 34 14 23 6 16 16 14 20 4" stroke="#00e5ff" strokeWidth="2.5" /></svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">Micro-interactions & animations</h3>
+                        <p className="text-body">
+                          Subtle motion choreography that guides user attention, provides clear feedback, and elevates perceived brand polish.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <section id="services" className="tech-services">
+                  <h2
+                    color-word="#00e5ff"
+                    text-split=""
+                    lines-slide-up=""
+                    color-words-index="3,4,5"
+                    className="tech-section-title mb-60"
+                  >
+                    How we design digital products
+                  </h2>
+                  <ul role="list" className="tech-service-list">
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon w-embed">
+                        <svg viewBox="0 0 30 30" fill="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="15" cy="15" r="13" stroke="#00e5ff" strokeWidth="2" />
+                          <path d="M10 15l3.5 3.5L20 11" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">User research & product discovery</h3>
+                        <p className="text-body">
+                          Stakeholder interviews, competitor benchmarking, and user persona mapping to establish clear product goals.
+                        </p>
+                      </div>
+                    </li>
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon w-embed">
+                        <svg viewBox="0 0 30 30" fill="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="15" cy="15" r="13" stroke="#00e5ff" strokeWidth="2" />
+                          <path d="M10 15l3.5 3.5L20 11" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">Wireframing & user flow validation</h3>
+                        <p className="text-body">
+                          Iterative low-fidelity wireframes mapped to core conversion funnels, tested and aligned with your team.
+                        </p>
+                      </div>
+                    </li>
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon w-embed">
+                        <svg viewBox="0 0 30 30" fill="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="15" cy="15" r="13" stroke="#00e5ff" strokeWidth="2" />
+                          <path d="M10 15l3.5 3.5L20 11" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">High-fidelity visual design & UI polish</h3>
+                        <p className="text-body">
+                          Modern typography, bespoke iconography, responsive layout variations, and dark/light mode specifications in Figma.
+                        </p>
+                      </div>
+                    </li>
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon w-embed">
+                        <svg viewBox="0 0 30 30" fill="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="15" cy="15" r="13" stroke="#00e5ff" strokeWidth="2" />
+                          <path d="M10 15l3.5 3.5L20 11" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">Interactive prototyping & developer handoff</h3>
+                        <p className="text-body">
+                          Clickable prototypes for stakeholder sign-off and dev-ready component documentation with zero ambiguity.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <div className="tech-benefits-buttons fade-up-alt">
+                    <a href="#contact-section" className="button button_smaller">
+                      Book a call
+                    </a>
+                  </div>
+                </section>
+
+                {/* =============================================================
+                    WINNING WITH US: OUR CLIENTS' SUCCESS (PORTFOLIO CASES)
+                    ============================================================= */}
+                <PortfolioCases />
+
+                {/* =============================================================
+                    WHY TEAMS CHOOSE TECHFORBS (NO UKRAINIAN HOODIE PHOTO GRID)
+                    ============================================================= */}
+                <section id="services" className="tech-services">
+                  <h2
+                    color-word="#00e5ff"
+                    text-split=""
+                    lines-slide-up=""
+                    color-words-index="3,4"
+                    className="tech-section-title mb-60"
+                  >
+                    Why teams choose TechForbs
+                  </h2>
+                  <ul role="list" className="tech-service-list">
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon is-large w-embed">
+                        <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
+                          <path d="M22 26l-6-6 6-6M26 26l6-6-6-6" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">Communication you can rely on</h3>
+                        <p className="text-body">
+                          Direct Slack channels, rapid response cadences, structured weekly reviews, and clear
+                          documentation for every sprint so your team always knows what was shipped.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon is-large w-embed">
+                        <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
+                          <circle cx="24" cy="24" r="10" stroke="#00e5ff" strokeWidth="2" />
+                          <path d="M24 18v6l4 2" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">Speed without chaos</h3>
+                        <p className="text-body">
+                          We iterate rapidly through modular components. You receive functional,
+                          tested prototypes within days, not months of theoretical architecture discussions.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li className="tech-service-item fade-up-alt">
+                      <div className="tech-service-item-icon is-large w-embed">
+                        <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="0.5" y="0.5" width="47" height="47" rx="13" stroke="#00e5ff" strokeWidth="1" strokeOpacity="0.4" />
+                          <path d="M16 24l5 5 11-11" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                      <div className="service-service-item-caption">
+                        <h3 className="tech-service-item-title">Predictable &amp; secure delivery</h3>
+                        <p className="text-body">
+                          Every deliverable is built with explicit rollback provisions, end-to-end logging,
+                          and strict adherence to enterprise security guidelines.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <section className="tech-sertificate">
+                  <h2
+                    color-word="#00e5ff"
+                    text-split=""
+                    lines-slide-up=""
+                    color-words-index="1"
+                    className="tech-section-title"
+                  >
+                    Enterprise design system standards
+                  </h2>
+                  <div className="text-body">
+                    We engineer scalable design systems and token architectures aligned with enterprise development practices.
+                  </div>
+                  <div className="w-layout-grid tech_3col">
+                    <div className="tech_sertificate_item">
+                      <div className="tech_sertificate_point">
+                        <div className="tech_sertificate_dot"></div>
+                        <div className="tech_sertificate_text">
+                          Atomic component libraries with Figma variables & tokens
+                        </div>
+                      </div>
+                      <div className="tech_sertificate_point">
+                        <div className="tech_sertificate_dot"></div>
+                        <div className="tech_sertificate_text">
+                          WCAG 2.1 AA accessible color systems & readable typography
+                        </div>
+                      </div>
+                      <div className="tech_sertificate_point">
+                        <div className="tech_sertificate_dot"></div>
+                        <div className="tech_sertificate_text">
+                          Interactive prototypes for real user validation
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="tech_sertificate_img flex items-center justify-center p-4">
+                      <div className="w-32 h-32 rounded-2xl bg-[#141414] border border-[#00e5ff]/30 flex flex-col items-center justify-center p-4 shadow-[0_0_30px_rgba(0,229,255,0.15)]">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                          <line x1="8" y1="21" x2="16" y2="21"></line>
+                          <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <span className="text-xs uppercase tracking-wider font-semibold text-[#00e5ff] mt-2">Enterprise Design</span>
+                      </div>
+                    </div>
+
+                    <div className="tech_sertificate_item">
+                      <div className="tech_sertificate_point">
+                        <div className="tech_sertificate_dot"></div>
+                        <div className="tech_sertificate_text">
+                          Auto-layout flexbox alignment for 1:1 React handoff
+                        </div>
+                      </div>
+                      <div className="tech_sertificate_point">
+                        <div className="tech_sertificate_dot"></div>
+                        <div className="tech_sertificate_text">
+                          Zero-friction developer documentation with exported assets
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="#contact-section" className="button button_smaller">
+                    Explore solutions
+                  </a>
+                </section>
+
+                {/* =============================================================
+                    TECHNOLOGIES WE USE
+                    ============================================================= */}
+                <TechEcosystem
+                  title="Technologies we use in design"
+                  items={UI_UX_DESIGN_ECOSYSTEM}
+                />
               </div>
 
               {/* ASIDE STICKY: FOUNDER PROFILE (SUNIL PANCHANI) - CENTER-RIGHT DOCKED */}
@@ -585,179 +501,334 @@ export default function UIUXDesignPage() {
             </div>
 
             {/* =================================================================
-                AWARDS & INDUSTRY RECOGNITION (10 BADGES)
+                BAND 3: LOWER SPLIT LAYOUT (BUSINESSES WE SERVE + FOUNDER PROFILE)
                 ================================================================= */}
-<section className="section-swis-awards v2">
-<div className="container">
-<div className="swis-awards__header narrow">
-<h2 className="tech-section-title mb-24" color-word="#00e5ff" color-words-index="7,8" lines-slide-up="" text-align="center" text-split="">By choosing us you choose results and industry recognition</h2>
-</div>
-<div itemScope={true} itemType="https://schema.org/Organization">
-<div className="w-dyn-list">
-<div className="awards-grid w-dyn-items" role="list">
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Clutch 100 Fastest Growth 2026 award badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/69d60f52ef5be63e1ed40ec8_Clutch Badge.svg" width="250"/></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Clutch Fall 2024 award badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/6992ff34b317026334f0f317_clutch-fall-2024.svg" width="250"/></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="GoodFirms award badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/6992ff47e44b7d86fb60fef3_goodfirms.svg" width="250"/><a className="awards-grid__link w-inline-block" href="https://www.goodfirms.co/company/che-it-group" target="_blank" title="https://www.goodfirms.co/company/che-it-group"></a></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Webflow Experts badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/6992ff5342652b6efb909d8d_webflow-experts.svg" width="250"/></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Make Certified Partner badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/6992ff80b4662dbb3dae06c0_make-partners.webp" width="250"/></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Awwards badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/6992ff8f8c3cfd859518b225_awwards.svg" width="250"/></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Easol partner badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/6992ffa636e14f397119bf80_easol-partner.svg" width="250"/></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Upwork Top Rated badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/6992ffb9a8d946d6ffa03c0c_upwork-top.svg" width="250"/></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Awards badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/6992ffc85ccc395915d5c58a_awards.svg" width="250"/></div>
-<div className="awards-grid__item w-dyn-item" role="listitem"><img alt="Top Web Development company 2026 award badge" className="awards-grid__image"  height="120" itemProp="award" loading="lazy" src="/images/services/all_ref_assets/69fdd027d95e7da109da4309_rf-badge-top-Web Development-2026.webp" width="250"/><a className="awards-grid__link w-inline-block" href="https://www.rightfirms.co/company/che-it-group" target="_blank" title="https://www.rightfirms.co/company/che-it-group"></a></div>
-</div>
-</div>
-</div>
-</div>
-</section>
+            <div className="tech-main-inner services-pages">
+              <div className="tech-content tab-mw-100">
+                <section id="solutions" className="tech-customize">
+                  <h2
+                    color-word="#00e5ff"
+                    text-split=""
+                    lines-slide-up=""
+                    color-words-index="0,1,2"
+                    className="tech-section-title mb-60"
+                  >
+                    Businesses we serve with web design
+                  </h2>
+
+                  <div className="w-dyn-list">
+                    <div role="list" className="tech-service-cards w-dyn-items">
+                      <div role="listitem" className="w-dyn-item">
+                        <div className="tech-service-card">
+                          <div className="tech-services-card-bg is-first"></div>
+                          <div className="tech-service-card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                          </div>
+                          <div className="tech-service-card-caption">
+                            <h3 className="tech-service-item-title">
+                              Agencies
+                            </h3>
+                            <p className="text-body in-tech-service-card">
+                              White-label technical delivery with reliable sprint updates. We adapt seamlessly to your stack, tools, and brand so collaboration feels completely in-house minus the overhead.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div role="listitem" className="w-dyn-item">
+                        <div className="tech-service-card">
+                          <div className="tech-services-card-bg is-first"></div>
+                          <div className="tech-service-card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                          </div>
+                          <div className="tech-service-card-caption">
+                            <h3 className="tech-service-item-title">
+                              Startups
+                            </h3>
+                            <p className="text-body in-tech-service-card">
+                              Rapid MVP builds and technical velocity in weeks. Fast learnings, scalable foundation, and robust architectures engineered to scale without having to rebuild when funding arrives.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div role="listitem" className="w-dyn-item">
+                        <div className="tech-service-card">
+                          <div className="tech-services-card-bg is-first"></div>
+                          <div className="tech-service-card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                          </div>
+                          <div className="tech-service-card-caption">
+                            <h3 className="tech-service-item-title">
+                              SMEs
+                            </h3>
+                            <p className="text-body in-tech-service-card">
+                              Redesign, modernize, and integrate your core systems. Connect high-traffic customer portals with CRM and ERP backbones without disrupting daily business operations.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div role="listitem" className="w-dyn-item">
+                        <div className="tech-service-card">
+                          <div className="tech-services-card-bg is-first"></div>
+                          <div className="tech-service-card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                          </div>
+                          <div className="tech-service-card-caption">
+                            <h3 className="tech-service-item-title">
+                              Enterprises
+                            </h3>
+                            <p className="text-body in-tech-service-card">
+                              Enterprise-grade governance, strict SOC 2 aligned security policies, role-based access control (RBAC), and robust data pipelines designed for global compliance.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              {/* ASIDE STICKY: FOUNDER PROFILE (SUNIL PANCHANI) - CENTER-RIGHT DOCKED */}
+              <aside className="tech-aside mobile-fixed is-sticky">
+                <div className="fade-up-alt_desktop">
+                  <div className="cta-bn__ceo">
+                    <div className="hide-mob-landscape">
+                      <div className="cta-bn__img">
+                        <img
+                          src="/images/technologies/sunil-panchani-director.jpg"
+                          loading="lazy"
+                          alt="Sunil Panchani photo, Founder & Director of TechForbs"
+                          className="img_cover"
+                        />
+                      </div>
+                      <div className="cta-bn__content">
+                        <div className="cta-bn__name">Sunil Panchani</div>
+                        <div className="cta-bn__position">Founder &amp; Director, TechForbs</div>
+                      </div>
+                    </div>
+                    <a
+                      href="#contact-section"
+                      className="button button_smaller button_red cta-btn-contact"
+                    >
+                      <strong>Contact</strong>
+                    </a>
+                  </div>
+                </div>
+              </aside>
+            </div>
+
+            {/* =================================================================
+                BRAND LOGOS SECTION (TRUSTED BY INDUSTRY LEADERS)
+                ================================================================= */}
+            <BrandLogos />
 
             {/* =================================================================
                 CTA BANNER (CHOOSE A TECH PARTNER)
                 ================================================================= */}
-<div className="tech-main-inner-wider">
-<div className="w100">
-<div className="fade-up-alt">
-<div className="cta-banner">
-<div className="cta-banner-caption">
-<h3 className="cta-banner-title" color-word="#00e5ff" color-words-index="5,6,7,8" lines-slide-up="" text-split="">choose a tech partner that<br/>challenges, guides, and<br/>delivers</h3>
-</div>
-<div className="cta-banner-right">
-<div className="fade-up-alt">
-<div className="cta-bn__ceo">
-<div className="cta-bn__img"><img alt="Sunil Panchani photo, CEO and co-founder of TechForbs" className="img_cover" loading="lazy" src="/images/technologies/sunil-panchani-director.jpg"/></div>
-<div className="cta-bn__content">
-<h4 className="cta-bn__name">Sunil panchani</h4>
-<p className="cta-bn__position">Founder & Director, TechForbs</p>
-</div>
-<div className="cta-banner-person-buttons"><a className="button button_smaller button_red" href="/contact">Contact</a></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+            <div className="tech-main-inner-wider v2">
+              <div className="w100">
+                <div className="fade-up-alt">
+                  <div className="cta-banner">
+                    <div className="cta-banner-caption">
+                      <h3
+                        color-word="#00e5ff"
+                        text-split=""
+                        lines-slide-up=""
+                        color-words-index="5,6,7,8"
+                        className="cta-banner-title"
+                      >
+                        Choose a tech partner that challenges, guides, and delivers
+                      </h3>
+                    </div>
+                    <div className="cta-banner-right">
+                      <div className="fade-up-alt">
+                        <div className="cta-bn__ceo">
+                          <div className="cta-bn__img">
+                            <img
+                              src="/images/technologies/sunil-panchani-director.jpg"
+                              loading="lazy"
+                              alt="Sunil Panchani photo, Founder & Director of TechForbs"
+                              className="img_cover"
+                            />
+                          </div>
+                          <div className="cta-bn__content">
+                            <h4 className="cta-bn__name">Sunil Panchani</h4>
+                            <p className="cta-bn__position">Founder &amp; Director, TechForbs</p>
+                          </div>
+                          <div className="cta-banner-person-buttons">
+                            <a href="#contact-section" className="button button_smaller button_red">
+                              Contact
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            {/* =================================================================
-                CENTERED FAQ SECTION
-                ================================================================= */}
             <div className="tech-main-inner is-faq-centered margin-bottom-7-5 overflow-hidden">
               <div className="tech-content" style={{ maxWidth: "880px", margin: "0 auto", width: "100%" }}>
-<section className="tech-faq" id="faq">
-<h2 className="tech-section-title mb-60" lines-slide-up="" text-split="">Frequently asked questions FAQq)</h2>
-<div className="w-dyn-list">
-<div className="faq w-dyn-items" itemScope={true} itemType="https://schema.org/FAQPage" role="list">
-<div className="fade-up-alt w-dyn-item" role="listitem">
-<div className="faq-item w-dropdown" data-delay="0" data-hover="false" itemProp="mainEntity" itemScope={true} itemType="https://schema.org/Question">
-<div className="faq-item-header w-dropdown-toggle">
-<div className="faq-item-header-icon">
-<div className="faq-item-header-icon-line"></div>
-<div className="faq-item-header-icon-line rotated"></div>
-</div>
-<div itemProp="name">What are UI and UX design services?</div>
-</div>
-<nav className="faq-item-header-dropdown w-dropdown-list">
-<div className="faq-item-header-dropdown-inner" itemProp="acceptedAnswer" itemScope={true} itemType="https://schema.org/Answer">
-<div className="w-richtext" itemProp="text">
-<p>UX improves how users achieve their goals; UI shapes the look, feel, and behavior. Together, our UI UX design services make products usable, accessible, and delightful.</p>
-</div>
-</div>
-</nav>
-</div>
-</div>
-<div className="fade-up-alt w-dyn-item" role="listitem">
-<div className="faq-item w-dropdown" data-delay="0" data-hover="false" itemProp="mainEntity" itemScope={true} itemType="https://schema.org/Question">
-<div className="faq-item-header w-dropdown-toggle">
-<div className="faq-item-header-icon">
-<div className="faq-item-header-icon-line"></div>
-<div className="faq-item-header-icon-line rotated"></div>
-</div>
-<div itemProp="name">Are UI and UX part of service design?</div>
-</div>
-<nav className="faq-item-header-dropdown w-dropdown-list">
-<div className="faq-item-header-dropdown-inner" itemProp="acceptedAnswer" itemScope={true} itemType="https://schema.org/Answer">
-<div className="w-richtext" itemProp="text">
-<p>Yes - they align the end-to-end journey across touchpoints so the experience is coherent and efficient.</p>
-</div>
-</div>
-</nav>
-</div>
-</div>
-<div className="fade-up-alt w-dyn-item" role="listitem">
-<div className="faq-item w-dropdown" data-delay="0" data-hover="false" itemProp="mainEntity" itemScope={true} itemType="https://schema.org/Question">
-<div className="faq-item-header w-dropdown-toggle">
-<div className="faq-item-header-icon">
-<div className="faq-item-header-icon-line"></div>
-<div className="faq-item-header-icon-line rotated"></div>
-</div>
-<div itemProp="name">How will UI/UX consulting help our product?</div>
-</div>
-<nav className="faq-item-header-dropdown w-dropdown-list">
-<div className="faq-item-header-dropdown-inner" itemProp="acceptedAnswer" itemScope={true} itemType="https://schema.org/Answer">
-<div className="w-richtext" itemProp="text">
-<p>We clarify goals, map flows, run quick tests, and ship prototypes and design systems. Professional UI UX design services help raise satisfaction and conversion.</p>
-</div>
-</div>
-</nav>
-</div>
-</div>
-<div className="fade-up-alt w-dyn-item" role="listitem">
-<div className="faq-item w-dropdown" data-delay="0" data-hover="false" itemProp="mainEntity" itemScope={true} itemType="https://schema.org/Question">
-<div className="faq-item-header w-dropdown-toggle">
-<div className="faq-item-header-icon">
-<div className="faq-item-header-icon-line"></div>
-<div className="faq-item-header-icon-line rotated"></div>
-</div>
-<div itemProp="name">What bespoke UI/UX services do you offer?</div>
-</div>
-<nav className="faq-item-header-dropdown w-dropdown-list">
-<div className="faq-item-header-dropdown-inner" itemProp="acceptedAnswer" itemScope={true} itemType="https://schema.org/Answer">
-<div className="w-richtext" itemProp="text">
-<p>Discovery &amp; research, UX flows &amp; IA, wireframes &amp; prototypes, UI &amp; design systems, accessibility reviews, and redesigns.</p>
-</div>
-</div>
-</nav>
-</div>
-</div>
-<div className="fade-up-alt w-dyn-item" role="listitem">
-<div className="faq-item w-dropdown" data-delay="0" data-hover="false" itemProp="mainEntity" itemScope={true} itemType="https://schema.org/Question">
-<div className="faq-item-header w-dropdown-toggle">
-<div className="faq-item-header-icon">
-<div className="faq-item-header-icon-line"></div>
-<div className="faq-item-header-icon-line rotated"></div>
-</div>
-<div itemProp="name">What does a UX service designer do?</div>
-</div>
-<nav className="faq-item-header-dropdown w-dropdown-list">
-<div className="faq-item-header-dropdown-inner" itemProp="acceptedAnswer" itemScope={true} itemType="https://schema.org/Answer">
-<div className="w-richtext" itemProp="text">
-<p>Connects user needs and business goals into clear journeys and interfaces, then validates and iterates.</p>
-</div>
-</div>
-</nav>
-</div>
-</div>
-<div className="fade-up-alt w-dyn-item" role="listitem">
-<div className="faq-item w-dropdown" data-delay="0" data-hover="false" itemProp="mainEntity" itemScope={true} itemType="https://schema.org/Question">
-<div className="faq-item-header w-dropdown-toggle">
-<div className="faq-item-header-icon">
-<div className="faq-item-header-icon-line"></div>
-<div className="faq-item-header-icon-line rotated"></div>
-</div>
-<div itemProp="name">What else do you offer beyond UI/UX?</div>
-</div>
-<nav className="faq-item-header-dropdown w-dropdown-list">
-<div className="faq-item-header-dropdown-inner" itemProp="acceptedAnswer" itemScope={true} itemType="https://schema.org/Answer">
-<div className="w-richtext" itemProp="text">
-<p>Web and mobile development with design-to-dev handoff, so what we design is exactly what ships.</p>
-</div>
-</div>
-</nav>
-</div>
-</div>
-</div>
-</div>
-</section>
+                <section id="faq" className="tech-faq" style={{ textAlign: "center" }}>
+                  <h2 lines-slide-up="" text-split="" className="tech-section-title mb-60" style={{ textAlign: "center" }}>
+                    Frequently asked questions (FAQ)
+                  </h2>
+                  <div className="w-dyn-list" style={{ textAlign: "left" }}>
+                    <div
+                      itemType="https://schema.org/FAQPage"
+                      itemScope
+                      role="list"
+                      className="faq w-dyn-items"
+                    >
+                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                        <div
+                          data-hover="false"
+                          data-delay="0"
+                          itemProp="mainEntity"
+                          itemScope
+                          itemType="https://schema.org/Question"
+                          className="faq-item w-dropdown"
+                        >
+                          <div className="faq-item-header w-dropdown-toggle">
+                            <div className="faq-item-header-icon">
+                              <div className="faq-item-header-icon-line"></div>
+                              <div className="faq-item-header-icon-line rotated"></div>
+                            </div>
+                            <div itemProp="name">What deliverables do we receive at the end of a design project?</div>
+                          </div>
+                          <nav className="faq-item-header-dropdown w-dropdown-list">
+                            <div
+                              itemProp="acceptedAnswer"
+                              itemScope
+                              itemType="https://schema.org/Answer"
+                              className="faq-item-header-dropdown-inner"
+                            >
+                              <div itemProp="text" className="w-richtext">
+                                <p>You receive organized, fully auto-layout Figma source files, a comprehensive component design system with tokens, interactive prototypes, and production-ready SVG/image assets.</p>
+                              </div>
+                            </div>
+                          </nav>
+                        </div>
+                      </div>\n                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                        <div
+                          data-hover="false"
+                          data-delay="0"
+                          itemProp="mainEntity"
+                          itemScope
+                          itemType="https://schema.org/Question"
+                          className="faq-item w-dropdown"
+                        >
+                          <div className="faq-item-header w-dropdown-toggle">
+                            <div className="faq-item-header-icon">
+                              <div className="faq-item-header-icon-line"></div>
+                              <div className="faq-item-header-icon-line rotated"></div>
+                            </div>
+                            <div itemProp="name">How do you ensure developers can build what is designed?</div>
+                          </div>
+                          <nav className="faq-item-header-dropdown w-dropdown-list">
+                            <div
+                              itemProp="acceptedAnswer"
+                              itemScope
+                              itemType="https://schema.org/Answer"
+                              className="faq-item-header-dropdown-inner"
+                            >
+                              <div itemProp="text" className="w-richtext">
+                                <p>Our designers understand front-end code (HTML, CSS, React). We design within standard grid systems (like 8pt grids) and auto-layout flexbox models, ensuring zero friction during developer handoff.</p>
+                              </div>
+                            </div>
+                          </nav>
+                        </div>
+                      </div>\n                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                        <div
+                          data-hover="false"
+                          data-delay="0"
+                          itemProp="mainEntity"
+                          itemScope
+                          itemType="https://schema.org/Question"
+                          className="faq-item w-dropdown"
+                        >
+                          <div className="faq-item-header w-dropdown-toggle">
+                            <div className="faq-item-header-icon">
+                              <div className="faq-item-header-icon-line"></div>
+                              <div className="faq-item-header-icon-line rotated"></div>
+                            </div>
+                            <div itemProp="name">Can you redesign our existing platform without changing the backend?</div>
+                          </div>
+                          <nav className="faq-item-header-dropdown w-dropdown-list">
+                            <div
+                              itemProp="acceptedAnswer"
+                              itemScope
+                              itemType="https://schema.org/Answer"
+                              className="faq-item-header-dropdown-inner"
+                            >
+                              <div itemProp="text" className="w-richtext">
+                                <p>Yes. We frequently redesign legacy web and mobile apps to improve usability and conversions while keeping existing APIs and databases completely intact.</p>
+                              </div>
+                            </div>
+                          </nav>
+                        </div>
+                      </div>\n                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                        <div
+                          data-hover="false"
+                          data-delay="0"
+                          itemProp="mainEntity"
+                          itemScope
+                          itemType="https://schema.org/Question"
+                          className="faq-item w-dropdown"
+                        >
+                          <div className="faq-item-header w-dropdown-toggle">
+                            <div className="faq-item-header-icon">
+                              <div className="faq-item-header-icon-line"></div>
+                              <div className="faq-item-header-icon-line rotated"></div>
+                            </div>
+                            <div itemProp="name">Do you conduct user testing during the design process?</div>
+                          </div>
+                          <nav className="faq-item-header-dropdown w-dropdown-list">
+                            <div
+                              itemProp="acceptedAnswer"
+                              itemScope
+                              itemType="https://schema.org/Answer"
+                              className="faq-item-header-dropdown-inner"
+                            >
+                              <div itemProp="text" className="w-richtext">
+                                <p>Yes. We build interactive clickable Figma prototypes and run moderated or unmoderated user testing sessions to validate UX hypotheses before engineering begins.</p>
+                              </div>
+                            </div>
+                          </nav>
+                        </div>
+                      </div>\n                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                        <div
+                          data-hover="false"
+                          data-delay="0"
+                          itemProp="mainEntity"
+                          itemScope
+                          itemType="https://schema.org/Question"
+                          className="faq-item w-dropdown"
+                        >
+                          <div className="faq-item-header w-dropdown-toggle">
+                            <div className="faq-item-header-icon">
+                              <div className="faq-item-header-icon-line"></div>
+                              <div className="faq-item-header-icon-line rotated"></div>
+                            </div>
+                            <div itemProp="name">How long does a typical product design project take?</div>
+                          </div>
+                          <nav className="faq-item-header-dropdown w-dropdown-list">
+                            <div
+                              itemProp="acceptedAnswer"
+                              itemScope
+                              itemType="https://schema.org/Answer"
+                              className="faq-item-header-dropdown-inner"
+                            >
+                              <div itemProp="text" className="w-richtext">
+                                <p>A landing page or marketing website takes 1-2 weeks. A comprehensive SaaS product MVP or complex web platform typically takes 3-6 weeks across wireframing, high-fidelity UI, and design system creation.</p>
+                              </div>
+                            </div>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
 
