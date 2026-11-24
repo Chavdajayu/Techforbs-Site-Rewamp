@@ -503,7 +503,7 @@ export default function UIUXDesignPage() {
             {/* =================================================================
                 BAND 3: LOWER SPLIT LAYOUT (BUSINESSES WE SERVE + FOUNDER PROFILE)
                 ================================================================= */}
-            <div className="tech-main-inner services-pages">
+            <div className="tech-main-inner services-pages services-lower-split">
               <div className="tech-content tab-mw-100">
                 <section id="solutions" className="tech-customize">
                   <h2

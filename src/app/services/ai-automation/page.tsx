@@ -580,7 +580,7 @@ export default function AIAutomationPage() {
             {/* =================================================================
                 BAND 3: LOWER SPLIT LAYOUT (BUSINESSES WE SERVE + FOUNDER PROFILE RE-ENTRY)
                 ================================================================= */}
-            <div className="tech-main-inner services-pages">
+            <div className="tech-main-inner services-pages services-lower-split">
               <div className="tech-content tab-mw-100">
                 {/* =============================================================
                     10. BUSINESSES WE SERVE WITH AI & AUTOMATION

@@ -2847,11 +2847,33 @@ body {
   height: auto !important;
   min-height: auto !important;
   max-height: none !important;
-  padding: 5rem 0 4rem !important;
+  padding: 5.5rem 0 6.5rem !important;
+  margin-bottom: 2.5rem !important;
   background-color: transparent !important;
   overflow: hidden !important;
   width: 100% !important;
   position: relative !important;
+}
+
+.services-lower-split,
+.w-full + .tech-main-inner.services-pages,
+.tech-main-inner.services-pages.services-lower-split {
+  margin-top: 5.5rem !important;
+  padding-top: 2.5rem !important;
+}
+
+@media screen and (min-width: 992px) {
+  .section--testimonials.is-services-page {
+    padding: 6rem 0 7.5rem !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .services-lower-split,
+  .w-full + .tech-main-inner.services-pages,
+  .tech-main-inner.services-pages.services-lower-split {
+    margin-top: 6.5rem !important;
+    padding-top: 3rem !important;
+  }
 }
 
 .section--testimonials.is-services-page .section__pattern {
