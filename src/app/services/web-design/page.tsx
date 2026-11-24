@@ -709,7 +709,8 @@ export default function WebDesignPage() {
                             </div>
                           </nav>
                         </div>
-                      </div>\n                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                      </div>
+                      <div role="listitem" className="fade-up-alt w-dyn-item">
                         <div
                           data-hover="false"
                           data-delay="0"
@@ -738,7 +739,8 @@ export default function WebDesignPage() {
                             </div>
                           </nav>
                         </div>
-                      </div>\n                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                      </div>
+                      <div role="listitem" className="fade-up-alt w-dyn-item">
                         <div
                           data-hover="false"
                           data-delay="0"
@@ -767,7 +769,8 @@ export default function WebDesignPage() {
                             </div>
                           </nav>
                         </div>
-                      </div>\n                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                      </div>
+                      <div role="listitem" className="fade-up-alt w-dyn-item">
                         <div
                           data-hover="false"
                           data-delay="0"
@@ -796,7 +799,8 @@ export default function WebDesignPage() {
                             </div>
                           </nav>
                         </div>
-                      </div>\n                      <div role="listitem" className="fade-up-alt w-dyn-item">
+                      </div>
+                      <div role="listitem" className="fade-up-alt w-dyn-item">
                         <div
                           data-hover="false"
                           data-delay="0"

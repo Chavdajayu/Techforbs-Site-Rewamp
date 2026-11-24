@@ -275,18 +275,23 @@ body {
   }
 
   .sub-menu__bottom-link.services-book-call-btn {
-    background: linear-gradient(135deg, #0066ff 0%, #00d2ff 100%) !important;
-    border: 1px solid rgba(0, 210, 255, 0.5) !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     color: #ffffff !important;
-    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35) !important;
-    transition: all 0.25s ease !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-decoration: underline !important;
+    padding: 0 !important;
+    transition: color 0.2s ease !important;
   }
 
   .sub-menu__bottom-link.services-book-call-btn:hover {
-    background: rgba(12, 15, 24, 0.85) !important;
-    border-color: rgba(0, 210, 255, 0.7) !important;
-    color: #00d2ff !important;
-    box-shadow: 0 0 16px rgba(0, 102, 255, 0.25) !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #00e5ff !important;
+    text-decoration: underline !important;
   }
 
   .sub-menu__icon {
