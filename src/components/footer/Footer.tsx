@@ -27,14 +27,14 @@ export default function Footer({ className }: FooterProps = {}) {
                   <img
                     src="/images/brand/logo_footer.png"
                     loading="lazy"
-                    width="183"
-                    height="32"
+                    width="240"
+                    height="36"
                     alt="TechForbs"
                     className="footer__logo-image"
                     style={{
-                      height: "32px",
+                      height: "36px",
                       width: "auto",
-                      maxWidth: "180px",
+                      maxWidth: "220px",
                       objectFit: "contain",
                     }}
                   />
@@ -119,12 +119,14 @@ export default function Footer({ className }: FooterProps = {}) {
                 <div className="footer_emblem-rights">
                   <div className="footer__emblem">
                     <img
-                      src="/images/brand/techforbs-emblem.png"
-                      alt="TechForbs"
+                      src="/images/brand/techforbs-favicon.png"
+                      alt="TechForbs Favicon"
+                      width={28}
+                      height={18}
                       style={{
-                        height: "16px",
+                        height: "18px",
                         width: "auto",
-                        opacity: 0.85,
+                        opacity: 0.95,
                         display: "inline-block",
                         verticalAlign: "middle",
                       }}

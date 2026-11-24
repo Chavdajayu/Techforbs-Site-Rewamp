@@ -79,15 +79,15 @@ export default function Navbar({ className }: NavbarProps = {}) {
             style={{ display: "flex", alignItems: "center" }}
           >
             <img
-              src="/images/techforbs-logo-white.png"
+              src="/images/brand/techforbs-logo-white.png"
               loading="eager"
-              width={183}
-              height={32}
+              width={260}
+              height={38}
               className="header__logo-image"
               style={{
-                height: "32px",
+                height: "38px",
                 width: "auto",
-                maxWidth: "185px",
+                maxWidth: "250px",
                 objectFit: "contain",
               }}
               alt="TechForbs"
