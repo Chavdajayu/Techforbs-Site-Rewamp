@@ -106,12 +106,12 @@ export const BRAND_LOGOS: BrandLogo[] = [
   // ROW 1
   {
     name: "ALLMAX",
-    src: "/images/clients/allmax-nutrition.png",
-    alt: "ALLMAX Nutrition",
-    width: 290,
-    height: 68,
-    maxHeight: "68px",
-    maxWidth: "290px",
+    src: "/images/clients/allmax-white.png",
+    alt: "ALLMAX",
+    width: 260,
+    height: 48,
+    maxHeight: "48px",
+    maxWidth: "260px",
   },
   {
     name: "Adeeva",

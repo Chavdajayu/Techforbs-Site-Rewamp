@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,6 +12,7 @@ import { cx, type SectionBaseProps } from "@/components/types";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
 export interface CustomersSectionProps extends SectionBaseProps {
   /** Small uppercase eyebrow above the heading. */
@@ -74,6 +75,9 @@ export default function CustomersSection({
     return () => ctx.revert();
   }, [mounted]);
 
+  // Ensure sufficient slides for seamless Swiper infinite loop across high-res viewports
+  const displayCards = cards.length < 14 ? [...cards, ...cards] : cards;
+
   return (
     <section ref={sectionRef} id={id} className={cx("section--customers", className)}>
       <div className="section__pattern customers__pattern w-embed">
@@ -115,68 +119,8 @@ export default function CustomersSection({
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="customers__slider" style={{ position: "relative" }}>
-            {mounted ? (
-              <div className="swiper customers-swiper w-dyn-list">
-                <Swiper
-                  modules={[Navigation]}
-                  onBeforeInit={(swiper) => {
-                    swiperRef.current = swiper;
-                  }}
-                  loop={false}
-                  resistanceRatio={0}
-                  spaceBetween={16}
-                  slidesPerView={1.1}
-                  breakpoints={{
-                    300: { centeredSlides: true, slidesPerView: 1.1, spaceBetween: 16 },
-                    768: { centeredSlides: true, slidesPerView: 2.2, spaceBetween: 16 },
-                    992: { slidesPerView: 3.53, spaceBetween: 24 },
-                    1600: { slidesPerView: 4.35, spaceBetween: 32 },
-                  }}
-                  className="swiper-wrapper customers-swiper w-dyn-items"
-                >
-                  {cards.map((card) => (
-                    <SwiperSlide key={card.id} className="swiper-slide w-dyn-item">
-                      <div className="customers__item">
-                        <img
-                          className="customers__item-bg"
-                          src={card.bgImage}
-                          width="540"
-                          height="460"
-                          alt={card.brand}
-                          loading="eager"
-                        />
-                        <div className="customers__item-gradient"></div>
-                        <div className="customers__item-logo-wrap">
-                          <img
-                            loading="eager"
-                            width="220"
-                            height="48"
-                            src={card.logo}
-                            alt={card.brand}
-                            className="customers__item-logo"
-                          />
-                        </div>
-                        <p className="customers__item-desc">
-                          {card.description}
-                        </p>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            ) : (
-              <div className="customers-swiper">
-                <div className="customers__item">
-                  <p className="customers__item-desc">Loading customers...</p>
-                </div>
-              </div>
-            )}
-
-
-            {/* Reference Navigation Controls matching CHE IT geometry */}
+            {/* Reference Navigation Controls positioned directly at right of headline */}
             <div className="slider-buttons slider-buttons_customers">
               <button
                 type="button"
@@ -215,6 +159,71 @@ export default function CustomersSection({
                 </div>
               </button>
             </div>
+          </div>
+
+          <div className="customers__slider" style={{ position: "relative" }}>
+            {mounted ? (
+              <div className="swiper customers-swiper w-dyn-list">
+                <Swiper
+                  modules={[Navigation, Autoplay]}
+                  onBeforeInit={(swiper) => {
+                    swiperRef.current = swiper;
+                  }}
+                  loop={true}
+                  autoplay={{
+                    delay: 1500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                  }}
+                  speed={750}
+                  resistanceRatio={0}
+                  spaceBetween={16}
+                  slidesPerView={1.1}
+                  breakpoints={{
+                    300: { centeredSlides: true, slidesPerView: 1.1, spaceBetween: 16 },
+                    768: { centeredSlides: true, slidesPerView: 2.2, spaceBetween: 16 },
+                    992: { slidesPerView: 3.53, spaceBetween: 24 },
+                    1600: { slidesPerView: 4.35, spaceBetween: 32 },
+                  }}
+                  className="swiper-wrapper customers-swiper w-dyn-items"
+                >
+                  {displayCards.map((card, idx) => (
+                    <SwiperSlide key={`${card.id}-${idx}`} className="swiper-slide w-dyn-item">
+                      <div className="customers__item">
+                        <img
+                          className="customers__item-bg"
+                          src={card.bgImage}
+                          width="540"
+                          height="460"
+                          alt={card.brand}
+                          loading="eager"
+                        />
+                        <div className="customers__item-gradient"></div>
+                        <div className="customers__item-logo-wrap">
+                          <img
+                            loading="eager"
+                            width="220"
+                            height="48"
+                            src={card.logo}
+                            alt={card.brand}
+                            className="customers__item-logo"
+                          />
+                        </div>
+                        <p className="customers__item-desc">
+                          {card.description}
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            ) : (
+              <div className="customers-swiper">
+                <div className="customers__item">
+                  <p className="customers__item-desc">Loading customers...</p>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="customers__slider-gradient left pointer-events-none"></div>
